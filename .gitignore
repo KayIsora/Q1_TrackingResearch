@@ -1,0 +1,23 @@
+# Research data and generated artifacts stay outside this evidence dossier.
+data/
+datasets/
+checkpoints/
+weights/
+outputs/
+tmp/
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.onnx
+*.engine
+*.bag
+*.mp4
+*.avi
+*.mov
+*.zip
+*.7z
+*.pdf
+*.docx
+*.pptx
+.env
