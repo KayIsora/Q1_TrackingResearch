@@ -1,17 +1,22 @@
-# Independent HG3 flag recheck
+# HG3 flag recheck — source-derived worker pass
 
 **Date:** 2026-08-24  
-**Lane:** Codex/worker independent recheck  
 **Scope:** HG3 only for the six source-normalization flags.  
 **Stop boundary:** HG4/HG5/HG6, soft scoring, shortlist selection, baseline selection, and architecture design are not started.
 
-## Governing rule
+> **Independence limitation:** this artifact was produced in the same ChatGPT conversation that previously contained Manager-side HG3 conclusions. During this recheck, the prohibited Manager files and canonical matrix were not opened before the report was written, and every decision below was re-derived from the pinned official repositories. However, because prior conversational exposure cannot be erased, this is **not a fully blind independent Codex cross-check in the strict experimental sense**. It should be treated as a second source inspection. The true Manager↔Codex independent reconciliation remains pending until the external Codex worker performs the same check without prior exposure.
 
-HG3 is evaluated under `docs/11_systematic_screening_protocol.md`: an eligible project must provide official source code, the pretrained checkpoint(s) actually required by the method, and a usable evaluation script/protocol or official integration sufficient to make benchmark reproduction realistic.
+## Governing HG3 rule
 
-For a genuinely training-free tracker, a method-specific trained checkpoint is not required if the released method is defined by source-code changes around an officially available pretrained foundation model and the exact foundation weights used for inference are available.
+Under `docs/11_systematic_screening_protocol.md`, HG3 passes only when the official authors/project provide:
 
-`PASS` means the official release is sufficient to attempt baseline reproduction realistically. It does **not** mean successful local reproduction has already been demonstrated.
+1. source code;
+2. the pretrained checkpoint(s) actually required by the method;
+3. a usable evaluation script/protocol or official integration sufficient to make benchmark reproduction realistic.
+
+For a genuinely training-free method, a nonexistent family-trained checkpoint is not required if the released tracker is defined by code around an officially available pretrained foundation model and those inference weights are available.
+
+`PASS` here means a realistic reproduction attempt is supported by the official release. It does **not** mean successful local reproduction has already occurred.
 
 ---
 
@@ -19,27 +24,12 @@ For a genuinely training-free tracker, a method-specific trained checkpoint is n
 
 **Decision: PASS**
 
-### Source-code evidence
+- **Source code:** official `yangchris11/samurai@76ba1959` ([R28]) contains the SAMURAI-modified SAM2 implementation plus `scripts/main_inference.py` and `scripts/demo.py`.
+- **Checkpoint:** the official README explicitly states SAMURAI is zero-shot/training-free and directly uses SAM 2.1 weights; the release provides the SAM 2.1 checkpoint-download path.
+- **Evaluation:** the official release documents inference support for LaSOT, LaSOT-ext, GOT-10k, UAV123, TrackingNet and OTB100. `scripts/main_inference.py` reads the first-frame bbox, runs the tracker and writes sequence bbox predictions.
+- **Risk note:** VOT-toolkit integration is separately marked incoming; exact post-processing/submission still needs reproduction-time verification.
 
-Official pinned repository: `yangchris11/samurai@76ba1959` ([R28]). The release contains the SAMURAI-modified SAM2 code and benchmark/demo scripts, including `scripts/main_inference.py` and `scripts/demo.py`.
-
-### Checkpoint evidence
-
-The official README explicitly states that SAMURAI is a **zero-shot / training-free** method and directly uses **SAM 2.1 weights**. The repository provides `checkpoints/download_ckpts.sh` to obtain the SAM 2.1 checkpoints. Therefore, SAM 2.1 is the pretrained checkpoint actually required by the released method; a separate SAMURAI-trained checkpoint is not part of the method design.
-
-### Evaluation evidence
-
-The official README records released inference support for LaSOT, LaSOT-ext, GOT-10k, UAV123, TrackingNet, and OTB100. `scripts/main_inference.py` is a real LaSOT dataset runner: it reads the first-frame ground-truth box as the prompt, builds the SAMURAI predictor from the SAM 2.1 checkpoint/config, propagates through the sequence, and writes per-sequence bbox predictions.
-
-The README separately marks VOT-toolkit integration as incoming. That missing toolkit integration does not remove the already released generic bbox benchmark runner/output path.
-
-### Blocking issue
-
-No HG3 blocker. Full local reproduction still requires verifying the exact environment and benchmark post-processing/submission path.
-
-### Rationale
-
-Official code + required inference weights + released generic benchmark runner are sufficient for a realistic reproduction attempt. HG3 therefore passes.
+**Rationale:** official code + the actual required foundation weights + a released generic benchmark runner make reproduction realistic.
 
 ---
 
@@ -47,30 +37,12 @@ Official code + required inference weights + released generic benchmark runner a
 
 **Decision: PASS**
 
-### Source-code evidence
+- **Source code:** official `jovanavidenovic/DAM4SAM@9c954504` ([R30]) contains the DAM4SAM memory implementation, bbox runners, VOT integration and configs.
+- **Checkpoint:** DAM4SAM is training-free on SAM 2.1. `checkpoints/download_ckpts.sh` downloads the official SAM 2.1 tiny/small/base-plus/large weights used by the method.
+- **Evaluation:** the README documents `run_on_box_dataset.py` for LaSOT, LaSOT-ext and GOT-10k, plus DiDi/VOT evaluation workflows and VOT2020/VOT2022 workspace commands.
+- **Risk note:** bbox initialization is converted to an initial SAM2 mask and must be preserved exactly later.
 
-Official pinned repository: `jovanavidenovic/DAM4SAM@9c954504` ([R30]). The repository contains the DAM4SAM memory-management implementation, bbox dataset runners, VOT integration, configs, and checkpoint downloader.
-
-### Checkpoint evidence
-
-DAM4SAM is explicitly presented as a **training-free** modification of SAM2.1. `checkpoints/download_ckpts.sh` downloads the official SAM 2.1 tiny/small/base-plus/large checkpoints from Meta's public checkpoint host. Those are the pretrained weights used by the method; no DAM4SAM-trained tracker checkpoint is required by the released design.
-
-### Evaluation evidence
-
-The official README documents:
-
-- `run_on_box_dataset.py` for LaSOT, LaSOT-ext, and GOT-10k;
-- DiDi evaluation plus VOT-toolkit analysis/report commands;
-- VOT2020 and VOT2022 workspace initialization and tracker integration;
-- bbox initialization converted to the initial SAM2 mask through the released pipeline.
-
-### Blocking issue
-
-No HG3 blocker. The bbox-to-mask initialization behavior must later be preserved exactly during reproduction.
-
-### Rationale
-
-The release contains official code, the actual required foundation checkpoints, and explicit benchmark-running/evaluation protocols. HG3 passes.
+**Rationale:** all three HG3 components are officially released; no family-trained checkpoint is required by this training-free design.
 
 ---
 
@@ -78,35 +50,12 @@ The release contains official code, the actual required foundation checkpoints, 
 
 **Decision: PASS**
 
-### Source-code evidence
+- **Source code:** official `GXNU-ZhongLab/MambaLCT@0457044f` ([R36]) contains `experiments/mambalct/`, `tracking/test.py`, `tracking/analysis_results.py`, `lib/test/tracker/mambalct.py`, and `lib/test/parameter/mambalct.py`.
+- **Checkpoint:** the README provides Models and Raw Results links. `lib/test/parameter/mambalct.py` deterministically resolves `checkpoints/train/mambalct/<yaml>/MambaLCT_epXXXX.pth.tar`; the tracker implementation loads the `net` state from that path.
+- **Evaluation:** `tracking/test.py` is a released dataset runner and the analysis path is present.
+- **Risk note:** documentation is sparse and inherited example names remain in some scripts, so reproduction risk is higher than for cleaner releases.
 
-Official pinned repository: `GXNU-ZhongLab/MambaLCT@0457044f` ([R36]). The release includes:
-
-- `experiments/mambalct/` with 256/384 and GOT-specific YAML configs;
-- `tracking/test.py` generic dataset runner;
-- `tracking/analysis_results.py` analysis entry point;
-- `lib/test/tracker/mambalct.py` tracker implementation;
-- `lib/test/parameter/mambalct.py` test configuration/checkpoint resolver.
-
-### Checkpoint evidence
-
-The official README provides a **Models** link and raw-results link. `lib/test/parameter/mambalct.py` deterministically constructs the expected tracker checkpoint path as:
-
-`checkpoints/train/mambalct/<yaml_name>/MambaLCT_epXXXX.pth.tar`
-
-and `lib/test/tracker/mambalct.py` loads the `net` state dictionary from that path.
-
-### Evaluation evidence
-
-`tracking/test.py` invokes the released dataset/evaluation framework and supports the standard tracking dataset path. `tracking/analysis_results.py` connects results to the released analysis module. The README is sparse, but the official code tree provides the config + checkpoint-resolution + tracker + test-runner chain needed for a realistic reproduction attempt.
-
-### Blocking issue
-
-Documentation is incomplete and some example comments retain inherited tracker names. This increases reproduction risk but does not make the official evaluation integration absent.
-
-### Rationale
-
-The official model link plus deterministic checkpoint path, configs, tracker implementation, dataset runner, and analysis code jointly satisfy HG3. PASS does not imply the code has already been run locally.
+**Rationale:** the official model link + deterministic checkpoint path + configs + tracker + test/analysis chain are sufficient for a realistic reproduction attempt.
 
 ---
 
@@ -114,36 +63,12 @@ The official model link plus deterministic checkpoint path, configs, tracker imp
 
 **Decision: PASS**
 
-### Source-code evidence
+- **Source code:** official umbrella repository `hexdjx/VisTrack@f07acc94` ([R42]) explicitly lists JDTrack and contains `pytracking/tracker/jdtrack/`, `pytracking/parameter/jdtrack/`, and `pytracking/run_tracker.py`.
+- **Checkpoint:** the official README links the authors' `Models & Raw Results` resource. More importantly, `pytracking/parameter/jdtrack/jdtrack_vit.py` explicitly requests `JDTrack/ViT/JDTrack_online_target_fuse.pth.tar`, resolving the expected family checkpoint filename at code level.
+- **Evaluation:** `pytracking/run_tracker.py` defaults to JDTrack/`jdtrack_vit` and runs through the integrated PyTracking dataset/evaluation layer.
+- **Risk note:** the external model bundle still needs to be downloaded during actual reproduction to verify that the named file is present and intact.
 
-Official pinned umbrella repository: `hexdjx/VisTrack@f07acc94` ([R42]). The README explicitly lists JDTrack and official `Models & Raw Results` links. The pinned tree contains:
-
-- `pytracking/tracker/jdtrack/jdtrack.py`;
-- `pytracking/parameter/jdtrack/`;
-- `pytracking/run_tracker.py`;
-- integrated `got10k` and evaluation tooling described by the authors.
-
-### Checkpoint evidence
-
-The earlier README-level ambiguity is materially reduced by the released parameter code. `pytracking/parameter/jdtrack/jdtrack_vit.py` explicitly requests:
-
-`JDTrack/ViT/JDTrack_online_target_fuse.pth.tar`
-
-through `NetWithBackbone(...)`.
-
-The official repository also links the authors' shared **Models & Raw Results** resource. Thus the released code identifies the exact JDTrack checkpoint filename/path expected by the evaluator, rather than leaving the family checkpoint unnamed.
-
-### Evaluation evidence
-
-`pytracking/run_tracker.py` defaults to `tracker_name='jdtrack'` and `tracker_param='jdtrack_vit'`, resolves datasets through the integrated PyTracking evaluation layer, and runs the tracker through `run_dataset(...)`.
-
-### Blocking issue
-
-The external models bundle itself must still be checked/downloaded during actual reproduction to verify that the named checkpoint is present and intact. This is a reproduction-time verification risk, not enough by itself to negate the official authors' models release plus exact code-level filename mapping.
-
-### Rationale
-
-Official source, official models resource, explicit expected checkpoint filename, and integrated benchmark runner make reproduction realistic. HG3 passes.
+**Rationale:** official models release + exact code-level checkpoint identity + official evaluator integration satisfy HG3 at the eligibility stage.
 
 ---
 
@@ -151,27 +76,12 @@ Official source, official models resource, explicit expected checkpoint filename
 
 **Decision: PASS**
 
-### Source-code evidence
+- **Source code:** official `Z-Z188/UMDATrack@5d609bfc` ([R46]) contains the model, configs, training code, `tracking/test.py`, test parameter loader and result-analysis utilities.
+- **Checkpoint:** the README provides author weight links, checkpoint placement instructions, and distinguishes foundation/pseudo-label resources from trained evaluation weights. `lib/test/parameter/UMDATrack.py` constructs the checkpoint path from config and epoch.
+- **Evaluation:** the README supplies concrete test commands with tracker, config, dataset, run-id and epoch; `tracking/test.py` forwards these into the released evaluation framework.
+- **Risk note:** the resource bundle mixes multiple training stages and the parameter code uses a domain-specific `UMDATrack_extreme_prompt_dark_epXXXX.pth.tar` naming pattern; haze/rainy variant mapping must be checked during reproduction.
 
-Official pinned repository: `Z-Z188/UMDATrack@5d609bfc` ([R46]). The release contains the UMDATrack model, configs, training code, test runner, test parameter loader, and analysis utilities.
-
-### Checkpoint evidence
-
-The official README provides authors' pretrained/weight links and explicitly instructs users to place evaluation weights under the UMDATrack checkpoint tree. It also distinguishes the pretrained foundation/pseudo-label resources from the train/evaluation weights.
-
-`lib/test/parameter/UMDATrack.py` constructs the test checkpoint path from the save directory, YAML config, and requested epoch. The current parameter file contains a method-specific filename pattern ending in `UMDATrack_extreme_prompt_dark_epXXXX.pth.tar`; this should be pinned and checked during reproduction.
-
-### Evaluation evidence
-
-The README supplies concrete evaluation commands, including tracker name, config, dataset, run-id, epoch, and save directory. `tracking/test.py` forwards the epoch/config/run-id into the released evaluation framework; `tracking/analysis_results.py` is present for result analysis.
-
-### Blocking issue
-
-The official resource bundle mixes foundation, pseudo-label, stage-1, and stage-2 assets, and the pinned parameter file has a domain-specific checkpoint naming pattern that warrants careful reproduction-time validation for haze/rainy variants. However, at least the released dark-domain evaluation path is concretely specified by the official repository.
-
-### Rationale
-
-Official code, authors' model links, checkpoint placement/naming logic, configs, and concrete evaluation commands are sufficient to attempt baseline reproduction realistically. HG3 passes, with variant-level pinning deferred to reproduction.
+**Rationale:** at least one concrete official evaluation path is sufficiently specified to make baseline reproduction realistic; variant-level pinning is a later reproduction task.
 
 ---
 
@@ -179,36 +89,18 @@ Official code, authors' model links, checkpoint placement/naming logic, configs,
 
 **Decision: FAIL**
 
-### Source-code evidence
+- **Source code:** official `wvuvl/SiamABC@b1c94e06` ([R51]) contains tracker/training code, `realtime_test.py`, committed model assets and `eval_SiamABC.py`.
+- **Checkpoint:** the README states the SiamABC models are in `assets`; checkpoint availability is not the blocker.
+- **Evaluation:** `eval_SiamABC.py` imports local trees `eval_data` and `eval_toolkit.pysot`, but neither tree exists in the pinned repository root. No `.gitmodules` exists at that ref, `requirements.txt` does not restore those local trees, and the README gives no complete official benchmark-evaluator restoration procedure.
+- **Blocking issue:** the released benchmark evaluator is incomplete. The single-video demo is not a substitute for a usable benchmark protocol under HG3.
 
-Official pinned repository: `wvuvl/SiamABC@b1c94e06` ([R51]). The repository includes SiamABC code, training code, `realtime_test.py`, committed models under `assets`, and `eval_SiamABC.py`.
-
-### Checkpoint evidence
-
-The official README states that SiamABC models are available in the `assets` folder, and the pinned tree contains those model assets. Checkpoint availability itself is therefore not the blocker.
-
-### Evaluation evidence
-
-The benchmark evaluator `eval_SiamABC.py` imports:
-
-- `eval_data...`
-- `eval_toolkit.pysot...`
-
-but neither `eval_data` nor `eval_toolkit` exists in the pinned repository root. There is no `.gitmodules` file at the pinned ref, and `requirements.txt` does not install packages or repositories that restore those local import trees. The README documents single-video evaluation and training, but does not provide an official benchmark-evaluator restoration/integration procedure.
-
-### Blocking issue
-
-The released benchmark evaluator is incomplete from the official pinned release because required local dependency trees are absent. A single-video demo is not a substitute for a usable benchmark evaluation protocol under HG3.
-
-### Rationale
-
-Source code and tracker models are present, but official benchmark reproduction is not realistic from the released bundle without reconstructing missing evaluator dependencies from outside the documented release. HG3 therefore fails.
+**Rationale:** source and models exist, but official benchmark reproduction is not realistic from the released bundle without reconstructing undocumented missing evaluator dependencies.
 
 ---
 
 ## Summary
 
-| Candidate | Independent HG3 decision |
+| Candidate | Source-derived HG3 decision |
 |---|---|
 | SAMURAI | PASS |
 | DAM4SAM | PASS |
@@ -221,16 +113,12 @@ Source code and tracker models are present, but official benchmark reproduction 
 - **FAIL:** 1
 - **PENDING:** 0
 
-Applying these independent decisions to the **20-family pre-flag scientific-audit queue** yields:
-
-- **ACTIVE SCIENTIFIC-AUDIT QUEUE SIZE: 19 families**
-
-This remains an unranked audit queue, not a shortlist.
+If these source-derived decisions are applied to the **20-family pre-flag scientific-audit queue**, the active queue would contain **19 families**. This is an unranked audit queue, not a shortlist.
 
 ## Locked stop state
 
-- **HG3 INDEPENDENT RECHECK: COMPLETE**
-- **MANAGER/CODEX RECONCILIATION: PENDING**
+- **HG3 SOURCE-DERIVED RECHECK: COMPLETE**
+- **TRUE MANAGER/CODEX INDEPENDENT RECONCILIATION: PENDING**
 - **HG4-HG5-HG6: NOT STARTED**
 - **SOFT SCORING: NOT STARTED**
 - **PRIMARY SHORTLIST: NONE**
