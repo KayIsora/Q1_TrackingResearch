@@ -58,21 +58,21 @@ Use: worker-safety context and the need to evaluate technology effectiveness. Li
 
 ## R10
 
-R. Zaveri, S. Patel, Y. Gu, and G. Doretto, “Improving Accuracy and Generalization for Efficient Visual Tracking,” in *Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)*, 2025, pp. 9450–9460. [Official CVF paper](https://openaccess.thecvf.com/content/WACV2025/html/Zaveri_Improving_Accuracy_and_Generalization_for_Efficient_Visual_Tracking_WACV_2025_paper.html). Accessed: 2026-08-17.
+R. J. Zaveri, S. Patel, Y. Gu, and G. Doretto, “Improving Accuracy and Generalization for Efficient Visual Tracking,” in *Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)*, 2025, pp. 9450–9460. [Official CVF page](https://openaccess.thecvf.com/content/WACV2025/html/Zaveri_Improving_Accuracy_and_Generalization_for_Efficient_Visual_Tracking_WACV_2025_paper.html). [Official CVF PDF](https://openaccess.thecvf.com/content/WACV2025/papers/Zaveri_Improving_Accuracy_and_Generalization_for_Efficient_Visual_Tracking_WACV_2025_paper.pdf). Accessed: 2026-08-24.
 
-Use: example of an efficient visual-tracking research candidate audited before the current baseline decision. Limit: no claim here of original Jetson Nano feasibility.
+Use: primary publication source for the SiamABC family. Limit: the inspected official CVF source does not display a DOI; reported desktop/embedded-platform results do not establish Jetson Nano performance.
 
 ## R11
 
-G. Wang *et al.*, “FARTrack: Fast Autoregressive Visual Tracking with High Performance,” *International Conference on Learning Representations (ICLR)*, 2026. [Official OpenReview forum](https://openreview.net/forum?id=lq7Zfr8kAS). [Official OpenReview PDF](https://openreview.net/pdf?id=lq7Zfr8kAS). Accessed: 2026-08-17.
+G. Wang, T. Lin, Y. Bai, A. Cao, S. Liang, W. Zhao, and X. Wei, “FARTrack: Fast Autoregressive Visual Tracking with High Performance,” in *International Conference on Learning Representations (ICLR)*, 2026. [Official OpenReview forum](https://openreview.net/forum?id=lq7Zfr8kAS). [Official OpenReview PDF](https://openreview.net/pdf?id=lq7Zfr8kAS). Accessed: 2026-08-24.
 
 Use: primary source for FARTrack architecture, Task-Specific Self-Distillation, Inter-frame Autoregressive Sparsification, multi-template experiments, model sizes/MACs, reported benchmark values, training hardware/procedure, speed-test hardware, and author-reported limitations. Limit: generic SOT evaluation does not prove target-person identity preservation or Jetson Nano feasibility.
 
 ## R12
 
-MIV-XJTU, “FARTrack — official PyTorch implementation,” GitHub repository, 2026. [Official repository](https://github.com/MIV-XJTU/FARTrack). Accessed: 2026-08-17.
+MIV-XJTU, “FARTrack — official PyTorch implementation,” GitHub repository, `main` at commit `5d3e4b90305c2e845340a39cb1ac9bb69c0c5180`, 2026. [Official repository](https://github.com/MIV-XJTU/FARTrack). [Pinned source](https://github.com/MIV-XJTU/FARTrack/tree/5d3e4b90305c2e845340a39cb1ac9bb69c0c5180). Accessed: 2026-08-24.
 
-Use: source code, released checkpoints/configurations, implementation-level audit, and reproduction path for Tiny/Nano/Pico. Limit: repository behavior must be cited as CODE FACT and kept distinct from claims in the paper.
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, FARTrack/FARTrackDistill/FARTrackSparse checkpoints, configurations, and documented LaSOT/GOT-10k/TrackingNet evaluation workflow. Limit: the MAE ViT-Tiny backbone weight is separate from trained tracker checkpoints; availability is not successful reproduction, and the reported Titan Xp/Xeon/Ascend speeds are not Jetson Nano results.
 
 ## R13
 
@@ -103,3 +103,207 @@ Use: manager-lane Stage-1 reconciliation addition; establishes a 2025 generic RG
 H. Guo, X. Du, and W. Wang, “Motion Deep Association for spatio-temporal object tracking,” *Pattern Recognition*, vol. 168, Art. no. 111787, 2025, doi: [10.1016/j.patcog.2025.111787](https://doi.org/10.1016/j.patcog.2025.111787). [Official publisher page](https://www.sciencedirect.com/science/article/pii/S0031320325004479). Accessed: 2026-08-24.
 
 Use: manager-lane Stage-1 reconciliation addition; establishes a 2025 generic RGB spatio-temporal tracker combining visual feature fusion and historical motion association. Limit: a complete official source+checkpoint+evaluator bundle has not yet been verified.
+
+## R18
+
+Q. Zhang, J. Cheng, Q. Mao, C. Liu, Y. Fang, Y. Li, M. Ge, and S. Gao, “SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026, pp. 6802–6811. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_SpikeTrack_A_Spike-driven_Framework_for_Efficient_Visual_Tracking_CVPR_2026_paper.html). [Official CVF PDF](https://openaccess.thecvf.com/content/CVPR2026/papers/Zhang_SpikeTrack_A_Spike-driven_Framework_for_Efficient_Visual_Tracking_CVPR_2026_paper.pdf). Accessed: 2026-08-24.
+
+Use: primary publication source for SpikeTrack. Limit: the inspected official CVF source does not display a DOI; reported efficiency does not establish Jetson Nano performance.
+
+## R19
+
+faicaiwawa, “SpikeTrack — official implementation,” GitHub repository, `main` at commit `1537db51a1cc9f6e30cce469fba3e51f5721b3d0`, 2026. [Official repository](https://github.com/faicaiwawa/SpikeTrack). [Pinned source](https://github.com/faicaiwawa/SpikeTrack/tree/1537db51a1cc9f6e30cce469fba3e51f5721b3d0). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — code, six trained tracker checkpoints, raw results, and documented LaSOT/GOT-10k/TrackingNet test and analysis commands. Limit: the SDTV3 backbone-pretraining asset is separate; availability is not reproduction. Repository owner `faicaiwawa` and its linked Hugging Face owner `facaiwawa` use different spellings.
+
+## R20
+
+B. Kang, J. Zhao, X. Chen, W. Geng, B. Zhang, L. Zhang, D. Wang, and H. Lu, “UETrack: A Unified and Efficient Framework for Single Object Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026, pp. 20890–20901. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2026/html/Kang_UETrack_A_Unified_and_Efficient_Framework_for_Single_Object_Tracking_CVPR_2026_paper.html). [Official CVF PDF](https://openaccess.thecvf.com/content/CVPR2026/papers/Kang_UETrack_A_Unified_and_Efficient_Framework_for_Single_Object_Tracking_CVPR_2026_paper.pdf). Accessed: 2026-08-24.
+
+Use: primary publication source for UETrack. Limit: the inspected official CVF source does not display a DOI; multimodal results must not be represented as RGB-only evidence.
+
+## R21
+
+kangben258, “UETrack — official implementation,” GitHub repository, `main` at commit `fd13b0eaf16d51536008295f3b27807c69eaad50`, 2026. [Official repository](https://github.com/kangben258/UETrack). [Pinned source](https://github.com/kangben258/UETrack/tree/fd13b0eaf16d51536008295f3b27807c69eaad50). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, Base/Small/Tiny tracker checkpoints, raw results, and documented RGB/multimodal benchmark and VOT evaluation workflows. Limit: backbone and teacher weights are separate from tracker checkpoints; RGB inference is supported within a unified multimodal framework, and reported AGX speed is not Jetson Nano speed.
+
+## R22
+
+H. Wu, X. Wang, J. Zhang, J. Tong, X. Chen, J. Lin, Y. Ma, and X. Shen, “UTPTrack: Towards Simple and Unified Token Pruning for Visual Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026, pp. 20963–20972. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2026/html/Wu_UTPTrack_Towards_Simple_and_Unified_Token_Pruning_for_Visual_Tracking_CVPR_2026_paper.html). [Official CVF PDF](https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_UTPTrack_Towards_Simple_and_Unified_Token_Pruning_for_Visual_Tracking_CVPR_2026_paper.pdf). Accessed: 2026-08-24.
+
+Use: primary publication source for UTPTrack. Limit: the inspected official CVF source does not display a DOI; paper results do not establish successful reproduction or Jetson Nano performance.
+
+## R23
+
+EIT-NLP, “UTPTrack — official implementation,” GitHub repository, `main` at commit `84e0f49711254a44f5308faaa9a2405db1964dd7`, 2026. [Official repository](https://github.com/EIT-NLP/UTPTrack). [Pinned source](https://github.com/EIT-NLP/UTPTrack/tree/84e0f49711254a44f5308faaa9a2405db1964dd7). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — two code subtrees, four O/S tracker checkpoints, and documented LaSOT/GOT-10k/TrackingNet/VOT evaluation workflows. Limit: `UTPTrack-O` is OSTrack-derived and `UTPTrack-S` is SUTrack-derived; implementation, model, and configuration must be pinned together, and MAE/SUTrack pretraining assets are not trained UTPTrack checkpoints.
+
+## R24
+
+S.-F. Chen, J.-C. Chen, I.-H. Jhuo, and Y.-Y. Lin, “GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing,” in *International Conference on Learning Representations (ICLR)*, 2026. [Official ICLR proceedings page](https://proceedings.iclr.cc/paper_files/paper/2026/hash/519c51529c3544b3430bd8b17d400365-Abstract-Conference.html). [Official OpenReview forum](https://openreview.net/forum?id=aVa7etWnwF). Accessed: 2026-08-24.
+
+Use: primary publication source for GOT-Edit. Limit: the official sources inspected do not display a DOI; geometry cues are inferred from RGB, while the implementation has a separate geometry-backbone dependency.
+
+## R25
+
+chenshihfang, “GOT — official implementation for GOT-Edit and GOT-JEPA,” GitHub repository, current `main` at commit `b2ee0b9792db634a880189e8189542953af0d223`; GOT-JEPA-relevant historical commit `84e9324317e4afe62c06b2c51a97563f79730a2e`, 2026. [Official repository](https://github.com/chenshihfang/GOT). [Current pinned source](https://github.com/chenshihfang/GOT/tree/b2ee0b9792db634a880189e8189542953af0d223). [GOT-JEPA pinned source](https://github.com/chenshihfang/GOT/tree/84e9324317e4afe62c06b2c51a97563f79730a2e). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, model/raw-result links, training/run commands, and family-specific evaluation scripts for GOT-Edit and GOT-JEPA. Limit: this is a mutable, shared multi-paper repository; GOT-JEPA requires its historical commit, geometry-backbone assets are separate dependencies, and resource availability is not reproduction.
+
+## R26
+
+S.-F. Chen, J.-C. Chen, I.-H. Jhuo, and Y.-Y. Lin, “GOT-JEPA: Generic Object Tracking With Model Adaptation and Occlusion Handling Using Joint-Embedding Predictive Architecture,” *IEEE Transactions on Circuits and Systems for Video Technology*, vol. 36, no. 7, pp. 10836–10851, 2026, doi: [10.1109/TCSVT.2026.3675005](https://doi.org/10.1109/TCSVT.2026.3675005). [Official IEEE record](https://ieeexplore.ieee.org/document/11436011/). Accessed: 2026-08-24.
+
+Use: primary publication source for GOT-JEPA. Limit: publication evidence does not resolve the official repository's current-versus-historical-commit ambiguity.
+
+## R27
+
+C.-Y. Yang, H.-W. Huang, W. Chai, Z. Jiang, and J.-N. Hwang, “SAMURAI: Motion-Aware Memory for Training-Free Visual Object Tracking With SAM 2,” *IEEE Transactions on Image Processing*, vol. 35, pp. 970–982, 2026, doi: [10.1109/TIP.2026.3651835](https://doi.org/10.1109/TIP.2026.3651835). [Official IEEE record](https://ieeexplore.ieee.org/document/11351313/). Accessed: 2026-08-24.
+
+Use: primary publication source for SAMURAI. Limit: it is a training-free SAM 2 method; foundation-model weights must not be registered as a family-trained checkpoint.
+
+## R28
+
+yangchris11, “SAMURAI — official implementation,” GitHub repository, `master` at commit `76ba195984892b0d1e3db5d9c9f90bb62175680a`, 2026. [Official repository](https://github.com/yangchris11/samurai). [Pinned source](https://github.com/yangchris11/samurai/tree/76ba195984892b0d1e3db5d9c9f90bb62175680a). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, raw results, SAM 2.1 checkpoint downloader, and dataset inference scripts. Limit: no SAMURAI-trained tracker checkpoint exists because the method is training-free; the downloaded weights are SAM 2.1 base weights, VOT-toolkit integration is marked incoming, and live/streaming input is unsupported by the inspected README.
+
+## R29
+
+J. Videnović, M. Kristan, and A. Lukežič, “Distractor-Aware Memory-Based Visual Object Tracking,” *International Journal of Computer Vision*, vol. 134, Art. no. 211, 2026, doi: [10.1007/s11263-026-02790-7](https://doi.org/10.1007/s11263-026-02790-7). [Official Springer article](https://link.springer.com/article/10.1007/s11263-026-02790-7). Accessed: 2026-08-24.
+
+Use: primary journal source for the DAM4SAM family. Limit: the journal family extends the CVPR 2025 work, and DAM4SAM is a training-free modification of SAM 2.1 rather than a separately trained tracker.
+
+## R30
+
+jovanavidenovic, “DAM4SAM — official implementation,” GitHub repository, `master` at commit `9c954504b39ebca4c412f207be0787c26bfac85a`, 2026. [Official repository](https://github.com/jovanavidenovic/DAM4SAM). [Pinned source](https://github.com/jovanavidenovic/DAM4SAM/tree/9c954504b39ebca4c412f207be0787c26bfac85a). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, SAM 2.1 checkpoint downloader, VOT workspaces, DiDi analysis, and bounding-box-dataset runners. Limit: downloaded checkpoints are SAM 2.1 foundation weights, not family-trained DAM4SAM checkpoints; bbox evaluation first derives masks from the initial ground-truth box, and availability is not reproduction.
+
+## R31
+
+Y. Zheng, B. Zhong, Q. Liang, N. Li, and S. Song, “Decoupled Spatio-Temporal Consistency Learning for Self-Supervised Tracking,” *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 39, no. 10, pp. 10635–10643, 2025, doi: [10.1609/aaai.v39i10.33155](https://doi.org/10.1609/aaai.v39i10.33155). [Official AAAI article](https://ojs.aaai.org/index.php/AAAI/article/view/33155). Accessed: 2026-08-24.
+
+Use: primary publication source for SSTrack-AAAI. Limit: self-supervised tracker training still begins from a separate pretrained backbone.
+
+## R32
+
+GXNU-ZhongLab, “SSTrack — official implementation,” GitHub repository, `main` at commit `5dcf04ccb04f10ca4d78035373c8b8684bb8c4f5`, 2025. [Official repository](https://github.com/GXNU-ZhongLab/SSTrack). [Pinned source](https://github.com/GXNU-ZhongLab/SSTrack/tree/5dcf04ccb04f10ca4d78035373c8b8684bb8c4f5). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — training/test code, trained models/raw results, and documented LaSOT/GOT-10k/TrackingNet/VOT/OTB evaluation workflows. Limit: the DropMAE ViT-Base weight is backbone pretraining, not the trained tracker checkpoint; repository availability is not reproduction, and RTX 2080 Ti speed is not Jetson Nano speed.
+
+## R33
+
+B. Kang, X. Chen, S. Lai, Y. Liu, Y. Liu, and D. Wang, “Exploring Enhanced Contextual Information for Video-Level Object Tracking,” *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 39, no. 4, pp. 4194–4202, 2025, doi: [10.1609/aaai.v39i4.32440](https://doi.org/10.1609/aaai.v39i4.32440). [Official AAAI article](https://ojs.aaai.org/index.php/AAAI/article/view/32440). Accessed: 2026-08-24.
+
+Use: primary publication source for MCITrack. Limit: publication evidence is distinct from code/resource availability and successful reproduction.
+
+## R34
+
+kangben258, “MCITrack — official implementation,” GitHub repository, `main` at commit `e667193eaec4c8a73d4bdd856a662aecdb844b43`, 2025. [Official repository](https://github.com/kangben258/MCITrack). [Pinned source](https://github.com/kangben258/MCITrack/tree/e667193eaec4c8a73d4bdd856a662aecdb844b43). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, distinctly linked trained models, raw results/training logs, and documented test/analysis commands for major RGB benchmarks. Limit: backbone pretraining is linked separately from trained tracker models; remote assets do not establish successful reproduction.
+
+## R35
+
+X. Li, B. Zhong, Q. Liang, G. Li, Z. Mo, and S. Song, “MambaLCT: Boosting Tracking via Long-term Context State Space Model,” *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 39, no. 5, pp. 4986–4994, 2025, doi: [10.1609/aaai.v39i5.32528](https://doi.org/10.1609/aaai.v39i5.32528). [Official AAAI article](https://ojs.aaai.org/index.php/AAAI/article/view/32528). Accessed: 2026-08-24.
+
+Use: primary publication source for MambaLCT. Limit: the paper does not by itself establish a usable repository evaluation protocol.
+
+## R36
+
+GXNU-ZhongLab, “MambaLCT — official implementation,” GitHub repository, `main` at commit `0457044f67a0a033b85c0447376fc4bde0cfc10d`, 2025. [Official repository](https://github.com/GXNU-ZhongLab/MambaLCT). [Pinned source](https://github.com/GXNU-ZhongLab/MambaLCT/tree/0457044f67a0a033b85c0447376fc4bde0cfc10d). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, a trained-model link, raw-result link, `tracking/test.py`, and result-analysis scripts. Limit: the inspected README does not document installation, checkpoint placement, test invocation, or an end-to-end evaluation protocol; code presence is not successful reproduction.
+
+## R37
+
+X. Chen, B. Kang, W. Geng, J. Zhu, Y. Liu, D. Wang, and H. Lu, “SUTrack: Towards Simple and Unified Single Object Tracking,” *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 39, no. 2, pp. 2239–2247, 2025, doi: [10.1609/aaai.v39i2.32223](https://doi.org/10.1609/aaai.v39i2.32223). [Official AAAI article](https://ojs.aaai.org/index.php/AAAI/article/view/32223). Accessed: 2026-08-24.
+
+Use: primary publication source for SUTrack. Limit: unified training covers multiple modalities even though the repository exposes RGB-only inference/evaluation routes.
+
+## R38
+
+chenxin-dlut, “SUTrack — official implementation,” GitHub repository, `main` at commit `d65052d1ba3fcf55010e1fb3665ee6616c139a2c`, 2025. [Official repository](https://github.com/chenxin-dlut/SUTrack). [Pinned source](https://github.com/chenxin-dlut/SUTrack/tree/d65052d1ba3fcf55010e1fb3665ee6616c139a2c). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, five explicit trained tracker checkpoints, and documented RGB and multimodal benchmark workflows. Limit: iTPN assets are backbone pretraining rather than tracker checkpoints; raw results were still marked in preparation, unified multimodal training is distinct from RGB inference, and AGX speed is not Jetson Nano speed.
+
+## R39
+
+J. Zhu, H. Tang, X. Chen, X. Wang, D. Wang, and H. Lu, “Two-stream Beats One-stream: Asymmetric Siamese Network for Efficient Visual Tracking,” *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 39, no. 10, pp. 10959–10967, 2025, doi: [10.1609/aaai.v39i10.33191](https://doi.org/10.1609/aaai.v39i10.33191). [Official AAAI article](https://ojs.aaai.org/index.php/AAAI/article/view/33191). Accessed: 2026-08-24.
+
+Use: primary publication source for AsymTrack. Limit: publisher-reported hardware results do not establish Jetson Nano performance.
+
+## R40
+
+jiawen-zhu, “AsymTrack — official implementation,” GitHub repository, `main` at commit `a7b05e0c0d6116ccd7fa72270aa19053b7777204`, 2025. [Official repository](https://github.com/jiawen-zhu/AsymTrack). [Pinned source](https://github.com/jiawen-zhu/AsymTrack/tree/a7b05e0c0d6116ccd7fa72270aa19053b7777204). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — training/testing code, model/raw-result assets, and documented GOT-10k/LaSOT/TrackingNet evaluation workflow. Limit: backbone assets are linked separately; external model-folder availability is not successful reproduction.
+
+## R41
+
+X. He, H. Xu, X. Zhu, and H. Li, “High-Performance Discriminative Tracking with Spatio-Temporal Template Fusion,” in *Proceedings of the 33rd ACM International Conference on Multimedia (MM '25)*, 2025, pp. 709–718, doi: [10.1145/3746027.3755721](https://doi.org/10.1145/3746027.3755721). [Official ACM page](https://dl.acm.org/doi/10.1145/3746027.3755721). Accessed: 2026-08-24.
+
+Use: primary publication source for the JDTrack family. Limit: publication evidence does not identify the checkpoint file in the umbrella implementation repository.
+
+## R42
+
+hexdjx, “VisTrack — official umbrella implementation including JDTrack,” GitHub repository, `master` at commit `f07acc942dfdc0bf78f437955a3ae1fc5e62b7fc`, 2025. [Official repository](https://github.com/hexdjx/VisTrack). [Pinned source](https://github.com/hexdjx/VisTrack/tree/f07acc942dfdc0bf78f437955a3ae1fc5e62b7fc). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — JDTrack code and integrated GOT-10k/PySOT evaluation infrastructure are present; the README links a shared models/raw-results folder. Limit: this is a multi-method umbrella repository, and the inspected README does not identify a JDTrack-specific checkpoint filename in the shared asset folder.
+
+## R43
+
+W. Cai, Q. Liu, and Y. Wang, “SPMTrack: Spatio-Temporal Parameter-Efficient Fine-Tuning with Mixture of Experts for Scalable Visual Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2025, pp. 16871–16881. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2025/html/Cai_SPMTrack_Spatio-Temporal_Parameter-Efficient_Fine-Tuning_with_Mixture_of_Experts_for_Scalable_CVPR_2025_paper.html). [Official CVF PDF](https://openaccess.thecvf.com/content/CVPR2025/papers/Cai_SPMTrack_Spatio-Temporal_Parameter-Efficient_Fine-Tuning_with_Mixture_of_Experts_for_Scalable_CVPR_2025_paper.pdf). Accessed: 2026-08-24.
+
+Use: primary publication source for SPMTrack. Limit: the inspected official CVF source does not display a DOI; paper variants do not imply that all corresponding checkpoints are released.
+
+## R44
+
+WenRuiCai, “SPMTrack — official implementation,” GitHub repository, `main` at commit `c581fe27231f3e16c38578e47daddadfaf6ffd7d`, 2025. [Official repository](https://github.com/WenRuiCai/SPMTrack). [Pinned source](https://github.com/WenRuiCai/SPMTrack/tree/c581fe27231f3e16c38578e47daddadfaf6ffd7d). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, an SPMTrack-B trained checkpoint/log bundle, and documented evaluation-only, TrackingNet, and three-run GOT-10k workflows. Limit: only the B variant checkpoint is confirmed; the README marks release of all versions as pending, so L/G checkpoints are not verified.
+
+## R45
+
+S. Yao, R. Zhu, Z. Wang, W. Ren, Y. Yan, and X. Cao, “UMDATrack: Unified Multi-Domain Adaptive Tracking Under Adverse Weather Conditions,” in *Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)*, 2025, pp. 6466–6475. [Official CVF page](https://openaccess.thecvf.com/content/ICCV2025/html/Yao_UMDATrack_Unified_Multi-Domain_Adaptive_Tracking_Under_Adverse_Weather_Conditions_ICCV_2025_paper.html). [Official CVF PDF](https://openaccess.thecvf.com/content/ICCV2025/papers/Yao_UMDATrack_Unified_Multi-Domain_Adaptive_Tracking_Under_Adverse_Weather_Conditions_ICCV_2025_paper.pdf). Accessed: 2026-08-24.
+
+Use: primary publication source for UMDATrack. Limit: the inspected official CVF source does not display a DOI; RGB inference follows an offline two-stage adverse-weather adaptation process.
+
+## R46
+
+Z-Z188, “UMDATrack — official implementation,” GitHub repository, `main` at commit `5d609bfcfb3a27161f9f4bd23bda518d6656909c`, 2025. [Official repository](https://github.com/Z-Z188/UMDATrack). [Pinned source](https://github.com/Z-Z188/UMDATrack/tree/5d609bfcfb3a27161f9f4bd23bda518d6656909c). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — two-stage source and domain-specific test/analysis/conversion commands; the linked bundle exposes pretraining, pseudo-label, stage-1, and stage-2 resources. Limit: the README does not identify a specific final evaluation-checkpoint filename in that mixed bundle; RGB inference must be distinguished from offline adaptation cost.
+
+## R47
+
+S. Yao, Y. Guo, Y. Yan, W. Ren, and X. Cao, “UncTrack: Reliable Visual Object Tracking With Uncertainty-Aware Prototype Memory Network,” *IEEE Transactions on Image Processing*, vol. 34, pp. 3533–3546, 2025, doi: [10.1109/TIP.2025.3559796](https://doi.org/10.1109/TIP.2025.3559796). [Official IEEE record](https://ieeexplore.ieee.org/document/10967033/). Accessed: 2026-08-24.
+
+Use: primary publication source for UncTrack. Limit: publication evidence is separate from repository availability and successful reproduction.
+
+## R48
+
+ManOfStory, “UncTrack — official implementation,” GitHub repository, `main` at commit `61bd4be673ac32dd8948f995ce4548855d0ab1d0`, 2025. [Official repository](https://github.com/ManOfStory/UncTrack). [Pinned source](https://github.com/ManOfStory/UncTrack/tree/61bd4be673ac32dd8948f995ce4548855d0ab1d0). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — source, trained models/raw results, benchmark test scripts, VOT2020 workspace/analysis instructions, and profiling support. Limit: the `UncTrack+AR` path additionally depends on Alpha-Refine and the VOT toolkit; availability is not successful reproduction.
+
+## R49
+
+B. Kang, X. Chen, J. Zhao, C. Bo, D. Wang, and H. Lu, “Exploiting Lightweight Hierarchical ViT and Dynamic Framework for Efficient Visual Tracking,” *International Journal of Computer Vision*, vol. 133, pp. 6689–6711, 2025, doi: [10.1007/s11263-025-02500-9](https://doi.org/10.1007/s11263-025-02500-9). [Official Springer article](https://link.springer.com/article/10.1007/s11263-025-02500-9). Accessed: 2026-08-24.
+
+Use: primary journal source for the HiT–DyHiT family. Limit: dynamic-threshold settings define different speed–accuracy operating points, and reported Jetson AGX/NX results are not Jetson Nano results.
+
+## R50
+
+kangben258, “HiT/DyHiT — official implementation,” GitHub repository, `main` at commit `ca806400def2b9ab42628f7a7e941b188d89606f`, 2025. [Official repository](https://github.com/kangben258/HiT). [Pinned source](https://github.com/kangben258/HiT/tree/ca806400def2b9ab42628f7a7e941b188d89606f). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — HiT/DyHiT source, linked trained-model/raw-result bundle, documented major-benchmark workflows, and ONNX/profile utilities. Limit: the external folder combines model variants and raw results, so the exact variant must be pinned; availability and AGX/NX results do not establish reproduction or Jetson Nano performance.
+
+## R51
+
+wvuvl, “SiamABC — official implementation,” GitHub repository, current default `master` at commit `b1c94e06fdf2dd3cb14ed07b05e38aa4601ece03`; separate `main` at commit `ba22faeec24344f4d43622eddf10e1d181d43922`, 2025. [Official repository](https://github.com/wvuvl/SiamABC). [Pinned SiamABC source](https://github.com/wvuvl/SiamABC/tree/b1c94e06fdf2dd3cb14ed07b05e38aa4601ece03). [Unrelated `main` branch state](https://github.com/wvuvl/SiamABC/tree/ba22faeec24344f4d43622eddf10e1d181d43922). Accessed: 2026-08-24.
+
+Use: RESOURCE AVAILABILITY FACT / CODE FACT — SiamABC source and ten committed tracker-model files are available on `master`; a single-video demo is documented. Limit: `main` contains unrelated AEVT material, and `eval_SiamABC.py` imports absent `eval_data` and `eval_toolkit` trees that are neither submodules nor requirements; a usable benchmark evaluation protocol is therefore not verified from the official repository.
