@@ -59,7 +59,7 @@ The paper reports an effective operating point around retaining 75% of template 
 
 ### Retained research hypothesis
 
-**HYPOTHESIS TO TEST.** A token that contributes little to bounding-box localization may still encode a discriminative identity cue. Therefore IFAS token importance may not be optimal for identity-preserving target-person tracking.
+**HYPOTHESIS — untested.** A token that contributes little to bounding-box localization may still encode a discriminative identity cue. Therefore IFAS token importance may not be optimal for identity-preserving target-person tracking.
 
 This remains a possible Layer-B research question, not an author claim and not the current Core hypothesis.
 
@@ -107,7 +107,7 @@ For this project, full reproduction of the original 8×A6000 training recipe on 
 
 ## 10. Author-reported limitation
 
-**AUTHOR-REPORTED LIMITATION.** The paper appendix/supplementary discussion states that prolonged tracking failure caused by target disappearance or occlusion can make maintained templates invalid and degrade tracking performance [R11].
+**AUTHOR-REPORTED LIMITATION — cited.** The paper appendix/supplementary discussion states that prolonged tracking failure caused by target disappearance or occlusion can make maintained templates invalid and degrade tracking performance [R11].
 
 This remains important evidence for long-term failure analysis, but it no longer by itself justifies FARTrack as the Core baseline.
 
@@ -133,7 +133,7 @@ autoregressive self-confirmation
 wrong-person lock / failed recovery
 ```
 
-This tentative **autoregressive contamination** hypothesis may still be tested later as a reference study or Layer-B mechanism question.
+**HYPOTHESIS — untested.** This tentative **autoregressive contamination** mechanism may still be tested later as a reference study or Layer-B mechanism question.
 
 ## 12. Why ordinary ReID attachment is insufficient
 
@@ -153,7 +153,7 @@ This remains relevant to the later target-person extension, but **it is no longe
 
 ## 13. Why FARTrack is now a reference rather than the default baseline
 
-**PROJECT DECISION — 2026-08-24.** FARTrack is no longer the assumed main development tracker.
+**PROJECT DECISION — locked scope, 2026-08-24.** FARTrack is no longer the assumed main development tracker.
 
 Reasoning:
 
@@ -193,14 +193,14 @@ These questions are deferred until they become relevant to Layer B or comparativ
 
 ## 16. Evidence discipline
 
-Every FARTrack statement should remain classified as one of:
+Use the repository taxonomy in `docs/00_claim_taxonomy.md`:
 
-- **SOURCE FACT**;
-- **CODE FACT**;
-- **AUTHOR-REPORTED LIMITATION**;
-- **INTERPRETATION**;
-- **HYPOTHESIS TO TEST**;
-- **POSSIBLE RESEARCH OPPORTUNITY**;
-- **PROJECT DECISION**.
+- **FACT — cited** for paper/official-source facts;
+- **CODE FACT — inspected** for behavior directly observed in a specific code version/path;
+- **AUTHOR-REPORTED LIMITATION — cited** for limitations explicitly stated by the authors;
+- **INTERPRETATION — reasoned** for project reasoning from evidence;
+- **HYPOTHESIS — untested** for falsifiable mechanisms not yet demonstrated;
+- **PROJECT DECISION** for local scope/role choices;
+- **OPEN QUESTION** where evidence is not yet sufficient.
 
 Do not promote a retained FARTrack hypothesis into a result without experiment evidence.
