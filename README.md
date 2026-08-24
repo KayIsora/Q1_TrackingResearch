@@ -3,7 +3,7 @@
 > Evidence-first research program for improving recent generic SOT trackers under edge-compute constraints, then extending the strongest Core toward long-term identity-sensitive target-person tracking.
 
 **Language:** Vietnamese with English technical terms.  
-**Status:** research scope is locked; **baseline selection is reopened**. FARTrack is retained as a reference/case study, not the assumed main development backbone.
+**Status:** research scope and screening protocol are locked; **baseline selection is reopened**. FARTrack is retained as a reference/case study, not the assumed main development backbone.
 
 ## What this repository is for
 
@@ -72,6 +72,17 @@ The main scientific baseline should normally satisfy:
 
 ArXiv-only work and 2023–2024 papers remain mandatory novelty-audit/reference material but are not the preferred main baseline.
 
+## Fixed systematic-screening protocol
+
+Before candidate discovery, the project has frozen a two-part selection rule:
+
+1. **Hard gates** — publication/task/reproducibility/RTX3060/Nano/novelty requirements must be `PASS`; `FAIL` or `PENDING` blocks the final shortlist.
+2. **Soft score** — surviving candidates are ranked on a fixed **100-point** scale covering researchable redundancy, robustness weakness, shared efficiency–robustness opportunity, novelty headroom, benchmark strength, RTX3060 headroom, and Jetson Nano headroom.
+
+Primary shortlist normally requires all hard gates PASS and >=75/100, with minimum scores on the central research dimensions. The weights are locked before candidate discovery and cannot be changed merely because a favored candidate scores poorly.
+
+See [Systematic screening protocol](docs/11_systematic_screening_protocol.md). Candidate records will be stored in [`screening/candidate_screening_matrix.csv`](screening/candidate_screening_matrix.csv).
+
 ## Evaluation stack
 
 ### Mandatory generic benchmarks
@@ -87,7 +98,7 @@ Keep two result layers separate:
 1. official-checkpoint baseline reproduction;
 2. controlled baseline-versus-proposed comparison under matched training data/protocol/budget where scientifically appropriate.
 
-A generic accuracy decrease of roughly **0.3–0.5 points maximum** may be acceptable only when accompanied by a substantial efficiency/deployment gain and fully reported trade-off.
+A generic accuracy decrease of roughly **0.3–0.5 percentage points** may be acceptable only when accompanied by a substantial efficiency/deployment gain and fully reported trade-off; use the equivalent numeric scale when a metric is expressed in [0,1].
 
 See [Dataset and evaluation roles](docs/04_evaluation_stack.md).
 
@@ -144,7 +155,7 @@ For the later person/robot extension, a person detector may initialize/select th
 
 ## Next stage — systematic screening
 
-The next research stage is **not architecture design**. It is systematic screening of 2025–2026 trackers.
+The next research stage is **candidate discovery under the locked screening protocol**, not architecture design.
 
 For every surviving candidate, record:
 
@@ -180,7 +191,8 @@ Only after this audit should approximately 2–3 candidates be shortlisted and r
 10. [Consensus input boundary](docs/08_consensus_input.md)
 11. [FARTrack deep audit](docs/09_fartrack_deep_audit.md)
 12. [Research program scope and baseline screening](docs/10_research_program_scope_and_baseline_screening.md)
-13. [References](references/references.md), [evidence ledger](references/evidence_ledger.md), and [source manifest](references/source_manifest.csv)
+13. [Systematic screening protocol](docs/11_systematic_screening_protocol.md)
+14. [References](references/references.md), [evidence ledger](references/evidence_ledger.md), [source manifest](references/source_manifest.csv), and [candidate screening matrix](screening/candidate_screening_matrix.csv)
 
 ## What is intentionally absent
 
@@ -188,6 +200,7 @@ Only after this audit should approximately 2–3 candidates be shortlisted and r
 - No claim of SOTA, novelty, Jetson Nano FPS, accuracy gain, power efficiency, or Q1 acceptance.
 - No assumption that standard pruning/quantization or fixed resolution reduction is sufficient novelty.
 - No claim that FARTrack’s earlier hypotheses are disproved; they are retained as reference hypotheses outside the newly reopened Core baseline decision.
+- No candidate score has yet been assigned; the scoring rules were frozen before discovery.
 
 ## Working division of labor
 
