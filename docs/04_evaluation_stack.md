@@ -63,9 +63,9 @@ If the proposed method changes objective, resolution policy, architecture, or co
 
 Absolute zero accuracy loss is not mandatory.
 
-A drop of roughly **0.3–0.5 benchmark points maximum** may be acceptable when the proposed model achieves a substantial and reproducible efficiency/deployment gain. Equal or improved accuracy remains preferable.
+A drop of roughly **0.3–0.5 percentage points maximum** may be acceptable when the proposed model achieves a substantial and reproducible efficiency/deployment gain. If a metric is represented in the [0,1] range, use the mathematically equivalent change (approximately 0.003–0.005). Equal or improved accuracy remains preferable.
 
-All accuracy losses and gains must be reported rather than hidden behind an FPS claim.
+This is a project trade-off target, not a universal benchmark rule. It must be interpreted per metric/protocol and all losses/gains must be reported rather than hidden behind an FPS claim.
 
 ## Lightweight measurements
 
