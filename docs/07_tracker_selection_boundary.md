@@ -11,7 +11,7 @@ The next main baseline must be selected through systematic screening rather than
 
 The preferred research opportunity is a mechanism that improves **efficiency and robustness together**, rather than an independent compression stage followed by an unrelated robustness module.
 
-See the locked scope in [Research program scope and baseline-screening specification](10_research_program_scope_and_baseline_screening.md).
+See the locked scope in [Research program scope and baseline-screening specification](10_research_program_scope_and_baseline_screening.md) and the fixed selection procedure in [Systematic screening protocol](11_systematic_screening_protocol.md).
 
 ## Main baseline eligibility
 
@@ -154,6 +154,18 @@ Shortlist approximately 2–3 candidates with the best combined evidence.
 ### Stage 5 — reproduce before proposing
 
 Reproduce the chosen candidate and empirically verify the hypothesized weakness/redundancy before committing to a final proposed architecture.
+
+## Fixed hard-gate / soft-score rule
+
+**RESEARCH GATE — project decision.** Candidate selection must follow `11_systematic_screening_protocol.md`.
+
+- hard gates use only `PASS / FAIL / PENDING`;
+- a failed or pending hard gate cannot be overridden by a high score;
+- eligible candidates are ranked with the predeclared **100-point soft score**;
+- primary shortlist requires all hard gates PASS, total score >=75/100, and minimum ratings for researchable redundancy, robustness weakness, efficiency–robustness coupling, and novelty headroom;
+- scoring weights must not be changed after seeing which candidate benefits unless the protocol is formally revised and all candidates are re-scored.
+
+The machine-readable screening record is `screening/candidate_screening_matrix.csv`.
 
 ## Rejection rules
 
