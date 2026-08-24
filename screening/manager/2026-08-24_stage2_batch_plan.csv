@@ -1,9 +1,9 @@
 candidate_id,candidate_short_name,batch,activation_status,manager_scientific_audit,codex_code_audit,reconciliation,hg4,hg5,hg6,soft_score,notes
-CX007,SpikeTrack,A,ACTIVE_STAGE2A,IN_PROGRESS,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,HG1-HG3 PASS; Batch A activated after final HG3 reconciliation.
-CX009,UETrack,A,ACTIVE_STAGE2A,IN_PROGRESS,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,HG1-HG3 PASS; Batch A activated after final HG3 reconciliation.
-CX010,UTPTrack,A,ACTIVE_STAGE2A,IN_PROGRESS,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,HG1-HG3 PASS; Batch A activated after final HG3 reconciliation.
-CX013,FARTrack,A,ACTIVE_STAGE2A,IN_PROGRESS,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,HG1-HG3 PASS; prior familiarity gives no preferential treatment.
-CX014,GOT-Edit,A,ACTIVE_STAGE2A,IN_PROGRESS,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,HG1-HG3 PASS; Batch A activated after final HG3 reconciliation.
+CX007,SpikeTrack,A,ACTIVE_STAGE2A,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,Manager scientific evidence in stage2_batchA_scientific_audit; awaiting independent Codex code audit.
+CX009,UETrack,A,ACTIVE_STAGE2A,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,Manager scientific evidence in stage2_batchA_scientific_audit; awaiting independent Codex code audit.
+CX010,UTPTrack,A,ACTIVE_STAGE2A,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,Manager scientific evidence in stage2_batchA_scientific_audit; awaiting independent Codex code audit.
+CX013,FARTrack,A,ACTIVE_STAGE2A,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,Manager scientific evidence complete; prior familiarity gives no preferential treatment.
+CX014,GOT-Edit,A,ACTIVE_STAGE2A,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,Manager scientific evidence in stage2_batchA_scientific_audit; awaiting independent Codex code audit.
 CX017,GOT-JEPA,B,WAIT_BATCH_A_RECONCILIATION,NOT_STARTED,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,HG1-HG3 PASS; no Batch B activation before Batch A reconciliation.
 CX020,SAMURAI,B,WAIT_BATCH_A_RECONCILIATION,NOT_STARTED,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,Final HG3 PASS after Manager↔external blind agreement.
 CX024,DAM4SAM,B,WAIT_BATCH_A_RECONCILIATION,NOT_STARTED,NOT_STARTED,NOT_STARTED,PENDING,PENDING,PENDING,NOT_STARTED,Final HG3 PASS after Manager↔external blind agreement.
