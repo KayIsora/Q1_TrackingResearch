@@ -1,50 +1,170 @@
 # Embodied Tracking Problem Research
 
-> An evidence-first research dossier for choosing a real problem before choosing and improving a tracker.
+> Evidence-first research program for improving recent generic SOT trackers under edge-compute constraints, then extending the strongest Core toward long-term identity-sensitive target-person tracking.
 
 **Language:** Vietnamese with English technical terms.  
-**Status:** problem framing is established; **FARTrack is the current provisional development backbone**. No proposed improvement, benchmark gain, identity-preservation result, or embedded deployment claim has yet been demonstrated.
+**Status:** research scope is locked; **baseline selection is reopened**. FARTrack is retained as a reference/case study, not the assumed main development backbone.
 
 ## What this repository is for
 
-This repository records the current reasoning for an embodied visual-tracking research direction so that a person or an AI can clone it and distinguish:
+This repository records the scientific reasoning, source evidence, baseline-selection rules, experiment gates, implementation notes, and deployment boundaries for a two-layer tracking research program.
 
-- what a primary source actually establishes;
-- what released code directly shows;
-- what is an interpretation of that evidence;
-- what is merely a project decision, hypothesis, provisional target, or open question.
+The repository is deliberately **problem-first and evidence-first**. A tracker is not selected first and justified later. The main baseline must survive systematic screening for:
 
-It remains deliberately **problem-first**. FARTrack is now selected provisionally because it is a strong vehicle for testing the chosen failure mode; it does not define the research problem and can be replaced if reproduction/failure auditing rejects it.
+- recent peer-reviewed publication;
+- reproducibility;
+- benchmark strength;
+- researchable computational redundancy;
+- meaningful robustness weakness;
+- RTX 3060 12 GB research feasibility;
+- credible path to Jetson Nano B01 4 GB;
+- novelty space after recent prior-art auditing.
 
-## Current project recommendation — not a research result
+## Current research program — PROJECT DECISION
 
-**[PROJECT DECISION — provisional]** The best present framing for the available scope is:
+### Layer A — Core generic RGB SOT
 
-> **Identity-preserving visual continuity for a consenting user that a robot guides or accompanies in a crowded public facility.**
+The Core must be a class-agnostic RGB single-object tracker initialized from a bounding box. The desired contribution is **not merely compression**. The target pattern is:
 
-The proposed perception output is a target bounding box, target-presence/confidence state, and recovery of the same instance after disappearance. It is not the former “robot following an elderly person” application, surveillance, a safety-certified system, or autonomous robot control.
+> identify a strong 2025–2026 tracker with a real computational inefficiency and a real robustness weakness, then design a new algorithmic mechanism that reduces unnecessary computation while preserving or improving tracking quality.
 
-Why this is the current recommendation:
+Occlusion, distractors, reliability, generic recovery, temporal/memory inefficiency, token redundancy, adaptive computation, and search/fusion inefficiency are valid Core topics.
 
-- TPT-Bench directly studies robot-egocentric target-person tracking in crowded, unstructured indoor/outdoor scenes with occlusion and re-identification pressure [R1](references/references.md#r1), [R2](references/references.md#r2).
-- Embodied visual tracking is an active research direction, but work such as TrackVLA joins perception and trajectory planning; that is a **scope boundary**, not a Nano baseline [R5](references/references.md#r5).
-- The recommendation matches the fixed constraints: robot-mounted moving RGB camera, box-SOT, identity preservation, long occlusion/out-of-view re-entry, and later embedded evaluation.
+The Core contribution must remain scientifically meaningful even if all person-specific modules are removed.
 
-This does **not** establish that it is the most urgent social problem, that it improves safety, or that it will be deployable on Jetson Nano. Those are separate questions requiring their own evidence and measurements.
+### Layer B — Long-term target-person extension
 
-## Current provisional tracker baseline
+After the generic Core is established, `target_type = person` may activate:
 
-**[PROJECT DECISION — 2026-08-17]** The current development family is **FARTrack (ICLR 2026)** [R11](references/references.md#r11), using the official released implementation [R12](references/references.md#r12).
+- identity verification;
+- person memory;
+- lightweight person ReID;
+- presence/recovery logic;
+- optional lightweight person detector assistance only in LOST/recovery mode for the person/robot extension.
 
-Working roles:
+This layer targets long-term identity-sensitive target-person tracking and later robot demonstration.
 
-- **FARTrack-Nano** — main development candidate;
-- **FARTrack-Tiny** — higher-capacity accuracy reference / possible teacher;
-- **FARTrack-Pico** — later aggressive edge-deployment candidate.
+See the full locked scope: [Research program scope and baseline-screening specification](docs/10_research_program_scope_and_baseline_screening.md).
 
-The immediate scientific focus is not “make FARTrack faster.” FARTrack already targets efficiency through self-distillation and inter-frame sparsification. The present audit focuses on whether prolonged disappearance and similar-person interference can corrupt autoregressive temporal/appearance state, and whether identity/presence evidence can control memory update and safe re-acquisition.
+## Baseline status reset
 
-See [FARTrack deep audit](docs/09_fartrack_deep_audit.md).
+**PROJECT DECISION — 2026-08-24:** FARTrack is **no longer the assumed main baseline**.
+
+FARTrack remains scientifically useful because it is a strong reference for efficient autoregressive tracking, self-distillation, token sparsification, and failure-audit design. However, its lightweight side is already unusually well optimized, and the remaining disappearance/identity/recovery gaps risk narrowing the Core contribution too early.
+
+Therefore the project has reopened baseline selection and will systematically screen recent trackers for the stronger combination:
+
+> **researchable redundancy + robustness weakness + reproducibility + edge headroom.**
+
+See [Tracker-selection boundary](docs/07_tracker_selection_boundary.md) and [FARTrack deep audit](docs/09_fartrack_deep_audit.md).
+
+## Mandatory baseline eligibility
+
+The main scientific baseline should normally satisfy:
+
+- peer-reviewed / officially accepted or published in **2025 or 2026**;
+- top conference or Q1 journal strongly preferred;
+- online-first accepted/published journal work allowed;
+- RGB generic SOT or directly extensible long-term SOT;
+- **official code + checkpoint + evaluation script/protocol**;
+- realistic research workflow on a **single RTX 3060 12 GB**;
+- credible path to **Jetson Nano B01 4 GB** after the proposed contribution and reasonable deployment optimization.
+
+ArXiv-only work and 2023–2024 papers remain mandatory novelty-audit/reference material but are not the preferred main baseline.
+
+## Evaluation stack
+
+### Mandatory generic benchmarks
+
+- **LaSOT** — long-sequence robustness;
+- **GOT-10k** — generalization;
+- **TrackingNet** — large-scale/diverse tracking performance.
+
+TNL2K and LaSOT-ext may be added when relevant. **TPT-Bench** is added for the later target-person extension.
+
+Keep two result layers separate:
+
+1. official-checkpoint baseline reproduction;
+2. controlled baseline-versus-proposed comparison under matched training data/protocol/budget where scientifically appropriate.
+
+A generic accuracy decrease of roughly **0.3–0.5 points maximum** may be acceptable only when accompanied by a substantial efficiency/deployment gain and fully reported trade-off.
+
+See [Dataset and evaluation roles](docs/04_evaluation_stack.md).
+
+## Training boundary
+
+- Development hardware: **RTX 3060 12 GB**.
+- Official pretrained checkpoints may initialize training.
+- Random-from-scratch baseline training is not mandatory.
+- Proposed modules must be genuinely trained.
+- Joint fine-tuning of a meaningful part or all of the proposed network is preferred when feasible.
+- Freezing/unfreezing is an ablation decision, not a default assumption.
+- Larger teacher models may be used only during training/offline supervision if they disappear at inference and the workflow remains reproducible.
+- Development may use reduced sampling; final controlled training should scale toward the declared baseline recipe within resource limits.
+
+## Lightweight and edge boundary
+
+“Lightweight” is multi-dimensional. Final claims must report at least:
+
+- parameters;
+- MACs/FLOPs;
+- FPS;
+- per-frame latency;
+- runtime RAM/memory;
+- input resolution;
+- precision/runtime backend.
+
+**Primary embedded target:** Jetson Nano B01 4 GB.
+
+End-to-end batch-size-1 runtime targets:
+
+- **>= 25 FPS:** desired;
+- **>= 20 FPS:** acceptable near-real-time;
+- **< 10 FPS:** does not meet the lightweight objective;
+- **>= 30 FPS:** very strong but not mandatory.
+
+TensorRT FP16 is the preferred deployment path. INT8 may be an additional optimization/ablation but must not be the sole reason an otherwise over-heavy baseline becomes deployable.
+
+No Jetson FPS may be inferred from desktop GPU, Orin, CPU/NPU, parameter count, or FLOPs.
+
+See [Edge-deployment claim boundary](docs/05_edge_boundary.md).
+
+## RGB and detector boundaries
+
+Core generic SOT input:
+
+- RGB image/video;
+- initial bounding box only.
+
+No language, depth, thermal, or event-camera input is used in the main Core comparison.
+
+Generic SOT benchmark uses no external detector after initialization.
+
+For the later person/robot extension, a person detector may initialize/select the target and may optionally be evaluated as a separate LOST/recovery aid. Detector-assisted results must remain separate from pure tracker results.
+
+## Next stage — systematic screening
+
+The next research stage is **not architecture design**. It is systematic screening of 2025–2026 trackers.
+
+For every surviving candidate, record:
+
+- publication/venue/status;
+- official code/checkpoint/evaluator availability;
+- benchmark competitiveness;
+- parameters/MACs/FLOPs/runtime evidence;
+- training hardware and data recipe;
+- architecture compute distribution;
+- author-reported limitations;
+- code-visible bottlenecks;
+- robustness weaknesses;
+- computational redundancy;
+- whether one mechanism could improve both efficiency and robustness;
+- recent novelty collisions;
+- RTX 3060 feasibility;
+- Jetson Nano deployment headroom;
+- research risk.
+
+Only after this audit should approximately 2–3 candidates be shortlisted and reproduced before a proposed architecture is committed.
 
 ## Start here (mandatory reading order)
 
@@ -59,50 +179,23 @@ See [FARTrack deep audit](docs/09_fartrack_deep_audit.md).
 9. [Tracker-selection boundary](docs/07_tracker_selection_boundary.md)
 10. [Consensus input boundary](docs/08_consensus_input.md)
 11. [FARTrack deep audit](docs/09_fartrack_deep_audit.md)
-12. [References](references/references.md), the [evidence ledger](references/evidence_ledger.md), and the machine-readable [source manifest](references/source_manifest.csv)
-
-## Fixed scope at this stage
-
-| Item | Current status |
-|---|---|
-| Core task | **[PROJECT DECISION]** RGB, class-agnostic, box single-object tracking (SOT) from a robot-mounted moving camera. |
-| Default robot-demo target | **[PROJECT DECISION]** A person detector may provide an initial box. The core tracker remains class-agnostic and can later be initialized on another egocentric object. |
-| Required output | **[PROJECT DECISION]** Bounding box + presence/confidence + same-instance re-detection. |
-| Headline failures | **[PROJECT DECISION]** Long occlusion, out-of-view re-entry, and visually similar-person distractors. Blur/camera shake are deployment stresses. |
-| Current tracker family | **[PROJECT DECISION — provisional]** FARTrack; Nano is the primary development candidate, Tiny/Pico are reference variants. |
-| Training | **[PROJECT DECISION]** Offline development on RTX 3060-class hardware; full reproduction of the paper's 8×A6000 recipe is not assumed. Official checkpoints + focused fine-tuning are the preferred first path. |
-| Edge target | **[PROJECT DECISION]** Jetson Nano remains a hard deployment target; feasibility has not been measured. A stronger Jetson-class board may be used if the original Nano cannot meet a defensible runtime target. |
-| Robot control | **[OUT OF SCOPE FOR NOW]** Active control is only a later demonstration after tracking and benchmark work. |
-| Sensors | **[PROJECT DECISION]** RGB now. LiDAR is a future possibility, not current model input. |
-
-## Immediate research gates
-
-Before proposing a final architecture:
-
-1. reproduce FARTrack inference from official checkpoints;
-2. instrument template/trajectory/search-state updates and IFAS masks;
-3. audit failures under long disappearance, out-of-view, and similar-person crossings;
-4. test whether wrong predictions cause appearance + trajectory + spatial-state contamination;
-5. evaluate target-person behavior primarily on TPT-Bench and preserve generic SOT regression checks;
-6. only then design identity-/presence-aware update, loss, and recovery logic;
-7. profile Jetson hardware directly rather than inferring FPS from Titan Xp, CPU, NPU, MACs, or parameter count.
+12. [Research program scope and baseline screening](docs/10_research_program_scope_and_baseline_screening.md)
+13. [References](references/references.md), [evidence ledger](references/evidence_ledger.md), and [source manifest](references/source_manifest.csv)
 
 ## What is intentionally absent
 
-- No claim of SOTA, novelty, Nano FPS, accuracy gain, power use, social impact, or safety certification.
-- No copied benchmark datasets, checkpoints, videos, or the user-supplied Consensus PDF.
-- No claim that FARTrack already solves identity preservation, target absence, or safe re-acquisition.
-- No automatic conversion from moving-camera SOT into MOT, VOS, RGB-D tracking, or closed-loop navigation.
+- No claim that a final baseline has been selected.
+- No claim of SOTA, novelty, Jetson Nano FPS, accuracy gain, power efficiency, or Q1 acceptance.
+- No assumption that standard pruning/quantization or fixed resolution reduction is sufficient novelty.
+- No claim that FARTrack’s earlier hypotheses are disproved; they are retained as reference hypotheses outside the newly reopened Core baseline decision.
 
 ## Working division of labor
 
-The intended workflow is:
+- **ChatGPT:** research manager / evidence controller — maintain framing, source verification, novelty boundaries, experiment gates, and repository state.
+- **Codex:** implementation executor — clone/build/instrument/train/evaluate/profile under explicit instructions.
+- **GitHub:** shared source of truth for decisions, evidence, experiment plans, implementation notes, and validated results.
 
-- **ChatGPT:** research manager / evidence controller — verify claims, maintain research framing, novelty boundaries, experiment gates, and repository state;
-- **Codex:** implementation executor — translate/read local papers, modify code, run scripts/experiments, and produce artifacts under explicit instructions;
-- **GitHub:** shared state — decisions, evidence, experiment plans, implementation notes, and reproducible results should be committed so both workflows stay synchronized.
-
-Implementation output from Codex must not be promoted to a scientific claim until it is checked against source code, logs, and evaluation results.
+Implementation output must not be promoted to a scientific claim until it is checked against source code, logs, and evaluation results.
 
 ## Reuse and contributions
 
