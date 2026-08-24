@@ -1,6 +1,6 @@
 # References and source notes
 
-Citation style: IEEE. Links were checked on **2026-08-17**. A link is evidence only for the claim explicitly attributed to it; it is not blanket support for a broader conclusion.
+Citation style: IEEE. Links were checked on **2026-08-17** unless otherwise stated. A link is evidence only for the claim explicitly attributed to it; it is not blanket support for a broader conclusion.
 
 ## R1
 
@@ -73,3 +73,33 @@ Use: primary source for FARTrack architecture, Task-Specific Self-Distillation, 
 MIV-XJTU, “FARTrack — official PyTorch implementation,” GitHub repository, 2026. [Official repository](https://github.com/MIV-XJTU/FARTrack). Accessed: 2026-08-17.
 
 Use: source code, released checkpoints/configurations, implementation-level audit, and reproduction path for Tiny/Nano/Pico. Limit: repository behavior must be cited as CODE FACT and kept distinct from claims in the paper.
+
+## R13
+
+J. Zhao, X. Chen, Y. Yuan, M. Felsberg, D. Wang, and H. Lu, “Efficient Motion Prompt Learning for Robust Visual Tracking,” in *Proceedings of the 42nd International Conference on Machine Learning (ICML)*, PMLR, vol. 267, pp. 77353–77370, 2025. [Official PMLR page](https://proceedings.mlr.press/v267/zhao25e.html). Accessed: 2026-08-24.
+
+Use: manager-lane Stage-1 reconciliation addition; establishes a peer-reviewed 2025 lightweight plug-and-play motion-prompt method for generic visual tracking. Limit: it is a plug-in method integrated into existing trackers, so suitability as a standalone main baseline remains a later audit question.
+
+## R14
+
+J. Zhao *et al.*, “Motion-Prompt-Tracking — official PyTorch implementation,” GitHub repository, 2025. [Official repository](https://github.com/zj5559/Motion-Prompt-Tracking). Accessed: 2026-08-24.
+
+Use: source, training/testing instructions, released models/results, and early HG3 verification for MPT. Limit: repository availability is not equivalent to successful local reproduction.
+
+## R15
+
+J. Tao, S. Chan, Z. Shi, C. Bai, and S. Chen, “FocTrack: Focus attention for visual tracking,” *Pattern Recognition*, vol. 160, Art. no. 111128, 2025, doi: [10.1016/j.patcog.2024.111128](https://doi.org/10.1016/j.patcog.2024.111128). [Official publisher page](https://www.sciencedirect.com/science/article/abs/pii/S0031320324008793). Accessed: 2026-08-24.
+
+Use: manager-lane Stage-1 reconciliation addition; establishes a 2025 generic visual tracker with focus attention and a lightweight local-template-update strategy. Limit: a complete official source+checkpoint+evaluator bundle has not yet been verified.
+
+## R16
+
+Z. Wang, K. Wang, C. Tang, X. Li, J. Zhang, and L. Gao, “DSTrack: Diffusion-based sequence learning for visual object tracking,” *Pattern Recognition*, vol. 168, Art. no. 111694, 2025, doi: [10.1016/j.patcog.2025.111694](https://doi.org/10.1016/j.patcog.2025.111694). [Official publisher page](https://www.sciencedirect.com/science/article/pii/S0031320325003541). Accessed: 2026-08-24.
+
+Use: manager-lane Stage-1 reconciliation addition; establishes a 2025 generic RGB bbox-SOT family based on diffusion-style continuous coordinate sequence prediction. Limit: a complete official source+checkpoint+evaluator bundle has not yet been verified.
+
+## R17
+
+H. Guo, X. Du, and W. Wang, “Motion Deep Association for spatio-temporal object tracking,” *Pattern Recognition*, vol. 168, Art. no. 111787, 2025, doi: [10.1016/j.patcog.2025.111787](https://doi.org/10.1016/j.patcog.2025.111787). [Official publisher page](https://www.sciencedirect.com/science/article/pii/S0031320325004479). Accessed: 2026-08-24.
+
+Use: manager-lane Stage-1 reconciliation addition; establishes a 2025 generic RGB spatio-temporal tracker combining visual feature fusion and historical motion association. Limit: a complete official source+checkpoint+evaluator bundle has not yet been verified.
