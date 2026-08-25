@@ -391,3 +391,75 @@ Use: adjacent VOS prior art for quality-aware frame admission/eviction and bound
 J. Zhou, Z. Pang, and Y.-X. Wang, “RMem: Restricted Memory Banks Improve Video Object Segmentation,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2024, pp. 18602–18611, doi: [10.1109/CVPR52733.2024.01760](https://doi.org/10.1109/CVPR52733.2024.01760). [Official CVF page](https://openaccess.thecvf.com/content/CVPR2024/html/Zhou_RMem_Restricted_Memory_Banks_Improve_Video_Object_Segmentation_CVPR_2024_paper.html). Accessed: 2026-08-25.
 
 Use: adjacent VOS prior art for physical restricted-memory selection under redundant history. Limit: video object segmentation, not generic bbox-SOT baseline evidence; its fixed bank bound does not provide validity-calibrated variable template compute.
+
+## R66
+
+C. Huang, S. Lucey, and D. Ramanan, “Learning Policies for Adaptive Tracking With Deep Feature Cascades,” in *Proceedings of the IEEE International Conference on Computer Vision (ICCV)*, 2017, pp. 105–114, doi: [10.1109/ICCV.2017.21](https://doi.org/10.1109/ICCV.2017.21). [Official CVF PDF](https://openaccess.thecvf.com/content_ICCV_2017/papers/Huang_Learning_Policies_for_ICCV_2017_paper.pdf). Accessed: 2026-08-25.
+
+Use: foundational frame-difficulty-conditioned feature-depth allocation in single-object tracking. Limit: generic SOT feature-cascade policy; it does not use AsymTrack’s T/S/B family or HiT-DyHiT’s named routes.
+
+## R67
+
+C. Ying and K. Fragkiadaki, “Depth-Adaptive Computational Policies for Efficient Visual Tracking,” in *Energy Minimization Methods in Computer Vision and Pattern Recognition*, M. Pelillo and E. R. Hancock, Eds., Lecture Notes in Computer Science, vol. 10746. Cham, Switzerland: Springer, 2018, pp. 109–122, doi: [10.1007/978-3-319-78199-0_8](https://doi.org/10.1007/978-3-319-78199-0_8). Accessed: 2026-08-25.
+
+Use: foundational cost-aware tracker-depth policy under object and frame difficulty. Limit: generic SOT adaptive depth from the revised EMMCVPR 2017 proceedings; it does not use AsymTrack’s T/S/B family or HiT-DyHiT’s named routes.
+
+## R68
+
+J. Zhu, X. Chen, H. Diao, S. Li, J.-Y. He, C. Li, B. Luo, D. Wang, and H. Lu, “Exploring Dynamic Transformer for Efficient Object Tracking,” *IEEE Transactions on Neural Networks and Learning Systems*, vol. 36, no. 8, pp. 15502–15514, Aug. 2025, doi: [10.1109/TNNLS.2025.3545752](https://doi.org/10.1109/TNNLS.2025.3545752). Accessed: 2026-08-25.
+
+Use: easy/hard dynamic route allocation and attribute-conditioned compute in single-object tracking. Limit: generic RGB SOT dynamic routing; it does not use AsymTrack’s T/S/B family or HiT-DyHiT’s named routes.
+
+## R69
+
+X. Yang, D. Zeng, X. Wang, Y. Wu, H. Ye, Q. Zhao, and S. Li, “Adaptively Bypassing Vision Transformer Blocks for Efficient Visual Tracking,” *Pattern Recognition*, vol. 161, Art. no. 111278, May 2025, doi: [10.1016/j.patcog.2024.111278](https://doi.org/10.1016/j.patcog.2024.111278). Accessed: 2026-08-25.
+
+Use: target- and scene-dependent transformer-block bypassing in generic single-object tracking. Limit: generic RGB SOT block routing; it does not use AsymTrack’s T/S/B family or HiT-DyHiT’s named routes.
+
+## R70
+
+Y. Li, M. Liu, Y. Wu, X. Wang, X. Yang, and S. Li, “Learning Adaptive and View-Invariant Vision Transformer for Real-Time UAV Tracking,” in *Proceedings of the 41st International Conference on Machine Learning (ICML)*, Proceedings of Machine Learning Research, vol. 235, 2024, pp. 28403–28420. [Official PMLR page](https://proceedings.mlr.press/v235/li24ax.html). Accessed: 2026-08-25.
+
+Use: adaptive block activation combined with view-invariant representation for UAV tracking. Limit: UAV-oriented mechanism and novelty-boundary evidence only; its benchmark results are not generic RGB-SOT equivalence evidence.
+
+## R71
+
+C. Xue, B. Zhong, Q. Liang, Y. Zheng, N. Li, Y. Xue, and S. Song, “Similarity-Guided Layer-Adaptive Vision Transformer for UAV Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2025, pp. 6730–6740. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2025/html/Xue_Similarity-Guided_Layer-Adaptive_Vision_Transformer_for_UAV_Tracking_CVPR_2025_paper.html). Accessed: 2026-08-25.
+
+Use: similarity-guided layer-adaptive capacity and representation-redundancy control for UAV tracking. Limit: UAV-oriented mechanism and novelty-boundary evidence only; its benchmark results are not generic RGB-SOT equivalence evidence.
+
+## R72
+
+Y. Wu, X. Wang, D. Zeng, H. Ye, X. Xie, Q. Zhao, and S. Li, “Learning Motion Blur Robust Vision Transformers for Real-Time UAV Tracking,” *Expert Systems with Applications*, vol. 297, Part B, Art. no. 129445, Feb. 2026, doi: [10.1016/j.eswa.2025.129445](https://doi.org/10.1016/j.eswa.2025.129445). Accessed: 2026-08-25.
+
+Use: dynamic early exit combined with motion-blur and fast-motion robustness for UAV tracking. Limit: UAV-oriented mechanism and novelty-boundary evidence only; its benchmark results are not generic RGB-SOT equivalence evidence.
+
+## R73
+
+Y. Feng, D. Yuan, J. Song, H. Liu, Y. Yang, and T. Zhang, “Efficient Early Exit Single Object Tracking via General Distribution,” *Neurocomputing*, vol. 661, Art. no. 131888, Jan. 2026, doi: [10.1016/j.neucom.2025.131888](https://doi.org/10.1016/j.neucom.2025.131888). Accessed: 2026-08-25.
+
+Use: generic SOT early exit conditioned by object/background distinguishability. Limit: it does not implement AsymTrack family switching or paired HiT-DyHiT forced-route regret measurement.
+
+## R74
+
+T. Ding, H. Yang, L. Shi, J. Li, X. Hu, J. Yang, and Y. Tai, “Adaptive Depth Lightweight RGB-T Tracking with Holistic Token Routing,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026, pp. 20942–20952. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2026/html/Ding_Adaptive_Depth_Lightweight_RGB-T_Tracking_with_Holistic_Token_Routing_CVPR_2026_paper.html). Accessed: 2026-08-25.
+
+Use: confidence-calibrated tracking early exit and adaptive depth. Limit: RGB-T tracking, not RGB-only; its route topology is not HiT-DyHiT’s named depth routing.
+
+## R75
+
+P. Poggi, D. Kumar, T. Tulabandhula, and A. R. Trivedi, “Uncertainty-Guided Inference-Time Depth Adaptation for Transformer-Based Visual Tracking,” arXiv:2602.16160 [cs.CV], Feb. 2026, doi: [10.48550/arXiv.2602.16160](https://doi.org/10.48550/arXiv.2602.16160). [Official arXiv record](https://arxiv.org/abs/2602.16160). Accessed: 2026-08-25.
+
+Use: uncertainty- and temporal-feedback-guided inference-depth adaptation in visual tracking. Limit: ARXIV-ONLY preprint, not peer reviewed; it does not establish HiT-DyHiT’s named route mechanism.
+
+## R76
+
+D.-H. Park, M. Baek, J.-H. Ha, C.-S. Park, J. Ganiev, and S.-H. Bae, “MVLM: Template-Free Tracking via Vision-Language Margin Confidence and Memory-Gated Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026, pp. 35156–35165. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2026/html/Park_MVLM_Template-Free_Tracking_via_Vision-Language_Margin_Confidence_and_Memory-Gated_Tracking_CVPR_2026_paper.html). Accessed: 2026-08-25.
+
+Use: target-competitor margin and memory gating of compact local versus global re-localization modes. Limit: vision-language/template-free tracking; local/global spatial mode gating is not HiT-DyHiT depth routing.
+
+## R77
+
+L. Meronen, M. Trapp, A. Pilzer, L. Yang, and A. Solin, “Fixing Overconfidence in Dynamic Neural Networks,” in *Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)*, 2024, pp. 2680–2690. [Official CVF page](https://openaccess.thecvf.com/content/WACV2024/html/Meronen_Fixing_Overconfidence_in_Dynamic_Neural_Networks_WACV_2024_paper.html). Accessed: 2026-08-25.
+
+Use: adjacent prior art for calibrating overconfident dynamic-network exit decisions. Limit: dynamic image classification, not visual-tracking evidence.
