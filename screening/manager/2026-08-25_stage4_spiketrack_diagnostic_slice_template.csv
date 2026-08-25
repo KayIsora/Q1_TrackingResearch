@@ -1,0 +1,1 @@
+record_id,dataset,sequence,start_frame,end_frame,split,distractor_present,ambiguity_level,distractor_bbox_or_na,target_visibility,occlusion_state,fast_motion,low_resolution,matched_pair_id,selection_basis,annotator_note,manager_review_status
