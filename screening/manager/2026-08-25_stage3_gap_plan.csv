@@ -1,11 +1,11 @@
 candidate_id,candidate_short_name,gap_batch,manager_formulation,codex_formulation,reconciliation,final_gap_readiness,hg6,notes
-CX007,SpikeTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_READY,NOT_STARTED,G1 reconciled; HG6 deliberately held until G2 closes.
-CX009,UETrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires a residual RGB failure slice and expert-sensitivity evidence.
-CX010,UTPTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires pruning-policy-linked robustness evidence.
-CX013,FARTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_READY,NOT_STARTED,G1 reconciled; template-validity coupling ready for later HG6 search.
-CX024,DAM4SAM,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires residual DAM failure and DAM-specific cost evidence.
-CX037,SSTrack-AAAI,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager formulation complete; waiting for independent Codex G2.
-CX038,MCITrack,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager formulation complete; waiting for independent Codex G2.
-CX043,SUTrack,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager currently finds only engineering cleanup; independent Codex review required.
-CX044,AsymTrack,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager capacity-allocation hypothesis ready; independent Codex review required.
-CX058,HiT-DyHiT,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager route-calibration hypothesis ready; independent Codex review required.
+CX007,SpikeTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_READY,READY_NOT_STARTED,Eligible for HG6; to be processed in canonical ready-pool order.
+CX009,UETrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires a residual RGB failure slice and expert-sensitivity evidence before HG6.
+CX010,UTPTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires pruning-policy-linked robustness evidence before HG6.
+CX013,FARTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_READY,READY_NOT_STARTED,Template-validity coupling eligible for HG6 after locked execution plan.
+CX024,DAM4SAM,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires residual DAM failure and DAM-specific cost evidence before HG6.
+CX037,SSTrack-AAAI,G2,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires template/CE/failure diagnostics before HG6.
+CX038,MCITrack,G2,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires state/failure diagnostics before HG6.
+CX043,SUTrack,G2,COMPLETE,COMPLETE,COMPLETE,GAP_REJECTED,NOT_APPLICABLE,Current visible work is engineering cleanup/RGB specialization without robustness coupling.
+CX044,AsymTrack,G2,COMPLETE,COMPLETE,COMPLETE,GAP_READY,READY_NOT_STARTED,Oracle capacity-allocation question eligible for HG6.
+CX058,HiT-DyHiT,G2,COMPLETE,COMPLETE,COMPLETE,GAP_READY,READY_NOT_STARTED,Route-calibration versus distractor/clutter question eligible for HG6.
