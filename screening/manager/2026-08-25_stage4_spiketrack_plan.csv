@@ -1,0 +1,11 @@
+stage,task,status,owner,gate_or_output,notes
+N2_MATRIX_SYNC,Update CX044 and CX058 final HG6 fields,PENDING_MECHANICAL,Codex,Canonical matrix updated,No score fields may change.
+4A1,Exact code checkpoint environment synchronization,READY,Codex,Environment and provenance report,Pinned SpikeTrack commit and S256-T1 checkpoint only.
+4A2,Bounded baseline reproduction check,READY,Codex,REPRO_PASS or REPRO_PENDING,At least three predeclared sequences where official raw predictions are available.
+4A3,MRM instrumentation and deterministic controls,READY,Codex,Hooks verified without output drift,No full diagnostic run.
+4A4,Dataset and candidate-slice inventory,READY,Codex,Machine-readable inventory,Do not select frames based on tracker outputs.
+4A_RECONCILIATION,Review preflight and freeze slice,BLOCKED,Manager,Diagnostic slice committed,Requires 4A1-4A4 complete.
+4B,Discovery similar-distractor diagnostics,LOCKED,Manager+Codex,Criteria A and B,Starts only after frozen slice.
+4C,Physical skip and held-out predictor,LOCKED,Manager+Codex,Criteria C and D,Starts only if Stage 4B supports interaction.
+4D,Final diagnostic reconciliation,LOCKED,Manager,DIAG_PASS/FAIL/PENDING,Only DIAG_PASS permits soft scoring.
+SOFT_SCORING,S1-S7 scoring,LOCKED,Manager,Score and shortlist eligibility,No automatic progression from HG6 PASS.
