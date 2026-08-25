@@ -1,0 +1,41 @@
+Official-runner mini-root setup failures and bounded resolution
+===============================================================
+
+Attempt 1
+---------
+Command: official tracking/test.py for Deer using the three-sequence root and
+temporary local.py, before metadata stubs existed.
+
+Exact terminal error:
+Exception: Could not read file E:\Robot_Backup\tmp\stage4A_R_otb3/Basketball/groundtruth_rect.txt
+
+Cause: pinned OTBDataset eagerly constructs all 100 sequence objects before
+tracking/test.py applies the requested name selection.
+
+Attempt 2
+---------
+The first external metadata-only stub contained one row per unexecuted name.
+
+Exact terminal error:
+IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+
+Cause: numpy.loadtxt returns a one-dimensional array for a one-row file, while
+the pinned constructor indexes ground_truth_rect[init_omit:, :].
+
+Attempt 3
+---------
+The next external metadata-only stub contained two rows per unexecuted name.
+
+Exact terminal error:
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+Cause: the official Tiger1 metadata has initOmit=5, leaving no row after a
+two-row stub.
+
+Bounded resolution
+------------------
+The final preserved make_otb_loader_stubs.py writes six dummy rows only for
+unexecuted names. The official pinned OTBDataset and runner code are unchanged.
+Only Deer, Crossing, and Couple contain real frames/annotations in the external
+root, and only those names were executed. Every subsequent official command
+completed and persisted the expected prediction/time text files.

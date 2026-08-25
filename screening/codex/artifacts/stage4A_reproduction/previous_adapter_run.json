@@ -1,0 +1,68 @@
+{
+  "all_within_0_5_pp": false,
+  "checkpoint": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack\\ckpt\\spiketrack_s256_t1.pth.tar",
+  "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+  "config": "E:\\Robot_Backup\\tmp\\q1_source_norm\\efficiency\\repos\\SpikeTrack\\experiments\\spiketrack\\spiketrack_s256_t1.yaml",
+  "deterministic_settings": {
+    "cublas_workspace_config": ":4096:8",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "torch_deterministic_algorithms": true
+  },
+  "device": "cuda",
+  "dtype": "torch.float32",
+  "executed_sequences": [
+    "Deer",
+    "Crossing",
+    "Couple"
+  ],
+  "metric_semantics": "pinned lib/test/analysis/extract_results.py calc_seq_err_robust; inclusive-coordinate IoU; thresholds 0:0.05:1; strict >; first prediction replaced by ground truth; local boxes persisted with pinned running.py save_bb int truncation and %d format",
+  "pinned_commit": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+  "predeclaration_basis": "local image/ground-truth completeness and sequence length only; no SpikeTrack output inspected before selection",
+  "predeclared_sequences": [
+    "Deer",
+    "Crossing",
+    "Couple"
+  ],
+  "results": [
+    {
+      "absolute_difference_percentage_points": 29.912810194500338,
+      "frames": 71,
+      "local_prediction_output": "E:\\Robot_Backup\\tmp\\stage4A_bounded_reproduction_official_save_Deer_local.txt",
+      "local_success_auc_percent": 47.95439302481556,
+      "local_tracking_seconds_excluding_initialization": 7.786502600007225,
+      "released_raw_result": "E:\\Robot_Backup\\tmp\\spiketrack_s256_t1_raw\\otb\\Deer.txt",
+      "released_success_auc_percent": 18.04158283031522,
+      "sequence": "Deer",
+      "sequence_root": "E:\\Robot_Backup\\TrackingResearch-master\\OtherTracker\\verified\\TRACA-master\\sequence\\Deer",
+      "target_within_0_5_pp": false
+    },
+    {
+      "absolute_difference_percentage_points": 0.4761904761904674,
+      "frames": 120,
+      "local_prediction_output": "E:\\Robot_Backup\\tmp\\stage4A_bounded_reproduction_official_save_Crossing_local.txt",
+      "local_success_auc_percent": 79.99999999999999,
+      "local_tracking_seconds_excluding_initialization": 21.3671319999994,
+      "released_raw_result": "E:\\Robot_Backup\\tmp\\spiketrack_s256_t1_raw\\otb\\Crossing.txt",
+      "released_success_auc_percent": 79.52380952380952,
+      "sequence": "Crossing",
+      "sequence_root": "E:\\Robot_Backup\\TrackingResearch-master\\OtherTracker\\verified\\ECO-master\\sequences\\Crossing",
+      "target_within_0_5_pp": true
+    },
+    {
+      "absolute_difference_percentage_points": 1.4625850340135997,
+      "frames": 140,
+      "local_prediction_output": "E:\\Robot_Backup\\tmp\\stage4A_bounded_reproduction_official_save_Couple_local.txt",
+      "local_success_auc_percent": 77.65306122448979,
+      "local_tracking_seconds_excluding_initialization": 26.427077300002566,
+      "released_raw_result": "E:\\Robot_Backup\\tmp\\spiketrack_s256_t1_raw\\otb\\Couple.txt",
+      "released_success_auc_percent": 76.19047619047619,
+      "sequence": "Couple",
+      "sequence_root": "E:\\Robot_Backup\\TrackingResearch-master\\OtherTracker\\verified\\SRDCF\\SRDCF\\sequences\\Couple",
+      "target_within_0_5_pp": false
+    }
+  ],
+  "scope": "STAGE4A_BOUNDED_THREE_SEQUENCE_REPRODUCTION_NOT_FULL_BENCHMARK",
+  "seed": 20260825,
+  "source_root": "E:\\Robot_Backup\\tmp\\q1_source_norm\\efficiency\\repos\\SpikeTrack"
+}

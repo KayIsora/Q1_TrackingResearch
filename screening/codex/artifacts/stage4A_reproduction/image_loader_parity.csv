@@ -1,0 +1,4 @@
+sequence,copy_count_checked,frame_records_checked,all_adapter_official_rgb_equal,first_differing_copy,first_differing_frame,maximum_abs_pixel_difference
+Deer,5,355,True,,,0
+Crossing,3,360,True,,,0
+Couple,3,420,True,,,0

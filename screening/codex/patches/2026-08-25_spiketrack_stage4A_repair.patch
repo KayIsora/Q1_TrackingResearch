@@ -1,0 +1,1348 @@
+diff --git a/lib/models/spiketrack/sdtv3_search_inference.py b/lib/models/spiketrack/sdtv3_search_inference.py
+index 11c9b57..302596e 100644
+--- a/lib/models/spiketrack/sdtv3_search_inference.py
++++ b/lib/models/spiketrack/sdtv3_search_inference.py
+@@ -1,5 +1,7 @@
+ 
+ from functools import partial
++import hashlib
++import time
+ 
+ 
+ import torch
+@@ -317,6 +319,33 @@ class Retriever(nn.Module):
+             for _ in range(4)
+         ])
+ 
++        # Plain Python diagnostic state: no parameters/buffers/state-dict keys.
++        # It is enabled only by the Stage-4A wrapper around this Retriever.
++        self._stage4a_capture_enabled = False
++        self._stage4a_zero_template_index = None
++        self._stage4a_capture = None
++
++    def configure_stage4a_capture(self, enabled=False, zero_template_index=None):
++        """Capture T3 pre-gate evidence and optionally zero one gate input.
++
++        ``zero_template_index`` is zero-based.  The attention/recurrent path
++        that produces every response still executes; only the selected
++        already-computed pre-gate response is replaced by zero before the gate.
++        This is a diagnostic contribution control, never a physical skip.
++        """
++        if zero_template_index is not None and int(zero_template_index) < 0:
++            raise ValueError("zero_template_index must be non-negative")
++        self._stage4a_capture_enabled = bool(enabled)
++        self._stage4a_zero_template_index = (
++            None if zero_template_index is None else int(zero_template_index)
++        )
++        self._stage4a_capture = None
++
++    def consume_stage4a_capture(self):
++        capture = self._stage4a_capture
++        self._stage4a_capture = None
++        return capture
++
+     def forward(self, search, cross_block_kv):
+ 
+         T, B, C, _H_s, _W_s = search.shape
+@@ -344,11 +373,53 @@ class Retriever(nn.Module):
+         x = x.view(T, B, C_v, H_s, W_s)
+         x = self.attn_spike(x)
+ 
++        pre_gate_response = x
++        gate_input = x
++        zero_index = self._stage4a_zero_template_index
++        if zero_index is not None:
++            if T <= 1:
++                raise ValueError(
++                    "Template/time path controls require T3; the current Retriever has T=1"
++                )
++            if zero_index >= T:
++                raise ValueError(
++                    f"Template/time path {zero_index + 1} is unavailable for Retriever T={T}"
++                )
++            # Every upstream response has already been computed.  Clone before
++            # zeroing so the captured raw response and module input are intact.
++            gate_input = x.clone()
++            gate_input[zero_index] = torch.zeros_like(gate_input[zero_index])
++
++        gate_logits = None
++
+         if T > 1:
+-            x = self.gate(x).unsqueeze(0)
++            hook = None
++            if self._stage4a_capture_enabled:
++                def _capture_gate_logits(_module, _inputs, output):
++                    nonlocal gate_logits
++                    gate_logits = output.detach()
++
++                hook = self.gate.mlp.register_forward_hook(_capture_gate_logits)
++            try:
++                x = self.gate(gate_input).unsqueeze(0)
++            finally:
++                if hook is not None:
++                    hook.remove()
+ 
+             x = self.gate_spike(x)
+ 
++        if self._stage4a_capture_enabled:
++            # Keep detached device tensors temporarily.  Expensive reductions
++            # and host hashing are performed by the outer diagnostic wrapper
++            # after Retriever/MLP compute timing has stopped.
++            self._stage4a_capture = {
++                "pre_gate_response": pre_gate_response.detach(),
++                "gate_input": gate_input.detach(),
++                "gate_logits": gate_logits,
++                "gate_applied": bool(T > 1),
++                "zero_template_index": zero_index,
++            }
++
+         return self.proj_conv(x.flatten(0, 1))
+ 
+     def _restore_resolution(self, x, _H_s, _W_s):
+@@ -713,6 +784,317 @@ class Spiking_vit_MetaFormer_Spike_SepConv(nn.Module):
+             for i in embed_dim_indices
+         ])
+ 
++        # Stage-4A diagnostic instrumentation is deliberately disabled by
++        # default.  These attributes are plain Python state so they do not
++        # alter checkpoint keys or loading behavior.
++        self._stage4a_diagnostics_enabled = False
++        self._stage4a_ablation = "none"
++        self._stage4a_ablation_indices = frozenset()
++        self._stage4a_control_kind = "none"
++        self._stage4a_template_index = None
++        self._stage4a_forward_id = 0
++        self._stage4a_current_records = []
++        self._stage4a_diagnostic_records = []
++
++        # Public diagnostic IDs map exactly as follows:
++        # MRM1->mrm[0], MRM2->mrm[1], ..., MRM6->mrm[5].
++        self._stage4a_mrm_ids = tuple(f"MRM{i}" for i in range(1, 7))
++        self._stage4a_mrm_locations = (
++            "after downsample1_2; before ConvBlock1_2",
++            "after downsample2; before ConvBlock2_1",
++            "after downsample3; before block3[0]",
++            "after block3[2]; before block3[3]",
++            "after downsample4; before block4[0]",
++            "after block4[1]; encoder output",
++        )
++
++    def configure_stage4a_diagnostics(self, enabled=False, ablation="none"):
++        """Configure read-only MRM logging and deterministic residual controls.
++
++        Whole-MRM controls retain the Stage-4A names ``mrm1`` ... ``mrm6``
++        (plus ``early``, ``middle``, ``late``).  Refined controls use
++        ``mrmN_retriever``, ``mrmN_mlp``, and T3-only
++        ``mrmN_template1`` ... ``mrmN_template3``.  Every selected component
++        still executes.  These are contribution controls, not compute-saving
++        or physical-path-skipping controls.
++        """
++        selectors = {
++            "none": frozenset(),
++            "mrm1": frozenset({0}),
++            "mrm2": frozenset({1}),
++            "mrm3": frozenset({2}),
++            "mrm4": frozenset({3}),
++            "mrm5": frozenset({4}),
++            "mrm6": frozenset({5}),
++            "early": frozenset({0, 1}),
++            "middle": frozenset({2, 3}),
++            "late": frozenset({4, 5}),
++        }
++        for index in range(6):
++            mrm_number = index + 1
++            selectors[f"mrm{mrm_number}_retriever"] = frozenset({index})
++            selectors[f"mrm{mrm_number}_mlp"] = frozenset({index})
++            for template_number in range(1, 4):
++                selectors[f"mrm{mrm_number}_template{template_number}"] = frozenset({index})
++        normalized = str(ablation).strip().lower()
++        if normalized not in selectors:
++            allowed = ", ".join(selectors)
++            raise ValueError(f"Unknown Stage-4A ablation '{ablation}'. Expected one of: {allowed}")
++
++        self._stage4a_diagnostics_enabled = bool(enabled)
++        self._stage4a_ablation = normalized
++        self._stage4a_ablation_indices = selectors[normalized]
++        self._stage4a_control_kind = "none"
++        self._stage4a_template_index = None
++        if normalized in {"early", "middle", "late"} or (
++            normalized.startswith("mrm")
++            and "_" not in normalized
++        ):
++            self._stage4a_control_kind = "whole"
++        elif normalized.endswith("_retriever"):
++            self._stage4a_control_kind = "retriever"
++        elif normalized.endswith("_mlp"):
++            self._stage4a_control_kind = "mlp"
++        elif "_template" in normalized:
++            self._stage4a_control_kind = "template"
++            self._stage4a_template_index = int(normalized.rsplit("template", 1)[1]) - 1
++        self._stage4a_current_records = []
++        self._stage4a_diagnostic_records = []
++
++    def consume_stage4a_diagnostic_records(self):
++        """Return and clear JSON-serializable records from completed forwards."""
++        records = self._stage4a_diagnostic_records
++        self._stage4a_diagnostic_records = []
++        return records
++
++    @staticmethod
++    def _stage4a_sync(tensor):
++        if tensor.is_cuda:
++            torch.cuda.synchronize(tensor.device)
++
++    @staticmethod
++    def _stage4a_norm(tensor):
++        return float(torch.linalg.vector_norm(tensor.detach().float()).item())
++
++    @staticmethod
++    def _stage4a_tensor_fingerprint(tensor):
++        value = tensor.detach().cpu().contiguous()
++        header = f"{value.dtype}|{list(value.shape)}|".encode("utf-8")
++        return {
++            "algorithm": "sha256",
++            "dtype": str(value.dtype),
++            "shape": list(value.shape),
++            "sha256": hashlib.sha256(header + value.numpy().tobytes()).hexdigest(),
++        }
++
++    def _stage4a_gate_evidence(self, capture):
++        if capture is None:
++            return {
++                "pre_gate_response_shape": None,
++                "pre_gate_response_norms_l2": [],
++                "applied_pre_gate_response_norms_l2": [],
++                "gate_applied": False,
++                "gate_weight_path_stats": [],
++                "gate_weight_tensor_fingerprint": None,
++            }
++
++        raw = capture["pre_gate_response"]
++        applied = capture["gate_input"]
++        evidence = {
++            "pre_gate_response_shape": list(raw.shape),
++            "pre_gate_response_norms_l2": [
++                self._stage4a_norm(raw[path_index])
++                for path_index in range(raw.shape[0])
++            ],
++            "applied_pre_gate_response_norms_l2": [
++                self._stage4a_norm(applied[path_index])
++                for path_index in range(applied.shape[0])
++            ],
++            "gate_applied": bool(capture["gate_applied"]),
++            "gate_weight_path_stats": [],
++            "gate_weight_tensor_fingerprint": None,
++        }
++        logits = capture["gate_logits"]
++        if logits is not None:
++            # GateModule.channel_wise_gate reshapes [B*C,1,T] to [B,C,T]
++            # and applies softmax over T.  Reconstruct that exact read-only
++            # weight tensor from captured logits after the model gate ran.
++            template_count = raw.shape[0]
++            batch_size = raw.shape[1]
++            channel_count = raw.shape[2]
++            weights = torch.softmax(
++                logits.squeeze(1).view(batch_size, channel_count, template_count),
++                dim=-1,
++            )
++            for path_index in range(template_count):
++                path_weights = weights[..., path_index].detach().float()
++                evidence["gate_weight_path_stats"].append({
++                    "template_path": path_index + 1,
++                    "mean": float(path_weights.mean().item()),
++                    "std_population": float(path_weights.std(unbiased=False).item()),
++                    "min": float(path_weights.min().item()),
++                    "max": float(path_weights.max().item()),
++                })
++            evidence["gate_weight_tensor_fingerprint"] = (
++                self._stage4a_tensor_fingerprint(weights)
++            )
++        return evidence
++
++    def _run_stage4a_mrm(self, index, search, cross_block_kv):
++        """Execute/log one MRM and apply an explicitly diagnostic control."""
++        if not self._stage4a_diagnostics_enabled:
++            return self.mrm[index](search, cross_block_kv)
++
++        mrm = self.mrm[index]
++        selected = index in self._stage4a_ablation_indices
++        control_kind = self._stage4a_control_kind if selected else "none"
++        zero_template_index = (
++            self._stage4a_template_index if control_kind == "template" else None
++        )
++
++        self._stage4a_sync(search)
++        instrumented_start = time.perf_counter()
++        mrm.retriever.configure_stage4a_capture(
++            enabled=True,
++            zero_template_index=zero_template_index,
++        )
++        retriever_start = time.perf_counter()
++        try:
++            retriever_residual = mrm.retriever(search, cross_block_kv)
++            self._stage4a_sync(retriever_residual)
++            retriever_latency_ms = (time.perf_counter() - retriever_start) * 1000.0
++            retriever_capture = mrm.retriever.consume_stage4a_capture()
++        finally:
++            mrm.retriever.configure_stage4a_capture(enabled=False)
++
++        # Retriever-only bypass semantics: the Retriever still ran, but its
++        # residual is not applied; the MLP still runs once on the unchanged MRM
++        # input.  This is contribution characterization, not a physical skip.
++        retriever_bypass = control_kind == "retriever"
++        post_retriever = search if retriever_bypass else search + retriever_residual
++
++        self._stage4a_sync(post_retriever)
++        mlp_start = time.perf_counter()
++        mlp_residual = mrm.mlp(post_retriever)
++        self._stage4a_sync(mlp_residual)
++        mlp_latency_ms = (time.perf_counter() - mlp_start) * 1000.0
++        computed_output = post_retriever + mlp_residual
++        self._stage4a_sync(computed_output)
++        total_mrm_compute_latency_ms = (time.perf_counter() - instrumented_start) * 1000.0
++
++        whole_bypass = control_kind == "whole"
++        mlp_bypass = control_kind == "mlp"
++        if whole_bypass:
++            applied_output = search
++        elif mlp_bypass:
++            applied_output = post_retriever
++        else:
++            applied_output = computed_output
++
++        stats_start = time.perf_counter()
++        retriever_input_norm_l2 = self._stage4a_norm(search)
++        retriever_residual_norm_l2 = self._stage4a_norm(retriever_residual)
++        mlp_residual_norm_l2 = self._stage4a_norm(mlp_residual)
++        whole_mrm_residual = computed_output - search
++        whole_mrm_residual_norm_l2 = self._stage4a_norm(whole_mrm_residual)
++        gate_evidence = self._stage4a_gate_evidence(retriever_capture)
++        output_norm_l2 = self._stage4a_norm(computed_output)
++        applied_output_norm_l2 = self._stage4a_norm(applied_output)
++        self._stage4a_sync(applied_output)
++        diagnostic_norm_fingerprint_overhead_ms = (
++            time.perf_counter() - stats_start
++        ) * 1000.0
++        total_instrumented_mrm_latency_ms = (
++            time.perf_counter() - instrumented_start
++        ) * 1000.0
++
++        mrm_id = self._stage4a_mrm_ids[index]
++        self._stage4a_current_records.append({
++            "record_type": "mrm",
++            "mrm_id": mrm_id,
++            "module_path": (
++                "lib/models/spiketrack/sdtv3_search_inference.py::"
++                f"Spiking_vit_MetaFormer_Spike_SepConv.mrm[{index}]"
++            ),
++            "mrm_code_index": index,
++            "execution_order": index + 1,
++            "insertion_point": self._stage4a_mrm_locations[index],
++            "input_shape": list(search.shape),
++            "output_shape": list(computed_output.shape),
++            "cache_shape": list(cross_block_kv.shape),
++            "input_time_dim": int(search.shape[0]),
++            "template_time_dim": int(cross_block_kv.shape[0]),
++            "cache_template_dim": int(cross_block_kv.shape[0]),
++            "output_time_dim": int(computed_output.shape[0]),
++            "retriever_input_shape": list(search.shape),
++            "retriever_output_shape": list(retriever_residual.shape),
++            "retriever_module_output_is_residual": True,
++            "retriever_input_norm_l2": retriever_input_norm_l2,
++            "retriever_residual_shape": list(retriever_residual.shape),
++            "retriever_residual_norm_l2": retriever_residual_norm_l2,
++            "mlp_input_shape": list(post_retriever.shape),
++            "mlp_input_source": (
++                "unchanged_mrm_input"
++                if retriever_bypass else "post_retriever_residual_add"
++            ),
++            "mlp_residual_shape": list(mlp_residual.shape),
++            "mlp_residual_norm_l2": mlp_residual_norm_l2,
++            "whole_mrm_residual_shape": list(whole_mrm_residual.shape),
++            "whole_mrm_residual_norm_l2": whole_mrm_residual_norm_l2,
++            # Backwards-compatible aliases retained for the accepted Stage-4A
++            # manifest/reader; v2 consumers should use component fields above.
++            "residual_norm_l2": whole_mrm_residual_norm_l2,
++            "output_norm_l2": output_norm_l2,
++            "applied_output_norm_l2": applied_output_norm_l2,
++            "retriever_latency_ms": retriever_latency_ms,
++            "mlp_latency_ms": mlp_latency_ms,
++            "total_mrm_compute_latency_ms": total_mrm_compute_latency_ms,
++            "module_latency_ms": total_mrm_compute_latency_ms,
++            "diagnostic_norm_fingerprint_overhead_ms": (
++                diagnostic_norm_fingerprint_overhead_ms
++            ),
++            "total_instrumented_mrm_latency_ms": total_instrumented_mrm_latency_ms,
++            "timing_labels": {
++                "retriever_latency_ms": (
++                    "Retriever execution with synchronized boundaries; includes the read-only gate hook"
++                ),
++                "mlp_latency_ms": "MLP execution with synchronized boundaries",
++                "total_mrm_compute_latency_ms": (
++                    "Retriever plus MLP execution and synchronization; excludes norm/fingerprint extraction"
++                ),
++                "diagnostic_norm_fingerprint_overhead_ms": (
++                    "diagnostic reductions, device-to-host scalar reads, gate statistics and SHA-256"
++                ),
++                "synchronization_overhead": (
++                    "included in component timing boundaries; not separately presented as model compute"
++                ),
++            },
++            "latency_synchronized": bool(search.is_cuda),
++            "ablation_control": self._stage4a_ablation,
++            "control_kind": control_kind,
++            "zero_residual_applied": bool(selected),
++            "whole_mrm_bypass_applied": whole_bypass,
++            "retriever_bypass_applied": retriever_bypass,
++            "mlp_bypass_applied": mlp_bypass,
++            "template_path_zero_applied": (
++                zero_template_index + 1 if zero_template_index is not None else None
++            ),
++            "all_retriever_and_mlp_compute_executed": True,
++            "all_pre_gate_paths_computed_before_template_control": (
++                bool(zero_template_index is not None)
++            ),
++            "retriever_bypass_semantics": (
++                "Retriever executed; residual not added; MLP executed on unchanged MRM input"
++                if retriever_bypass else None
++            ),
++            "physical_skip": False,
++            "declared_output_tolerance": 1e-6,
++            "dtype": str(search.dtype),
++            "device": str(search.device),
++            **gate_evidence,
++        })
++        return applied_output
++
+     def _init_weights(self, m):
+         if isinstance(m, nn.Linear):
+             trunc_normal_(m.weight, std=0.02)
+@@ -733,7 +1115,7 @@ class Spiking_vit_MetaFormer_Spike_SepConv(nn.Module):
+ 
+         search = self.downsample1_2(search)
+ 
+-        search = self.mrm[0](search, cache_dict['cross_block_0'])
++        search = self._run_stage4a_mrm(0, search, cache_dict['cross_block_0'])
+ 
+         for blk in self.ConvBlock1_2:
+ 
+@@ -741,7 +1123,7 @@ class Spiking_vit_MetaFormer_Spike_SepConv(nn.Module):
+ 
+         search = self.downsample2(search)
+ 
+-        search = self.mrm[1](search, cache_dict['cross_block_1'])
++        search = self._run_stage4a_mrm(1, search, cache_dict['cross_block_1'])
+ 
+         for blk in self.ConvBlock2_1:
+ 
+@@ -754,31 +1136,43 @@ class Spiking_vit_MetaFormer_Spike_SepConv(nn.Module):
+         search = self.downsample3(search)
+ 
+ 
+-        search = self.mrm[2](search, cache_dict['cross_block_2'])
++        search = self._run_stage4a_mrm(2, search, cache_dict['cross_block_2'])
+ 
+         for i, blk in enumerate(self.block3):
+ 
+             search = blk(search)
+ 
+             if i == 2:
+-                search =  self.mrm[3](search, cache_dict['cross_block_3'])
++                search = self._run_stage4a_mrm(3, search, cache_dict['cross_block_3'])
+ 
+         search = self.downsample4(search)
+ 
+-        search =  self.mrm[4](search, cache_dict['cross_block_4'])
++        search = self._run_stage4a_mrm(4, search, cache_dict['cross_block_4'])
+ 
+         for i, blk in enumerate(self.block4):
+ 
+             search = blk(search)
+ 
+-        search =  self.mrm[5](search, cache_dict['cross_block_5'])
++        search = self._run_stage4a_mrm(5, search, cache_dict['cross_block_5'])
+ 
+         return search
+ 
+     def forward(self, x, cache):
+-
++        if self._stage4a_diagnostics_enabled:
++            self._stage4a_current_records = []
++            self._stage4a_sync(x)
++            start = time.perf_counter()
+         x = self.forward_features(x, cache)
+ 
++        if self._stage4a_diagnostics_enabled:
++            self._stage4a_sync(x)
++            total_forward_ms = (time.perf_counter() - start) * 1000.0
++            self._stage4a_forward_id += 1
++            for record in self._stage4a_current_records:
++                record["forward_id"] = self._stage4a_forward_id
++                record["total_model_forward_ms"] = total_forward_ms
++            self._stage4a_diagnostic_records.extend(self._stage4a_current_records)
++
+         T, B, C, H, W = x.shape
+ 
+         return x
+diff --git a/lib/models/spiketrack/spiketrack_inf.py b/lib/models/spiketrack/spiketrack_inf.py
+index 1e83aa5..74688db 100644
+--- a/lib/models/spiketrack/spiketrack_inf.py
++++ b/lib/models/spiketrack/spiketrack_inf.py
+@@ -48,6 +48,13 @@ class SPIKETRACK(nn.Module):
+     def reset_image_counter(self):
+         self.current_image_idx += 1
+ 
++    def configure_stage4a_diagnostics(self, enabled=False, ablation="none"):
++        """Expose the search-encoder Stage-4A controls without changing forward APIs."""
++        self.encoder.configure_stage4a_diagnostics(enabled=enabled, ablation=ablation)
++
++    def consume_stage4a_diagnostic_records(self):
++        return self.encoder.consume_stage4a_diagnostic_records()
++
+     def forward(self, images_list=None, xz=None, seq=None, mode="encoder"):
+         """
+         image_list: list of template and search images, template images should precede search images
+diff --git a/lib/test/parameter/spiketrack.py b/lib/test/parameter/spiketrack.py
+index ab1b5a8..c1e702f 100644
+--- a/lib/test/parameter/spiketrack.py
++++ b/lib/test/parameter/spiketrack.py
+@@ -26,4 +26,16 @@ def parameters(yaml_name: str):
+     # whether to save boxes from all queries
+     params.save_all_boxes = False
+ 
++    # Stage-4A instrumentation is opt-in and controlled through environment
++    # variables so the official YAML and checkpoint contract stay untouched.
++    params.stage4a_diagnostics = os.environ.get(
++        'SPIKETRACK_STAGE4A_DIAGNOSTICS', '0'
++    ).strip().lower() in {'1', 'true', 'yes', 'on'}
++    params.stage4a_ablation = os.environ.get(
++        'SPIKETRACK_STAGE4A_ABLATION', 'none'
++    ).strip().lower()
++    params.stage4a_log_path = os.environ.get(
++        'SPIKETRACK_STAGE4A_LOG_PATH', ''
++    ).strip()
++
+     return params
+diff --git a/lib/test/tracker/spiketrack_inf.py b/lib/test/tracker/spiketrack_inf.py
+index e717269..cf7ae4e 100644
+--- a/lib/test/tracker/spiketrack_inf.py
++++ b/lib/test/tracker/spiketrack_inf.py
+@@ -1,4 +1,6 @@
+ from lib.test.tracker.basetracker import BaseTracker
++import json
++import os
+ import torch
+ from lib.test.tracker.seqtrack_utils import sample_target, transform_image_to_crop
+ import cv2
+@@ -36,6 +38,19 @@ class SpikeTrack(BaseTracker):
+         self.encoder_temp = encoder_temp.cuda()
+         self.network.eval()
+         self.encoder_temp.eval()
++
++        # Optional Stage-4A characterization controls.  Parameter defaults are
++        # false/none/empty, so normal evaluator behavior is unchanged.
++        self.stage4a_diagnostics_enabled = bool(
++            getattr(params, 'stage4a_diagnostics', False)
++        )
++        self.stage4a_ablation = getattr(params, 'stage4a_ablation', 'none')
++        self.stage4a_log_path = getattr(params, 'stage4a_log_path', '')
++        self.stage4a_diagnostic_records = []
++        self.network.configure_stage4a_diagnostics(
++            enabled=self.stage4a_diagnostics_enabled,
++            ablation=self.stage4a_ablation,
++        )
+         self.preprocessor = Preprocessor()
+         self.state = None
+         self.debug = params.debug
+@@ -55,6 +70,22 @@ class SpikeTrack(BaseTracker):
+         self.cache = None
+         self.spike_rate_dict_temp = None
+         self.window_penalty = True
++        self.last_template_refresh_frame = 0
++
++    def _write_stage4a_records(self, records):
++        self.stage4a_diagnostic_records.extend(records)
++        if not self.stage4a_log_path:
++            return
++        log_parent = os.path.dirname(os.path.abspath(self.stage4a_log_path))
++        os.makedirs(log_parent, exist_ok=True)
++        with open(self.stage4a_log_path, 'a', encoding='utf-8') as stream:
++            for record in records:
++                stream.write(json.dumps(record, sort_keys=True) + '\n')
++
++    def consume_stage4a_diagnostic_records(self):
++        records = self.stage4a_diagnostic_records
++        self.stage4a_diagnostic_records = []
++        return records
+ 
+     def initialize(self, image, info: dict):
+ 
+@@ -78,11 +109,17 @@ class SpikeTrack(BaseTracker):
+                                                    output_sz=self.params.search_size)  # (x1, y1, w, h)
+         search = self.preprocessor.process(x_patch_arr)
+         # run the encoder
++        if self.stage4a_diagnostics_enabled:
++            torch.cuda.synchronize(search.device)
++            stage4a_model_start = time.perf_counter()
+         with torch.no_grad():
+             xz = self.network.forward_encoder(search, self.cache)
+         # run the decoder
+         with torch.no_grad():
+             out_dict, spike_rate_dict = self.network.inference_decoder(xz=xz)
++        if self.stage4a_diagnostics_enabled:
++            torch.cuda.synchronize(search.device)
++            stage4a_model_forward_ms = (time.perf_counter() - stage4a_model_start) * 1000.0
+ 
+         pred_score_map = out_dict['score_map']
+         if self.window_penalty: # for window penalty
+@@ -105,6 +142,7 @@ class SpikeTrack(BaseTracker):
+ 
+         self.state = clip_box(self.map_box_back(pred_box, resize_factor), H, W, margin=10)
+ 
++        template_refreshed = False
+         if self.num_template > 1:
+             if (self.frame_id % self.update_intervals == 0) and (conf_score > self.update_threshold):        
+ 
+@@ -119,6 +157,29 @@ class SpikeTrack(BaseTracker):
+                     with torch.no_grad():
+                         template = torch.stack(self.template_list, dim=0)
+                         self.cache, self.spike_rate_dict_temp = self.encoder_temp.forward(template)
++                    template_refreshed = True
++                    self.last_template_refresh_frame = self.frame_id
++
++        if self.stage4a_diagnostics_enabled:
++            mode = f"T{self.num_template}"
++            mrm_records = self.network.consume_stage4a_diagnostic_records()
++            for record in mrm_records:
++                record["frame_id"] = self.frame_id
++                record["tracker_mode"] = mode
++                record["total_tracker_model_forward_ms"] = stage4a_model_forward_ms
++            tracker_record = {
++                "record_type": "tracker_frame",
++                "frame_id": self.frame_id,
++                "tracker_mode": mode,
++                "prediction_box": [float(value) for value in self.state],
++                "score_map_max": float(pred_score_map.detach().max().item()),
++                "confidence_score": float(conf_score.detach().item()),
++                "template_refreshed": template_refreshed,
++                "template_age": self.frame_id - self.last_template_refresh_frame,
++                "ablation_control": self.stage4a_ablation,
++                "total_tracker_model_forward_ms": stage4a_model_forward_ms,
++            }
++            self._write_stage4a_records(mrm_records + [tracker_record])
+ 
+         # for debug
+         if self.debug == 1:
+diff --git a/tracking/stage4a_spiketrack_smoke.py b/tracking/stage4a_spiketrack_smoke.py
+new file mode 100644
+index 0000000..35e0a39
+--- /dev/null
++++ b/tracking/stage4a_spiketrack_smoke.py
+@@ -0,0 +1,707 @@
++"""Bounded Stage-4A SpikeTrack instrumentation smoke runner.
++
++This runner uses deterministic synthetic tensors or a bounded pair of real
++source frames with an explicitly provided released tracker checkpoint.  It is
++a wiring/parity smoke only: it is not benchmark reproduction and does not
++assign diagnostic outcomes.
++"""
++
++import argparse
++import hashlib
++import json
++import os
++from pathlib import Path
++import random
++import subprocess
++import sys
++import time
++
++# Required by PyTorch deterministic CUDA matmul paths.  Set this before
++# importing torch so the CUDA context cannot be initialized first.
++os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
++
++import numpy as np
++import torch
++
++
++RUNNER_ROOT = Path(__file__).resolve().parents[1]
++PROJECT_ROOT = Path(
++    os.environ.get("SPIKETRACK_STAGE4A_SOURCE_ROOT", str(RUNNER_ROOT))
++).resolve()
++if str(PROJECT_ROOT) not in sys.path:
++    sys.path.insert(0, str(PROJECT_ROOT))
++
++from lib.config.spiketrack.config import cfg, update_config_from_file
++from lib.models.spiketrack.spiketrack_inf import build_spiketrack
++from lib.test.utils.hann import hann2d
++
++
++WHOLE_CONTROL_SELECTORS = {
++    "mrm1": {1},
++    "mrm2": {2},
++    "mrm3": {3},
++    "mrm4": {4},
++    "mrm5": {5},
++    "mrm6": {6},
++    "early": {1, 2},
++    "middle": {3, 4},
++    "late": {5, 6},
++}
++
++
++def control_specs(template_count):
++    specs = [
++        {
++            "selector": selector,
++            "kind": "whole",
++            "selected_mrms": selected_ids,
++            "template_path": None,
++        }
++        for selector, selected_ids in WHOLE_CONTROL_SELECTORS.items()
++    ]
++    for mrm_number in range(1, 7):
++        for kind in ("retriever", "mlp"):
++            specs.append({
++                "selector": f"mrm{mrm_number}_{kind}",
++                "kind": kind,
++                "selected_mrms": {mrm_number},
++                "template_path": None,
++            })
++        if template_count == 3:
++            for template_path in range(1, 4):
++                specs.append({
++                    "selector": f"mrm{mrm_number}_template{template_path}",
++                    "kind": "template",
++                    "selected_mrms": {mrm_number},
++                    "template_path": template_path,
++                })
++    return specs
++
++
++def parse_args():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument(
++        "--config",
++        type=Path,
++        default=PROJECT_ROOT / "experiments/spiketrack/spiketrack_s256_t1.yaml",
++    )
++    parser.add_argument("--checkpoint", type=Path, required=True)
++    parser.add_argument("--device", default="cuda")
++    parser.add_argument("--seed", type=int, default=20260825)
++    parser.add_argument("--tolerance", type=float, default=1e-6)
++    parser.add_argument("--output-json", type=Path)
++    parser.add_argument(
++        "--output-tensors",
++        type=Path,
++        help="Write uncommitted NPZ outputs for clean-versus-refined comparison.",
++    )
++    parser.add_argument(
++        "--reference-tensors",
++        type=Path,
++        help="NPZ produced by a clean pinned run; report direct max-abs parity.",
++    )
++    parser.add_argument(
++        "--real-template-image",
++        type=Path,
++        help="Real RGB source frame used for the initialization crop.",
++    )
++    parser.add_argument(
++        "--real-search-image",
++        type=Path,
++        help="Real RGB source frame used for the one-frame search crop.",
++    )
++    parser.add_argument(
++        "--real-init-box",
++        type=float,
++        nargs=4,
++        metavar=("X", "Y", "W", "H"),
++        help="Initialization box for bounded real-image preprocessing.",
++    )
++    parser.add_argument(
++        "--clean-baseline-only",
++        action="store_true",
++        help=(
++            "Run one forward from an unmodified pinned source tree. Set "
++            "SPIKETRACK_STAGE4A_SOURCE_ROOT to that tree."
++        ),
++    )
++    return parser.parse_args()
++
++
++def sha256_file(path):
++    digest = hashlib.sha256()
++    with path.open("rb") as stream:
++        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
++            digest.update(chunk)
++    return digest.hexdigest()
++
++
++def tensor_fingerprint(tensor):
++    value = tensor.detach().cpu().contiguous()
++    header = json.dumps(
++        {"dtype": str(value.dtype), "shape": list(value.shape)},
++        sort_keys=True,
++    ).encode("utf-8")
++    digest = hashlib.sha256(header + b"\0" + value.numpy().tobytes()).hexdigest()
++    return {
++        "dtype": str(value.dtype),
++        "shape": list(value.shape),
++        "sha256": digest,
++    }
++
++
++def output_fingerprints(result):
++    return {
++        "encoded": tensor_fingerprint(result["encoded"]),
++        "prediction_box": tensor_fingerprint(result["prediction_box"]),
++        "score_map_max": tensor_fingerprint(result["score_map_max"]),
++        "head": {
++            key: tensor_fingerprint(value)
++            for key, value in sorted(result["head"].items())
++        },
++    }
++
++
++def result_arrays(result):
++    arrays = {
++        "encoded": result["encoded"].detach().cpu().numpy(),
++        "prediction_box": result["prediction_box"].detach().cpu().numpy(),
++        "score_map_max": result["score_map_max"].detach().cpu().numpy(),
++    }
++    arrays.update({
++        f"head__{key}": value.detach().cpu().numpy()
++        for key, value in sorted(result["head"].items())
++    })
++    return arrays
++
++
++def write_result_arrays(path, result):
++    path.parent.mkdir(parents=True, exist_ok=True)
++    np.savez_compressed(path, **result_arrays(result))
++
++
++def compare_reference_arrays(path, result, tolerance):
++    current = result_arrays(result)
++    with np.load(path, allow_pickle=False) as reference:
++        reference_keys = set(reference.files)
++        current_keys = set(current)
++        if reference_keys != current_keys:
++            raise AssertionError({
++                "missing_from_current": sorted(reference_keys - current_keys),
++                "missing_from_reference": sorted(current_keys - reference_keys),
++            })
++        differences = {}
++        for key in sorted(current):
++            if reference[key].shape != current[key].shape:
++                raise AssertionError(
++                    f"{key}: reference shape {reference[key].shape} != current {current[key].shape}"
++                )
++            differences[key] = float(
++                np.max(np.abs(reference[key] - current[key]), initial=0.0)
++            )
++    maximum = max(differences.values(), default=0.0)
++    return {
++        "reference_tensors": str(path.resolve()),
++        "tolerance": tolerance,
++        "tensor_max_abs_diffs": differences,
++        "maximum_observed_abs_diff": maximum,
++        "pass": maximum <= tolerance,
++    }
++
++
++def configure_determinism(seed):
++    random.seed(seed)
++    np.random.seed(seed)
++    torch.manual_seed(seed)
++    if torch.cuda.is_available():
++        torch.cuda.manual_seed_all(seed)
++    torch.backends.cudnn.benchmark = False
++    torch.backends.cudnn.deterministic = True
++    torch.use_deterministic_algorithms(True)
++
++
++def synchronize(device):
++    if device.type == "cuda":
++        torch.cuda.synchronize(device)
++
++
++def load_models(config_path, checkpoint_path, device):
++    allowed_configs = {"spiketrack_s256_t1.yaml", "spiketrack_s256_t3.yaml"}
++    if config_path.name not in allowed_configs:
++        raise ValueError(
++            "Stage-4A smoke accepts only released Small-256 T1/T3 configs; "
++            f"received {config_path.name}"
++        )
++    update_config_from_file(str(config_path))
++    if cfg.MODEL.ENCODER.TYPE != "Efficient_Spiking_Transformer_s":
++        raise ValueError(f"Expected Small encoder, got {cfg.MODEL.ENCODER.TYPE}")
++    if cfg.DATA.SEARCH.SIZE != 256 or cfg.TEST.SEARCH_SIZE != 256:
++        raise ValueError("Expected Small-256 config with 256-pixel search input")
++    expected_templates = 1 if config_path.stem.endswith("_t1") else 3
++    if cfg.TEST.NUM_TEMPLATES != expected_templates:
++        raise ValueError(
++            f"Config name implies T{expected_templates}, but TEST.NUM_TEMPLATES="
++            f"{cfg.TEST.NUM_TEMPLATES}"
++        )
++
++    network, encoder_temp = build_spiketrack(cfg, save_sfr=False)
++    checkpoint = torch.load(checkpoint_path, map_location="cpu")
++    if "net" not in checkpoint:
++        raise KeyError("Tracker checkpoint does not contain the required 'net' state")
++    state_dict = checkpoint["net"]
++    network_load = network.load_state_dict(state_dict, strict=False)
++    encoder_state = {
++        key.replace("encoder.", "", 1): value
++        for key, value in state_dict.items()
++        if key.startswith("encoder.")
++    }
++    encoder_load = encoder_temp.load_state_dict(encoder_state, strict=False)
++    network.to(device).eval()
++    encoder_temp.to(device).eval()
++    return network, encoder_temp, network_load, encoder_load
++
++
++def _normalize_rgb_crop(image, device):
++    mean = torch.tensor([0.485, 0.456, 0.406], device=device).view(1, 3, 1, 1)
++    std = torch.tensor([0.229, 0.224, 0.225], device=device).view(1, 3, 1, 1)
++    tensor = (
++        torch.from_numpy(image.copy())
++        .to(device=device, dtype=torch.float32)
++        .permute(2, 0, 1)
++        .unsqueeze(0)
++    )
++    return ((tensor / 255.0) - mean) / std
++
++
++def make_inputs(device, seed, args):
++    real_arguments = (
++        args.real_template_image,
++        args.real_search_image,
++        args.real_init_box,
++    )
++    if any(value is not None for value in real_arguments):
++        if not all(value is not None for value in real_arguments):
++            raise ValueError(
++                "Real-image mode requires --real-template-image, "
++                "--real-search-image, and --real-init-box together"
++            )
++        import cv2
++        from lib.test.tracker.seqtrack_utils import sample_target
++
++        def read_rgb(path):
++            bgr = cv2.imread(str(path))
++            if bgr is None:
++                raise FileNotFoundError(path)
++            return cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB)
++
++        template_rgb = read_rgb(args.real_template_image.resolve())
++        search_rgb = read_rgb(args.real_search_image.resolve())
++        init_box = [float(value) for value in args.real_init_box]
++        template_crop, _ = sample_target(
++            template_rgb,
++            init_box,
++            cfg.TEST.TEMPLATE_FACTOR,
++            output_sz=cfg.TEST.TEMPLATE_SIZE,
++        )
++        search_crop, _ = sample_target(
++            search_rgb,
++            init_box,
++            cfg.TEST.SEARCH_FACTOR,
++            output_sz=cfg.TEST.SEARCH_SIZE,
++        )
++        one_template = _normalize_rgb_crop(template_crop, device)
++        template = torch.stack(
++            [one_template] * int(cfg.TEST.NUM_TEMPLATES), dim=0
++        )
++        search = _normalize_rgb_crop(search_crop, device)
++        metadata = {
++            "input_mode": "real_image_one_frame",
++            "template_image": str(args.real_template_image.resolve()),
++            "search_image": str(args.real_search_image.resolve()),
++            "initialization_box": init_box,
++            "t3_initialization_contract": (
++                "repeat the initial template three times, matching SpikeTrack.initialize"
++                if int(cfg.TEST.NUM_TEMPLATES) == 3
++                else "single initial template"
++            ),
++        }
++        return template, search, metadata
++
++    generator = torch.Generator(device="cpu").manual_seed(seed)
++    template_count = int(cfg.TEST.NUM_TEMPLATES)
++    template = torch.randn(
++        template_count, 1, 3, cfg.TEST.TEMPLATE_SIZE, cfg.TEST.TEMPLATE_SIZE,
++        generator=generator,
++        dtype=torch.float32,
++    ).to(device)
++    search = torch.randn(
++        1, 3, cfg.TEST.SEARCH_SIZE, cfg.TEST.SEARCH_SIZE,
++        generator=generator,
++        dtype=torch.float32,
++    ).to(device)
++    return template, search, {
++        "input_mode": "deterministic_synthetic",
++        "template_image": None,
++        "search_image": None,
++        "initialization_box": None,
++        "t3_initialization_contract": None,
++    }
++
++
++def run_forward(network, search, cache, device):
++    synchronize(device)
++    start = time.perf_counter()
++    with torch.inference_mode():
++        encoded = network.forward_encoder(search, cache)
++        head = network.forward_decoder(encoded)
++        score_map = head["score_map"]
++        feature_size = cfg.TEST.SEARCH_SIZE // 16
++        window = hann2d(torch.tensor([feature_size, feature_size])).to(device)
++        response = window * score_map
++        if "size_map" in head:
++            prediction_box, _ = network.decoder.cal_bbox(
++                response, head["size_map"], head["offset_map"], return_score=True
++            )
++        else:
++            prediction_box, _ = network.decoder.cal_bbox(
++                response, head["offset_map"], return_score=True
++            )
++    synchronize(device)
++    encoder_decoder_ms = (time.perf_counter() - start) * 1000.0
++    records = (
++        network.consume_stage4a_diagnostic_records()
++        if hasattr(network, "consume_stage4a_diagnostic_records")
++        else []
++    )
++    return {
++        "encoded": encoded.detach(),
++        "head": {key: value.detach() for key, value in head.items() if torch.is_tensor(value)},
++        "prediction_box": prediction_box.detach(),
++        "score_map_max": score_map.detach().max(),
++        "records": records,
++        "encoder_decoder_ms": encoder_decoder_ms,
++    }
++
++
++def max_abs_difference(left, right):
++    return float((left - right).abs().max().item())
++
++
++def compare_outputs(baseline, instrumented):
++    common_head_keys = sorted(set(baseline["head"]) & set(instrumented["head"]))
++    head_diffs = {
++        key: max_abs_difference(baseline["head"][key], instrumented["head"][key])
++        for key in common_head_keys
++    }
++    return {
++        "encoded_max_abs_diff": max_abs_difference(
++            baseline["encoded"], instrumented["encoded"]
++        ),
++        "prediction_box_max_abs_diff": max_abs_difference(
++            baseline["prediction_box"], instrumented["prediction_box"]
++        ),
++        "score_map_max_abs_diff": max_abs_difference(
++            baseline["head"]["score_map"], instrumented["head"]["score_map"]
++        ),
++        "score_max_scalar_abs_diff": abs(
++            float(baseline["score_map_max"].item())
++            - float(instrumented["score_map_max"].item())
++        ),
++        "head_tensor_max_abs_diff": max(head_diffs.values(), default=0.0),
++        "head_tensor_diffs": head_diffs,
++    }
++
++
++def main():
++    args = parse_args()
++    config_path = args.config.resolve()
++    checkpoint_path = args.checkpoint.resolve()
++    if not config_path.is_file():
++        raise FileNotFoundError(config_path)
++    if not checkpoint_path.is_file():
++        raise FileNotFoundError(checkpoint_path)
++    device = torch.device(args.device)
++    if device.type == "cuda" and not torch.cuda.is_available():
++        raise RuntimeError("CUDA device requested but torch.cuda.is_available() is false")
++
++    configure_determinism(args.seed)
++    network, encoder_temp, network_load, encoder_load = load_models(
++        config_path, checkpoint_path, device
++    )
++    template, search, input_metadata = make_inputs(device, args.seed, args)
++    with torch.inference_mode():
++        cache, _ = encoder_temp(template)
++
++    if args.clean_baseline_only:
++        baseline = run_forward(network, search, cache, device)
++        if args.output_tensors:
++            write_result_arrays(args.output_tensors.resolve(), baseline)
++        clean_reference_parity = (
++            compare_reference_arrays(
++                args.reference_tensors.resolve(), baseline, args.tolerance
++            )
++            if args.reference_tensors else None
++        )
++        try:
++            pinned_commit = subprocess.check_output(
++                ["git", "rev-parse", "HEAD"], cwd=PROJECT_ROOT, text=True
++            ).strip()
++        except (OSError, subprocess.CalledProcessError):
++            pinned_commit = "UNAVAILABLE"
++        report = {
++            "scope": (
++                "STAGE4A_CLEAN_PINNED_BASELINE_BOUNDED_REAL_IMAGE_ONE_FRAME"
++                if input_metadata["input_mode"] == "real_image_one_frame"
++                else "STAGE4A_CLEAN_PINNED_BASELINE_SYNTHETIC_FORWARD"
++            ),
++            "run_mode": "original_pinned_baseline",
++            "source_root": str(PROJECT_ROOT),
++            "pinned_commit": pinned_commit,
++            "config": str(config_path),
++            "checkpoint": str(checkpoint_path),
++            "checkpoint_sha256": sha256_file(checkpoint_path),
++            "tracker_mode": f"T{cfg.TEST.NUM_TEMPLATES}",
++            "dtype": "torch.float32",
++            "device": str(device),
++            "seed": args.seed,
++            "input": input_metadata,
++            "deterministic_settings": {
++                "cublas_workspace_config": os.environ.get("CUBLAS_WORKSPACE_CONFIG"),
++                "cudnn_benchmark": bool(torch.backends.cudnn.benchmark),
++                "cudnn_deterministic": bool(torch.backends.cudnn.deterministic),
++                "torch_deterministic_algorithms": bool(
++                    torch.are_deterministic_algorithms_enabled()
++                ),
++            },
++            "checkpoint_load": {
++                "network_missing_keys": list(network_load.missing_keys),
++                "network_unexpected_keys": list(network_load.unexpected_keys),
++                "template_encoder_missing_keys": list(encoder_load.missing_keys),
++                "template_encoder_unexpected_keys": list(
++                    encoder_load.unexpected_keys
++                ),
++            },
++            "output_fingerprints": output_fingerprints(baseline),
++            "encoder_decoder_ms": baseline["encoder_decoder_ms"],
++            "clean_reference_parity": clean_reference_parity,
++            "output_tensors": (
++                str(args.output_tensors.resolve()) if args.output_tensors else None
++            ),
++        }
++        rendered = json.dumps(report, indent=2, sort_keys=True)
++        print(rendered)
++        if args.output_json:
++            args.output_json.parent.mkdir(parents=True, exist_ok=True)
++            args.output_json.write_text(rendered + "\n", encoding="utf-8")
++        return
++
++    # A: instrumentation disabled. B: logging enabled, no ablation. Both use
++    # the same model, checkpoint, cache and immutable synthetic search tensor.
++    network.configure_stage4a_diagnostics(enabled=False, ablation="none")
++    baseline = run_forward(network, search, cache, device)
++    network.configure_stage4a_diagnostics(enabled=True, ablation="none")
++    instrumented = run_forward(network, search, cache, device)
++    parity_diffs = compare_outputs(baseline, instrumented)
++    parity_max = max(
++        parity_diffs["encoded_max_abs_diff"],
++        parity_diffs["prediction_box_max_abs_diff"],
++        parity_diffs["score_map_max_abs_diff"],
++        parity_diffs["score_max_scalar_abs_diff"],
++        parity_diffs["head_tensor_max_abs_diff"],
++    )
++    parity_pass = parity_max <= args.tolerance
++    if len(instrumented["records"]) != 6:
++        raise AssertionError(
++            f"Expected six MRM records, got {len(instrumented['records'])}"
++        )
++
++    if args.output_tensors:
++        write_result_arrays(args.output_tensors.resolve(), instrumented)
++    clean_reference_parity = (
++        compare_reference_arrays(
++            args.reference_tensors.resolve(), instrumented, args.tolerance
++        )
++        if args.reference_tensors else None
++    )
++
++    # T3 no-ablation logging must expose all three raw pre-gate responses and
++    # full gate statistics/fingerprints for every MRM.
++    if int(cfg.TEST.NUM_TEMPLATES) == 3:
++        for record in instrumented["records"]:
++            if len(record["pre_gate_response_norms_l2"]) != 3:
++                raise AssertionError(
++                    f"{record['mrm_id']}: expected three pre-gate response norms"
++                )
++            if len(record["gate_weight_path_stats"]) != 3:
++                raise AssertionError(
++                    f"{record['mrm_id']}: expected three gate-weight path statistics"
++                )
++            if not record["gate_weight_tensor_fingerprint"]:
++                raise AssertionError(
++                    f"{record['mrm_id']}: missing gate-weight tensor fingerprint"
++                )
++
++    control_results = []
++    for spec in control_specs(int(cfg.TEST.NUM_TEMPLATES)):
++        selector = spec["selector"]
++        selected_ids = spec["selected_mrms"]
++        network.configure_stage4a_diagnostics(enabled=True, ablation=selector)
++        result = run_forward(network, search, cache, device)
++        records = result["records"]
++        if len(records) != 6:
++            raise AssertionError(f"{selector}: expected six MRM records, got {len(records)}")
++        applied_ids = {
++            int(record["mrm_id"].replace("MRM", ""))
++            for record in records
++            if record["zero_residual_applied"]
++        }
++        if applied_ids != selected_ids:
++            raise AssertionError(
++                f"{selector}: applied {sorted(applied_ids)}, expected {sorted(selected_ids)}"
++            )
++        if any(record["physical_skip"] for record in records):
++            raise AssertionError(f"{selector}: a control incorrectly reported physical skipping")
++        if any(not record["all_retriever_and_mlp_compute_executed"] for record in records):
++            raise AssertionError(f"{selector}: component computation was not fully executed")
++        selected_records = [
++            record for record in records
++            if int(record["mrm_id"].replace("MRM", "")) in selected_ids
++        ]
++        if any(record["control_kind"] != spec["kind"] for record in selected_records):
++            raise AssertionError(f"{selector}: control-kind mismatch")
++        if spec["kind"] == "whole" and any(
++            not record["whole_mrm_bypass_applied"] for record in selected_records
++        ):
++            raise AssertionError(f"{selector}: whole-MRM bypass was not applied")
++        if spec["kind"] == "retriever" and any(
++            not record["retriever_bypass_applied"] for record in selected_records
++        ):
++            raise AssertionError(f"{selector}: Retriever-only bypass was not applied")
++        if spec["kind"] == "retriever" and any(
++            record["mlp_input_source"] != "unchanged_mrm_input"
++            for record in selected_records
++        ):
++            raise AssertionError(
++                f"{selector}: MLP did not run on the unchanged MRM input"
++            )
++        if spec["kind"] == "mlp" and any(
++            not record["mlp_bypass_applied"] for record in selected_records
++        ):
++            raise AssertionError(f"{selector}: MLP-only bypass was not applied")
++        if spec["kind"] == "template" and any(
++            record["template_path_zero_applied"] != spec["template_path"]
++            for record in selected_records
++        ):
++            raise AssertionError(f"{selector}: T3 path-zero control mismatch")
++        if spec["kind"] == "template" and any(
++            not record["all_pre_gate_paths_computed_before_template_control"]
++            or len(record["pre_gate_response_norms_l2"]) != 3
++            or record["applied_pre_gate_response_norms_l2"][
++                spec["template_path"] - 1
++            ] != 0.0
++            for record in selected_records
++        ):
++            raise AssertionError(
++                f"{selector}: selected pre-gate response was not deterministically zeroed"
++            )
++        finite = all(torch.isfinite(value).all().item() for value in result["head"].values())
++        control_results.append({
++            "selector": selector,
++            "selected_mrms": sorted(selected_ids),
++            "control_kind": spec["kind"],
++            "template_path": spec["template_path"],
++            "all_six_mrms_executed": True,
++            "physical_skip": False,
++            "head_outputs_finite": bool(finite),
++            "encoder_decoder_ms": result["encoder_decoder_ms"],
++        })
++
++    try:
++        pinned_commit = subprocess.check_output(
++            ["git", "rev-parse", "HEAD"], cwd=PROJECT_ROOT, text=True
++        ).strip()
++    except (OSError, subprocess.CalledProcessError):
++        pinned_commit = "UNAVAILABLE"
++
++    report = {
++        "scope": (
++            "STAGE4A_BOUNDED_REAL_IMAGE_ONE_FRAME_SMOKE_NOT_BENCHMARK_REPRODUCTION"
++            if input_metadata["input_mode"] == "real_image_one_frame"
++            else "STAGE4A_SYNTHETIC_SMOKE_ONLY_NOT_BENCHMARK_REPRODUCTION"
++        ),
++        "run_mode": "instrumented_default_off_then_logging_on_no_ablation",
++        "source_root": str(PROJECT_ROOT),
++        "pinned_commit": pinned_commit,
++        "config": str(config_path),
++        "checkpoint": str(checkpoint_path),
++        "checkpoint_sha256": sha256_file(checkpoint_path),
++        "tracker_mode": f"T{cfg.TEST.NUM_TEMPLATES}",
++        "dtype": "torch.float32",
++        "device": str(device),
++        "seed": args.seed,
++        "input": input_metadata,
++        "deterministic_algorithms": True,
++        "deterministic_settings": {
++            "cublas_workspace_config": os.environ.get("CUBLAS_WORKSPACE_CONFIG"),
++            "cudnn_benchmark": bool(torch.backends.cudnn.benchmark),
++            "cudnn_deterministic": bool(torch.backends.cudnn.deterministic),
++            "torch_deterministic_algorithms": bool(
++                torch.are_deterministic_algorithms_enabled()
++            ),
++        },
++        "checkpoint_load": {
++            "network_missing_keys": list(network_load.missing_keys),
++            "network_unexpected_keys": list(network_load.unexpected_keys),
++            "template_encoder_missing_keys": list(encoder_load.missing_keys),
++            "template_encoder_unexpected_keys": list(encoder_load.unexpected_keys),
++        },
++        "parity": {
++            "tolerance": args.tolerance,
++            "maximum_observed_abs_diff": parity_max,
++            "pass": parity_pass,
++            **parity_diffs,
++        },
++        "clean_pinned_reference_parity": clean_reference_parity,
++        "timing_semantics": {
++            "retriever_latency_ms": (
++                "Retriever execution with synchronized boundaries; includes read-only gate hook"
++            ),
++            "mlp_latency_ms": "MLP execution with synchronized boundaries",
++            "total_mrm_compute_latency_ms": (
++                "Retriever plus MLP execution/synchronization; excludes reductions and hashing"
++            ),
++            "diagnostic_norm_fingerprint_overhead_ms": (
++                "norm reductions, scalar device reads, gate statistics and SHA-256"
++            ),
++            "total_model_forward_ms": "search encoder only; CUDA-synchronized on CUDA",
++            "encoder_decoder_ms": "runner search encoder plus decoder; CUDA-synchronized on CUDA",
++            "total_tracker_model_forward_ms": (
++                "tracker search encoder plus decoder; emitted by lib/test/tracker/spiketrack_inf.py"
++            ),
++        },
++        "baseline_encoder_decoder_ms": baseline["encoder_decoder_ms"],
++        "instrumented_encoder_decoder_ms": instrumented["encoder_decoder_ms"],
++        "instrumented_mrm_records": instrumented["records"],
++        "baseline_output_fingerprints": output_fingerprints(baseline),
++        "instrumented_output_fingerprints": output_fingerprints(instrumented),
++        "controls": control_results,
++        "control_count": len(control_results),
++        "output_tensors": (
++            str(args.output_tensors.resolve()) if args.output_tensors else None
++        ),
++    }
++    rendered = json.dumps(report, indent=2, sort_keys=True)
++    print(rendered)
++    if args.output_json:
++        args.output_json.parent.mkdir(parents=True, exist_ok=True)
++        args.output_json.write_text(rendered + "\n", encoding="utf-8")
++    if not parity_pass:
++        raise SystemExit(2)
++    if clean_reference_parity and not clean_reference_parity["pass"]:
++        raise SystemExit(4)
++    if not all(item["head_outputs_finite"] for item in control_results):
++        raise SystemExit(3)
++
++
++if __name__ == "__main__":
++    main()

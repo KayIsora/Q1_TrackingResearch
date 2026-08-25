@@ -1,0 +1,142 @@
+Stage-4A-R bounded reproduction command record
+===============================================
+
+Scope boundary
+--------------
+Only Deer, Crossing, and Couple were executed. No Stage 4B diagnostic ablation
+or additional sequence was run. PowerShell was used on Windows unless a line is
+explicitly labeled WSL. Paths are absolute so the record is independently
+actionable on the audited machine.
+
+Pinned source and external staging
+----------------------------------
+git -C E:\Robot_Backup\tmp\q1_source_norm\efficiency\repos\SpikeTrack worktree add --detach E:\Robot_Backup\tmp\stage4A_R_official_source 1537db51a1cc9f6e30cce469fba3e51f5721b3d0
+New-Item -ItemType Directory -Path E:\Robot_Backup\tmp\stage4A_R_otb3,E:\Robot_Backup\tmp\stage4A_R_runs,E:\Robot_Backup\tmp\stage4A_R_helpers
+robocopy E:\Robot_Backup\TrackingResearch-master\OtherTracker\verified\TRACA-master\sequence\Deer E:\Robot_Backup\tmp\stage4A_R_otb3\Deer /E /COPY:DAT /DCOPY:DAT /R:1 /W:1 /NFL /NDL /NJH /NJS /NP
+robocopy E:\Robot_Backup\TrackingResearch-master\OtherTracker\verified\ECO-master\sequences\Crossing E:\Robot_Backup\tmp\stage4A_R_otb3\Crossing /E /COPY:DAT /DCOPY:DAT /R:1 /W:1 /NFL /NDL /NJH /NJS /NP
+robocopy E:\Robot_Backup\TrackingResearch-master\OtherTracker\verified\SRDCF\SRDCF\sequences\Couple E:\Robot_Backup\tmp\stage4A_R_otb3\Couple /E /COPY:DAT /DCOPY:DAT /R:1 /W:1 /NFL /NDL /NJH /NJS /NP
+
+The exact temporary file contents are committed beside this record:
+
+- official_runner_local.py -> E:\Robot_Backup\tmp\stage4A_R_official_source\lib\test\evaluation\local.py
+- deterministic_sitecustomize.py -> E:\Robot_Backup\tmp\stage4A_R_helpers\sitecustomize.py
+- make_otb_loader_stubs.py -> E:\Robot_Backup\tmp\stage4A_R_helpers\make_otb_loader_stubs.py
+
+The successful metadata-stub creation command was:
+
+$env:SPIKETRACK_STAGE4A_R_SAVE_ROOT='E:\Robot_Backup\tmp\stage4A_R_runs\stub_setup'
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\tmp\stage4A_R_helpers\make_otb_loader_stubs.py
+
+The unmodified pinned OTBDataset eagerly parses all 100 annotations before
+selecting a requested name. The external stubs contain six dummy GT rows for
+unexecuted sequence names only; only Deer/Crossing/Couple have real images and
+only those three names were passed to tracking/test.py. See setup_failures.txt.
+
+Duplicate-copy discovery
+------------------------
+rg --files E:\Robot_Backup -g groundtruth_rect.txt | rg -i '[\\/](Deer|Crossing|Couple)[\\/]groundtruth_rect\.txt$'
+rg --files E:\Robot_Backup -g groundtruth.txt | rg -i '[\\/]Deer[\\/]groundtruth\.txt$'
+
+The second command exposes the two SCT4 Deer copies that use groundtruth.txt.
+Copy choice used completeness, official frame range, prior-adapter continuity,
+and raw/decoded-pixel/parsed-GT identity only. Prediction values were not used.
+
+Official default mode: exact CLI and isolated outputs
+-----------------------------------------------------
+The following exact CLI was executed once per sequence and per isolated run
+root. CUBLAS_WORKSPACE_CONFIG, PYTHONHASHSEED, and PYTHONPATH were removed for
+these default-mode processes.
+
+Remove-Item Env:CUBLAS_WORKSPACE_CONFIG -ErrorAction SilentlyContinue
+Remove-Item Env:PYTHONHASHSEED -ErrorAction SilentlyContinue
+Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
+
+$env:SPIKETRACK_STAGE4A_R_SAVE_ROOT='E:\Robot_Backup\tmp\stage4A_R_runs\official_runner_default_run1'
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe .\tracking\test.py spiketrack spiketrack_s256_t1 --dataset_name otb --sequence Deer --threads 0 --num_gpus 1 --checkpoint_path E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --inference_mode True
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe .\tracking\test.py spiketrack spiketrack_s256_t1 --dataset_name otb --sequence Crossing --threads 0 --num_gpus 1 --checkpoint_path E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --inference_mode True
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe .\tracking\test.py spiketrack spiketrack_s256_t1 --dataset_name otb --sequence Couple --threads 0 --num_gpus 1 --checkpoint_path E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --inference_mode True
+
+The same three commands were repeated after setting each isolated root:
+
+$env:SPIKETRACK_STAGE4A_R_SAVE_ROOT='E:\Robot_Backup\tmp\stage4A_R_runs\official_runner_default_run2'
+$env:SPIKETRACK_STAGE4A_R_SAVE_ROOT='E:\Robot_Backup\tmp\stage4A_R_runs\official_runner_default_run3'
+
+Working directory for every official command:
+E:\Robot_Backup\tmp\stage4A_R_official_source
+
+Official deterministic characterization: exact CLI
+----------------------------------------------------
+$env:SPIKETRACK_STAGE4A_R_SAVE_ROOT='E:\Robot_Backup\tmp\stage4A_R_runs\official_runner_deterministic'
+$env:PYTHONPATH='E:\Robot_Backup\tmp\stage4A_R_helpers'
+$env:PYTHONHASHSEED='20260825'
+$env:CUBLAS_WORKSPACE_CONFIG=':4096:8'
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe .\tracking\test.py spiketrack spiketrack_s256_t1 --dataset_name otb --sequence Deer --threads 0 --num_gpus 1 --checkpoint_path E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --inference_mode True
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe .\tracking\test.py spiketrack spiketrack_s256_t1 --dataset_name otb --sequence Crossing --threads 0 --num_gpus 1 --checkpoint_path E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --inference_mode True
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe .\tracking\test.py spiketrack spiketrack_s256_t1 --dataset_name otb --sequence Couple --threads 0 --num_gpus 1 --checkpoint_path E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --inference_mode True
+
+The deterministic_sitecustomize.py bootstrap is loaded by Python before the
+official runner imports Torch. It forces seed 20260825, CUBLAS workspace
+:4096:8, deterministic algorithms, cudnn.deterministic=true, and
+cudnn.benchmark=false.
+
+Auditable adapter deterministic rerun
+-------------------------------------
+Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
+Remove-Item Env:PYTHONHASHSEED -ErrorAction SilentlyContinue
+$env:CUBLAS_WORKSPACE_CONFIG=':16:8'
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\Embodied-Tracking-Problem-Research\screening\codex\scripts\2026-08-25_stage4A_spiketrack_reproduce3.py --source-root E:\Robot_Backup\tmp\stage4A_R_official_source --config E:\Robot_Backup\tmp\stage4A_R_official_source\experiments\spiketrack\spiketrack_s256_t1.yaml --checkpoint E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --raw-root E:\Robot_Backup\tmp\spiketrack_s256_t1_raw --output-json E:\Robot_Backup\tmp\stage4A_R_runs\adapter_deterministic.json --runtime-mode deterministic
+
+The adapter intentionally overwrites inherited CUBLAS_WORKSPACE_CONFIG with
+:4096:8 before importing Torch. Exit code 2 is expected because two sequence AUC
+comparisons remain outside the 0.5-point gate; predictions and JSON are still
+written before that status exit.
+
+The exact previous shell history was not retained. Its byte-identical source,
+run JSON, local prediction files, timestamps, and hashes are preserved. The
+previous command can be reconstructed from those inputs, but is not mislabeled
+as an exact historical command.
+
+Artifact generation and validation
+----------------------------------
+$env:PYTHONDONTWRITEBYTECODE='1'
+Remove-Item Env:PYTHONPATH -ErrorAction SilentlyContinue
+& E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -B screening\codex\artifacts\stage4A_reproduction\audit_artifacts.py
+
+The committed audit_artifacts.py hashes every raw frame file, decoded BGR/RGB
+array, and GT copy; invokes pinned Tracker._read_image for RGB parity; lists all
+ZIP members; copies only prediction text; calculates official metric semantics;
+and generates first-divergence records. No frame is selected from a prediction.
+
+Linux/runtime feasibility commands
+----------------------------------
+Exact sanitized read-only commands are recorded below when available from the
+bounded environment check. No SSH alias/address or credential is committed.
+
+nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader
+wsl --list --verbose
+wsl -d Ubuntu -- bash -lc "cat /etc/os-release | sed -n '1,6p'; /usr/lib/wsl/lib/nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader; python3 --version; command -v pip3 || true; command -v python3.11 || true; command -v python3.10 || true; command -v conda || true; command -v micromamba || true"
+docker version --format '{{json .}}'
+Get-CimInstance Win32_OperatingSystem
+Get-CimInstance Win32_Processor
+Get-CimInstance Win32_ComputerSystem
+
+Official-index resolver checks were direct, read-only PowerShell HTTP/regex
+checks equivalent to:
+
+$html=(Invoke-WebRequest -UseBasicParsing -Uri 'https://download.pytorch.org/whl/cu118/torch/').Content
+$html -match 'torch-2\.0\.0\+cu118-cp311-cp311-linux_x86_64\.whl'
+$html -match 'torch-2\.0\.0\+cu118-cp312-cp312-linux_x86_64\.whl'
+$html=(Invoke-WebRequest -UseBasicParsing -Uri 'https://download.pytorch.org/whl/cu118/torchvision/').Content
+$html -match 'torchvision-0\.15\.1\+cu118-cp311-cp311-linux_x86_64\.whl'
+$html -match 'torchvision-0\.15\.1\+cu118-cp312-cp312-linux_x86_64\.whl'
+
+Results were true/false for Torch and true/false for Torchvision respectively.
+A cp311 pip resolver attempt began fetching the 2.267-GB Torch wheel and was
+terminated after about 5 MB; no package was installed. Its exact shell command
+was not retained and is not reconstructed here as exact history.
+
+Five configured remote aliases were probed with this sanitized command shape:
+
+ssh -o BatchMode=yes -o ConnectTimeout=3 <configured-alias> <GPU-query>
+
+None was reachable. Alias/address/credential material is intentionally omitted.

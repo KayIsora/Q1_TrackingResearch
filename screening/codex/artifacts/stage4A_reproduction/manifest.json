@@ -1,0 +1,322 @@
+{
+  "artifacts": [
+    {
+      "bytes": 77,
+      "path": ".gitattributes",
+      "sha256": "201ad0a7ca56890b32552e1f0b13ea6b05c500fbb82e5eddbbed3ab3cc9282c9"
+    },
+    {
+      "bytes": 1921,
+      "path": "adapter_deterministic/Couple.txt",
+      "sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38"
+    },
+    {
+      "bytes": 1749,
+      "path": "adapter_deterministic/Crossing.txt",
+      "sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f"
+    },
+    {
+      "bytes": 1065,
+      "path": "adapter_deterministic/Deer.txt",
+      "sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+    },
+    {
+      "bytes": 3654,
+      "path": "adapter_deterministic_run.json",
+      "sha256": "9598522d8aed1382d24f64d264cafab8db6334f8563fe005b5ea8278ba2d469f"
+    },
+    {
+      "bytes": 38074,
+      "path": "audit_artifacts.py",
+      "sha256": "66813d1c7fa787f931e630639835f8d3d353266019ee825e21aa5b511af141e3"
+    },
+    {
+      "bytes": 9946,
+      "path": "commands.txt",
+      "sha256": "ad07200529a4c73e7e0ebeb28e0b5b9e298dc5cac11e7b7c25f36daa4b7e3db6"
+    },
+    {
+      "bytes": 422,
+      "path": "deterministic_sitecustomize.py",
+      "sha256": "56284cd8e1fd12ec564f460714f787dcd71c91a1550fb616be34da457aabaee1"
+    },
+    {
+      "bytes": 4756,
+      "path": "environment.json",
+      "sha256": "3c94b729f2d1e18b956407c9fa34c687e734825efc20c468ce5f52e770675ec4"
+    },
+    {
+      "bytes": 5108,
+      "path": "first_divergence.csv",
+      "sha256": "fc2b747c92ee4e6cdb8356160634b2e212cfda1e71eb12078b94426cdc8c33df"
+    },
+    {
+      "bytes": 453658,
+      "path": "frame_hashes.csv",
+      "sha256": "83b3a593d7e7f5128407fe6cb8ab43dcb3c2eade311d96a8995fb4d2b2a70a90"
+    },
+    {
+      "bytes": 3530,
+      "path": "ground_truth_hashes.csv",
+      "sha256": "6e3a2130a7fb038853e69852a9ddc6340fc28a076835f717163ffa9c103718a3"
+    },
+    {
+      "bytes": 219,
+      "path": "image_loader_parity.csv",
+      "sha256": "aae730fc150e82994e1b334606abe1230a74d0579e84f2402216bd029827ae1f"
+    },
+    {
+      "bytes": 934,
+      "path": "make_otb_loader_stubs.py",
+      "sha256": "967d66b84fc3bca0189ffc24d54a59307f1e9647a324e8c74304fada484b319a"
+    },
+    {
+      "bytes": 4461,
+      "path": "metrics.csv",
+      "sha256": "388c7e7ddd32d9dbfd5e5abdb44cdb78a011ce8aea552d5646ba1629561e7da2"
+    },
+    {
+      "bytes": 1921,
+      "path": "official_runner_default_run1/Couple.txt",
+      "sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38"
+    },
+    {
+      "bytes": 1749,
+      "path": "official_runner_default_run1/Crossing.txt",
+      "sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f"
+    },
+    {
+      "bytes": 1065,
+      "path": "official_runner_default_run1/Deer.txt",
+      "sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+    },
+    {
+      "bytes": 1921,
+      "path": "official_runner_default_run2/Couple.txt",
+      "sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38"
+    },
+    {
+      "bytes": 1749,
+      "path": "official_runner_default_run2/Crossing.txt",
+      "sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f"
+    },
+    {
+      "bytes": 1065,
+      "path": "official_runner_default_run2/Deer.txt",
+      "sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+    },
+    {
+      "bytes": 1921,
+      "path": "official_runner_default_run3/Couple.txt",
+      "sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38"
+    },
+    {
+      "bytes": 1749,
+      "path": "official_runner_default_run3/Crossing.txt",
+      "sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f"
+    },
+    {
+      "bytes": 1065,
+      "path": "official_runner_default_run3/Deer.txt",
+      "sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+    },
+    {
+      "bytes": 1921,
+      "path": "official_runner_deterministic/Couple.txt",
+      "sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38"
+    },
+    {
+      "bytes": 1749,
+      "path": "official_runner_deterministic/Crossing.txt",
+      "sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f"
+    },
+    {
+      "bytes": 1065,
+      "path": "official_runner_deterministic/Deer.txt",
+      "sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+    },
+    {
+      "bytes": 747,
+      "path": "official_runner_local.py",
+      "sha256": "e76f5713bac3f31b3b587f4fe869aea25aeceeab5cb45b2800c46a76d7aff6fb"
+    },
+    {
+      "bytes": 9913,
+      "path": "previous_adapter_exact.py",
+      "sha256": "7106a80bb6e015e653e2caae1438fbd7abefd3116ac00c4e114a7e1b83e2ef63"
+    },
+    {
+      "bytes": 1921,
+      "path": "previous_adapter_preserved/Couple.txt",
+      "sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38"
+    },
+    {
+      "bytes": 1749,
+      "path": "previous_adapter_preserved/Crossing.txt",
+      "sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f"
+    },
+    {
+      "bytes": 1065,
+      "path": "previous_adapter_preserved/Deer.txt",
+      "sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+    },
+    {
+      "bytes": 3548,
+      "path": "previous_adapter_run.json",
+      "sha256": "af1921329bc9b12d91584e0b283c2756a9d9c765a3ccbc353874b408754de802"
+    },
+    {
+      "bytes": 1686401,
+      "path": "raw_archive_manifest.csv",
+      "sha256": "0f0b99b28db7fa55f8cf7693658924df8030097c65fec2283f3fe46e6ed4b664"
+    },
+    {
+      "bytes": 1782,
+      "path": "released_raw/Couple.txt",
+      "sha256": "37307157d9ff3f30b83bfe96c362bfe66ccbccc5dad00c97ad64e77d3537ad34"
+    },
+    {
+      "bytes": 1630,
+      "path": "released_raw/Crossing.txt",
+      "sha256": "db3a37edc91171fc1572533c89ee879f33e2e19851039a7f7ac59e7548458aff"
+    },
+    {
+      "bytes": 1035,
+      "path": "released_raw/Deer.txt",
+      "sha256": "ad1f83563b33df88524358c5d5e2f6bf7eb59c6d90b083a95ad6d8a5bbd618c7"
+    },
+    {
+      "bytes": 3455,
+      "path": "runtime_summary.csv",
+      "sha256": "6643aed409206dbdff75863e7e67e1cd263243e2dbc8a98acda2318f46b44bf7"
+    },
+    {
+      "bytes": 6030,
+      "path": "sequence_copy_manifest.csv",
+      "sha256": "74c7e41ec65c30558617bb5f679372452c4f348efcdb52114f07a5bf2e50173a"
+    },
+    {
+      "bytes": 1567,
+      "path": "setup_failures.txt",
+      "sha256": "a411e54279634c5706d7f0736032373d7bc2afd9f3532e997bbb8f77e61aa505"
+    }
+  ],
+  "auditable_adapter_extension": {
+    "adapter_info_contract": "initialize receives init_bbox only; each frame receives {}; no previous_output is propagated",
+    "observed_relationship": "all three persisted adapter predictions are byte-identical to all official-runner predictions",
+    "official_info_contract": "Tracker.run_sequence adds seq_name at initialization and propagates frame_info plus previous_output; pinned SpikeTrack initialize reads only init_bbox and track does not read info",
+    "relationship": "retains previous tracking/metric semantics and adds explicit --runtime-mode plus info-contract provenance",
+    "repository_path": "../../scripts/2026-08-25_stage4A_spiketrack_reproduce3.py",
+    "sha256": "1b0c02571bd27a1e79da41e804392957a17936bc188b9491fde6ce9b8d648ebb"
+  },
+  "dataset_identity": {
+    "all_local_decoded_rgb_identical": true,
+    "all_local_ground_truth_parsed_identical": true,
+    "all_local_raw_frames_identical": true,
+    "canonical_otb_release_provenance": "UNRESOLVED",
+    "copy_manifest_rows": 11,
+    "frame_hash_records": 1135,
+    "preexisting_copies_per_sequence": {
+      "Couple": 2,
+      "Crossing": 2,
+      "Deer": 4
+    },
+    "staged_derivatives_per_sequence": 1
+  },
+  "image_loader_parity": {
+    "all_frames_all_copies_exact": true,
+    "comparison": "adapter cv2.imread plus cv2.COLOR_BGR2RGB versus pinned Tracker._read_image on every frame of every checked copy"
+  },
+  "official_runner": {
+    "eager_loader_note": "unmodified OTBDataset eagerly parses all 100 annotation paths before sequence selection; external six-row metadata-only stubs were supplied for unexecuted names. Only the three predeclared sequences contain real frames/GT and only those names were executed",
+    "entrypoint": "tracking/test.py",
+    "external_local_py": "E:\\Robot_Backup\\tmp\\stage4A_R_official_source\\lib\\test\\evaluation\\local.py",
+    "external_otb_miniroot": "E:\\Robot_Backup\\tmp\\stage4A_R_otb3",
+    "path_chain": [
+      "OTBDataset",
+      "Tracker.run_sequence",
+      "Tracker._read_image",
+      "lib/test/tracker/spiketrack_inf.py",
+      "lib/test/evaluation/running.py::_save_tracker_output"
+    ]
+  },
+  "prediction_repeatability": {
+    "adapter_deterministic_equals_official": true,
+    "hashes": {
+      "adapter_deterministic": {
+        "Couple": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+        "Crossing": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+        "Deer": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+      },
+      "official_default": {
+        "Couple": [
+          "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+          "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+          "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38"
+        ],
+        "Crossing": [
+          "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+          "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+          "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f"
+        ],
+        "Deer": [
+          "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d",
+          "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d",
+          "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+        ]
+      },
+      "official_deterministic": {
+        "Couple": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+        "Crossing": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+        "Deer": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+      }
+    },
+    "official_default_three_runs_identical": true,
+    "official_deterministic_equals_default": true
+  },
+  "previous_adapter": {
+    "definitive_run_association": "filesystem timestamp order, embedded output paths, and exact metric/prediction hashes agree; the old run did not embed a script hash, so source-to-run association is corroborated rather than cryptographically attested",
+    "extant_source": "E:\\Robot_Backup\\tmp\\stage4a_bounded_repro.py",
+    "preserved_prediction_hashes": {
+      "Couple": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+      "Crossing": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+      "Deer": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d"
+    },
+    "preserved_predictions_equal_new_adapter": true,
+    "preserved_repository_path": "previous_adapter_exact.py",
+    "preserved_sha256": "7106a80bb6e015e653e2caae1438fbd7abefd3116ac00c4e114a7e1b83e2ef63",
+    "source_sha256": "7106a80bb6e015e653e2caae1438fbd7abefd3116ac00c4e114a7e1b83e2ef63",
+    "status": "PRESERVED"
+  },
+  "raw_archive": {
+    "configuration_manifest_status": "ABSENT",
+    "member_count": 4095,
+    "path": "E:\\Robot_Backup\\tmp\\spiketrack_s256_t1_raw.zip",
+    "sha256": "7e9f8e40d069f73a7b33edfc9593946af478caa3206670847ebde78cbc545c25"
+  },
+  "reason": "adapter and official runner agree exactly, every local run is repeatable, and local duplicate/staged pixels plus GT agree; however default versus deterministic mode does not explain the released difference and canonical OTB/author environment provenance remains unavailable",
+  "released_comparison": {
+    "all_local_run_rows": 15,
+    "all_local_runs_identical_within_each_sequence": true,
+    "official_author_runtime_environment": "UNKNOWN_NOT_IN_ARCHIVE",
+    "released_difference_persists_in_both_local_runtime_modes": true
+  },
+  "reproduction_label": "REPRO_UNRESOLVED",
+  "scope": "STAGE4A_R_THREE_PREDECLARED_SEQUENCES_ONLY_NOT_STAGE4B",
+  "selection_boundary": "fixed before these runs from completeness/frame range/provenance only; no prediction used for copy or sequence selection",
+  "sequences": [
+    "Deer",
+    "Crossing",
+    "Couple"
+  ],
+  "source": {
+    "checkpoint": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack\\ckpt\\spiketrack_s256_t1.pth.tar",
+    "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+    "config": "E:\\Robot_Backup\\tmp\\stage4A_R_official_source\\experiments\\spiketrack\\spiketrack_s256_t1.yaml",
+    "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+    "isolated_source_root": "E:\\Robot_Backup\\tmp\\stage4A_R_official_source",
+    "pinned_commit": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+    "repository": "faicaiwawa/SpikeTrack",
+    "tracked_source_status": "exact pinned commit with no tracked modifications; required external lib/test/evaluation/local.py is untracked and preserved separately"
+  }
+}

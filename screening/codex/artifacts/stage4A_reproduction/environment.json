@@ -1,0 +1,110 @@
+{
+  "scope": "Stage-4A-R bounded three-sequence reproduction characterization",
+  "windows_host": {
+    "operating_system": "Microsoft Windows 11 Home Single Language",
+    "version": "10.0.26200",
+    "build": "26200",
+    "cpu": "Intel(R) Core(TM) i7-1065G7 CPU @ 1.30GHz",
+    "logical_processors": 8,
+    "ram_bytes": 16951066624,
+    "gpu": "NVIDIA GeForce MX250",
+    "gpu_memory_mib": 2048,
+    "nvidia_driver": "581.83",
+    "evidence_boundary": "local development/reproduction evidence only; no Jetson claim"
+  },
+  "windows_python_environment": {
+    "interpreter": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack_env\\Scripts\\python.exe",
+    "python": "3.11.7",
+    "implementation_build": "tags/v3.11.7:fa7a6f2, Dec 4 2023; MSC v.1937 64 bit AMD64",
+    "torch": "2.0.0+cu118",
+    "torchvision": "0.15.1+cu118",
+    "torch_cuda_build": "11.8",
+    "cudnn": 8700,
+    "timm": "0.5.4",
+    "opencv": "4.11.0",
+    "numpy": "1.26.4",
+    "pyyaml": "6.0.3",
+    "dtype": "torch.float32",
+    "device": "cuda:0"
+  },
+  "official_default_runtime": {
+    "forced_seed": false,
+    "CUBLAS_WORKSPACE_CONFIG": null,
+    "torch_deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "note": "observed process defaults; no inference is made about the authors' released-run mode"
+  },
+  "declared_deterministic_runtime": {
+    "seed": 20260825,
+    "python_random_seeded": true,
+    "numpy_seeded": true,
+    "torch_cpu_seeded": true,
+    "torch_cuda_seeded": true,
+    "PYTHONHASHSEED": {
+      "official_runner": "20260825",
+      "adapter": null,
+      "note": "adapter sets Python random, NumPy, Torch CPU and Torch CUDA seeds in-process; hash randomization is not used by this inference path"
+    },
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "torch_deterministic_algorithms": true,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false
+  },
+  "source_contract": {
+    "repository": "faicaiwawa/SpikeTrack",
+    "pinned_commit": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+    "config": "experiments/spiketrack/spiketrack_s256_t1.yaml",
+    "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+    "official_entrypoint": "tracking/test.py",
+    "official_dataset_loader": "lib/test/evaluation/otbdataset.py",
+    "official_runner": "lib/test/evaluation/tracker.py::Tracker.run_sequence",
+    "official_image_loader": "lib/test/evaluation/tracker.py::Tracker._read_image",
+    "official_result_persistence": "lib/test/evaluation/running.py::_save_tracker_output"
+  },
+  "linux_gpu_check": {
+    "wsl2": {
+      "installed": true,
+      "distribution": "Ubuntu 24.04.3 LTS",
+      "python": "3.12.3",
+      "pip_available": false,
+      "python_3_11_available": false,
+      "python_3_10_available": false,
+      "conda_available": false,
+      "existing_linux_torch_install": false,
+      "existing_compatible_wheel_cache": false,
+      "nvidia_smi_path": "/usr/lib/wsl/lib/nvidia-smi",
+      "visible_gpu": "NVIDIA GeForce MX250",
+      "visible_gpu_memory_mib": 2048,
+      "ready_valid_spiketrack_stack": false
+    },
+    "docker": {
+      "cli_version": "29.3.1",
+      "desktop_linux_daemon_running": false,
+      "ready_gpu_container": false
+    },
+    "remote_gpu": {
+      "configured_aliases_probed_noninteractively": true,
+      "reachable": false,
+      "accessible_rtx_3060_established": false,
+      "privacy_note": "host aliases, addresses, and credentials are intentionally not recorded"
+    },
+    "bounded_resolver_check": {
+      "official_index": "https://download.pytorch.org/whl/cu118",
+      "torch_2_0_0_cu118_cp312_linux_x86_64": "NOT_AVAILABLE",
+      "torch_2_0_0_cu118_cp311_linux_x86_64": "AVAILABLE; download intentionally aborted",
+      "torchvision_0_15_1_cu118_cp312_linux_x86_64": "NOT_AVAILABLE",
+      "torchvision_0_15_1_cu118_cp311_linux_x86_64": "AVAILABLE; index-only check",
+      "cp311_pip_attempt": "resolver began fetching the 2.267-GB Torch wheel and was terminated after approximately 5 MB; no install occurred; exact command was not retained",
+      "conclusion": "README Python 3.12 cannot resolve the pinned Torch/Torchvision CUDA 11.8 pair; Python 3.11 is a nearest compatible target, but no ready Linux Python 3.11 GPU stack exists locally"
+    },
+    "status": "LINUX/GPU REPRODUCTION BLOCKER",
+    "smallest_next_action": "provide an already available Linux GPU environment with Python 3.11, torch 2.0.0+cu118, torchvision 0.15.1+cu118, and timm 0.5.4; do not provision within this bounded task"
+  },
+  "released_raw_environment": {
+    "status": "UNKNOWN",
+    "archive_contains_commit_manifest": false,
+    "archive_contains_environment_manifest": false,
+    "authors_runtime_mode_inferred": false
+  }
+}
