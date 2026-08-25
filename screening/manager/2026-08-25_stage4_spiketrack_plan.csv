@@ -12,10 +12,10 @@ N2_MATRIX_SYNC,Update CX044 and CX058 final HG6 fields,COMPLETE,Codex,Canonical 
 4A_R_RECONCILIATION,Review repair evidence,COMPLETE,Manager,STAGE4A_R_PENDING_ENVIRONMENT_OR_DATA,Accepted code evidence; external provenance and data blockers remain.
 4A_E1,Probe official resources dataset options and Linux feasibility,COMPLETE,Codex,RAW_MAPPING_RESOLVED plus resource packages,Author release hierarchy confirms prior archive is S256-T1; minimal OTB acquisition recommended.
 4A_E1_RECONCILIATION,Review resource probe,COMPLETE,Manager,E2 recommended sequentially,E2 first because it addresses both data identity and diagnostic coverage; E3 deferred.
-4A_E2,Acquire and hash author-attributed OTB100 package,AWAITING_USER_AUTHORIZATION,User+Codex,Canonical data comparison and sufficient OTB inventory,Expected transfer 2.723 GB and planning reserve 6.127 GB on F:; no Stage4B run.
-4A_E3,Run bounded Linux official-stack comparison,DEFERRED_PENDING_E2_REVIEW,Codex,Platform characterization of same three sequences,Use existing WSL/MX250 only if E2 does not resolve reproduction boundary.
-4A_E4,Expand outcome-independent candidate inventory,LOCKED_TO_E2,Codex,Sufficient discovery hold-out universe,Uses acquired complete OTB only; no tracker-output selection.
-4A_E_RECONCILIATION,Review external evidence,LOCKED,Manager,STAGE4A_READY or STAGE4A_PENDING,Stage 4B remains blocked until E2 and any required E3 are reconciled.
+4A_E2,Acquire and hash author-attributed OTB100 package,AUTHORIZED_READY,Codex,Canonical data comparison and sufficient OTB inventory,User authorized exact Figshare file ID 42879853 to isolated F: path; verify bytes MD5 and SHA-256; no Linux setup or Stage4B.
+4A_E3,Run bounded Linux official-stack comparison,NOT_AUTHORIZED_DEFERRED_PENDING_E2_REVIEW,Codex,Platform characterization of same three sequences,Use existing WSL/MX250 only if later authorized after E2 reconciliation.
+4A_E4,Expand outcome-independent candidate inventory,AUTHORIZED_WITHIN_E2,Codex,Sufficient discovery hold-out universe,Use acquired complete OTB only; no tracker-output selection; no interval or split freeze.
+4A_E_RECONCILIATION,Review external evidence,LOCKED_PENDING_E2,Manager,STAGE4A_READY or STAGE4A_PENDING,Stage 4B remains blocked until E2 and any subsequently authorized E3 are reconciled.
 4B,Discovery similar-distractor diagnostics,LOCKED,Manager+Codex,Criteria A and B,Starts only after frozen slice and Stage4A readiness.
 4C,Physical skip and held-out predictor,LOCKED,Manager+Codex,Criteria C and D,Starts only if Stage 4B supports interaction.
 4D,Final diagnostic reconciliation,LOCKED,Manager,DIAG_PASS/FAIL/PENDING,Only DIAG_PASS permits soft scoring.
