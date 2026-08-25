@@ -307,3 +307,87 @@ Use: RESOURCE AVAILABILITY FACT / CODE FACT — HiT/DyHiT source, linked trained
 wvuvl, “SiamABC — official implementation,” GitHub repository, current default `master` at commit `b1c94e06fdf2dd3cb14ed07b05e38aa4601ece03`; separate `main` at commit `ba22faeec24344f4d43622eddf10e1d181d43922`, 2025. [Official repository](https://github.com/wvuvl/SiamABC). [Pinned SiamABC source](https://github.com/wvuvl/SiamABC/tree/b1c94e06fdf2dd3cb14ed07b05e38aa4601ece03). [Unrelated `main` branch state](https://github.com/wvuvl/SiamABC/tree/ba22faeec24344f4d43622eddf10e1d181d43922). Accessed: 2026-08-24.
 
 Use: RESOURCE AVAILABILITY FACT / CODE FACT — SiamABC source and ten committed tracker-model files are available on `master`; a single-video demo is documented. Limit: `main` contains unrelated AEVT material, and `eval_SiamABC.py` imports absent `eval_data` and `eval_toolkit` trees that are neither submodules nor requirements; a usable benchmark evaluation protocol is therefore not verified from the official repository.
+
+## R52
+
+Y. Li, T. Geller, Y. Kim, and P. Panda, “SEENN: Towards Temporal Spiking Early Exit Neural Networks,” in *Advances in Neural Information Processing Systems*, vol. 36, 2023, pp. 63327–63342, doi: [10.52202/075280-2764](https://doi.org/10.52202/075280-2764). [Official proceedings page](https://proceedings.neurips.cc/paper_files/paper/2023/hash/c801e68207da477bbc44182b9fac1129-Abstract.html). Accessed: 2026-08-25.
+
+Use: input-conditioned SNN timestep allocation and temporal early exit as a boundary on broad adaptive-SNN novelty language. Limit: classification/general SNN rather than RGB-SOT; no visual-tracking MRM or distractor-conditioned retrieval allocation.
+
+## R53
+
+Z. Zhuge, P. Wang, X. Yao, and J. Cheng, “Towards Efficient Spiking Transformer: a Token Sparsification Framework for Training and Inference Acceleration,” in *Proceedings of the 41st International Conference on Machine Learning (ICML)*, *Proceedings of Machine Learning Research*, vol. 235, 2024, pp. 62768–62778. [Official PMLR page](https://proceedings.mlr.press/v235/zhuge24b.html). Accessed: 2026-08-25.
+
+Use: spiking-transformer token sparsification and temporal importance as a boundary on broad adaptive-SNN novelty language. Limit: not visual tracking or an RGB-SOT MRM method; its token-sparsification objective does not allocate retrieval from distractor ambiguity.
+
+## R54
+
+Z. Zhou, Y. Lu, Y. Jia, K. Che, J. Niu, L. Huang, X. Shi, Y. Zhu, G. Li, Z. Yu, and L. Yuan, “Spiking Transformer with Experts Mixture,” in *Advances in Neural Information Processing Systems*, vol. 37, 2024, pp. 10036–10059, doi: [10.52202/079017-0322](https://doi.org/10.52202/079017-0322). [Official proceedings page](https://proceedings.neurips.cc/paper_files/paper/2024/hash/137101016144540ed3191dc2b02f09a5-Abstract-Conference.html). Accessed: 2026-08-25.
+
+Use: conditional sparse expert computation in spiking transformers as a boundary on broad adaptive-SNN novelty language. Limit: not visual tracking or an RGB-SOT MRM method; capacity routing is not template retrieval conditioned on distractor ambiguity.
+
+## R55
+
+W. Wei, X. Zhou, M. Zhang, A. Belatreche, Q. Sun, Y. Shan, D. Zhang, Z. Zhou, Z. Ma, Y. Yang, and H. Li, “TP-Spikformer: Token Pruned Spiking Transformer,” in *International Conference on Learning Representations (ICLR)*, 2026. [Official OpenReview forum](https://openreview.net/forum?id=L5llQD0nMf). [Official OpenReview PDF](https://openreview.net/pdf?id=L5llQD0nMf). Accessed: 2026-08-25.
+
+Use: closest spiking-token/block-pruning adversary, including event-based object-tracking coverage, for broad adaptive-SNN novelty language. Limit: event-based tracking is not generic RGB bbox-SOT MRM evidence; the fixed spatiotemporal token criterion is not MRM-scale/template allocation conditioned on distractor ambiguity.
+
+## R56
+
+T. Lin, Y. Bai, S. Liang, R. Niu, and X. Wei, “Adaptive Capacity Autoregressive Visual Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026, pp. 13574–13583. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2026/html/Lin_Adaptive_Capacity_Autoregressive_Visual_Tracking_CVPR_2026_paper.html). Accessed: 2026-08-25.
+
+Use: difficulty-conditioned high/low tracker capacity in the same autoregressive tracking setting. Limit: adaptive capacity is not MRM-specific and supplies no template-validity signal or SpikeTrack MRM allocation mechanism.
+
+## R57
+
+X. Zhou, P. Guo, L. Hong, J. Li, W. Zhang, W. Ge, and W. Zhang, “Reading Relevant Feature from Global Representation Memory for Visual Object Tracking,” in *Advances in Neural Information Processing Systems*, vol. 36, 2023, pp. 10814–10827, doi: [10.52202/075280-0476](https://doi.org/10.52202/075280-0476). [Official proceedings page](https://proceedings.neurips.cc/paper_files/paper/2023/hash/2349293cb1bf2ce36d5c566f660f957e-Abstract-Conference.html). Accessed: 2026-08-25.
+
+Use: search-conditioned selection of relevant historical reference features with redundancy and compute control. Limit: fixed memory/token quotas do not provide SpikeTrack MRM ambiguity allocation or a calibrated whole-template active count.
+
+## R58
+
+S. Zhang, D. Zhang, and Q. Zou, “ATPTrack: Visual tracking with alternating token pruning of dynamic templates and search region,” *Neurocomputing*, vol. 625, Art. no. 129534, 2025, doi: [10.1016/j.neucom.2025.129534](https://doi.org/10.1016/j.neucom.2025.129534). Accessed: 2026-08-25.
+
+Use: physical dynamic-template and search-region token pruning that couples robustness with compute reduction. Limit: fixed template inventory and pruning schedule; no calibrated whole-template validity or post-disappearance variable active-template count.
+
+## R59
+
+C. Xu, B. Zhong, Q. Liang, Y. Zheng, G. Li, and S. Song, “Less Is More: Token Context-Aware Learning for Object Tracking,” *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 39, no. 8, pp. 8824–8832, 2025, doi: [10.1609/aaai.v39i8.32954](https://doi.org/10.1609/aaai.v39i8.32954). Accessed: 2026-08-25.
+
+Use: autoregressive high-quality reference-token retention and redundant-token removal for robustness and compute. Limit: fixed top-k token retention does not calibrate whole-template validity or vary the active template count.
+
+## R60
+
+J. Shi, Y. Yu, J. Shi, and H. Luo, “Exploring Reliable Spatiotemporal Dependencies for Efficient Visual Tracking,” *Proceedings of the AAAI Conference on Artificial Intelligence*, vol. 40, no. 11, pp. 8978–8987, 2026, doi: [10.1609/aaai.v40i11.37853](https://doi.org/10.1609/aaai.v40i11.37853). Accessed: 2026-08-25.
+
+Use: quality-based reliable spatiotemporal memory maintenance with physical eviction of the lowest-quality historical token. Limit: the memory capacity is fixed, and the mechanism does not supply FARTrack whole-template absence validity or a variable active-template compute policy.
+
+## R61
+
+Y. Huang, L. Lin, W. Zhuang, Z. He, and X. Li, “Drift-Resilient Temporal Priors for Visual Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026, pp. 6847–6856. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2026/html/Huang_Drift-Resilient_Temporal_Priors_for_Visual_Tracking_CVPR_2026_paper.html). Accessed: 2026-08-25.
+
+Use: per-frame temporal reliability calibration and compact dynamic priors. Limit: fixed historical slots and compact priors do not physically remove raw templates before embedding or define a variable FARTrack active-template compute policy.
+
+## R62
+
+W. Wu, Q. Liang, B. Zhong, H. Xia, Z. Mo, and S. Song, “An Efficient Token Compression Framework for Visual Object Tracking,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2026, pp. 6857–6867. [Official CVF page](https://openaccess.thecvf.com/content/CVPR2026/html/Wu_An_Efficient_Token_Compression_Framework_for_Visual_Object_Tracking_CVPR_2026_paper.html). Accessed: 2026-08-25.
+
+Use: physical compression of historical-template tokens coupling efficiency and representation quality. Limit: token-level compression uses a fixed compression level; it does not expose an explicit whole-template validity variable or scenario-dynamic active count.
+
+## R63
+
+D. Lee, W. Choi, S. Lee, B. Yoo, E. Yang, and S. Hwang, “BackTrack: Robust template update via Backward Tracking of candidate template,” arXiv:2308.10604 [cs.CV], Aug. 2023, doi: [10.48550/arXiv.2308.10604](https://doi.org/10.48550/arXiv.2308.10604). [Official arXiv record](https://arxiv.org/abs/2308.10604). Accessed: 2026-08-25.
+
+Use: explicit backward/cycle validation of candidate-template quality and rejection of unreliable updates. Limit: ARXIV-ONLY preprint, not peer reviewed; rejecting a write does not physically vary multi-template inference compute.
+
+## R64
+
+Y. Liu, R. Yu, F. Yin, X. Zhao, W. Zhao, W. Xia, and Y. Yang, “Learning Quality-aware Dynamic Memory for Video Object Segmentation,” in *Computer Vision – ECCV 2022*, Lecture Notes in Computer Science, vol. 13689, 2022, pp. 468–486, doi: [10.1007/978-3-031-19818-2_27](https://doi.org/10.1007/978-3-031-19818-2_27). [Official ECVA page](https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/4636_ECCV_2022_paper.php). Accessed: 2026-08-25.
+
+Use: adjacent VOS prior art for quality-aware frame admission/eviction and bounded memory. Limit: video object segmentation, not generic bbox-SOT baseline evidence; it does not establish FARTrack-style template-attention compute or active-template latency.
+
+## R65
+
+J. Zhou, Z. Pang, and Y.-X. Wang, “RMem: Restricted Memory Banks Improve Video Object Segmentation,” in *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 2024, pp. 18602–18611, doi: [10.1109/CVPR52733.2024.01760](https://doi.org/10.1109/CVPR52733.2024.01760). [Official CVF page](https://openaccess.thecvf.com/content/CVPR2024/html/Zhou_RMem_Restricted_Memory_Banks_Improve_Video_Object_Segmentation_CVPR_2024_paper.html). Accessed: 2026-08-25.
+
+Use: adjacent VOS prior art for physical restricted-memory selection under redundant history. Limit: video object segmentation, not generic bbox-SOT baseline evidence; its fixed bank bound does not provide validity-calibrated variable template compute.
