@@ -1,0 +1,53 @@
+Stage 4A-S1-R3 source/GT-only command log
+Date: 2026-08-26
+Working directory: E:\Robot_Backup\Q1_TrackingResearch
+
+Boundary declaration
+- Outcome evidence accessed: NONE.
+- Invalidated S1 work reused: NONE.
+- Source-event decisions used only accepted-v2-cleanroom material, canonical OTB JPG/GT, and accepted source-only R1/R2 evidence.
+- Quarantined Deer, Crossing and Couple frames opened: false.
+- SpikeTrack/model/checkpoint/prediction/result/AUC/IoU/failure/score/confidence/MRM/ablation access: NONE.
+
+Fresh-lane synchronization
+git status
+git pull origin main
+git status
+git log -1 --oneline
+
+Exact authorized project reads
+Get-Content screening/reconciliation/2026-08-26_stage4A_S1_R2_final_review.md
+Get-Content screening/manager/2026-08-26_stage4A_S1_R3_coverage_control_protocol.md
+Get-Content screening/reconciliation/2026-08-26_stage4A_S1_R1_visual_review.md
+Get-Content screening/reconciliation/2026-08-26_stage4A_S1_R0v2_semantic_reconciliation.md
+Import-Csv screening/codex/2026-08-26_stage4A_S1_R2_revised_distractor_intervals.csv
+Import-Csv screening/codex/2026-08-26_stage4A_S1_R2_revised_controls.csv
+Import-Csv screening/codex/2026-08-26_stage4A_S1_R2_pair_matching_audit.csv
+Get-Content screening/codex/2026-08-26_stage4A_S1_R2_control_rematch_report.md
+Get-Content screening/codex/2026-08-26_stage4A_S1_R1_slice_proposal_report.md
+Get-Content screening/codex/scripts/2026-08-26_stage4A_S1_R2_rematch_controls.py
+
+Bounded accepted-cleanroom/source checks
+Import-Csv F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1\quarantine_filter.csv
+Import-Csv F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\project\2026-08-25_stage4A_E2_slice_inventory.csv
+Source JPG and canonical target-GT reads were restricted to F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\ and to the explicitly selected candidate/control sequences.
+Bounded review evidence was written only under F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r3\.
+
+Package generation and validation
+python -c "from pathlib import Path; p=Path(r'screening/codex/scripts/2026-08-26_stage4A_S1_R3_build_package.py'); compile(p.read_text(encoding='utf-8'), str(p), 'exec'); print('syntax=PASS')"
+python screening/codex/scripts/2026-08-26_stage4A_S1_R3_build_package.py finalize
+python screening/codex/scripts/2026-08-26_stage4A_S1_R3_build_package.py validate
+git diff --check
+git status --short
+
+Exact authorized staging and final Git operations
+git add -- screening/codex/2026-08-26_stage4A_S1_R3_expanded_distractor_intervals.csv screening/codex/2026-08-26_stage4A_S1_R3_expanded_controls.csv screening/codex/2026-08-26_stage4A_S1_R3_pair_matching_audit.csv screening/codex/2026-08-26_stage4A_S1_R3_coverage_split_audit.csv screening/codex/2026-08-26_stage4A_S1_R3_pair_sheet_manifest.csv screening/codex/2026-08-26_stage4A_S1_R3_coverage_control_report.md screening/codex/2026-08-26_stage4A_S1_R3_command_log.txt screening/codex/artifacts/stage4A_S1_R3/pair_sheets screening/codex/scripts/2026-08-26_stage4A_S1_R3_build_package.py
+git diff --cached --check
+git commit -m "Expand SpikeTrack diagnostic interval coverage"
+git push origin main
+git fetch origin main
+git status
+git log -1 --oneline
+git log origin/main -1 --oneline
+git rev-parse HEAD
+git rev-parse origin/main
