@@ -1,0 +1,167 @@
+STAGE 4A-S1-R2 COMMAND AND INSPECTION LOG
+Date: 2026-08-26
+Lane: outcome-independent source/GT control rematching
+
+BOUNDARY DECLARATION
+- Scientific inputs were limited to the exact Manager-authorized repository files, the accepted v2 clean room, and canonical OTB JPG/GT source.
+- No tracker-result path, prediction, metric outcome, score/confidence artifact, divergence artifact, MRM artifact, ablation, model, or checkpoint was opened or run.
+- Deer, Crossing, and Couple were guarded before source-frame access and were never opened.
+- C:\Users\nguye\.codex\memories\MEMORY.md was consulted only for procedural positive-allowlist/blindness guidance; it was not scientific evidence.
+
+COMMAND LEDGER
+
+[001] Test expected checkout location.
+  Test-Path -LiteralPath 'E:\Robot_Backup\Q1_TrackingResearch'
+  Result: False; no existing checkout was reused.
+
+[002] Create the fresh checkout from the user-authorized repository.
+  git clone https://github.com/KayIsora/Q1_TrackingResearch.git 'E:\Robot_Backup\Q1_TrackingResearch'
+
+[003] Required fresh-lane sync checks, run from E:\Robot_Backup\Q1_TrackingResearch.
+  git status
+  git pull origin main
+  git status
+  git log -1 --oneline
+  Result: clean and synchronized at 8250809 before R2 work.
+
+[004] Read only the exact Manager-authorized repository inputs.
+  Get-Content -LiteralPath 'screening\reconciliation\2026-08-26_stage4A_S1_R1_visual_review.md' -Raw
+  Get-Content -LiteralPath 'screening\manager\2026-08-26_stage4A_S1_R2_control_rematch_protocol.md' -Raw
+  Get-Content -LiteralPath 'screening\reconciliation\2026-08-26_stage4A_S1_R0v2_semantic_reconciliation.md' -Raw
+  Get-Content -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R1_distractor_interval_proposals.csv' -Raw
+  Get-Content -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R1_control_interval_proposals.csv' -Raw
+  Get-Content -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R1_contact_sheet_manifest.csv' -Raw
+  Get-Content -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R1_slice_proposal_report.md' -Raw
+  Get-Content -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R1_quarantine_filter.csv' -Raw
+  Get-Content -LiteralPath 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py' -Raw
+  No repository-wide search, history search, or recursive repository enumeration was used.
+
+[005] Read procedural memory registry by targeted keywords only.
+  Select-String -LiteralPath 'C:\Users\nguye\.codex\memories\MEMORY.md' -Pattern 'Q1|TrackingResearch|HG6|blindness|positive allowlist' -Context 2,4
+  Purpose: process boundary only; no proposal/control fact came from memory.
+
+[006] Inspect the accepted clean-room input/output allowlist and canonical mapping.
+  Get-ChildItem -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs'
+  Get-ChildItem -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1'
+  Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1\quarantine_filter.csv' -Raw
+  Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\project\2026-08-25_stage4A_E2_slice_inventory.csv' -TotalCount 5
+  Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1\distractor_interval_proposals.csv' -TotalCount 5
+
+[007] Source/GT-only exploratory metric and candidate scans.
+  @'<inline Python: parse accepted evaluator mapping; reject quarantined names; read canonical GT/JPG dimensions; compute interval length, area ratios, center displacement, normalized p90 motion, end/start area, max/min area, and median absolute log-area step>'@ | python -
+  @'<inline Python: rank compatible non-quarantined candidate intervals by locked length/area/motion/scale gates; emit candidate identifiers and metrics only>'@ | python -
+  These transient programs used exactly:
+    F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\spiketrack_contract\otbdataset.py
+    F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\project\2026-08-25_stage4A_E2_slice_inventory.csv
+    F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1\distractor_interval_proposals.csv
+    F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\<allowed sequence>\img\*.jpg
+    F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\<allowed sequence>\groundtruth*.txt
+  The retained reproducibility script consolidates these formulas and guards in an inspectable form.
+
+[008] Source-only visual review programs created temporary review sheets outside the repository.
+  @'<inline Python/Pillow: render full canonical JPG frames plus green GT and blue factor-4 prior-GT search box for declared intervals>'@ | python -
+  Temporary roots:
+    C:\Users\nguye\AppData\Local\Temp\Q1_R2_source_review
+    C:\Users\nguye\AppData\Local\Temp\stage4a_r2_person
+    C:\Users\nguye\AppData\Local\Temp\stage4a_s1_p09_p12_20260826
+  No temporary review file was added to the repository.
+
+[009] Exact proposal and preferred-control frame-by-frame reviews.
+  Proposals: Basketball 397-435; Bolt 31-49; Crowds 33-37; BlurCar2 420-440; BlurCar4 255-279; Bird1 194-198; Liquor 565-589; Football 130-154; Football1 26-50; Soccer 170-180.
+  Preferred controls: David3 195-233; Human8 108-126; Crowds 161-165; CarScale 143-163; Suv 726-750; Panda 426-430; Liquor 20-40; Biker 41-65; Surfer 304-328; Man 106-116.
+  Each listed preferred interval was inspected for every frame. Quarantined sequence names were rejected before any frame-path construction.
+
+[010] Exact source-only rejected/alternate review coverage used for traceability.
+  PERSON: Basketball uniform grid plus frames 100-200; Bolt uniform grid plus 250-280; Crowds 1-60 and 160-190; Human5 470-520, 210-245, 80-95; Human6 110-114; Walking 52-56; Human3 464-468; Skiing 11-15 and 42-46; Human8 90-128; David3 195-233.
+  VEHICLE/ANIMAL: BlurCar1 773-793; BlurCar3 216-236; CarScale 143-163; Suv 651-675 and 726-750; every Bird1 frame 1-408; Bird2 22-26; Panda 426-430; Dog 108-112. BlurOwl was rejected from clean-room inventory metadata as poster/sign without frame access.
+  FACE_HEAD/OBJECT: Liquor 20-40, 41-65, 565-589; Football 30-frame uniform grid; every Football1 frame 1-74; Soccer 30-frame uniform grid; Biker 41-65; Freeman1 24-48; Surfer 304-328; Jumping 2-26; Ironman uniform grid; Man 106-116.
+
+[011] Confirm the Crowds GT rows for frames 33-37.
+  $gt=Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\Crowds\groundtruth_rect.txt'; 33..37 | ForEach-Object { "f$_ $($gt[$_-1])" }
+  Result: same GT target and same nearby pale-top distractor remain source-continuous; bounds confirmed.
+
+[012] Confirm Bird1 140-144 GT and source visibility.
+  $gt=Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\Bird1\groundtruth_rect.txt'; 140..144 | ForEach-Object { "f$_ $($gt[$_-1])" }
+  Local image viewer opened canonical Bird1 0140.jpg through 0144.jpg.
+  Result: GT exists but no identifiable target is visible; the interval was rejected as a control.
+
+[013] Confirm canonical evaluator bounds for the raw David lead.
+  Select-String -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\spiketrack_contract\otbdataset.py' -SimpleMatch -Pattern 'David' -Context 0,3
+  Result: David startFrame=300; raw David 180-190 was rejected as out of canonical evaluator range.
+
+[014] Inspect exact protocol clauses and the R1 source schema during implementation.
+  Select-String -LiteralPath 'screening\manager\2026-08-26_stage4A_S1_R2_control_rematch_protocol.md' -Pattern 'no similar|subtype|same-sequence|same sequence|length|motion|area|occlusion|exception|distractor' -Context 2,4
+  Get-Content -LiteralPath 'screening\manager\2026-08-26_stage4A_S1_R2_control_rematch_protocol.md' | Select-Object -Skip 116 -First 63
+  $r1='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1\distractor_interval_proposals.csv'; Get-Content -LiteralPath $r1 -TotalCount 1
+
+[015] Add and refine the sole optional reproducibility script with the Codex apply_patch file-edit tool.
+  apply_patch -> screening/codex/scripts/2026-08-26_stage4A_S1_R2_rematch_controls.py
+  Refinements recorded in patches: exact locked set and formulas; full R1-column preservation; P03 same-sequence control; canonical David rejection; P04/P07/P10/P11 declared exceptions; P05 clean interval; pair-sheet renderer; report; validator.
+
+[016] First artifact build attempt (expected failure retained for traceability).
+  python 'screening\codex\scripts\2026-08-26_stage4A_S1_R2_rematch_controls.py' finalize
+  Result: stopped with Non-contiguous/out-of-range interval 180-190 for David. No invalid pair package was accepted. Canonical mapping check in [013] caused replacement by Man 106-116.
+
+[017] Successful source-only artifact build.
+  python 'screening\codex\scripts\2026-08-26_stage4A_S1_R2_rematch_controls.py' finalize
+  Result: proposals=10; controls=10; audits=10; MATCH_PASS=6; EXCEPTION_PENDING_MANAGER=4; MATCH_FAIL=0; pair sheets=10; bytes=2224966.
+
+[018] Machine-readable output inspection.
+  Import-Csv -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R2_pair_matching_audit.csv' | Select-Object linked_proposal_id,linked_control_id,proposal_sequence,control_sequence,length_match_pass,median_area_ratio,area_match_pass,motion_ratio_or_abs_difference,motion_match_pass,scale_dynamic_ratio,scale_match_pass,visual_subtype_match,no_distractor_pass,overall_state | Format-Table -AutoSize
+  Import-Csv -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R2_revised_controls.csv' | Select-Object control_id,linked_proposal_id,group,sequence,interval_start,interval_end,occlusion_state,exception_state,manager_review_status | Format-Table -AutoSize
+  Import-Csv -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R2_pair_matching_audit.csv' | ConvertTo-Json -Depth 3
+  Get-Content -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R2_revised_distractor_intervals.csv' -TotalCount 1
+
+[019] Pair-sheet visual QA with the local image viewer.
+  Opened at original resolution:
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P01.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P02.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P03.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P04.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P05.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P07.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P09.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P10.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P11.jpg
+    screening/codex/artifacts/stage4A_S1_R2/pair_sheets/R2_PAIR_P12.jpg
+  Result: all ten render at 2000x590 with source frames, allowed green/blue/red overlays, IDs, required metrics, individual gate values, and overall badges; no tracker-derived panel appears.
+
+[020] Inspect changed-path scope before the command log was added.
+  git status --short
+  git diff --name-only
+  git ls-files --others --exclude-standard
+  Result: only authorized R2 output/script paths appeared; command log was then added at its authorized path.
+
+FINAL VALIDATION AND DELIVERY COMMANDS RECORDED BEFORE EXECUTION
+The following exact commands are the only terminal commands planned after this ledger is created. Their outputs are reported in the final response.
+
+[020a] Verify the exact procedural-memory citation lines for final disclosure only.
+  $lines=Get-Content -LiteralPath 'C:\Users\nguye\.codex\memories\MEMORY.md'; 92..101 | ForEach-Object { "$_`:$($lines[$_-1])" }
+
+[021] Rebuild once from the retained script, then validate all locked invariants and hashes.
+  python 'screening\codex\scripts\2026-08-26_stage4A_S1_R2_rematch_controls.py' finalize
+  python 'screening\codex\scripts\2026-08-26_stage4A_S1_R2_rematch_controls.py' validate
+
+[022] Independent structural/scope checks.
+  git diff --check
+  git status --short
+  git diff --name-only
+  git ls-files --others --exclude-standard
+  $m=Import-Csv -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R2_pair_sheet_manifest.csv'; [pscustomobject]@{rows=$m.Count; bytes=(($m | Measure-Object -Property byte_size -Sum).Sum); unique_sha=(($m.sha256 | Sort-Object -Unique).Count)} | Format-List
+
+[023] Stage only the explicit authorized R2 paths, inspect the staged list, commit with the exact required message, and push.
+  git add -- 'screening/codex/2026-08-26_stage4A_S1_R2_revised_distractor_intervals.csv' 'screening/codex/2026-08-26_stage4A_S1_R2_revised_controls.csv' 'screening/codex/2026-08-26_stage4A_S1_R2_pair_matching_audit.csv' 'screening/codex/2026-08-26_stage4A_S1_R2_pair_sheet_manifest.csv' 'screening/codex/2026-08-26_stage4A_S1_R2_control_rematch_report.md' 'screening/codex/2026-08-26_stage4A_S1_R2_command_log.txt' 'screening/codex/artifacts/stage4A_S1_R2/pair_sheets' 'screening/codex/scripts/2026-08-26_stage4A_S1_R2_rematch_controls.py'
+  git diff --cached --name-only
+  git commit -m 'Rematch SpikeTrack diagnostic controls'
+  git push origin main
+
+[024] Required post-push verification.
+  git status
+  git log -1 --oneline
+  git log origin/main -1 --oneline
+
+END DECLARATION
+Outcome evidence accessed: NONE.
+Quarantine frame access: NONE.
+Final slice creation: NONE.
+Stage 4B execution: NONE.
