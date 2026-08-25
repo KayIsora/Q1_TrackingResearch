@@ -1,11 +1,16 @@
 stage,task,status,owner,gate_or_output,notes
-N2_MATRIX_SYNC,Update CX044 and CX058 final HG6 fields,PENDING_MECHANICAL,Codex,Canonical matrix updated,No score fields may change.
-4A1,Exact code checkpoint environment synchronization,READY,Codex,Environment and provenance report,Pinned SpikeTrack commit and S256-T1 checkpoint only.
-4A2,Bounded baseline reproduction check,READY,Codex,REPRO_PASS or REPRO_PENDING,At least three predeclared sequences where official raw predictions are available.
-4A3,MRM instrumentation and deterministic controls,READY,Codex,Hooks verified without output drift,No full diagnostic run.
-4A4,Dataset and candidate-slice inventory,READY,Codex,Machine-readable inventory,Do not select frames based on tracker outputs.
-4A_RECONCILIATION,Review preflight and freeze slice,BLOCKED,Manager,Diagnostic slice committed,Requires 4A1-4A4 complete.
-4B,Discovery similar-distractor diagnostics,LOCKED,Manager+Codex,Criteria A and B,Starts only after frozen slice.
+N2_MATRIX_SYNC,Update CX044 and CX058 final HG6 fields,COMPLETE,Codex,Canonical matrix updated,Validated 54 columns 20 unique IDs and blank score fields.
+4A1,Exact code checkpoint environment synchronization,COMPLETE,Codex,Environment and provenance report,Pinned source and S256-T1/T3 checkpoints resolved.
+4A2,Bounded baseline reproduction check,FAILED_UNRESOLVED,Codex,REPRO_ACCEPTED or REPRO_PENDING,Two of three sequences exceed 0.5 pp and exact source is unresolved.
+4A3,Whole-MRM instrumentation and deterministic controls,COMPLETE_WITH_REFINEMENT_REQUIRED,Codex,Parity verified and preliminary controls preserved,Must separate Retriever versus MLP and expose T3 template/time gates before Stage 4B.
+4A4,Dataset and candidate-slice inventory,INCOMPLETE_COVERAGE,Codex,Outcome-independent sequence inventory,Only four candidate distractor sequences; insufficient for locked discovery/hold-out coverage.
+4A_RECONCILIATION,Review preflight,COMPLETE,Manager,STAGE4A_INCOMPLETE,See Stage4A preflight reconciliation.
+4A_R1,Preserve and audit exact reproduction artifacts,READY,Codex,Auditable scripts hashes raw/local boxes GT and commands,No new sequences and no Stage 4B ablations.
+4A_R2,Official-runner and environment comparison,READY,Codex,Documented reproduction boundary,Compare official runner versus adapter and official-default versus deterministic; bounded Linux rerun if feasible.
+4A_R3,Refine retrieval-specific instrumentation,READY,Codex,Retriever MLP whole-MRM and T3 template-time controls,Must preserve no-ablation parity and remain physical_skip=false.
+4A_R4,Expand outcome-independent dataset inventory,READY,Codex,Sufficient candidate sequence universe,Search local storage first; do not download large datasets without Manager approval.
+4A_R_RECONCILIATION,Review repair evidence,BLOCKED,Manager,STAGE4A_READY or STAGE4A_PENDING,Requires R1-R4 evidence.
+4B,Discovery similar-distractor diagnostics,LOCKED,Manager+Codex,Criteria A and B,Starts only after frozen slice and Stage4A readiness.
 4C,Physical skip and held-out predictor,LOCKED,Manager+Codex,Criteria C and D,Starts only if Stage 4B supports interaction.
 4D,Final diagnostic reconciliation,LOCKED,Manager,DIAG_PASS/FAIL/PENDING,Only DIAG_PASS permits soft scoring.
 SOFT_SCORING,S1-S7 scoring,LOCKED,Manager,Score and shortlist eligibility,No automatic progression from HG6 PASS.
