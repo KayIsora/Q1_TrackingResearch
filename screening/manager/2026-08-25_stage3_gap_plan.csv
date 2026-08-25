@@ -1,0 +1,11 @@
+candidate_id,candidate_short_name,gap_batch,manager_formulation,codex_formulation,reconciliation,final_gap_readiness,hg6,notes
+CX007,SpikeTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_READY,NOT_STARTED,G1 reconciled; HG6 deliberately held until G2 closes.
+CX009,UETrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires a residual RGB failure slice and expert-sensitivity evidence.
+CX010,UTPTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires pruning-policy-linked robustness evidence.
+CX013,FARTrack,G1,COMPLETE,COMPLETE,COMPLETE,GAP_READY,NOT_STARTED,G1 reconciled; template-validity coupling ready for later HG6 search.
+CX024,DAM4SAM,G1,COMPLETE,COMPLETE,COMPLETE,GAP_INCOMPLETE,NOT_STARTED,Requires residual DAM failure and DAM-specific cost evidence.
+CX037,SSTrack-AAAI,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager formulation complete; waiting for independent Codex G2.
+CX038,MCITrack,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager formulation complete; waiting for independent Codex G2.
+CX043,SUTrack,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager currently finds only engineering cleanup; independent Codex review required.
+CX044,AsymTrack,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager capacity-allocation hypothesis ready; independent Codex review required.
+CX058,HiT-DyHiT,G2,COMPLETE,NOT_STARTED,NOT_STARTED,PENDING,NOT_STARTED,Manager route-calibration hypothesis ready; independent Codex review required.
