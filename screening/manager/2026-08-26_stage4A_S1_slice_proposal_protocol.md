@@ -26,6 +26,23 @@ The following materials must not be opened, queried or used when proposing seque
 
 The E2 candidate/control text inventory may be used because it was created before E2 tracker execution and from outcome-independent evidence.
 
+### 2.1 Outcome-exposure quarantine
+
+The sequences `Deer`, `Crossing` and `Couple` were used in the bounded reproduction audit, and their local/released tracker outputs are already known to the project. They must therefore be quarantined from the primary diagnostic design.
+
+For Stage 4A-S1:
+
+- do not propose them as primary distractor intervals;
+- do not propose them as matched controls;
+- do not assign them to discovery or hold-out candidate splits;
+- do not count them toward any coverage minimum;
+- list them in the report as `EXCLUDED_OUTCOME_EXPOSED_REPRO_SEQUENCE`;
+- do not reopen their prediction or metric artifacts.
+
+If any additional sequence is discovered to have been inspected using SpikeTrack output before the S1 proposal is frozen, it must be disclosed and quarantined in the same way.
+
+The quarantine is a selection-bias safeguard; it is not evidence that these sequences or their tracker results are invalid. They may be considered later only as secondary, non-decision evidence after all Stage-4 hypotheses, paths, thresholds and primary/hold-out analyses have been locked.
+
 ## 3. Source contract
 
 Use only the byte-verified acquired OTB source tree:
@@ -40,7 +57,7 @@ No new dataset download is permitted.
 
 ## 4. Candidate-sequence pool
 
-Start from all E2 rows with a non-empty `candidate_distractor_reason`.
+Start from all E2 rows with a non-empty `candidate_distractor_reason`, excluding every sequence under the outcome-exposure quarantine.
 
 Do not accept a sequence merely because the E2 row contains a reason. Each sequence must be rescanned at interval level.
 
@@ -107,7 +124,7 @@ Preference order:
 2. another sequence of the same object class with similar target scale and motion;
 3. another sequence with comparable OTB challenge attributes and target size.
 
-Controls must not be chosen because SpikeTrack performs well on them.
+Controls must not be chosen because SpikeTrack performs well on them. Quarantined reproduction sequences cannot be used as controls.
 
 Record the matching basis:
 
@@ -121,7 +138,7 @@ Record the matching basis:
 
 ## 9. Diversity safeguards
 
-The proposal package must provide enough material for a final sequence-disjoint slice with:
+The proposal package must provide enough non-quarantined material for a final sequence-disjoint slice with:
 
 - at least 10 unique distractor-bearing sequences;
 - at least 3 broad target superclasses across the full proposed set;
@@ -191,7 +208,7 @@ Codex may provide a `proposed_split` field with values:
 
 The proposal must keep sequences disjoint across the two candidate groups. It is not the final split. Manager may change it before any diagnostic run.
 
-No split may be selected using tracker performance.
+No split may be selected using tracker performance. Quarantined sequences must remain excluded and unassigned.
 
 ## 14. Required CSV — distractor proposals
 
@@ -295,18 +312,19 @@ Create:
 Required sections:
 
 1. Boundary and prohibited-source declaration
-2. Source dataset and hash identity
-3. Candidate-sequence scan coverage
-4. Tier A/B/C counts
-5. Distractor interval proposal summary
-6. Control proposal summary
-7. Superclass diversity
-8. Proposed discovery/hold-out candidate split
-9. Contact-sheet coverage and payload size
-10. Ambiguous/rejected cases
-11. Exact remaining coverage gaps
-12. Files produced
-13. Readiness conclusion
+2. Outcome-exposure quarantine declaration
+3. Source dataset and hash identity
+4. Candidate-sequence scan coverage
+5. Tier A/B/C counts
+6. Distractor interval proposal summary
+7. Control proposal summary
+8. Superclass diversity
+9. Proposed discovery/hold-out candidate split
+10. Contact-sheet coverage and payload size
+11. Ambiguous/rejected cases
+12. Exact remaining coverage gaps
+13. Files produced
+14. Readiness conclusion
 
 Allowed conclusion:
 
@@ -324,6 +342,7 @@ Stage 4A-S1 must not:
 - run an MRM control;
 - calculate tracker IoU/AUC;
 - inspect official/local raw predictions;
+- use any quarantined sequence in the primary proposal/control pool;
 - freeze final intervals;
 - assign final ambiguity levels;
 - finalize discovery/hold-out split;
