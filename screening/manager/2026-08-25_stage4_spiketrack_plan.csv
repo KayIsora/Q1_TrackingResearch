@@ -1,20 +1,21 @@
 stage,task,status,owner,gate_or_output,notes
 N2_MATRIX_SYNC,Update CX044 and CX058 final HG6 fields,COMPLETE,Codex,Canonical matrix updated,Validated 54 columns 20 unique IDs and blank score fields.
 4A1,Exact code checkpoint environment synchronization,COMPLETE,Codex,Environment and provenance report,Pinned source and S256-T1/T3 checkpoints resolved.
-4A2,Bounded baseline reproduction check,REPRO_UNRESOLVED,Codex,Accepted reproduction boundary or external blocker,Adapter equals official local runner but released raw predictions remain mismatched on Deer and Couple.
+4A2,Bounded baseline reproduction check,REPRO_UNRESOLVED,Codex,Accepted reproduction boundary or external blocker,Adapter equals official local runner but confirmed author S256-T1 raw predictions remain mismatched on Deer and Couple.
 4A3,MRM instrumentation and deterministic controls,COMPLETE,Codex,Retriever MLP whole-MRM and T3 template-time probes,Refined no-ablation parity is exact and all controls remain physical_skip=false.
-4A4,Dataset and candidate-slice inventory,INCOMPLETE_COVERAGE,Codex,Outcome-independent sequence inventory,Only four independently justified similar-distractor candidates are locally available.
+4A4,Dataset and candidate-slice inventory,INCOMPLETE_COVERAGE,Codex,Outcome-independent sequence inventory,Local fragmented OTB holding is insufficient for locked discovery/hold-out coverage.
 4A_RECONCILIATION,Review initial preflight,COMPLETE,Manager,STAGE4A_INCOMPLETE,See Stage4A preflight reconciliation.
 4A_R1,Preserve and audit exact reproduction artifacts,COMPLETE,Codex,Auditable scripts hashes predictions GT metrics and commands,Previous adapter preserved and small evidence committed.
-4A_R2,Official-runner and environment comparison,PARTIAL,Codex,Documented reproduction boundary,Official runner equals adapter and local modes repeat exactly; author release provenance and Linux comparison remain unresolved.
+4A_R2,Official-runner and environment comparison,PARTIAL,Codex,Documented reproduction boundary,Official runner equals adapter and local modes repeat exactly; author environment remains unknown.
 4A_R3,Refine retrieval-specific instrumentation,COMPLETE,Codex,Retriever MLP whole-MRM and T3 template-time controls,No physical skip or architecture added.
-4A_R4,Expand outcome-independent dataset inventory,INCOMPLETE_COVERAGE,Codex,Sufficient candidate sequence universe,Local storage remains insufficient and no dataset was downloaded.
+4A_R4,Expand outcome-independent dataset inventory,INCOMPLETE_COVERAGE,Codex,Sufficient candidate sequence universe,Local storage remains insufficient.
 4A_R_RECONCILIATION,Review repair evidence,COMPLETE,Manager,STAGE4A_R_PENDING_ENVIRONMENT_OR_DATA,Accepted code evidence; external provenance and data blockers remain.
-4A_E1,Probe official resources dataset options and Linux feasibility,READY,Codex,Resource decision package,Metadata and small raw-result archives only; no benchmark-image download or environment installation.
-4A_E2,Acquire and hash canonical supported benchmark data,AWAITING_USER_AUTHORIZATION,User+Codex,Canonical dataset identity and sufficient slice universe,Download size and source must be approved before transfer.
-4A_E3,Run bounded Linux official-stack comparison,AWAITING_USER_AUTHORIZATION,Codex,Platform characterization of same three sequences,Use existing hardware only; nearest installable Python with Torch 2.0 CUDA 11.8.
-4A_E4,Expand outcome-independent candidate inventory,LOCKED,Codex,Sufficient discovery hold-out universe,Starts only after E2 data is available; no tracker-output selection.
-4A_E_RECONCILIATION,Review external evidence,LOCKED,Manager,STAGE4A_READY or STAGE4A_PENDING,Stage 4B remains blocked until reproduction boundary and data coverage are accepted.
+4A_E1,Probe official resources dataset options and Linux feasibility,COMPLETE,Codex,RAW_MAPPING_RESOLVED plus resource packages,Author release hierarchy confirms prior archive is S256-T1; minimal OTB acquisition recommended.
+4A_E1_RECONCILIATION,Review resource probe,COMPLETE,Manager,E2 recommended sequentially,E2 first because it addresses both data identity and diagnostic coverage; E3 deferred.
+4A_E2,Acquire and hash author-attributed OTB100 package,AWAITING_USER_AUTHORIZATION,User+Codex,Canonical data comparison and sufficient OTB inventory,Expected transfer 2.723 GB and planning reserve 6.127 GB on F:; no Stage4B run.
+4A_E3,Run bounded Linux official-stack comparison,DEFERRED_PENDING_E2_REVIEW,Codex,Platform characterization of same three sequences,Use existing WSL/MX250 only if E2 does not resolve reproduction boundary.
+4A_E4,Expand outcome-independent candidate inventory,LOCKED_TO_E2,Codex,Sufficient discovery hold-out universe,Uses acquired complete OTB only; no tracker-output selection.
+4A_E_RECONCILIATION,Review external evidence,LOCKED,Manager,STAGE4A_READY or STAGE4A_PENDING,Stage 4B remains blocked until E2 and any required E3 are reconciled.
 4B,Discovery similar-distractor diagnostics,LOCKED,Manager+Codex,Criteria A and B,Starts only after frozen slice and Stage4A readiness.
 4C,Physical skip and held-out predictor,LOCKED,Manager+Codex,Criteria C and D,Starts only if Stage 4B supports interaction.
 4D,Final diagnostic reconciliation,LOCKED,Manager,DIAG_PASS/FAIL/PENDING,Only DIAG_PASS permits soft scoring.
