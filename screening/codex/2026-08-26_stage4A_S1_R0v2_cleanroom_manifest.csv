@@ -1,0 +1,20 @@
+# external_cleanroom_root=F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\
+# external_manifest_sha256=23977c233c77ce9852d70c730d43db7551703f23c45882405c0e113031047ded
+# cleanroom_tree_sha256=df9c9602a755be95b3bb6c494440326932103cf1ec12cc85603cfaacae8c37a6
+# attestation_sha256=68da8dc02864cafb7f1a9c3930204af46111bebe6c8a217a96f4c6b560e8ffa8
+# expected_input_count=10
+# observed_input_count=10
+# manifest_validation=PASS
+# contamination_scan=FAIL
+# conclusion=S1_R0V2_INVALID_CONTAMINATION
+input_id,category,source_exact_path,cleanroom_relative_path,byte_size,sha256,allowed_by_protocol,notes
+Q1_PROJECT_01,project,"E:\Robot_Backup\Embodied-Tracking-Problem-Research\screening\manager\2026-08-26_stage4A_S1_slice_proposal_protocol.md","inputs\project\2026-08-26_stage4A_S1_slice_proposal_protocol.md",13257,0590819ece897720976aefdf4c76f87470b2699f40943f786590d45468628b44,true,"Exact-path source/copy SHA-256 equality verified"
+Q1_PROJECT_02,project,"E:\Robot_Backup\Embodied-Tracking-Problem-Research\screening\manager\2026-08-26_stage4A_S1_cleanroom_safe_source_summary.md","inputs\project\2026-08-26_stage4A_S1_cleanroom_safe_source_summary.md",3877,2827e382d63f475ef6930c429eb20216f8fbc119311345b30e8741eb27c49971,true,"Exact-path source/copy SHA-256 equality verified"
+Q1_PROJECT_03,project,"E:\Robot_Backup\Embodied-Tracking-Problem-Research\screening\codex\2026-08-25_stage4A_E2_slice_inventory.csv","inputs\project\2026-08-25_stage4A_E2_slice_inventory.csv",62970,8cd2ab115a361fb99afd24a1aa6e1bc1931c48de3ed050fb3f53893d2a32bcc6,true,"Exact-path source/copy SHA-256 equality verified"
+Q1_PROJECT_04,project,"E:\Robot_Backup\Embodied-Tracking-Problem-Research\screening\codex\2026-08-25_stage4A_E2_otb_source_manifest.csv","inputs\project\2026-08-25_stage4A_E2_otb_source_manifest.csv",68448,e887a4bff1e06e947d32fea627257dcc585514e5b7d8b7a95bf28519c4f21de7,true,"Exact-path source/copy SHA-256 equality verified"
+Q1_PROJECT_05,project,"E:\Robot_Backup\Embodied-Tracking-Problem-Research\RULE\01_EVIDENCE_AND_CITATION_POLICY.md","inputs\project\01_EVIDENCE_AND_CITATION_POLICY.md",2548,f55ed2ed18039fa371fa66f7789a4479377b7df0651d08a6136f3c6f091296a3,true,"Exact-path source/copy SHA-256 equality verified"
+Q1_PROJECT_06,project,"E:\Robot_Backup\Embodied-Tracking-Problem-Research\docs\00_claim_taxonomy.md","inputs\project\00_claim_taxonomy.md",4660,b53c758cfed34c3e7da83c9fd207bcc64619c8da2cd0a7879434802fa8ef1b81,true,"Exact-path source/copy SHA-256 equality verified"
+SPIKETRACK_01,spiketrack_contract,"E:\Robot_Backup\tmp\stage4A_spiketrack_worktree\lib\test\evaluation\otbdataset.py","inputs\spiketrack_contract\otbdataset.py",21722,31adc2a151f32edef7308cb164f127e00240f2f5ed1a26518080874ea700fcad,true,"Pinned checkout 1537db51; source/copy SHA-256 equality verified"
+SPIKETRACK_02,spiketrack_contract,"E:\Robot_Backup\tmp\stage4A_spiketrack_worktree\experiments\spiketrack\spiketrack_s256_t1.yaml","inputs\spiketrack_contract\spiketrack_s256_t1.yaml",1299,9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8,true,"Pinned checkout 1537db51; source/copy SHA-256 equality verified"
+SPIKETRACK_03,spiketrack_contract,"E:\Robot_Backup\tmp\stage4A_spiketrack_worktree\lib\test\tracker\seqtrack_utils.py","inputs\spiketrack_contract\seqtrack_utils.py",4458,b478bdbc1995ef18914245646ccfd1e5e7df19cfefdddb51670f44925ec91763,true,"Pinned checkout 1537db51; source/copy SHA-256 equality verified"
+DATASET_POINTER_01,dataset_pointer,"F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\","inputs\dataset_pointer\OTB2015_read_only_pointer.txt",423,0263f037e53a1102157509d55f208e3e599a46dc4bcd6bdd1ac2d946db7e7518,true,"Read-only pointer only; source exists; 98 physical sequence directories; dataset not duplicated"

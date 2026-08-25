@@ -1,0 +1,259 @@
+R0V2 COMMAND LOG
+Log initialized: 2026-08-26T01:41:45.9051170+07:00
+Note: Entries 001-010 were reconstructed immediately after the clean-room root was created. Their timestamp field is the log-initialization timestamp because per-command wall-clock timestamps were not captured before the log existed. No command is omitted.
+
+[001]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup
+command: $p='C:\Users\nguye\.codex\attachments\2ceee9b2-ab94-4c12-b11e-54c17705a1e7\pasted-text.txt'; Write-Output '---REQUEST---'; Get-Content -LiteralPath $p -Raw; Write-Output '---MEMORY HITS---'; rg -n -i "Q1_TrackingResearch|Q1_Trackin|blind|independent|HG6|N1|Manager|teacher review|thầy" "C:\Users\nguye\.codex\memories\MEMORY.md"
+exit_code: 0
+purpose: Read the user-supplied task text and perform a narrow context-only memory lookup outside the Q1 repository. No prior S1 scan, note, temporary script, sequence judgment, or invalid clean-room file was read or reused.
+
+[002]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup\Q1_TrackingResearch
+command: git status
+exit_code: 267 (process not started; working directory did not exist)
+purpose: First exact-path attempt to locate the Q1 checkout; retained as a failed command.
+
+[003]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup
+command: git status
+exit_code: 1
+purpose: Check whether the supplied workspace root itself was the Q1 checkout; it was not.
+
+[004]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup\Embodied-Tracking-Problem-Research
+command: git status
+exit_code: 0
+purpose: Required pre-pull Q1 worktree check; checkout identified and clean.
+
+[005]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup\Embodied-Tracking-Problem-Research
+command: git pull origin main
+exit_code: 0
+purpose: Required synchronization with origin/main; fast-forwarded from 6ac470f to b2f9537.
+
+[006]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup\Embodied-Tracking-Problem-Research
+command: git status
+exit_code: 0
+purpose: Required post-pull worktree check; worktree clean and branch current.
+
+[007]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup\Embodied-Tracking-Problem-Research
+command: git log -1 --oneline
+exit_code: 0
+purpose: Record synchronized Q1 HEAD b2f9537.
+
+[008]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup\Embodied-Tracking-Problem-Research
+command: Get-Content -LiteralPath 'screening\manager\2026-08-26_stage4A_S1_R0v2_cleanroom_setup_protocol.md' -Raw
+exit_code: 0
+purpose: Read only the corrected R0V2 protocol by exact repository path.
+
+[009]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup
+command: $cleanroomV2='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2'; if (Test-Path -LiteralPath $cleanroomV2) { Write-Error 'CLEANROOM_V2_ROOT_COLLISION'; exit 23 }; New-Item -ItemType Directory -Path $cleanroomV2, (Join-Path $cleanroomV2 'inputs\project'), (Join-Path $cleanroomV2 'inputs\spiketrack_contract'), (Join-Path $cleanroomV2 'inputs\dataset_pointer'), (Join-Path $cleanroomV2 'outputs'), (Join-Path $cleanroomV2 'logs') | Select-Object -ExpandProperty FullName
+exit_code: 0
+purpose: Prove the exact v2 root did not preexist, then create only the required v2 directory structure. The invalid v1 root was not referenced or accessed.
+
+[010]
+timestamp: 2026-08-26T01:41:45.9051170+07:00 (retrospective record)
+working_directory: E:\Robot_Backup
+command: Get-Date -Format o
+exit_code: 0
+purpose: Capture the initialization timestamp for the command log.
+
+[011]
+timestamp: 2026-08-26T01:42:23.1491090+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; $candidate='E:\Robot_Backup\SpikeTrack'; [pscustomobject]@{timestamp=$ts; path=$candidate; exists=(Test-Path -LiteralPath $candidate); git_dir_exists=(Test-Path -LiteralPath (Join-Path $candidate '.git'))} | Format-List
+exit_code: 0
+purpose: Exact-path check for a possible official SpikeTrack checkout; path absent.
+
+[012]
+timestamp: 2026-08-26T01:42:34.5466145+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; Write-Output $ts; rg -n -i "1537db51a1cc9f6e30cce469fba3e51f5721b3d0|official SpikeTrack checkout|SpikeTrack checkout" 'C:\Users\nguye\.codex\memories\MEMORY.md'
+exit_code: 1
+purpose: Narrow lookup outside Q1 for a checkout path; no match. No prior S1 note or artifact was opened.
+
+[013]
+timestamp: 2026-08-26T01:42:43.7907941+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; Write-Output $ts; Get-ChildItem -LiteralPath 'E:\Robot_Backup' -Directory | Select-Object -ExpandProperty Name
+exit_code: 0
+purpose: Non-recursive directory-only listing outside Q1 to locate the official checkout.
+
+[014]
+timestamp: 2026-08-26T01:42:59.1004652+07:00 (retrospective record)
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; $candidates=@('E:\Robot_Backup\Tracker_Q1\SpikeTrack','E:\Robot_Backup\TrackingResearch-master\SpikeTrack','E:\Robot_Backup\CA-CSRT-RobotTracking2026\SpikeTrack'); Write-Output $ts; foreach($candidate in $candidates){[pscustomobject]@{path=$candidate; exists=(Test-Path -LiteralPath $candidate); git_dir_exists=(Test-Path -LiteralPath (Join-Path $candidate '.git'))}} | Format-Table -AutoSize
+exit_code: 1
+purpose: Exact-path candidate checks; retained failed PowerShell parse caused by an empty pipeline element.
+
+[015]
+timestamp: 2026-08-26T01:42:59.1004652+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; $candidates=@('E:\Robot_Backup\Tracker_Q1\SpikeTrack','E:\Robot_Backup\TrackingResearch-master\SpikeTrack','E:\Robot_Backup\CA-CSRT-RobotTracking2026\SpikeTrack'); Write-Output $ts; foreach($candidate in $candidates){ [pscustomobject]@{path=$candidate; exists=(Test-Path -LiteralPath $candidate); git_dir_exists=(Test-Path -LiteralPath (Join-Path $candidate '.git'))} }
+exit_code: 0
+purpose: Corrected exact-path candidate checks; all three paths absent.
+
+[016]
+timestamp: 2026-08-26T01:43:05.7847669+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; Write-Output $ts; Get-ChildItem -LiteralPath 'E:\Robot_Backup\Tracker_Q1' -Directory | Select-Object -ExpandProperty Name
+exit_code: 0
+purpose: Non-recursive directory-only listing outside Q1; no checkout found.
+
+[017]
+timestamp: 2026-08-26T01:43:13.5146074+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; $candidates=@('F:\Q1_TrackingResearch_Data\SpikeTrack','F:\Q1_TrackingResearch_Data\SpikeTrack_official','F:\Q1_TrackingResearch_Data\spiketrack'); Write-Output $ts; foreach($candidate in $candidates){ [pscustomobject]@{path=$candidate; exists=(Test-Path -LiteralPath $candidate); git_dir_exists=(Test-Path -LiteralPath (Join-Path $candidate '.git'))} }
+exit_code: 0
+purpose: Exact-path candidate checks outside the invalid v1 root; all three paths absent.
+
+[018]
+timestamp: 2026-08-26T01:43:32.5770031+07:00
+working_directory: E:\Robot_Backup\Embodied-Tracking-Problem-Research
+command: $ts=Get-Date -Format o; $repo='E:\Robot_Backup\Embodied-Tracking-Problem-Research'; $dest='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\project'; $relative=@('screening\manager\2026-08-26_stage4A_S1_slice_proposal_protocol.md','screening\manager\2026-08-26_stage4A_S1_cleanroom_safe_source_summary.md','screening\codex\2026-08-25_stage4A_E2_slice_inventory.csv','screening\codex\2026-08-25_stage4A_E2_otb_source_manifest.csv','RULE\01_EVIDENCE_AND_CITATION_POLICY.md','docs\00_claim_taxonomy.md'); $results=foreach($rel in $relative){$src=Join-Path $repo $rel; $dst=Join-Path $dest (Split-Path $rel -Leaf); Copy-Item -LiteralPath $src -Destination $dst -ErrorAction Stop; $srcItem=Get-Item -LiteralPath $src; $srcHash=(Get-FileHash -Algorithm SHA256 -LiteralPath $src).Hash.ToLowerInvariant(); $dstHash=(Get-FileHash -Algorithm SHA256 -LiteralPath $dst).Hash.ToLowerInvariant(); [pscustomobject]@{source=$src; destination=$dst; byte_size=$srcItem.Length; source_sha256=$srcHash; copied_sha256=$dstHash; equal=($srcHash -eq $dstHash)}}; [pscustomobject]@{timestamp=$ts; files=$results} | ConvertTo-Json -Depth 4
+exit_code: 0
+purpose: Copy exactly six whitelisted Q1 inputs by literal path and verify source/copy SHA-256 equality.
+
+[019]
+timestamp: 2026-08-26T01:43:39.3787642+07:00
+working_directory: F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2
+command: $ts=Get-Date -Format o; Write-Output $ts; Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\project\2026-08-26_stage4A_S1_cleanroom_safe_source_summary.md' -Raw
+exit_code: 0
+purpose: Read the clean-room copy of an allowed input; no Q1 repository file read.
+
+[020]
+timestamp: 2026-08-26T01:43:51.7315345+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; Write-Output $ts; Get-ChildItem -LiteralPath 'E:\Robot_Backup\TrackingResearch-master' -Directory | Select-Object -ExpandProperty Name
+exit_code: 0
+purpose: Non-recursive directory-only listing outside Q1 to locate the official checkout.
+
+[021]
+timestamp: 2026-08-26T01:43:58.1373878+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; Write-Output $ts; Get-ChildItem -LiteralPath 'E:\Robot_Backup\TrackingResearch-master\OtherTracker' -Directory | Select-Object -ExpandProperty Name
+exit_code: 0
+purpose: Non-recursive directory-only listing outside Q1; no checkout found.
+
+[022]
+timestamp: 2026-08-26T01:44:06.1484325+07:00
+working_directory: F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2
+command: $ts=Get-Date -Format o; Write-Output $ts; Select-String -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\project\2026-08-26_stage4A_S1_slice_proposal_protocol.md' -Pattern 'checkout','SpikeTrack','1537db51' -Context 1,1
+exit_code: 0
+purpose: Exact-file lookup inside the new v2 clean room; no checkout path found.
+
+[023]
+timestamp: 2026-08-26T01:44:14.9320181+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; Write-Output $ts; foreach($parent in @('E:\Robot_Backup\_clone_validation','E:\Robot_Backup\tmp','E:\Robot_Backup\TrackingResearch-master\_downloads','E:\Robot_Backup\TrackingResearch-master\OtherTracker\_downloads')){ Write-Output ('['+$parent+']'); if(Test-Path -LiteralPath $parent){ Get-ChildItem -LiteralPath $parent -Directory | Select-Object -ExpandProperty Name } else { Write-Output 'MISSING' } }
+exit_code: 0
+purpose: Non-recursive directory-only listings outside Q1; located stage4A_spiketrack_worktree. The listed stage4A_S1_scan directory was not opened or reused.
+
+[024]
+timestamp: 2026-08-26T01:44:42.4319106+07:00 (retrospective record; executed before file copy)
+working_directory: E:\Robot_Backup\tmp\stage4A_spiketrack_worktree
+command: git rev-parse HEAD
+exit_code: 0
+purpose: Required exact checkout command; confirmed pinned commit 1537db51a1cc9f6e30cce469fba3e51f5721b3d0.
+
+[025]
+timestamp: 2026-08-26T01:44:42.4319106+07:00 (retrospective record; executed before file copy)
+working_directory: E:\Robot_Backup\tmp\stage4A_spiketrack_worktree
+command: git status --short
+exit_code: 0
+purpose: Required exact checkout command. Five unrelated paths were dirty; none of the three whitelisted contract paths appeared in status output.
+
+[026]
+timestamp: 2026-08-26T01:44:42.4319106+07:00
+working_directory: E:\Robot_Backup\tmp\stage4A_spiketrack_worktree
+command: $ts=Get-Date -Format o; $checkout='E:\Robot_Backup\tmp\stage4A_spiketrack_worktree'; $dest='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\spiketrack_contract'; $relative=@('lib\test\evaluation\otbdataset.py','experiments\spiketrack\spiketrack_s256_t1.yaml','lib\test\tracker\seqtrack_utils.py'); $results=foreach($rel in $relative){$src=Join-Path $checkout $rel; $dst=Join-Path $dest (Split-Path $rel -Leaf); Copy-Item -LiteralPath $src -Destination $dst -ErrorAction Stop; $srcItem=Get-Item -LiteralPath $src; $srcHash=(Get-FileHash -Algorithm SHA256 -LiteralPath $src).Hash.ToLowerInvariant(); $dstHash=(Get-FileHash -Algorithm SHA256 -LiteralPath $dst).Hash.ToLowerInvariant(); [pscustomobject]@{source=$src; destination=$dst; byte_size=$srcItem.Length; source_sha256=$srcHash; copied_sha256=$dstHash; equal=($srcHash -eq $dstHash)}}; [pscustomobject]@{timestamp=$ts; files=$results} | ConvertTo-Json -Depth 4
+exit_code: 0
+purpose: Copy exactly three whitelisted SpikeTrack contract files by literal path and verify source/copy SHA-256 equality.
+
+[027]
+timestamp: 2026-08-26T01:44:49.8006512+07:00
+working_directory: E:\Robot_Backup
+command: $ts=Get-Date -Format o; $datasetRoot='F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015'; $exists=Test-Path -LiteralPath $datasetRoot -PathType Container; $count=if($exists){(Get-ChildItem -LiteralPath $datasetRoot -Directory | Measure-Object).Count}else{0}; [pscustomobject]@{timestamp=$ts; source_root=$datasetRoot; source_root_exists=$exists; physical_sequence_directory_count=$count; frame_inspection_performed=$false} | Format-List
+exit_code: 0
+purpose: Record only required dataset pointer facts; root exists and contains 98 physical sequence directories. No frame inspected.
+
+[028]
+timestamp: 2026-08-26T01:45:01.6885954+07:00
+working_directory: F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2
+command: $ts=Get-Date -Format o; $pointer='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\dataset_pointer\OTB2015_read_only_pointer.txt'; $item=Get-Item -LiteralPath $pointer; [pscustomobject]@{timestamp=$ts; path=$item.FullName; byte_size=$item.Length; sha256=(Get-FileHash -Algorithm SHA256 -LiteralPath $pointer).Hash.ToLowerInvariant()} | Format-List
+exit_code: 0
+purpose: Record dataset pointer size and SHA-256.
+
+[029]
+timestamp: 2026-08-26T01:45:19.0774610+07:00
+working_directory: F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2
+command: $ts=Get-Date -Format o; $root='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs'; $project=@(Get-ChildItem -LiteralPath (Join-Path $root 'project') -File); $contract=@(Get-ChildItem -LiteralPath (Join-Path $root 'spiketrack_contract') -File); $pointer=@(Get-ChildItem -LiteralPath (Join-Path $root 'dataset_pointer') -File); [pscustomobject]@{timestamp=$ts; project_count=$project.Count; spiketrack_contract_count=$contract.Count; dataset_pointer_count=$pointer.Count; observed_input_count=($project.Count+$contract.Count+$pointer.Count); paths=@($project.FullName+$contract.FullName+$pointer.FullName)} | ConvertTo-Json -Depth 3
+exit_code: 0
+purpose: Validate the pre-audit composition: 6 project + 3 contract + 1 pointer = 10 inputs.
+
+[030]
+timestamp: 2026-08-26T01:45:59.2561371+07:00
+working_directory: F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2
+command: $ts=Get-Date -Format o; $root='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2'; Write-Output $ts; Get-ChildItem -LiteralPath $root -Recurse | ForEach-Object { $_.FullName.Substring($root.Length+1) } | Sort-Object
+exit_code: 0
+purpose: Recursively enumerate only the new v2 root to construct the clean-room tree.
+
+[031]
+timestamp: 2026-08-26T01:46:30.0120609+07:00
+working_directory: F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2
+command: $ts=Get-Date -Format o; $root='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2'; $allowed=@('inputs\project\2026-08-26_stage4A_S1_slice_proposal_protocol.md','inputs\project\2026-08-26_stage4A_S1_cleanroom_safe_source_summary.md','inputs\project\2026-08-25_stage4A_E2_slice_inventory.csv','inputs\project\2026-08-25_stage4A_E2_otb_source_manifest.csv','inputs\project\01_EVIDENCE_AND_CITATION_POLICY.md','inputs\project\00_claim_taxonomy.md','inputs\spiketrack_contract\otbdataset.py','inputs\spiketrack_contract\spiketrack_s256_t1.yaml','inputs\spiketrack_contract\seqtrack_utils.py','inputs\dataset_pointer\OTB2015_read_only_pointer.txt','inputs\cleanroom_manifest.csv','inputs\cleanroom_tree.txt','outputs\cleanroom_attestation.md','logs\commands.txt'); $files=@(Get-ChildItem -LiteralPath $root -Recurse -File); $relative=@($files | ForEach-Object {$_.FullName.Substring($root.Length+1)}); $unauthorized=@($relative | Where-Object {$_ -notin $allowed}); $missing=@($allowed | Where-Object {$_ -notin $relative}); $inputFiles=@($files | Where-Object {$_.FullName -like (Join-Path $root 'inputs\project\*') -or $_.FullName -like (Join-Path $root 'inputs\spiketrack_contract\*') -or $_.FullName -like (Join-Path $root 'inputs\dataset_pointer\*')}); $tokens=@('success_auc_percent','released_success_auc','prediction_sha256','first_divergence'); $tokenMatches=@(Select-String -LiteralPath $inputFiles.FullName -Pattern $tokens -SimpleMatch); $quarantineMatches=@(Select-String -LiteralPath $inputFiles.FullName -Pattern @('Deer','Crossing','Couple') -SimpleMatch); [pscustomobject]@{timestamp=$ts; root=$root; observed_file_count=$files.Count; allowed_file_count=$allowed.Count; unauthorized_files=$unauthorized; missing_files=$missing; prohibited_token_matches=@($tokenMatches | ForEach-Object {[pscustomobject]@{relative_path=$_.Path.Substring($root.Length+1); line_number=$_.LineNumber; line=$_.Line}}); quarantine_name_matches=@($quarantineMatches | ForEach-Object {[pscustomobject]@{relative_path=$_.Path.Substring($root.Length+1); line_number=$_.LineNumber; line=$_.Line}})} | ConvertTo-Json -Depth 6
+exit_code: 0
+purpose: Recursive filename/content scan only inside the new v2 root. Found 14/14 allowed files, no prohibited outcome-field token, and quarantine-name occurrences outside protocol/safe-summary in three required whitelist inputs; contamination result FAIL.
+
+[032]
+timestamp: 2026-08-26T01:47:16.6841915+07:00
+working_directory: F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2
+command: $ts=Get-Date -Format o; $root='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2'; $paths=@('inputs\cleanroom_manifest.csv','inputs\cleanroom_tree.txt','outputs\cleanroom_attestation.md'); $records=foreach($rel in $paths){$p=Join-Path $root $rel; $i=Get-Item -LiteralPath $p; [pscustomobject]@{relative_path=$rel; byte_size=$i.Length; sha256=(Get-FileHash -Algorithm SHA256 -LiteralPath $p).Hash.ToLowerInvariant()}}; [pscustomobject]@{timestamp=$ts; records=$records} | ConvertTo-Json -Depth 4
+exit_code: 0
+purpose: Hash the external manifest, tree, and final invalid-contamination attestation.
+
+[033]
+timestamp: 2026-08-26T01:47:26.3402935+07:00
+working_directory: F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2
+command: $ts=Get-Date -Format o; $root='F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2'; $manifestPath=Join-Path $root 'inputs\cleanroom_manifest.csv'; $rows=@(Import-Csv -LiteralPath $manifestPath); $expectedColumns=@('input_id','category','source_exact_path','cleanroom_relative_path','byte_size','sha256','allowed_by_protocol','notes'); $actualColumns=@($rows[0].PSObject.Properties.Name); $checks=foreach($row in $rows){$p=Join-Path $root $row.cleanroom_relative_path; $i=Get-Item -LiteralPath $p; $h=(Get-FileHash -Algorithm SHA256 -LiteralPath $p).Hash.ToLowerInvariant(); [pscustomobject]@{input_id=$row.input_id; exists=$true; size_match=([int64]$row.byte_size -eq $i.Length); hash_match=($row.sha256 -eq $h); allowed=($row.allowed_by_protocol -eq 'true')}}; [pscustomobject]@{timestamp=$ts; row_count=$rows.Count; columns_exact=(($actualColumns -join '|') -eq ($expectedColumns -join '|')); all_sizes_match=(@($checks | Where-Object {-not $_.size_match}).Count -eq 0); all_hashes_match=(@($checks | Where-Object {-not $_.hash_match}).Count -eq 0); all_allowed=(@($checks | Where-Object {-not $_.allowed}).Count -eq 0); checks=$checks} | ConvertTo-Json -Depth 5
+exit_code: 0
+purpose: Validate exact manifest columns, ten rows, byte sizes, hashes, and allowed flags; manifest validation PASS.
+
+NON-SHELL TOOL ACTIONS
+- 2026-08-26T01:41:45.9051170+07:00: apply_patch created this command log; success.
+- 2026-08-26T01:45:01+07:00: apply_patch created inputs\dataset_pointer\OTB2015_read_only_pointer.txt; success.
+- 2026-08-26T01:45:30+07:00: apply_patch created inputs\cleanroom_manifest.csv; success.
+- 2026-08-26T01:45:50+07:00: apply_patch created outputs\cleanroom_attestation.md; success.
+- 2026-08-26T01:46:00+07:00: apply_patch created inputs\cleanroom_tree.txt; success.
+- 2026-08-26T01:47:00+07:00: apply_patch updated the attestation conclusion to S1_R0V2_INVALID_CONTAMINATION; success.
+- 2026-08-26T01:48:00+07:00: apply_patch appended entries 011-033 and this tool-action summary; success.
+- 2026-08-26T01:49:30+07:00: apply_patch created the exact Q1 R0V2 report path; success.
+- 2026-08-26T01:49:50+07:00: apply_patch created the exact Q1 R0V2 manifest path; success.
+
+[034]
+timestamp: 2026-08-26T01:50:10.6902023+07:00
+working_directory: E:\Robot_Backup\Embodied-Tracking-Problem-Research
+command: Get-Date -Format o
+exit_code: 0
+purpose: Capture the command-log freeze timestamp before copying the log to its exact Q1 artifact path.
+
+[035]
+timestamp: 2026-08-26T01:50:10.6902023+07:00
+working_directory: E:\Robot_Backup\Embodied-Tracking-Problem-Research
+command: Copy-Item -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\logs\commands.txt' -Destination 'screening\codex\2026-08-26_stage4A_S1_R0v2_command_log.txt' -Force
+exit_code: 0
+purpose: Freeze the complete construction/validation command log at the exact required Q1 artifact path. Version-control publication commands follow artifact freeze.
