@@ -1,0 +1,198 @@
+{
+  "scope": "STAGE4A_E2_THREE_SEQUENCE_OFFICIAL_RUNNER_ONLY",
+  "inventory_independence_gate": {
+    "sha256": "8cd2ab115a361fb99afd24a1aa6e1bc1931c48de3ed050fb3f53893d2a32bcc6",
+    "rows": 100,
+    "unique_canonical_sequences": 100,
+    "all_manager_review_status_pending": true,
+    "gate_completed_before_any_tracker_output": true
+  },
+  "source_contract": {
+    "source_root": "E:\\Robot_Backup\\tmp\\stage4A_R_official_source",
+    "pinned_commit": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+    "tracked_diff_after_runs": "CLEAN",
+    "config": "E:\\Robot_Backup\\tmp\\stage4A_R_official_source\\experiments\\spiketrack\\spiketrack_s256_t1.yaml",
+    "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+    "checkpoint": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack\\ckpt\\spiketrack_s256_t1.pth.tar",
+    "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+    "runner_chain": [
+      "tracking/test.py",
+      "OTBDataset",
+      "Tracker.run_sequence",
+      "Tracker._read_image",
+      "lib/test/tracker/spiketrack_inf.py",
+      "integer result persistence"
+    ]
+  },
+  "windows_python_environment": {
+    "operating_system": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.7",
+    "python_executable": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack_env\\Scripts\\python.exe",
+    "torch": "2.0.0+cu118",
+    "torchvision": "0.15.1+cu118",
+    "timm": "0.5.4",
+    "opencv": "4.11.0",
+    "numpy": "1.26.4",
+    "cuda_build": "11.8",
+    "cudnn": 8700,
+    "device": "NVIDIA GeForce MX250 2048 MiB",
+    "dtype": "torch.float32",
+    "evidence_boundary": "desktop development/reproduction evidence only"
+  },
+  "runtime_modes": {
+    "official_default": {
+      "forced_seed": false,
+      "PYTHONPATH": "REMOVED",
+      "PYTHONHASHSEED": "REMOVED",
+      "CUBLAS_WORKSPACE_CONFIG": "REMOVED"
+    },
+    "deterministic": {
+      "seed": 20260825,
+      "PYTHONHASHSEED": "20260825",
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "sitecustomize_sha256": "56284cd8e1fd12ec564f460714f787dcd71c91a1550fb616be34da457aabaee1",
+      "torch_deterministic_algorithms": true,
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false
+    }
+  },
+  "staging": {
+    "acquired_root": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\extracted\\OTB2015",
+    "mini_root": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\evaluator_otb3",
+    "requested_junction_result": "FAILED_INCORRECT_FUNCTION",
+    "filesystem": "exFAT_NO_REPARSE_POINT_SUPPORT",
+    "authorized_fallback": "BYTE_COPY_ONLY_DEER_CROSSING_COUPLE",
+    "per_file_sha256_verification": "PASS",
+    "other_97_records": "METADATA_ONLY_GT_STUBS_NO_IMAGES"
+  },
+  "runs": [
+    {
+      "run_id": "E2-RUN-001",
+      "mode": "official_default",
+      "sequence": "Deer",
+      "start_utc": "2026-08-25T17:01:23.0348621Z",
+      "end_utc": "2026-08-25T17:02:04.3906598Z",
+      "exit_code": "0",
+      "prediction_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\official_default\\Deer\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Deer.txt",
+      "prediction_sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d",
+      "prediction_rows": "71",
+      "timing_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\official_default\\Deer\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Deer_time.txt",
+      "timing_rows": "71",
+      "validation_status": "PASS",
+      "interpretation_boundary": "TIMING_RETAINED_EXTERNALLY_NOT_A_SPEED_CLAIM"
+    },
+    {
+      "run_id": "E2-RUN-002",
+      "mode": "official_default",
+      "sequence": "Crossing",
+      "start_utc": "2026-08-25T17:02:04.7199224Z",
+      "end_utc": "2026-08-25T17:03:02.8655796Z",
+      "exit_code": "0",
+      "prediction_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\official_default\\Crossing\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Crossing.txt",
+      "prediction_sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+      "prediction_rows": "120",
+      "timing_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\official_default\\Crossing\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Crossing_time.txt",
+      "timing_rows": "120",
+      "validation_status": "PASS",
+      "interpretation_boundary": "TIMING_RETAINED_EXTERNALLY_NOT_A_SPEED_CLAIM"
+    },
+    {
+      "run_id": "E2-RUN-003",
+      "mode": "official_default",
+      "sequence": "Couple",
+      "start_utc": "2026-08-25T17:03:03.1769050Z",
+      "end_utc": "2026-08-25T17:04:01.9653255Z",
+      "exit_code": "0",
+      "prediction_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\official_default\\Couple\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Couple.txt",
+      "prediction_sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+      "prediction_rows": "140",
+      "timing_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\official_default\\Couple\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Couple_time.txt",
+      "timing_rows": "140",
+      "validation_status": "PASS",
+      "interpretation_boundary": "TIMING_RETAINED_EXTERNALLY_NOT_A_SPEED_CLAIM"
+    },
+    {
+      "run_id": "E2-RUN-004",
+      "mode": "deterministic",
+      "sequence": "Deer",
+      "start_utc": "2026-08-25T17:04:02.3144390Z",
+      "end_utc": "2026-08-25T17:04:28.9499211Z",
+      "exit_code": "0",
+      "prediction_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\deterministic\\Deer\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Deer.txt",
+      "prediction_sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d",
+      "prediction_rows": "71",
+      "timing_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\deterministic\\Deer\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Deer_time.txt",
+      "timing_rows": "71",
+      "validation_status": "PASS",
+      "interpretation_boundary": "TIMING_RETAINED_EXTERNALLY_NOT_A_SPEED_CLAIM"
+    },
+    {
+      "run_id": "E2-RUN-005",
+      "mode": "deterministic",
+      "sequence": "Crossing",
+      "start_utc": "2026-08-25T17:04:29.1671691Z",
+      "end_utc": "2026-08-25T17:05:03.4827722Z",
+      "exit_code": "0",
+      "prediction_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\deterministic\\Crossing\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Crossing.txt",
+      "prediction_sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+      "prediction_rows": "120",
+      "timing_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\deterministic\\Crossing\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Crossing_time.txt",
+      "timing_rows": "120",
+      "validation_status": "PASS",
+      "interpretation_boundary": "TIMING_RETAINED_EXTERNALLY_NOT_A_SPEED_CLAIM"
+    },
+    {
+      "run_id": "E2-RUN-006",
+      "mode": "deterministic",
+      "sequence": "Couple",
+      "start_utc": "2026-08-25T17:05:03.6615625Z",
+      "end_utc": "2026-08-25T17:05:42.5168304Z",
+      "exit_code": "0",
+      "prediction_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\deterministic\\Couple\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Couple.txt",
+      "prediction_sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+      "prediction_rows": "140",
+      "timing_path": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\stage4a_e2_results\\runs\\deterministic\\Couple\\tracking_results\\spiketrack\\spiketrack_s256_t1\\otb\\Couple_time.txt",
+      "timing_rows": "140",
+      "validation_status": "PASS",
+      "interpretation_boundary": "TIMING_RETAINED_EXTERNALLY_NOT_A_SPEED_CLAIM"
+    }
+  ],
+  "sequence_identity_result": [
+    {
+      "sequence": "Deer",
+      "acquired_default_sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d",
+      "acquired_deterministic_sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d",
+      "prior_local_sha256": "88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d",
+      "released_sha256": "ad1f83563b33df88524358c5d5e2f6bf7eb59c6d90b083a95ad6d8a5bbd618c7",
+      "default_equals_deterministic": true,
+      "default_equals_prior_local": true,
+      "deterministic_equals_prior_local": true,
+      "acquired_data_changed_local_prediction": false
+    },
+    {
+      "sequence": "Crossing",
+      "acquired_default_sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+      "acquired_deterministic_sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+      "prior_local_sha256": "039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f",
+      "released_sha256": "db3a37edc91171fc1572533c89ee879f33e2e19851039a7f7ac59e7548458aff",
+      "default_equals_deterministic": true,
+      "default_equals_prior_local": true,
+      "deterministic_equals_prior_local": true,
+      "acquired_data_changed_local_prediction": false
+    },
+    {
+      "sequence": "Couple",
+      "acquired_default_sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+      "acquired_deterministic_sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+      "prior_local_sha256": "ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38",
+      "released_sha256": "37307157d9ff3f30b83bfe96c362bfe66ccbccc5dad00c97ad64e77d3537ad34",
+      "default_equals_deterministic": true,
+      "default_equals_prior_local": true,
+      "deterministic_equals_prior_local": true,
+      "acquired_data_changed_local_prediction": false
+    }
+  ],
+  "timing_boundary": "External timing files retained but no speed claim is made.",
+  "linux_setup": "NOT_PERFORMED",
+  "stage4b": "LOCKED"
+}
