@@ -1,22 +1,25 @@
 stage,task,status,owner,gate_or_output,notes
 N2_MATRIX_SYNC,Update CX044 and CX058 final HG6 fields,COMPLETE,Codex,Canonical matrix updated,Validated 54 columns 20 unique IDs and blank score fields.
 4A1,Exact code checkpoint environment synchronization,COMPLETE,Codex,Environment and provenance report,Pinned source and S256-T1/T3 checkpoints resolved.
-4A2,Bounded baseline reproduction check,REPRO_UNRESOLVED,Codex,Accepted reproduction boundary or external blocker,Adapter equals official local runner but confirmed author S256-T1 raw predictions remain mismatched on Deer and Couple.
-4A3,MRM instrumentation and deterministic controls,COMPLETE,Codex,Retriever MLP whole-MRM and T3 template-time probes,Refined no-ablation parity is exact and all controls remain physical_skip=false.
-4A4,Dataset and candidate-slice inventory,INCOMPLETE_COVERAGE,Codex,Outcome-independent sequence inventory,Local fragmented OTB holding is insufficient for locked discovery/hold-out coverage.
+4A2,Bounded baseline reproduction check,REPRO_UNRESOLVED,Codex,Accepted scoped operational boundary,Local official runner is stable and auditable but differs from author raw results on Deer and Couple.
+4A3,MRM instrumentation and deterministic controls,COMPLETE,Codex,Retriever MLP whole-MRM and T3 template-time probes,Refined no-ablation parity is exact and all contribution controls remain physical_skip=false.
+4A4,Initial dataset and candidate-slice inventory,SUPERSEDED_BY_E2,Codex,Outcome-independent sequence inventory,Fragmented local holding was replaced by canonical E2 OTB acquisition.
 4A_RECONCILIATION,Review initial preflight,COMPLETE,Manager,STAGE4A_INCOMPLETE,See Stage4A preflight reconciliation.
 4A_R1,Preserve and audit exact reproduction artifacts,COMPLETE,Codex,Auditable scripts hashes predictions GT metrics and commands,Previous adapter preserved and small evidence committed.
-4A_R2,Official-runner and environment comparison,PARTIAL,Codex,Documented reproduction boundary,Official runner equals adapter and local modes repeat exactly; author environment remains unknown.
+4A_R2,Official-runner and environment comparison,COMPLETE_WITH_RELEASE_PROVENANCE_LIMIT,Codex,Local operational runner contract,Official runner equals adapter and local default/deterministic modes repeat exactly.
 4A_R3,Refine retrieval-specific instrumentation,COMPLETE,Codex,Retriever MLP whole-MRM and T3 template-time controls,No physical skip or architecture added.
-4A_R4,Expand outcome-independent dataset inventory,INCOMPLETE_COVERAGE,Codex,Sufficient candidate sequence universe,Local storage remains insufficient.
-4A_R_RECONCILIATION,Review repair evidence,COMPLETE,Manager,STAGE4A_R_PENDING_ENVIRONMENT_OR_DATA,Accepted code evidence; external provenance and data blockers remain.
-4A_E1,Probe official resources dataset options and Linux feasibility,COMPLETE,Codex,RAW_MAPPING_RESOLVED plus resource packages,Author release hierarchy confirms prior archive is S256-T1; minimal OTB acquisition recommended.
-4A_E1_RECONCILIATION,Review resource probe,COMPLETE,Manager,E2 recommended sequentially,E2 first because it addresses both data identity and diagnostic coverage; E3 deferred.
-4A_E2,Acquire and hash author-attributed OTB100 package,AUTHORIZED_READY,Codex,Canonical data comparison and sufficient OTB inventory,User authorized exact Figshare file ID 42879853 to isolated F: path; verify bytes MD5 and SHA-256; no Linux setup or Stage4B.
-4A_E3,Run bounded Linux official-stack comparison,NOT_AUTHORIZED_DEFERRED_PENDING_E2_REVIEW,Codex,Platform characterization of same three sequences,Use existing WSL/MX250 only if later authorized after E2 reconciliation.
-4A_E4,Expand outcome-independent candidate inventory,AUTHORIZED_WITHIN_E2,Codex,Sufficient discovery hold-out universe,Use acquired complete OTB only; no tracker-output selection; no interval or split freeze.
-4A_E_RECONCILIATION,Review external evidence,LOCKED_PENDING_E2,Manager,STAGE4A_READY or STAGE4A_PENDING,Stage 4B remains blocked until E2 and any subsequently authorized E3 are reconciled.
-4B,Discovery similar-distractor diagnostics,LOCKED,Manager+Codex,Criteria A and B,Starts only after frozen slice and Stage4A readiness.
+4A_R4,Expand local outcome-independent inventory,SUPERSEDED_BY_E2,Codex,Canonical sequence universe,E2 provides complete OTB100 inventory.
+4A_R_RECONCILIATION,Review repair evidence,COMPLETE,Manager,STAGE4A_R_PENDING_ENVIRONMENT_OR_DATA,Accepted code evidence; external data and release-provenance checkpoint followed.
+4A_E1,Probe official resources dataset options and Linux feasibility,COMPLETE,Codex,RAW_MAPPING_RESOLVED plus resource packages,Author release hierarchy confirms prior archive is S256-T1; minimal OTB acquisition selected.
+4A_E1_RECONCILIATION,Review resource probe,COMPLETE,Manager,E2 recommended sequentially,E2 first because it addresses both data identity and diagnostic coverage.
+4A_E2,Acquire and hash author-attributed OTB100 package,COMPLETE,Codex,Canonical OTB source and expanded inventory,Exact Figshare package passed byte MD5 SHA256 CRC and extraction-content checks.
+4A_E2_RECONCILIATION,Review E2 acquisition identity reproduction and inventory,COMPLETE,Manager,E2_ACCEPTED_STAGE4A_SLICE_REVIEW_NEXT,Dataset identity established; data not cause of raw-result mismatch; scoped local operational baseline accepted for paired diagnostics only.
+4A_E3,Run bounded Linux official-stack comparison,OPTIONAL_DEFERRED_NOT_AUTHORIZED,Codex,Optional platform characterization,Not required before slice preparation or paired Stage4 diagnostics; may be reopened if later evidence makes it decisive.
+4A_E4,Expand outcome-independent candidate inventory,COMPLETE_SUFFICIENT,Codex,Sufficient proposal universe,100 OTB entries reviewed; 47 candidate-distractor and 50 potential-control rows; no interval or split frozen.
+4A_S1,Prepare outcome-independent interval proposals and contact sheets,READY,Codex,S1 proposal package,Use only canonical source frames GT attributes and direct visual review; no tracker outputs or MRM diagnostics.
+4A_S1_REVIEW,Manager visual review adjust intervals and choose sequence-disjoint split,BLOCKED_PENDING_S1,Manager,S1_ACCEPTED or S1_REWORK,Requires proposal CSVs and contact sheets; no Stage4B execution yet.
+4A_FROZEN_SLICE,Commit final distractor control intervals ambiguity levels and split,NOT_CREATED,Manager,FROZEN_DIAGNOSTIC_SLICE,Only Manager may freeze after S1 visual review.
+4B,Discovery similar-distractor diagnostics,LOCKED,Manager+Codex,Criteria A and B,Starts only after Manager commits the frozen slice.
 4C,Physical skip and held-out predictor,LOCKED,Manager+Codex,Criteria C and D,Starts only if Stage 4B supports interaction.
 4D,Final diagnostic reconciliation,LOCKED,Manager,DIAG_PASS/FAIL/PENDING,Only DIAG_PASS permits soft scoring.
-SOFT_SCORING,S1-S7 scoring,LOCKED,Manager,Score and shortlist eligibility,No automatic progression from HG6 PASS.
+SOFT_SCORING,S1-S7 scoring,LOCKED,Manager,Score and shortlist eligibility,No automatic progression from HG6 PASS or E2 acceptance.
