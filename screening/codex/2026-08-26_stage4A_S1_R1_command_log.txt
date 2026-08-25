@@ -1,0 +1,160 @@
+Stage 4A-S1-R1 command transcript
+Date: 2026-08-26
+Fresh lane: confirmed
+Previous S1 scans/selections/scripts/temp outputs reused: no
+Invalid v1 root accessed: no
+Outcome evidence accessed: none
+
+Notes:
+- Lines beginning with TOOL are non-shell Codex operations retained for audit completeness.
+- PowerShell discovery was non-recursive and occurred only to locate the Q1 checkout after the guessed folder did not exist.
+- All scientific frame selection began only after quarantine_filter.csv was created and verified.
+
+[Request and procedural boundary]
+Get-Content -LiteralPath 'C:\Users\nguye\.codex\attachments\2e127ad7-c7c7-412a-bd00-890e2d906a97\pasted-text.txt' -Raw
+Select-String -LiteralPath 'C:\Users\nguye\.codex\memories\MEMORY.md' -Pattern 'BLINDNESS VIOLATION','positive allowlist','Stage 4A','S1' -Context 1,2 | Select-Object -First 40 | Format-List LineNumber,Line,Context
+
+[Checkout location diagnostics; no repository content search]
+git status  # attempted in nonexistent E:\Robot_Backup\Q1_TrackingResearch; process did not start
+Get-ChildItem -LiteralPath 'E:\Robot_Backup' -Directory | Select-Object -ExpandProperty FullName
+git status  # attempted in E:\Robot_Backup; not a git repository
+Get-Item -LiteralPath 'E:\Robot_Backup\Tracker_Q1\.git','E:\Robot_Backup\TrackingResearch-master\.git','E:\Robot_Backup\Embodied-Tracking-Problem-Research\.git' -ErrorAction SilentlyContinue | Select-Object FullName,PSIsContainer
+Get-ChildItem -LiteralPath 'E:\Robot_Backup\.git' -Force | Select-Object Name,Mode,Length
+Get-ChildItem -LiteralPath 'F:\' -Directory | Select-Object -ExpandProperty FullName
+git -C 'E:\Robot_Backup\Embodied-Tracking-Problem-Research' status
+Test-Path -LiteralPath 'E:\Robot_Backup\Embodied-Tracking-Problem-Research\screening\reconciliation\2026-08-26_stage4A_S1_R0v2_semantic_reconciliation.md'; Test-Path -LiteralPath 'E:\Robot_Backup\Embodied-Tracking-Problem-Research\screening\manager\2026-08-26_stage4A_S1_R1_cleanroom_execution_protocol.md'
+Test-Path exact reconciliation path under E:\Robot_Backup\Tracker_Q1, TrackingResearch-master, Tracker_Q1_Documents, CA-CSRT-RobotTracking2026, and FinalVer-CA-CSRT-RobotTracking2026
+
+[Mandatory repository sync sequence]
+git status
+git pull origin main
+git status
+git log -1 --oneline
+
+[Exact-path protocol reads]
+Get-Content -LiteralPath 'screening\reconciliation\2026-08-26_stage4A_S1_R0v2_semantic_reconciliation.md' -Raw
+Get-Content -LiteralPath 'screening\manager\2026-08-26_stage4A_S1_R1_cleanroom_execution_protocol.md' -Raw
+
+[Quarantine created before any frame access]
+New-Item -ItemType Directory -Force -Path 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1','F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1\contact_sheets','F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\logs'
+TOOL apply_patch: create outputs\r1\quarantine_filter.csv with Deer/Crossing/Couple excluded and frames_opened=false
+Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\outputs\r1\quarantine_filter.csv' -Raw
+
+[Accepted v2 inputs and starting pools]
+Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\project\2026-08-25_stage4A_E2_slice_inventory.csv' -Raw
+Get-Content -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs\project\2026-08-26_stage4A_S1_slice_proposal_protocol.md' -Raw
+Import-Csv inventory; filter candidate_distractor_reason/control reason non-empty; remove Deer/Crossing/Couple; display counts and rows
+Get-ChildItem -LiteralPath 'F:\Q1_TrackingResearch_Data\Stage4A_S1_Cleanroom_2026-08-26_v2\inputs' -Directory (non-recursive)
+Get-ChildItem accepted v2 inputs\project, inputs\dataset_pointer, and inputs\spiketrack_contract -File (non-recursive)
+Get-Content exact accepted-v2 paths: OTB2015_read_only_pointer.txt, spiketrack_s256_t1.yaml, otbdataset.py, and first six lines of 2026-08-25_stage4A_E2_otb_source_manifest.csv
+
+[Fresh source-only scan tooling]
+Test-Path -LiteralPath 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py'
+python -c "import sys; from PIL import Image, ImageDraw, ImageFont; print(sys.version); print('PIL_OK')"
+TOOL apply_patch: create fresh R1 build script with positive allowlists and quarantine guard
+python 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py' --help
+python 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py' coarse  # stopped at missing Human4-2 logical alias; no quarantine frame opened
+Import-Csv accepted E2 source manifest | Where-Object display_name_or_sequence -eq 'Human4_2'; Test-Path exact physical Human4 image/GT alternatives
+Import-Csv accepted E2 inventory and source manifest; list candidate rows with READY_WITH_NONMUTATING_ALIAS
+TOOL apply_patch: add exact accepted-manifest physical aliases for Human4_2, Jogging_1/2, Skating2_1/2
+python 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py' coarse
+Import-Csv outputs\r1\working\candidate_scan_coverage.csv; summarize rows/generated/required/every-frame sequences/missing pages
+
+[Coarse visual review]
+TOOL view_image: every generated coarse JPG for all 44 candidate sequences; 52 pages total; three positive-allowlist reviewers; no writes or scope deviation
+TOOL view_image cross-check: Basketball, Bird1, Board, Football, Liquor coarse sheets
+
+[Frame-by-frame candidate refinement]
+python build_proposals.py detail Basketball 375 435
+python build_proposals.py detail Bolt 1 60
+python build_proposals.py detail Crowds 1 60
+python build_proposals.py detail BlurCar2 390 450
+python build_proposals.py detail BlurCar4 230 290
+python build_proposals.py detail Car24 620 700
+python build_proposals.py detail Bird1 180 230
+python build_proposals.py detail Board 480 560
+python build_proposals.py detail Liquor 540 620
+python build_proposals.py detail Football 130 190
+python build_proposals.py detail Football1 1 74
+python build_proposals.py detail Soccer 160 240
+python build_proposals.py detail Matrix 30 55
+TOOL view_image: every detail JPG above; every consecutive frame reviewed; Matrix withheld because opponent remained outside nominal search
+
+[Control-pool scanning and rejected same-sequence leads]
+python build_proposals.py control-coarse Gym Toy Biker Surfer Jumping KiteSurf
+python build_proposals.py detail Bolt 250 280
+python build_proposals.py detail Crowds 160 190
+python build_proposals.py detail BlurCar2 330 360
+python build_proposals.py detail BlurCar4 210 230
+python build_proposals.py detail Car24 550 580
+python build_proposals.py detail Bird1 140 160
+python build_proposals.py detail Liquor 20 40
+TOOL view_image: all same-sequence control detail pages; all except Liquor rejected because a similar non-target remained or target was not visibly present
+python build_proposals.py control-coarse Skiing CarScale Dog
+python build_proposals.py detail Gym 20 40
+python build_proposals.py detail Gym 300 320
+python build_proposals.py detail Skiing 20 40
+python build_proposals.py detail CarScale 20 40
+python build_proposals.py detail CarScale 100 120
+python build_proposals.py detail CarScale 200 220
+python build_proposals.py detail Dog 20 40
+python build_proposals.py detail Toy 100 120
+python build_proposals.py detail Biker 30 50
+python build_proposals.py detail Surfer 150 170
+python build_proposals.py detail Jumping 120 140
+python build_proposals.py detail KiteSurf 1 20
+TOOL view_image: every listed control detail page; Dog rejected; Skiing reduced to frames 20-27
+python build_proposals.py control-coarse Panda
+TOOL view_image: Panda coarse sheet; rejected due ambiguous large dark animal-like non-target
+python build_proposals.py control-coarse Dog1
+TOOL view_image: Dog1 coarse sheet
+python build_proposals.py detail Dog1 20 40
+TOOL view_image: Dog1 frames 20-40; accepted provisionally as no-distractor ANIMAL control
+
+[Manual source-only midpoint annotation aids]
+python build_proposals.py annotation BlurCar2 430
+python build_proposals.py annotation BlurCar4 267
+python build_proposals.py annotation Car24 659
+python build_proposals.py annotation Board 502
+python build_proposals.py annotation Basketball 416
+python build_proposals.py annotation Bolt 40
+python build_proposals.py annotation Crowds 35
+python build_proposals.py annotation Bird1 196
+python build_proposals.py annotation Liquor 577
+python build_proposals.py annotation Football 142
+python build_proposals.py annotation Football1 38
+python build_proposals.py annotation Soccer 175
+python build_proposals.py annotation Matrix 51
+TOOL view_image: all annotation-grid PNGs; manual red boxes recorded only for proposed midpoint review aids
+
+[Machine-readable fresh judgments]
+TOOL apply_patch: create outputs\r1\working\proposal_specs.csv
+TOOL apply_patch: create outputs\r1\working\control_specs.csv
+TOOL apply_patch: create outputs\r1\working\candidate_scan_review.csv covering all 44 filtered candidate leads
+TOOL apply_patch: create logs\r1_commands.txt
+
+[Generation and validation]
+python 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py' finalize
+python 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py' validate
+Get-Content -LiteralPath 'screening\codex\2026-08-26_stage4A_S1_R1_slice_proposal_report.md' -Raw
+Import-Csv exact R1 distractor/control CSV paths; display interval and linkage summaries
+TOOL view_image: all 24 final Q1 contact sheets using three exact-ID allowlists; initial QA found R1-P12 midpoint bbox offset into arm/clutter
+TOOL view_image: Soccer f160-184 detail page and f175 coordinate-grid source aid
+TOOL apply_patch: move R1-P12 manual midpoint box to the open-mouthed teammate face and conservatively change search status to NEAR_SEARCH_BOUNDARY
+TOOL apply_patch: update this command transcript
+python 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py' finalize
+python 'screening\codex\scripts\2026-08-26_stage4A_S1_R1_build_proposals.py' validate
+TOOL view_image: regenerated R1-P12 contact sheet final QA
+git diff --name-only
+git diff --check
+git status --short
+
+[Authorized commit and push]
+git add -- 'screening/codex/2026-08-26_stage4A_S1_R1_quarantine_filter.csv' 'screening/codex/2026-08-26_stage4A_S1_R1_distractor_interval_proposals.csv' 'screening/codex/2026-08-26_stage4A_S1_R1_control_interval_proposals.csv' 'screening/codex/2026-08-26_stage4A_S1_R1_contact_sheet_manifest.csv' 'screening/codex/2026-08-26_stage4A_S1_R1_slice_proposal_report.md' 'screening/codex/2026-08-26_stage4A_S1_R1_command_log.txt' 'screening/codex/artifacts/stage4A_S1_R1/contact_sheets' 'screening/codex/scripts/2026-08-26_stage4A_S1_R1_build_proposals.py'
+git diff --cached --name-only
+git commit -m "Add clean-room SpikeTrack interval proposals"
+git push origin main
+git status
+git log -1 --oneline
+git rev-parse HEAD
+git rev-parse origin/main

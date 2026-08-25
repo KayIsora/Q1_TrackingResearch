@@ -1,0 +1,4 @@
+sequence,source_inventory_present,candidate_pool_excluded,control_pool_excluded,coverage_excluded,frames_opened,notes
+Deer,true,true,true,true,false,"Mandatory quarantine; source identity only; excluded before candidate/control pool construction"
+Crossing,true,true,true,true,false,"Mandatory quarantine; source identity only; excluded before candidate/control pool construction"
+Couple,true,true,true,true,false,"Mandatory quarantine; source identity only; excluded before candidate/control pool construction"
