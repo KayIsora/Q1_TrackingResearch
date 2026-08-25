@@ -1,5 +1,5 @@
 candidate_id,candidate_short_name,novelty_batch,manager_audit,codex_audit,reconciliation,manager_provisional_hg6,final_hg6,scoring,notes
-CX007,SpikeTrack,N1,COMPLETE,NOT_STARTED,NOT_STARTED,PASS,PENDING,NOT_STARTED,Manager finds narrow ambiguity-conditioned MRM distinction; independent Codex audit required.
-CX013,FARTrack,N1,COMPLETE,NOT_STARTED,NOT_STARTED,FAIL,PENDING,NOT_STARTED,Manager finds ETCTrack direct and multiple reliability/template partial collisions; independent Codex audit required.
-CX044,AsymTrack,N2,NOT_STARTED,NOT_STARTED,LOCKED,PENDING,PENDING,NOT_STARTED,N2 remains locked until N1 reconciliation.
-CX058,HiT-DyHiT,N2,NOT_STARTED,NOT_STARTED,LOCKED,PENDING,PENDING,NOT_STARTED,N2 remains locked until N1 reconciliation.
+CX007,SpikeTrack,N1,COMPLETE,COMPLETE,COMPLETE,PASS,PASS,NOT_STARTED,N1 final: narrow ambiguity-conditioned MRM interaction survives; diagnostics required before scoring.
+CX013,FARTrack,N1,COMPLETE,COMPLETE,COMPLETE,FAIL,FAIL,NOT_APPLICABLE,N1 final: cumulative collision across template reliability, quality/quantity, physical pruning/compression and memory management; reference only.
+CX044,AsymTrack,N2,ACTIVE,NOT_STARTED,NOT_STARTED,PENDING,PENDING,NOT_STARTED,N2 activated; Manager independent novelty audit in progress/complete before Codex lane reads it.
+CX058,HiT-DyHiT,N2,ACTIVE,NOT_STARTED,NOT_STARTED,PENDING,PENDING,NOT_STARTED,N2 activated; Manager independent novelty audit in progress/complete before Codex lane reads it.
