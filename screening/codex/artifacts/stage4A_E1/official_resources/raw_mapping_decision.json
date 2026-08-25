@@ -1,0 +1,24 @@
+{
+  "decision": "RAW_MAPPING_RESOLVED",
+  "decision_scope": "official raw archive identity and declared release variant",
+  "prior_archive_lead": {
+    "drive_file_id": "1QAST-IzBr2rhAteZq_vc0GZszinIOxbD",
+    "display_name": "spiketrack_s256_t1.zip",
+    "sha256": "7e9f8e40d069f73a7b33edfc9593946af478caa3206670847ebde78cbc545c25",
+    "resolved_label": "S256_T1_CONFIRMED"
+  },
+  "author_controlled_evidence_chain": [
+    "Pinned faicaiwawa/SpikeTrack README at commit 1537db51a1cc9f6e30cce469fba3e51f5721b3d0 links Google Drive root 1G9DhjfhmiRz_9JxxlbHbOnuYZBAmhLOG as Raw Results.",
+    "That public root contains direct child folder raw_results with ID 1HNd8EdpHLf3Ly1leuDVQDOBsDg3uaSsq.",
+    "The public raw_results folder lists file ID 1QAST-IzBr2rhAteZq_vc0GZszinIOxbD with exact display name spiketrack_s256_t1.zip.",
+    "The inspected file bytes match the previously recorded archive SHA-256 and byte size exactly."
+  ],
+  "negative_controls": {
+    "prediction_accuracy_used_for_mapping": false,
+    "prediction_similarity_required_for_mapping": false,
+    "all_six_official_archives_three_sequence_outputs_pairwise_distinct": true,
+    "all_six_official_archives_differ_from_all_six_existing_local_t1_prediction_sets": true
+  },
+  "interpretation": "The release-file-to-variant attribution blocker is resolved. This does not resolve the local-versus-released prediction mismatch and does not establish a reproduction pass.",
+  "access_date": "2026-08-25"
+}

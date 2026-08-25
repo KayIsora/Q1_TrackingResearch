@@ -1,0 +1,29 @@
+{
+  "provider": "Hugging Face",
+  "repository": "facaiwawa/SpikeTrack",
+  "author_link_provenance": "Linked as Models(HuggingFace) by the pinned official faicaiwawa/SpikeTrack README.",
+  "repository_commit": "b234055d3afd766e1b37f309bf2878dba247aa10",
+  "repository_last_modified": "2026-03-02T11:31:00.000Z",
+  "repository_used_storage_bytes": 786593394,
+  "checkpoint_upload_commit": "6b25ef1f38c71c0c97243c3184b1c301cb3a3faa",
+  "checkpoint_upload_time": "2026-03-02T11:05:42.000Z",
+  "s256_checkpoints": [
+    {
+      "path": "spiketrack_s256_t1.pth.tar",
+      "byte_size": 47912371,
+      "git_blob_oid": "060d1454526079f218a7830fbb1e703f039a9d80",
+      "lfs_sha256_oid": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+      "claimed_variant": "S256_T1_CONFIRMED"
+    },
+    {
+      "path": "spiketrack_s256_t3.pth.tar",
+      "byte_size": 51865011,
+      "git_blob_oid": "388f56de24181fb1118ee4e59024ec76333167ad",
+      "lfs_sha256_oid": "ccf04aa90521b21a78b12f4b978c03d8a69b5f6de3ee3498a3594e13e98aa491",
+      "claimed_variant": "S256_T3_CONFIRMED"
+    }
+  ],
+  "api_source": "https://huggingface.co/api/models/facaiwawa/SpikeTrack/tree/main?recursive=true&expand=true",
+  "access_date": "2026-08-25",
+  "download_performed": false
+}

@@ -1,0 +1,21 @@
+check_id,component,requested_version,python_target,platform,index_or_source,probe_method,availability,payload_bytes,notes
+LF001,python,3.10,cp310,Ubuntu_24.04_x86_64,configured_Ubuntu_Noble_repositories,apt-get_-s,INCOMPLETE_DEFAULT_REPOSITORY,NA,python3.10-venv could not be located
+LF002,python,3.11,cp311,Ubuntu_24.04_x86_64,configured_Ubuntu_Noble_repositories,apt-get_-s,UNAVAILABLE_DEFAULT_REPOSITORY,NA,python3.11 and python3.11-venv could not be located
+LF003,python,3.12.3,cp312,Ubuntu_24.04_x86_64,local_WSL,command_and_apt-cache,INSTALLED_WITHOUT_PIP_OR_VENV_PACKAGE,NA,pip ensurepip and python3.12-venv absent
+LF004,torch,2.0.0+cu118,cp310,Linux_x86_64,https://download.pytorch.org/whl/cu118/torch/,simple-index tag match plus pip-index tag filter,AVAILABLE,2267273546,exact cp310 Linux wheel found
+LF005,torchvision,0.15.1+cu118,cp310,Linux_x86_64,https://download.pytorch.org/whl/cu118/torchvision/,simple-index tag match plus pip-index tag filter,AVAILABLE,6070222,exact cp310 Linux wheel found
+LF006,timm,0.5.4,cp310,Linux_x86_64,https://pypi.org/pypi/timm/0.5.4/json,PyPI JSON metadata plus pip-index tag filter,AVAILABLE,431537,py3-none-any wheel declares Python >=3.6
+LF007,torch,2.0.0+cu118,cp311,Linux_x86_64,https://download.pytorch.org/whl/cu118/torch/,simple-index tag match plus pip-index tag filter,AVAILABLE,2267290084,exact cp311 Linux wheel found
+LF008,torchvision,0.15.1+cu118,cp311,Linux_x86_64,https://download.pytorch.org/whl/cu118/torchvision/,simple-index tag match plus pip-index tag filter,AVAILABLE,6069979,exact cp311 Linux wheel found
+LF009,timm,0.5.4,cp311,Linux_x86_64,https://pypi.org/pypi/timm/0.5.4/json,PyPI JSON metadata plus pip-index tag filter,AVAILABLE,431537,py3-none-any wheel declares Python >=3.6
+LF010,torchaudio,2.0.1+cu118,cp311,Linux_x86_64,https://download.pytorch.org/whl/cu118/torchaudio/,simple-index tag match plus HTTP HEAD,AVAILABLE,4403024,requested by pinned official install.sh but not required by the prior successful tracker environment
+LF011,torch,2.0.0+cu118,cp312,Linux_x86_64,https://download.pytorch.org/whl/cu118/torch/,simple-index tag match plus pip-index tag filter,UNAVAILABLE,NA,no exact cp312 Linux wheel; available cp312 cu118 series starts at 2.2.0
+LF012,torchvision,0.15.1+cu118,cp312,Linux_x86_64,https://download.pytorch.org/whl/cu118/torchvision/,simple-index tag match plus pip-index tag filter,UNAVAILABLE,NA,no exact cp312 Linux wheel; available cp312 cu118 series starts at 0.17.0
+LF013,timm,0.5.4,cp312,Linux_x86_64,https://pypi.org/pypi/timm/0.5.4/json,PyPI JSON metadata plus pip-index tag filter,AVAILABLE,431537,timm alone is compatible but pinned Torch and Torchvision are not
+LF014,spiketrack_core_pair,torch_2.0.0+cu118_and_torchvision_0.15.1+cu118,cp312,Linux_x86_64,official_PyTorch_CUDA_11.8_indexes,combined exact-wheel contract,INCOMPATIBLE,NA,Python 3.12 cannot satisfy the pinned core pair
+LF015,libturbojpeg,1:2.1.5-2ubuntu2,system,Ubuntu_24.04_x86_64,configured_Ubuntu_Noble_repositories,apt-cache plus apt-get_-s,AVAILABLE_NOT_INSTALLED,192082,required runtime library for jpeg4py; Ubuntu Noble package name is libturbojpeg
+LF016,jpeg4py,0.1.4,cp311,Linux_x86_64,https://pypi.org/pypi/jpeg4py/0.1.4/json,PyPI JSON metadata plus inspected pinned import,AVAILABLE_SDIST_NOT_INSTALLED,12009,unconditional evaluator import; requires cffi and numpy
+LF017,python,3.11.7,cp311,Linux_x86_64,https://api.anaconda.org/package/conda-forge/python,Conda-forge package metadata filter,AVAILABLE_NOT_INSTALLED,30830615,non-debug hab00c5b_1 build; matches prior Windows characterization interpreter
+LF018,lmdb,1.7.3,cp311,Linux_x86_64,https://pypi.org/pypi/lmdb/1.7.3/json,PyPI JSON metadata plus exact-path static import audit,AVAILABLE_NOT_INSTALLED,299620,exact cp311 manylinux x86_64 wheel; imported unconditionally by tracker via lmdb_utils
+LF019,matplotlib,3.11.1,cp311,Linux_x86_64,https://pypi.org/pypi/matplotlib/3.11.1/json,PyPI JSON metadata plus exact-path static import audit,AVAILABLE_NOT_INSTALLED,10024922,exact cp311 manylinux x86_64 wheel; requires Python >=3.11 and is imported unconditionally by tracker and model paths
+LF020,matplotlib,3.11.1,cp310,Linux_x86_64,https://pypi.org/pypi/matplotlib/3.11.1/json,PyPI requires_python check,INCOMPATIBLE,NA,requires Python >=3.11; selected characterization environment therefore uses Python 3.11.7
