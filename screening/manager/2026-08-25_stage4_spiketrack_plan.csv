@@ -23,11 +23,12 @@ N2_MATRIX_SYNC,Update CX044 and CX058 final HG6 fields,COMPLETE,Codex,Canonical 
 4A_S1_R1,Prepare outcome-independent interval proposals and contact sheets,COMPLETE,Codex,S1_R1_COMPLETE_READY_FOR_MANAGER_VISUAL_REVIEW,Twelve proposals and controls with 24 source-only contact sheets; no tracker outcome accessed.
 4A_S1_R1_REVIEW,Manager visual review of candidate and control package,COMPLETE_REWORK_REQUIRED,Manager,S1_R1_REWORK_REQUIRED,Ten primaries retained; P06/P08 rejected; P12 downgraded; controls required rematching.
 4A_S1_R2,Correct proposals and quantitatively rematch controls,COMPLETE,Codex,S1_R2_COMPLETE_READY_FOR_MANAGER_FINAL_SLICE_REVIEW,Ten primaries and preferred controls audited; six MATCH_PASS and four exceptions; no tracker outcome accessed.
-4A_S1_R2_REVIEW,Manager final pair and locked-coverage review,COMPLETE_REWORK_REQUIRED,Manager,S1_R2_REWORK_REQUIRED_COVERAGE_AND_CONTROL_VALIDITY,Six pair anchors accepted; four exception controls rejected; package has only 6 discovery and 4 hold-out intervals versus locked 12 and 8.
-4A_S1_R3,Expand to locked 12/8 interval counts and resolve invalid controls,READY,Codex,S1_R3 20-pair MATCH_PASS package,Preserve six anchors; rematch or replace four held primaries; distinct source events only; no exception counts toward minimum.
-4A_S1_R3_REVIEW,Manager full coverage pair and freeze review,BLOCKED_PENDING_R3,Manager,S1_R3_ACCEPTED or R3_REWORK,Requires at least 12 discovery and 8 hold-out MATCH_PASS pairs before annotation/freeze.
-4A_FROZEN_SLICE,Commit final distractor control intervals ambiguity levels and split,NOT_CREATED,Manager,FROZEN_DIAGNOSTIC_SLICE,Only Manager may freeze after R3 review and any required full-interval distractor annotation.
-4B,Discovery similar-distractor diagnostics,LOCKED,Manager+Codex,Criteria A and B,Starts only after Manager commits the frozen slice.
-4C,Physical skip and held-out predictor,LOCKED,Manager+Codex,Criteria C and D,Starts only if Stage 4B supports interaction.
+4A_S1_R2_REVIEW,Manager final pair and locked-coverage review,COMPLETE_REWORK_REQUIRED,Manager,S1_R2_REWORK_REQUIRED_COVERAGE_AND_CONTROL_VALIDITY,Six pair anchors accepted; four exception controls rejected; package had only 6 discovery and 4 hold-out intervals versus locked 12 and 8.
+4A_S1_R3,Expand to locked 12/8 interval counts and resolve invalid controls,COMPLETE,Codex,S1_R3_COMPLETE_READY_FOR_MANAGER_FREEZE_REVIEW,Twelve discovery and eight hold-out MATCH_PASS pairs; no outcome accessed; Singer1 class required Manager decision.
+4A_S1_R3_REVIEW,Manager full coverage pair and freeze review,COMPLETE_ACCEPTED,Manager,R3_ACCEPTED_DIAGNOSTIC_SLICE_FROZEN,All 20 pair sheets reviewed; Singer1 accepted as PERSON; D05 and D07 downgraded to Tier B; coverage and split gates pass.
+4A_FROZEN_SLICE,Commit final distractor control intervals ambiguity levels and split,COMPLETE,Manager,FROZEN_DIAGNOSTIC_SLICE,Pair-level source of truth committed; 12 discovery pairs executable and 8 hold-out pairs sealed.
+4B,Discovery similar-distractor diagnostics,READY,Codex,Criteria A and B,Run frozen discovery only; baseline weakness gate first then nine predeclared MRM/group controls with clustered bootstrap and Holm correction.
+4B_RECONCILIATION,Review Criterion A/B evidence,BLOCKED_PENDING_4B,Manager,STAGE4B_PASS or DIAG_FAIL,Only accepted A+B evidence may unlock Stage4C.
+4C,Physical skip and held-out predictor,LOCKED,Manager+Codex,Criteria C and D,Starts only if Stage4B supports interaction; held-out pairs remain sealed until then.
 4D,Final diagnostic reconciliation,LOCKED,Manager,DIAG_PASS/FAIL/PENDING,Only DIAG_PASS permits soft scoring.
-SOFT_SCORING,S1-S7 scoring,LOCKED,Manager,Score and shortlist eligibility,No automatic progression from HG6 PASS or source-slice preparation.
+SOFT_SCORING,S1-S7 scoring,LOCKED,Manager,Score and shortlist eligibility,No automatic progression from HG6 PASS or frozen-slice completion.
