@@ -1,0 +1,45 @@
+F2-A UTPTrack command log
+Date: 2026-08-29 (Asia/Saigon)
+Boundary: technical preflight only; no scientific outcome command executed
+
+1. git status
+   Result: main clean and synchronized before branch fetch.
+
+2. git fetch origin
+   Result: origin/codex/f2a-utptrack discovered at the locked authorization commit.
+
+3. git switch --track -c codex/f2a-utptrack origin/codex/f2a-utptrack
+   Result: local tracking branch created.
+
+4. git pull --ff-only
+   Result: already up to date. The shared checkout was concurrently switched to F2-B by another task after this command; no F2-B file was read.
+
+5. git worktree add E:\Robot_Backup\Q1_TrackingResearch_F2A_UTPTrack codex/f2a-utptrack
+   Result: dedicated F2-A worktree created to prevent cross-task branch interference.
+
+6. git pull --ff-only; git status; git log -1 --oneline; git rev-parse HEAD; git branch --show-current
+   Result: clean `codex/f2a-utptrack` worktree at `89b12d36f635b8d91f2f3587bc4c299a0d1be917`.
+
+7. Get-Content on all required exact policy, claim-taxonomy, Manager protocol, authorization, reconciliation, and prior-evidence paths
+   Result: required reads completed before execution.
+
+8. Get-ChildItem searches for `vit_ceatetta.py`, `OSTrackCMP_ep0300.pth.tar`, the exact canonical OTB root, and `nvidia-smi`
+   Result: audited source/cache and all six source sequences located; MX250 CUDA device available; no download performed.
+
+9. git status --short; git rev-parse HEAD; git remote -v; Get-FileHash -Algorithm SHA256 OSTrackCMP_ep0300.pth.tar
+   Result: source SHA exact; tracked source clean; checkpoint SHA-256 exact.
+
+10. Read exact UTPTrack config and implementation paths for tracker, CE, ViT token flow, patch embedding, preprocessing, and model builder
+    Result: locked 0.7 CE/DTE/STE configuration and physical row-major 16x16 search-token identity flow confirmed by source inspection only.
+
+11. nvidia CUDA-environment import/version check
+    Result: Python 3.12.13, PyTorch 2.5.1+cu121, CUDA available. `cv2` was absent from the isolated environment; the already-installed host OpenCV module was importable after torch through an appended host site-packages path. No package was installed.
+
+12. Official tracker import attempt
+    Result: failed before tracker construction with `ModuleNotFoundError: No module named 'torch._six'`.
+
+13. Single permitted clean repair/restart: runtime-only `torch._six.string_classes = (str,)` compatibility shim, then official tracker import
+    Result: failed before tracker construction with `ModuleNotFoundError: No module named 'jpeg4py'` from `lib/train/data/image_loader.py`.
+
+14. STOP
+    Result: no second repair, package installation, alternate loader, strict load, forward, parity test, snapshot test, k=0 test, sequence execution, or scientific outcome row. Final state `PROBE_INCONCLUSIVE_RESOURCE_BLOCKER`.
