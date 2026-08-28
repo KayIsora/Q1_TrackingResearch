@@ -1,0 +1,41 @@
+{
+  "probe_id": "F2-A-R1",
+  "candidate_id": "CX010",
+  "candidate": "UTPTrack",
+  "required_branch_head": "6293d07c35b7f9b9792c63aaa61262100aaf6a32",
+  "source_sha": "84e0f49711254a44f5308faaa9a2405db1964dd7",
+  "source_sha_state": "PASS",
+  "config": "UTPTrack-O/experiments/ostrackcmp/ceatetta_256_r7_all.yaml",
+  "config_sha256": "081829E597BE8C02D2ED05A1B339784313F2F133B96F79283AD40D08EC42948C",
+  "config_state": "PASS",
+  "checkpoint_sha256": "E4EE630CD0E88E41CDBC55BD727C16CA5A4BE3756ADED65F2506B8F670ED0FEF",
+  "checkpoint_sha256_state": "PASS",
+  "authorized_runtime_modules": [
+    "torch._six.string_classes=(str,)",
+    "jpeg4py.JPEG(...).decode() controlled failure"
+  ],
+  "image_loader_opencv_parity": "PASS",
+  "default_image_loader_use_jpeg4py": false,
+  "loader_checks": [
+    {"sequence":"Basketball","frame":"0001.jpg","shape_equal":true,"dtype_equal":true,"max_abs_diff":0},
+    {"sequence":"Bolt","frame":"0001.jpg","shape_equal":true,"dtype_equal":true,"max_abs_diff":0},
+    {"sequence":"Liquor","frame":"0001.jpg","shape_equal":true,"dtype_equal":true,"max_abs_diff":0},
+    {"sequence":"Car4","frame":"0001.jpg","shape_equal":true,"dtype_equal":true,"max_abs_diff":0},
+    {"sequence":"Jogging_1","frame":"Jogging/img/0001.jpg","shape_equal":true,"dtype_equal":true,"max_abs_diff":0},
+    {"sequence":"Shaking","frame":"0001.jpg","shape_equal":true,"dtype_equal":true,"max_abs_diff":0}
+  ],
+  "new_blocker": "ModuleNotFoundError: No module named 'visdom'",
+  "new_blocker_import_path": "lib.test.tracker.ostrackcmp -> lib.test.tracker.basetracker -> lib.vis.visdom_cus",
+  "compatibility_unblock": "FAIL",
+  "strict_load": "FAIL_NOT_REACHED",
+  "official_smoke": "FAIL_NOT_REACHED",
+  "baseline_parity": "FAIL_NOT_REACHED",
+  "snapshot_parity": "FAIL_NOT_REACHED",
+  "k0_target_rescue": "FAIL_NOT_REACHED",
+  "k0_non_target_swap": "FAIL_NOT_REACHED",
+  "identity_mapping": "FAIL_NOT_REACHED",
+  "scientific_sequences_executed": 0,
+  "scientific_evaluated_frames": 0,
+  "scientific_outcome_rows": 0,
+  "result": "PROBE_INCONCLUSIVE_RESOURCE_BLOCKER"
+}

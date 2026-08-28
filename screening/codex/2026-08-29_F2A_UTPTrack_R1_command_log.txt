@@ -1,0 +1,44 @@
+F2-A R1 UTPTrack final technical-unblock command log
+Date: 2026-08-29 (Asia/Saigon)
+Boundary: final preflight only; no scientific outcome command executed
+
+1. git status
+   Result: clean `codex/f2a-utptrack` worktree.
+
+2. git fetch origin
+   Result: refreshed `origin/main` and branch refs.
+
+3. git switch codex/f2a-utptrack
+   Result: already on the authorized branch.
+
+4. git pull --ff-only origin codex/f2a-utptrack
+   Result: already up to date.
+
+5. git status; git log -1 --oneline; git rev-parse HEAD
+   Result: clean branch at required HEAD `6293d07c35b7f9b9792c63aaa61262100aaf6a32`.
+
+6. git show origin/main:screening/reconciliation/2026-08-29_F2_preflight_blocker_reconciliation.md
+   Result: read without merging main.
+
+7. git show origin/main:screening/manager/2026-08-29_F2A_UTPTrack_final_unblock_protocol.md
+   Result: locked final-attempt authorization read.
+
+8. git show origin/main:screening/manager/2026-08-29_F2A_UTPTrack_mini_probe_protocol.md
+   Result: original scientific contract reread unchanged.
+
+9. Get-Content screening/codex/2026-08-29_F2A_UTPTrack_execution_report.md and command log
+   Result: initial blocker artifacts read and preserved.
+
+10. Authorized runtime-only compatibility setup and six-frame loader parity command
+    Runtime: audited Python 3.12.13 / PyTorch 2.5.1+cu121 environment; existing host OpenCV module loaded only after torch.
+    Shims: `torch._six.string_classes=(str,)`; optional `jpeg4py.JPEG(...).decode()` raises `F2A_R1_CONTROLLED_JPEG4PY_UNAVAILABLE`.
+    Result: first controlled jpeg4py failure set `default_image_loader.use_jpeg4py=False`; Basketball, Bolt, Liquor, Car4, Jogging_1, and Shaking frame `0001.jpg` each matched direct OpenCV RGB exactly in shape, dtype, and bytes; max absolute difference 0.
+
+11. Official tracker import with exactly the two authorized runtime modules
+    Result: failed before tracker construction at `lib.vis.visdom_cus` with `ModuleNotFoundError: No module named 'visdom'`.
+
+12. git rev-parse HEAD; git status --short; Get-FileHash for the locked config and checkpoint
+    Result: exact source SHA confirmed; no tracked source modification; config SHA-256 `081829E597BE8C02D2ED05A1B339784313F2F133B96F79283AD40D08EC42948C`; checkpoint SHA-256 exact.
+
+13. STOP
+    Result: no additional shim, install, source bypass, strict load, model construction, forward, parity test, snapshot test, k=0 test, scientific sequence, scientific frame, or outcome row. Final state `PROBE_INCONCLUSIVE_RESOURCE_BLOCKER`.
