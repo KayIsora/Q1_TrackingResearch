@@ -1,0 +1,114 @@
+F2-B MCITrack bounded mini-probe command log
+Date: 2026-08-29
+Branch: codex/f2b-mcitrack
+
+All commands were run from E:\Robot_Backup\Q1_TrackingResearch unless another working directory is shown.
+No UTPTrack F2-A output was read or modified.
+
+[01] git status --short --branch
+[02] git remote -v
+[03] git fetch origin
+[04] git branch --list 'codex/f2b-mcitrack'
+[05] git branch -r --list 'origin/codex/f2b-mcitrack'
+[06] git switch --track origin/codex/f2b-mcitrack
+[07] git pull --ff-only
+     RESULT: fatal: Cannot fast-forward to multiple branches.
+[08] git status --short --branch
+[09] git log -1 --oneline
+[10] git rev-parse HEAD
+     RESULT: 89b12d36f635b8d91f2f3587bc4c299a0d1be917
+[11] git config --get-all branch.codex/f2b-mcitrack.remote
+[12] git config --get-all branch.codex/f2b-mcitrack.merge
+[13] git pull --ff-only origin codex/f2b-mcitrack
+     RESULT: Already up to date.
+[14] git status --porcelain=v1
+[15] git status --short --branch
+[16] git log -1 --oneline
+[17] git rev-parse HEAD
+[18] git rev-parse origin/codex/f2b-mcitrack
+
+Required exact-path reads:
+[19] Get-Content -LiteralPath 'RULE/01_EVIDENCE_AND_CITATION_POLICY.md'
+[20] Get-Content -LiteralPath 'docs/00_claim_taxonomy.md'
+[21] Get-Content -LiteralPath 'screening/manager/2026-08-29_post_spiketrack_lean_execution_plan.md'
+[22] Get-Content -LiteralPath 'screening/reconciliation/2026-08-29_F1_reserve_triage_reconciliation.md'
+[23] Get-Content -LiteralPath 'screening/manager/2026-08-29_F2_authorization.csv'
+[24] Get-Content -LiteralPath 'screening/manager/2026-08-29_F2B_MCITrack_mini_probe_protocol.md'
+[25] Get-Content -LiteralPath 'screening/codex/2026-08-25_stage2_batchB_code_audit.md' (read in complete line chunks 1-250, 251-500, 501-745)
+[26] Get-Content -LiteralPath 'screening/codex/2026-08-25_stage2B_targeted_hg5_evidence.md' (read in complete line chunks 1-220, 221-440, 441-664)
+[27] Get-Content -LiteralPath 'screening/codex/2026-08-25_stage3_gap_G2_code_formulation.md' (read in complete line chunks 1-200, 201-400, 401-528)
+[28] Get-Content -LiteralPath 'screening/reconciliation/2026-08-25_stage3_gap_G2_reconciliation.md'
+[29] Get-ChildItem -LiteralPath 'RULE' -File; read every current file
+[30] Get-ChildItem -LiteralPath 'E:\Robot_Backup\RULE' -File; read every current external source-of-truth rule file
+
+Source/resource/runtime discovery and verification:
+[31] Get-ChildItem -LiteralPath 'E:\Robot_Backup' -Force
+[32] Get-CimInstance Win32_VideoController | Select-Object Name,AdapterRAM,DriverVersion
+[33] nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader
+[34] Get-ChildItem -LiteralPath 'E:\Robot_Backup' -Recurse -Directory -Filter 'MCITrack'
+[35] Get-ChildItem -LiteralPath 'E:\Robot_Backup','C:\Users\nguye\Documents\Codex' -Recurse -File -Filter 'MCITRACK_ep0300.pth.tar'
+[36] git -C 'E:\Robot_Backup\tmp\q1_source_norm\subset7_20260824\MCITrack' rev-parse HEAD
+[37] git -C 'E:\Robot_Backup\tmp\q1_source_norm\subset7_20260824\MCITrack' status --porcelain=v1
+[38] git -C 'E:\Robot_Backup\tmp\stage2_batchB_root_20260825_7da81ad\mcitrack' rev-parse HEAD
+[39] git -C 'E:\Robot_Backup\tmp\stage2_batchB_root_20260825_7da81ad\mcitrack' status --porcelain=v1
+[40] Get-FileHash -Algorithm SHA256 -LiteralPath 'E:\Robot_Backup\tmp\stage2b_checkpoints\mcitrack\MCITRACK_ep0300.pth.tar'
+     RESULT: 6F28F9425FE6E7B52ECA4D1D9ADC7A59AA51558A21BE300F4F456AEBBD4EB2D9
+[41] Get-FileHash -Algorithm SHA256 -LiteralPath 'E:\Robot_Backup\tmp\stage2_batchB_root_20260825_7da81ad\mcitrack\experiments\mcitrack\mcitrack_b224.yaml'
+     RESULT: 2F498726C55601BA1B056D282E80C600F330EBDB5613ACB9B57041520EC76CC7
+[42] Enumerate existing candidate-specific Python environments under E:\Robot_Backup\tmp
+[43] E:\Robot_Backup\tmp\stage2b_cpu_env\Scripts\python.exe -c <print Python/PyTorch/torchvision/timm/OpenCV/NumPy versions>
+[44] E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -c <print Python/PyTorch/CUDA/device and dependency versions>
+     RESULT: Python 3.11.7; PyTorch 2.0.0+cu118; CUDA available; NVIDIA GeForce MX250; timm 0.5.4.
+[45] Read official MCITrack tracker, parameter, evaluator, OTB dataset, environment, model, neck and preprocessing source paths.
+[46] Verify the six locked canonical sequence directories and count image/ground-truth rows.
+     RESULT: Liquor 1741/1741; Car4 659/659; Crowds 347/347; Girl 500/500; Human3 1698/1698; Suv 945/945.
+
+Bounded script creation/validation (all writes used apply_patch under authorized paths):
+[47] Add screening/codex/scripts/2026-08-29_F2B_MCITrack_runtime.py
+[48] Add screening/codex/scripts/2026-08-29_F2B_MCITrack_preflight.py
+[49] Add screening/codex/scripts/2026-08-29_F2B_MCITrack_execute.py
+[50] Add screening/codex/scripts/2026-08-29_F2B_MCITrack_analyze.py
+[51] E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -m py_compile screening\codex\scripts\2026-08-29_F2B_MCITrack_runtime.py screening\codex\scripts\2026-08-29_F2B_MCITrack_preflight.py screening\codex\scripts\2026-08-29_F2B_MCITrack_execute.py screening\codex\scripts\2026-08-29_F2B_MCITrack_analyze.py
+
+Zero-outcome technical preflight:
+[52] E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe screening\codex\scripts\2026-08-29_F2B_MCITrack_preflight.py --device cuda
+     RESULT: FAIL before model execution; scientific_outcome_rows=0.
+     ERROR: Config hash does not match pinned source blob.
+[53] Get-Content -LiteralPath 'screening\codex\artifacts\F2B_MCITrack\preflight.json'
+[54] git -C 'E:\Robot_Backup\tmp\stage2_batchB_root_20260825_7da81ad\mcitrack' diff --quiet -- 'experiments/mcitrack/mcitrack_b224.yaml'
+     RESULT: exit 0.
+[55] git -C 'E:\Robot_Backup\tmp\stage2_batchB_root_20260825_7da81ad\mcitrack' hash-object 'experiments/mcitrack/mcitrack_b224.yaml'
+     RESULT: d6cae8ece8bb52bf09e2abb613781ed206bb7973
+[56] git -C 'E:\Robot_Backup\tmp\stage2_batchB_root_20260825_7da81ad\mcitrack' rev-parse 'e667193eaec4c8a73d4bdd856a662aecdb844b43:experiments/mcitrack/mcitrack_b224.yaml'
+     RESULT: d6cae8ece8bb52bf09e2abb613781ed206bb7973
+[57] Apply the one permitted pre-outcome repair: change only config verification to record the raw worktree/blob SHA-256 values and require matching Git object identity plus a clean path diff.
+[58] E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -m py_compile screening\codex\scripts\2026-08-29_F2B_MCITrack_runtime.py screening\codex\scripts\2026-08-29_F2B_MCITrack_preflight.py
+[59] E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe screening\codex\scripts\2026-08-29_F2B_MCITrack_preflight.py --device cuda
+     RESULT: FAIL during official OTBDataset bootstrap; scientific_outcome_rows=0.
+     ERROR: Could not read file F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015/BlurCar1/groundtruth_rect.txt
+
+Protocol stop:
+[60] No scientific execution command was run.
+[61] No analysis command was run against scientific outcomes.
+[62] Terminal state fixed to PROBE_INCONCLUSIVE_RESOURCE_BLOCKER because the one permitted clean repair/restart was consumed and the restart failed before outcomes.
+
+Finalization commands are appended below before commit/push.
+
+Finalization and publication:
+[63] Delete only the four ignored F2-B CPython bytecode files created by syntax checks; preserve all pre-existing __pycache__ content.
+[64] Parse all four F2-B Python scripts with ast.parse without executing scientific code.
+[65] Parse screening/codex/artifacts/F2B_MCITrack/preflight.json and blocker_summary.json as JSON.
+[66] Validate the results CSV schema/row count and required terminal values.
+[67] git status --short
+[68] Verify every new path is within the authorized F2-B output allowlist.
+[69] git add -- screening/codex/2026-08-29_F2B_MCITrack_execution_report.md screening/codex/2026-08-29_F2B_MCITrack_results.csv screening/codex/2026-08-29_F2B_MCITrack_command_log.txt screening/codex/artifacts/F2B_MCITrack screening/codex/scripts/2026-08-29_F2B_MCITrack_runtime.py screening/codex/scripts/2026-08-29_F2B_MCITrack_preflight.py screening/codex/scripts/2026-08-29_F2B_MCITrack_execute.py screening/codex/scripts/2026-08-29_F2B_MCITrack_analyze.py
+[70] git diff --cached --check
+[71] git diff --cached --name-only
+[72] git diff --cached --stat
+[73] git commit -m "Run lean F2-B MCITrack contextual-state probe"
+[74] git push origin codex/f2b-mcitrack
+[75] git fetch origin
+[76] git status --short --branch
+[77] git rev-parse HEAD
+[78] git rev-parse origin/codex/f2b-mcitrack
+[79] git log -1 --oneline

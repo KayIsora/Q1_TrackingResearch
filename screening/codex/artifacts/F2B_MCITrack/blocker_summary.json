@@ -1,0 +1,27 @@
+{
+  "terminal_state": "PROBE_INCONCLUSIVE_RESOURCE_BLOCKER",
+  "scientific_outcome_rows": 0,
+  "sequences_scientifically_executed": 0,
+  "permitted_clean_restart_used": true,
+  "first_attempt": {
+    "status": "STOPPED_BEFORE_MODEL_EXECUTION",
+    "reason": "CRLF worktree bytes differed from LF Git-blob bytes in the initial config SHA-256 verifier",
+    "scientific_outcome_rows": 0
+  },
+  "clean_restart": {
+    "status": "STOPPED_DURING_OFFICIAL_DATASET_BOOTSTRAP",
+    "reason": "Exception: Could not read file F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\extracted\\OTB2015/BlurCar1/groundtruth_rect.txt",
+    "scientific_outcome_rows": 0,
+    "strict_load_reached": false,
+    "smoke_reached": false
+  },
+  "source_sha": "e667193eaec4c8a73d4bdd856a662aecdb844b43",
+  "config_worktree_sha256": "2F498726C55601BA1B056D282E80C600F330EBDB5613ACB9B57041520EC76CC7",
+  "config_git_object": "d6cae8ece8bb52bf09e2abb613781ed206bb7973",
+  "checkpoint_sha256": "6F28F9425FE6E7B52ECA4D1D9ADC7A59AA51558A21BE300F4F456AEBBD4EB2D9",
+  "hg6": "NOT STARTED",
+  "s1_s7": "NOT STARTED",
+  "primary_shortlist": "NONE",
+  "main_baseline": "NONE",
+  "proposed_architecture": "NONE"
+}
