@@ -1,0 +1,2 @@
+row_type,pair_id,sequence,evaluated_rows,baseline_weakness,zero_contribution_primary,zero_interaction,zero_pair_sign_consistency,stale_contribution_primary,stale_interaction,stale_pair_sign_consistency,passing_intervention,final_result,blocker
+BLOCKER,ALL_6_PAIRS,ALL_6_SEQUENCES,0,NA,NA,NA,NA,NA,NA,NA,NONE,PROBE_INCONCLUSIVE_RESOURCE_BLOCKER,"Restricted official six-sequence construction passed, but official tracker construction stopped before strict load on missing pretrained/fast_itpn_base_clipl_e1600.pt; final protocol permits no repair."

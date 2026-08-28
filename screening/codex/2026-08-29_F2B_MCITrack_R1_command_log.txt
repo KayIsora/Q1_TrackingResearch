@@ -1,0 +1,49 @@
+F2-B R1 MCITrack final restricted-dataset unblock command log
+Date: 2026-08-29
+Branch: codex/f2b-mcitrack
+Required starting HEAD: 7afcec285227c6fd138d1197e662c69e9fbfb151
+Final technical-unblock window start: 2026-08-28T19:05:00Z
+Final technical-unblock deadline: 2026-08-28T19:50:00Z
+
+[01] git status --short --branch
+[02] git fetch origin
+[03] git switch codex/f2b-mcitrack
+[04] git pull --ff-only origin codex/f2b-mcitrack
+[05] git status --short --branch
+[06] git log -1 --oneline
+[07] git rev-parse HEAD
+     RESULT: 7afcec285227c6fd138d1197e662c69e9fbfb151
+[08] git status --porcelain=v1
+[09] git show origin/main:screening/reconciliation/2026-08-29_F2_preflight_blocker_reconciliation.md
+[10] git show origin/main:screening/manager/2026-08-29_F2B_MCITrack_final_unblock_protocol.md
+[11] git show origin/main:screening/manager/2026-08-29_F2B_MCITrack_mini_probe_protocol.md
+[12] Record UTC/local time and Git object identities for the three origin/main Manager files.
+[13] Create only the authorized _R1 adapter/preflight/execute/analyze scripts and command log using apply_patch.
+
+The R1 runtime preserves the original official sequence-info dictionary objects, filters to exactly Liquor, Car4, Crowds, Girl, Human3 and Suv before get_sequence_list(), and does not access or repair BlurCar1.
+
+[14] Parse all four 2026-08-29_F2B_MCITrack_R1_*.py scripts with ast.parse.
+     RESULT: PASS; files=4.
+[15] Run final preflight:
+     E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe screening\codex\scripts\2026-08-29_F2B_MCITrack_R1_preflight.py --device cuda
+     RESULT: FAIL within 45-minute cap; scientific_outcome_rows=0.
+     RESTRICTED DATASET CONSTRUCTION: PASS; execution progressed into official tracker/model construction.
+     ERROR: FileNotFoundError for E:\Robot_Backup\tmp\stage2_batchB_root_20260825_7da81ad\mcitrack/pretrained/fast_itpn_base_clipl_e1600.pt.
+[16] Read screening/codex/artifacts/F2B_MCITrack_R1/preflight.json and confirm status=FAIL, scientific_outcome_rows=0, within_45_minute_unblock_cap=true.
+[17] Do not run 2026-08-29_F2B_MCITrack_R1_execute.py.
+[18] Do not run 2026-08-29_F2B_MCITrack_R1_analyze.py against scientific outcomes.
+[19] Do not repair, download, substitute or bypass the missing Fast-iTPN bootstrap resource.
+[20] Fix terminal state to PROBE_INCONCLUSIVE_RESOURCE_BLOCKER.
+
+Finalization commands:
+[21] Validate R1 Python syntax, preflight/blocker JSON, result CSV, zero-row state and output allowlist.
+[22] git add only authorized 2026-08-29_F2B_MCITrack_R1_* and artifacts/F2B_MCITrack_R1 paths.
+[23] git diff --cached --check
+[24] git diff --cached --name-only
+[25] git commit -m "Complete final F2-B MCITrack unblock and probe"
+[26] git push origin codex/f2b-mcitrack
+[27] git fetch origin
+[28] git status --short --branch
+[29] git rev-parse HEAD
+[30] git rev-parse origin/codex/f2b-mcitrack
+[31] git log -1 --oneline

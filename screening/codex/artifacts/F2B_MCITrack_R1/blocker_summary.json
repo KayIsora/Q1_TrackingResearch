@@ -1,0 +1,20 @@
+{
+  "final_result": "PROBE_INCONCLUSIVE_RESOURCE_BLOCKER",
+  "restricted_dataset_construction": "PASS",
+  "strict_load_and_official_smoke": "FAIL_NOT_REACHED",
+  "baseline_parity": "FAIL_NOT_REACHED",
+  "snapshot_parity": "FAIL_NOT_REACHED",
+  "state_copy_noop_parity": "FAIL_NOT_REACHED",
+  "five_template_current_call_parity": "FAIL_NOT_REACHED",
+  "sequences_executed": 0,
+  "primary_control_rows": 0,
+  "scientific_outcome_rows": 0,
+  "passing_intervention": "NONE",
+  "technical_unblock_wall_seconds": 250.814764,
+  "within_45_minute_unblock_cap": true,
+  "blocker_type": "FileNotFoundError",
+  "blocker_path": "E:\\Robot_Backup\\tmp\\stage2_batchB_root_20260825_7da81ad\\mcitrack/pretrained/fast_itpn_base_clipl_e1600.pt",
+  "repair_attempted_after_blocker": false,
+  "hg6": "NOT STARTED",
+  "main_baseline": "NONE"
+}
