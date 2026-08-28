@@ -1,0 +1,46 @@
+{
+  "additional_network_pass": false,
+  "cold_start_policy": "No GT-derived history value is used. If prior tracker prediction history/confidence is unavailable, the three history scalars are 0.0.",
+  "epsilon": 1e-12,
+  "feature_order": [
+    "previous_confidence",
+    "previous_center_displacement_normalized_by_predicted_scale",
+    "previous_log_area_ratio",
+    "mrm1_input_abs_mean",
+    "mrm1_input_std",
+    "mrm1_input_rms",
+    "mrm1_input_nonzero_ratio",
+    "template_memory_abs_mean",
+    "template_memory_std",
+    "template_memory_rms",
+    "template_memory_nonzero_ratio",
+    "search_to_template_rms_ratio"
+  ],
+  "forbidden_inputs": [
+    "GT",
+    "IoU",
+    "manual distractor annotations",
+    "ambiguity/tier",
+    "primary/control side",
+    "pair/sequence ID",
+    "class/stratum",
+    "post-MRM values",
+    "Retriever/MLP outputs",
+    "hold-out information"
+  ],
+  "formulas": {
+    "mrm1_input_abs_mean": "mean(abs(current pre-MRM1 inference tensor))",
+    "mrm1_input_nonzero_ratio": "mean(current pre-MRM1 tensor != 0)",
+    "mrm1_input_rms": "sqrt(mean(current pre-MRM1 tensor squared))",
+    "mrm1_input_std": "population std(current pre-MRM1 inference tensor)",
+    "previous_center_displacement_normalized_by_predicted_scale": "Euclidean center displacement between the two latest tracker predictions divided by sqrt(width*height) of the latest prediction; cold-start sentinel 0.0",
+    "previous_confidence": "previous tracker prediction confidence; cold-start sentinel 0.0",
+    "previous_log_area_ratio": "log(area(latest tracker prediction)/area(previous tracker prediction)); cold-start sentinel 0.0",
+    "search_to_template_rms_ratio": "mrm1_input_rms/max(template_memory_rms,1e-12)",
+    "template_memory_abs_mean": "mean(abs(already cached MRM1 template memory))",
+    "template_memory_nonzero_ratio": "mean(cached MRM1 template memory != 0)",
+    "template_memory_rms": "sqrt(mean(cached MRM1 template memory squared))",
+    "template_memory_std": "population std(already cached MRM1 template memory)"
+  },
+  "schema_version": "stage4c1-pre-mrm-features-v1"
+}

@@ -1,0 +1,67 @@
+Stage 4C1 command log
+Date: 2026-08-28 Asia/Saigon
+Scope: frozen DISCOVERY physical-skip and predictor freeze only; HOLDOUT execution prohibited
+
+[Repository sync]
+git status --short --branch
+git pull origin main
+git status --short --branch
+git log -1 --oneline
+
+Observed synchronized Q1 HEAD:
+bdbcc6f Accept Stage 4B and activate Stage 4C1
+
+[Fresh pinned SpikeTrack worktrees]
+git -C E:\Robot_Backup\tmp\stage2B_spiketrack worktree add --detach F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_pinned 1537db51a1cc9f6e30cce469fba3e51f5721b3d0
+git -C E:\Robot_Backup\tmp\stage2B_spiketrack worktree add --detach F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_verify 1537db51a1cc9f6e30cce469fba3e51f5721b3d0
+
+[Accepted Stage-4A patch and Stage-4C1 physical patch]
+git show HEAD:screening/codex/patches/2026-08-25_spiketrack_stage4A_repair.patch | git -C F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_pinned apply --check --whitespace=error-all -
+git show HEAD:screening/codex/patches/2026-08-25_spiketrack_stage4A_repair.patch | git -C F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_pinned apply --whitespace=error-all -
+git -C F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_pinned diff --binary > screening/codex/patches/2026-08-28_stage4C1_physical_skip.patch
+git -C F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_verify apply --check --whitespace=error-all E:\Robot_Backup\Q1_TrackingResearch\screening\codex\patches\2026-08-28_stage4C1_physical_skip.patch
+
+Observed physical patch SHA-256:
+c2ccef6b07818ab3d08c99258f9e28abd0e6e7c56679a3573a4ca9e84f3938aa
+
+[One-forward smoke]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_pinned\tracking\stage4c1_physical_smoke.py
+
+Observed: whole and MLP physical parity PASS at zero maximum residual; call proof PASS; no extra backbone pass.
+
+[Discovery Criterion-C execution]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-28_stage4C1_execute.py --source-root F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_pinned --dataset-root F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015 --slice-csv E:\Robot_Backup\Q1_TrackingResearch\screening\manager\2026-08-25_stage4_spiketrack_diagnostic_slice.csv --config F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_pinned\experiments\spiketrack\spiketrack_s256_t1.yaml --checkpoint E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --stage4b-baseline-csv E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery\baseline_per_frame_metrics.csv --physical-patch E:\Robot_Backup\Q1_TrackingResearch\screening\codex\patches\2026-08-28_stage4C1_physical_skip.patch --artifact-root E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4C1_discovery --output-dir E:\Robot_Backup\Q1_TrackingResearch\screening\codex --seed 20260828
+
+The first launch stopped before artifact creation because the imported Stage-4B snapshot helper lacked its module-local torch binding. The runner was patched to bind helper.torch and the exact command was rerun from the beginning.
+
+Observed: Criterion C PASS; 12 discovery pairs; 24 intervals; 0 hold-out pairs/outcomes; whole/MLP parity PASS; call proof PASS.
+
+[Discovery predictor fit/freeze]
+py E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-28_stage4C1_fit_predictor.py --artifact-root E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4C1_discovery --output-dir E:\Robot_Backup\Q1_TrackingResearch\screening\codex --physical-patch E:\Robot_Backup\Q1_TrackingResearch\screening\codex\patches\2026-08-28_stage4C1_physical_skip.patch --stage4b-holdout-seal E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery\holdout_seal.csv --seed 20260828
+
+Observed: selected C=0.01; discovery OOF AUROC=0.471877133106; OOF Brier=0.257919686444; hold-out seal PASS.
+
+[Final report and validation]
+py E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-28_stage4C1_finalize_report.py --repo-root E:\Robot_Backup\Q1_TrackingResearch --source-root F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_pinned --verify-source-root F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_verify
+
+[Final validation / commit / push]
+py -m py_compile screening\codex\scripts\2026-08-28_stage4C1_*.py
+git -C F:\Q1_TrackingResearch_Data\Stage4C1_SpikeTrack_Discovery_2026-08-28\SpikeTrack_verify apply --check --whitespace=error-all E:\Robot_Backup\Q1_TrackingResearch\screening\codex\patches\2026-08-28_stage4C1_physical_skip.patch
+git fetch origin
+git diff --name-only
+git status --short
+git add -- screening/codex/2026-08-28_stage4C1_* screening/codex/artifacts/stage4C1_discovery screening/codex/scripts/2026-08-28_stage4C1_* screening/codex/patches/2026-08-28_stage4C1_physical_skip.patch
+git diff --cached --name-only
+git diff --cached --check
+git diff --cached --check -- . ':(exclude)screening/codex/patches/2026-08-28_stage4C1_physical_skip.patch'
+git commit -m "Run SpikeTrack Stage 4C1 physical skip and predictor freeze"
+git push origin main
+git status --short --branch
+git rev-parse HEAD
+git rev-parse origin/main
+git log -1 --oneline
+git log origin/main -1 --oneline
+
+Final commit identity and push/clean verification are necessarily observed after this log is committed; they are reported by the repository commands and final response.
+
+The full staged whitespace check reports only whitespace embedded as data inside the unified physical-skip patch, inherited from the accepted Stage-4A source. All other staged paths pass the scoped whitespace check. The patch is preserved byte-for-byte because its SHA-256 is frozen in the executed Criterion-C summary, predictor and hold-out seal; strict application to the clean pinned verification worktree passes.

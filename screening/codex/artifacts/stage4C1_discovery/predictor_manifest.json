@@ -1,0 +1,28 @@
+{
+  "artifact_hashes": {
+    "2026-08-28_stage4C1_criterionC_results.csv": "e787aaf759a0fccdf96986876d45e725a7afb3f12ba0c68a5cddb89a1f66acef",
+    "2026-08-28_stage4C1_frozen_predictor.json": "3be9039dceb2d9db4589edcb419232ec77d45ff36f1d779ae9a617ab03a9d0f2",
+    "2026-08-28_stage4C1_physical_skip.patch": "c2ccef6b07818ab3d08c99258f9e28abd0e6e7c56679a3573a4ca9e84f3938aa",
+    "2026-08-28_stage4C1_predictor_hyperparameter_audit.csv": "5f060eb8eb6e96ce8bdf16ef203cd4a7e4c3c0b3cf6a067ad639f424462d8515",
+    "2026-08-28_stage4C1_predictor_oof_results.csv": "4d7cb46d6f83572bfd321c0a632a1fc749f611c1ef5cda781a8f650abbd658c3",
+    "oracle_skip_labels.csv": "7f8aa3fa1084cce4cc84ffc9fd98c6552263393a3a62c484a0a609eee2a8b622",
+    "pre_mrm_feature_schema.json": "260bdeecf5afa60bd79465863ce07ed194b6b6e327d7f32c8b5f17c75823a677",
+    "pre_mrm_features.csv": "0b0e834036c8517681738b5539eca41fed6dab5250dd3ac8e6b292689cafbc9d",
+    "predictor_grouped_folds.csv": "c2c7fca2c45d079750299391073ed3d1f44c4570382c1f958bd54b9deaaffe1d",
+    "predictor_hyperparameter_audit.csv": "5f060eb8eb6e96ce8bdf16ef203cd4a7e4c3c0b3cf6a067ad639f424462d8515",
+    "predictor_oof_probabilities.csv": "4d7cb46d6f83572bfd321c0a632a1fc749f611c1ef5cda781a8f650abbd658c3",
+    "stage4C1_execution_summary.json": "788a21904fe613af5f6033e9307090d3fbd96ad5a1d0dec7089c62e0569c4e83",
+    "stage4C1_holdout_seal.csv": "e51ff574e99b06d098987d9e7665939f04b881608083037293fa5774171f7d55"
+  },
+  "discovery_negative_labels": 300,
+  "discovery_oof_auroc": 0.47187713310580204,
+  "discovery_oof_brier": 0.25791968644449575,
+  "discovery_positive_labels": 293,
+  "holdout_outcomes_accessed": false,
+  "holdout_pairs_executed": 0,
+  "holdout_seal": "PASS",
+  "schema_version": "stage4c1-predictor-manifest-v1",
+  "selected_C": 0.01,
+  "stage4c2": "LOCKED",
+  "status": "STAGE4C1_PREDICTOR_FREEZE_READY_FOR_MANAGER_REVIEW"
+}

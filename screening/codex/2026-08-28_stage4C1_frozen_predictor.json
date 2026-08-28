@@ -1,0 +1,283 @@
+{
+  "constant_comparator_for_stage4c2": {
+    "definition": "frozen discovery positive base rate",
+    "probability": 0.49409780775716694
+  },
+  "controls": {
+    "holdout_outcomes_accessed": false,
+    "holdout_pairs_executed": 0,
+    "no_class_weighting": true,
+    "no_feature_selection": true,
+    "no_nonlinear_model": true,
+    "no_probability_threshold": true,
+    "stage4c2": "LOCKED"
+  },
+  "discovery": {
+    "calibration": {
+      "bins": [
+        {
+          "bin_index": 0,
+          "count": 0,
+          "lower_inclusive": 0.0,
+          "mean_probability": null,
+          "observed_positive_rate": null,
+          "upper_inclusive_only_for_last_bin": 0.1
+        },
+        {
+          "bin_index": 1,
+          "count": 0,
+          "lower_inclusive": 0.1,
+          "mean_probability": null,
+          "observed_positive_rate": null,
+          "upper_inclusive_only_for_last_bin": 0.2
+        },
+        {
+          "bin_index": 2,
+          "count": 0,
+          "lower_inclusive": 0.2,
+          "mean_probability": null,
+          "observed_positive_rate": null,
+          "upper_inclusive_only_for_last_bin": 0.3
+        },
+        {
+          "bin_index": 3,
+          "count": 24,
+          "lower_inclusive": 0.3,
+          "mean_probability": 0.36798231811927123,
+          "observed_positive_rate": 0.6666666666666666,
+          "upper_inclusive_only_for_last_bin": 0.4
+        },
+        {
+          "bin_index": 4,
+          "count": 421,
+          "lower_inclusive": 0.4,
+          "mean_probability": 0.47336264562284247,
+          "observed_positive_rate": 0.49643705463182897,
+          "upper_inclusive_only_for_last_bin": 0.5
+        },
+        {
+          "bin_index": 5,
+          "count": 129,
+          "lower_inclusive": 0.5,
+          "mean_probability": 0.5234486275456078,
+          "observed_positive_rate": 0.5271317829457365,
+          "upper_inclusive_only_for_last_bin": 0.6
+        },
+        {
+          "bin_index": 6,
+          "count": 19,
+          "lower_inclusive": 0.6,
+          "mean_probability": 0.6347756857772822,
+          "observed_positive_rate": 0.0,
+          "upper_inclusive_only_for_last_bin": 0.7
+        },
+        {
+          "bin_index": 7,
+          "count": 0,
+          "lower_inclusive": 0.7,
+          "mean_probability": null,
+          "observed_positive_rate": null,
+          "upper_inclusive_only_for_last_bin": 0.8
+        },
+        {
+          "bin_index": 8,
+          "count": 0,
+          "lower_inclusive": 0.8,
+          "mean_probability": null,
+          "observed_positive_rate": null,
+          "upper_inclusive_only_for_last_bin": 0.9
+        },
+        {
+          "bin_index": 9,
+          "count": 0,
+          "lower_inclusive": 0.9,
+          "mean_probability": null,
+          "observed_positive_rate": null,
+          "upper_inclusive_only_for_last_bin": 1.0
+        }
+      ],
+      "expected_calibration_error": 0.04960980714048189,
+      "method": "ten fixed equal-width probability bins"
+    },
+    "group_count": 9,
+    "negative_labels": 300,
+    "oof_auroc": 0.47187713310580204,
+    "oof_brier": 0.25791968644449575,
+    "pair_count": 12,
+    "positive_base_rate": 0.49409780775716694,
+    "positive_labels": 293,
+    "row_count": 593,
+    "validation": "leave-one-connected-component-out"
+  },
+  "feature_extraction_overhead_ms": {
+    "additional_network_pass": false,
+    "maximum": 19.41820000502048,
+    "mean": 1.8315387861375205,
+    "median": 1.698000000033062,
+    "p95": 2.5258000008761883,
+    "row_count": 593
+  },
+  "feature_order": [
+    "previous_confidence",
+    "previous_center_displacement_normalized_by_predicted_scale",
+    "previous_log_area_ratio",
+    "mrm1_input_abs_mean",
+    "mrm1_input_std",
+    "mrm1_input_rms",
+    "mrm1_input_nonzero_ratio",
+    "template_memory_abs_mean",
+    "template_memory_std",
+    "template_memory_rms",
+    "template_memory_nonzero_ratio",
+    "search_to_template_rms_ratio"
+  ],
+  "feature_schema": {
+    "additional_network_pass": false,
+    "cold_start_policy": "No GT-derived history value is used. If prior tracker prediction history/confidence is unavailable, the three history scalars are 0.0.",
+    "epsilon": 1e-12,
+    "feature_order": [
+      "previous_confidence",
+      "previous_center_displacement_normalized_by_predicted_scale",
+      "previous_log_area_ratio",
+      "mrm1_input_abs_mean",
+      "mrm1_input_std",
+      "mrm1_input_rms",
+      "mrm1_input_nonzero_ratio",
+      "template_memory_abs_mean",
+      "template_memory_std",
+      "template_memory_rms",
+      "template_memory_nonzero_ratio",
+      "search_to_template_rms_ratio"
+    ],
+    "forbidden_inputs": [
+      "GT",
+      "IoU",
+      "manual distractor annotations",
+      "ambiguity/tier",
+      "primary/control side",
+      "pair/sequence ID",
+      "class/stratum",
+      "post-MRM values",
+      "Retriever/MLP outputs",
+      "hold-out information"
+    ],
+    "formulas": {
+      "mrm1_input_abs_mean": "mean(abs(current pre-MRM1 inference tensor))",
+      "mrm1_input_nonzero_ratio": "mean(current pre-MRM1 tensor != 0)",
+      "mrm1_input_rms": "sqrt(mean(current pre-MRM1 tensor squared))",
+      "mrm1_input_std": "population std(current pre-MRM1 inference tensor)",
+      "previous_center_displacement_normalized_by_predicted_scale": "Euclidean center displacement between the two latest tracker predictions divided by sqrt(width*height) of the latest prediction; cold-start sentinel 0.0",
+      "previous_confidence": "previous tracker prediction confidence; cold-start sentinel 0.0",
+      "previous_log_area_ratio": "log(area(latest tracker prediction)/area(previous tracker prediction)); cold-start sentinel 0.0",
+      "search_to_template_rms_ratio": "mrm1_input_rms/max(template_memory_rms,1e-12)",
+      "template_memory_abs_mean": "mean(abs(already cached MRM1 template memory))",
+      "template_memory_nonzero_ratio": "mean(cached MRM1 template memory != 0)",
+      "template_memory_rms": "sqrt(mean(cached MRM1 template memory squared))",
+      "template_memory_std": "population std(already cached MRM1 template memory)"
+    },
+    "schema_version": "stage4c1-pre-mrm-features-v1"
+  },
+  "feature_schema_sha256": "260bdeecf5afa60bd79465863ce07ed194b6b6e327d7f32c8b5f17c75823a677",
+  "model": {
+    "C": 0.01,
+    "class": "sklearn.linear_model.LogisticRegression",
+    "class_weight": null,
+    "classes": [
+      0,
+      1
+    ],
+    "coefficients": [
+      -0.05335718043658541,
+      0.03857196968358457,
+      -0.00259632588752839,
+      0.04547089004061401,
+      0.0812399748671049,
+      0.07525192054909491,
+      0.05336766518485998,
+      0.02724764292436964,
+      -0.0232351673083631,
+      -0.012949302596273849,
+      -0.028768241370361127,
+      0.06397453151818148
+    ],
+    "fit_intercept": true,
+    "intercept": -0.02327923795770705,
+    "max_iter": 10000,
+    "n_iter": 13,
+    "penalty": "l2",
+    "random_state": 20260828,
+    "solver": "lbfgs",
+    "tol": 1e-12
+  },
+  "provenance": {
+    "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+    "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+    "criterion_c_csv_sha256": "e787aaf759a0fccdf96986876d45e725a7afb3f12ba0c68a5cddb89a1f66acef",
+    "feature_csv_sha256": "0b0e834036c8517681738b5539eca41fed6dab5250dd3ac8e6b292689cafbc9d",
+    "feature_schema_sha256": "260bdeecf5afa60bd79465863ce07ed194b6b6e327d7f32c8b5f17c75823a677",
+    "frozen_slice_sha256_normalized_lf": "bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a",
+    "grouped_folds_csv_sha256": "c2c7fca2c45d079750299391073ed3d1f44c4570382c1f958bd54b9deaaffe1d",
+    "hyperparameter_audit_csv_sha256": "5f060eb8eb6e96ce8bdf16ef203cd4a7e4c3c0b3cf6a067ad639f424462d8515",
+    "oracle_csv_sha256": "7f8aa3fa1084cce4cc84ffc9fd98c6552263393a3a62c484a0a609eee2a8b622",
+    "physical_skip_patch_sha256": "c2ccef6b07818ab3d08c99258f9e28abd0e6e7c56679a3573a4ca9e84f3938aa",
+    "predictor_oof_csv_sha256": "4d7cb46d6f83572bfd321c0a632a1fc749f611c1ef5cda781a8f650abbd658c3",
+    "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+    "stage4b_baseline_csv_sha256": "3ad7ca56ad1f505c5b8e7a056d2fb7e448efffd58f436ced92b8f36eb1f7517e"
+  },
+  "scaler": {
+    "class": "sklearn.preprocessing.StandardScaler",
+    "mean": [
+      0.7047536445257032,
+      0.04530280389818914,
+      0.00030180377376041057,
+      1.1496043161035188,
+      1.3501134529885714,
+      1.5352035756858968,
+      0.999999987134242,
+      2.278199271448145,
+      3.5572150310416646,
+      4.233180553876932,
+      0.7814805543844857,
+      0.39165097166034213
+    ],
+    "scale": [
+      0.14094523291384228,
+      0.06370474839452393,
+      0.1274651399884272,
+      0.1256247539335792,
+      0.1346522180581345,
+      0.129928746134297,
+      3.130374042735205e-07,
+      0.6183984653600161,
+      1.1210977419519979,
+      1.250371719990421,
+      0.05502100671460602,
+      0.10256142493038575
+    ],
+    "var": [
+      0.01986555868113725,
+      0.004058294968009599,
+      0.016247361912269345,
+      0.01578157880087232,
+      0.018131219827975397,
+      0.016881479072030595,
+      9.799241647430352e-14,
+      0.38241666195962304,
+      1.2568601470098684,
+      1.5634294381518035,
+      0.0030273111798887202,
+      0.010518845883751153
+    ],
+    "with_mean": true,
+    "with_std": true
+  },
+  "schema_version": "stage4c1-frozen-predictor-v1",
+  "status": "FROZEN_DISCOVERY_ONLY_READY_FOR_MANAGER_REVIEW",
+  "versions": {
+    "numpy": "2.2.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "scikit_learn": "1.8.0",
+    "script_sha256": "dd72c62c93f9e31f4bc1dc59eb66cc343d9c9190f4c80df168c8250cf450ed57"
+  }
+}

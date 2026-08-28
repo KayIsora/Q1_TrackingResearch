@@ -1,0 +1,6 @@
+C,pooled_oof_auroc,pooled_oof_brier,fold_count,oof_rows,positive_rows,negative_rows,scaler,model,solver,penalty,class_weight,random_state,selected,selection_rule
+0.01,0.47187713310580204,0.25791968644449575,9,593,293,300,StandardScaler,LogisticRegression,lbfgs,l2,NONE,20260828,True,max AUROC; tie min Brier; tie smaller C
+0.1,0.4680773606370876,0.2613171545190707,9,593,293,300,StandardScaler,LogisticRegression,lbfgs,l2,NONE,20260828,False,max AUROC; tie min Brier; tie smaller C
+1.0,0.45992036405005693,0.2666243617165404,9,593,293,300,StandardScaler,LogisticRegression,lbfgs,l2,NONE,20260828,False,max AUROC; tie min Brier; tie smaller C
+10.0,0.4625711035267349,0.2700500002726957,9,593,293,300,StandardScaler,LogisticRegression,lbfgs,l2,NONE,20260828,False,max AUROC; tie min Brier; tie smaller C
+100.0,0.4648919226393629,0.27317758031298184,9,593,293,300,StandardScaler,LogisticRegression,lbfgs,l2,NONE,20260828,False,max AUROC; tie min Brier; tie smaller C
