@@ -1,0 +1,25 @@
+metric,observed_value,reference_or_threshold,manager_interpretation
+holdout_pairs_executed,0,Must equal 0,PASS — hold-out remains sealed
+whole_mrm1_physical_call_proof,PASS,"MRM1 forward/Retriever/MLP/internal calls all 0; MRM2-MRM6 unchanged",PASS
+physical_vs_zero_residual_parity_max_abs,0.0,<=1e-6,PASS — physical skip matches accepted scientific ablation
+optional_mlp_physical_parity_max_abs,0.0,<=1e-6,PASS — secondary mechanism characterization only
+baseline_median_model_forward_ms,261.1527999979444,FP32 batch-1 MX250 characterization,Recorded local operational environment only
+physical_skip_median_model_forward_ms,246.88769999920623,Same timing boundary and repetitions,Recorded
+raw_latency_saving,0.05462357669092743,>=0.05,Criterion C PASS by locked point-estimate rule
+raw_latency_saving_bootstrap_ci_95,"[0.024935811491688428;0.08461938086304058]",Descriptive sequence-clustered CI,CI excludes zero but includes savings below the 5% gate; result is positive but margin is narrow
+median_feature_extraction_overhead_ms,1.698000000033062,Measured pre-MRM feature overhead,Required for later conditional mechanism accounting
+approx_feature_adjusted_skip_saving,0.04812163606441899,"Derived as 1-(skip_ms+median_feature_overhead_ms)/baseline_ms; not a locked gate",Approximately 4.81% per skipped frame if overhead is simply additive; final conditional-policy saving will depend on skip rate and implementation
+predictor_rows,593,Discovery only,PASS
+predictor_positive_labels,293,>=20,PASS
+predictor_negative_labels,300,>=20,PASS
+selected_logistic_C,0.01,"Locked grid {0.01;0.1;1;10;100}",Frozen exactly as selected
+predictor_discovery_oof_auroc,0.47187713310580204,Descriptive only in Stage 4C1,Below chance ranking; strong warning for Criterion D
+predictor_discovery_oof_brier,0.25791968644449575,Descriptive only in Stage 4C1,Recorded
+frozen_discovery_base_rate,0.49409780775716694,Constant comparator probability for Stage 4C2,Frozen
+constant_base_rate_brier_on_discovery,0.24996516412672865,"p*(1-p) for frozen discovery base rate",Lower than predictor OOF Brier
+predictor_brier_improvement_over_constant_on_discovery,-0.00795452231776711,"constant_brier - predictor_brier; positive would mean improvement",Predictor is worse than the frozen constant comparator on discovery OOF
+frozen_predictor_sha256,3be9039dceb2d9db4589edcb419232ec77d45ff36f1d779ae9a617ab03a9d0f2,Must not change before hold-out execution,SEALED
+feature_schema_sha256,260bdeecf5afa60bd79465863ce07ed194b6b6e327d7f32c8b5f17c75823a677,Must not change before hold-out execution,SEALED
+physical_skip_patch_sha256,c2ccef6b07818ab3d08c99258f9e28abd0e6e7c56679a3573a4ca9e84f3938aa,Must not change before hold-out execution,SEALED
+frozen_slice_sha256,bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a,Must not change before hold-out execution,SEALED
+stage4c1_decision,ACCEPTED,Criterion C plus valid predictor freeze,Stage 4C2 may proceed one time without refit inversion thresholding or feature changes
