@@ -1,0 +1,17 @@
+{
+  "approximate_feature_adjusted_skip_saving_percent": -2.9807163599197883,
+  "baseline_median_model_forward_ms": 232.05159999633906,
+  "baseline_timing_includes_feature_capture": true,
+  "criterion_c_reselected": false,
+  "descriptive_only": true,
+  "feature_adjusted_definition": "1 - (physical-skip model-forward median + separately instrumented baseline feature-extraction median) / baseline model-forward median",
+  "maximum_peak_allocated_bytes": 139509248,
+  "maximum_peak_reserved_bytes": 165675008,
+  "median_feature_extraction_ms": 6.138349999673665,
+  "physical_skip_median_model_forward_ms": 232.83005000121193,
+  "physical_skip_timing_includes_call_counters": true,
+  "raw_physical_skip_saving_percent": -0.3354641833476446,
+  "schema_version": "stage4c2-timing-characterization-v1",
+  "thresholded_conditional_policy_executed": false,
+  "timed_rows_per_condition": 326
+}

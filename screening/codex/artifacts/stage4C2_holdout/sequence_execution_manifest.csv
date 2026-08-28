@@ -1,0 +1,10 @@
+sequence,official_start_frame,maximum_frozen_frame,initialized_once,initialization_frame,sequential_prefix_frames_executed,frozen_intervals_executed,snapshots_taken,baseline_continuation_restored,non_frozen_metrics_written
+BlurCar4,18,279,true,18,236,1,1,true,0
+Crowds,1,165,true,1,154,2,2,true,0
+Girl,1,429,true,1,390,2,2,true,0
+Human3,1,1588,true,1,1487,4,4,true,0
+Human4_2,1,97,true,1,71,1,1,true,0
+Man,1,116,true,1,104,1,1,true,0
+Soccer,1,180,true,1,168,1,1,true,0
+Suv,1,750,true,1,668,3,3,true,0
+Walking2,1,417,true,1,391,1,1,true,0

@@ -1,0 +1,48 @@
+{
+  "discovery_holdout_sequence_disjoint": true,
+  "expected_hashes": {
+    "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+    "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+    "feature_schema_sha256": "260bdeecf5afa60bd79465863ce07ed194b6b6e327d7f32c8b5f17c75823a677",
+    "frozen_predictor_sha256": "3be9039dceb2d9db4589edcb419232ec77d45ff36f1d779ae9a617ab03a9d0f2",
+    "frozen_slice_sha256_normalized_lf": "bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a",
+    "physical_skip_patch_sha256": "c2ccef6b07818ab3d08c99258f9e28abd0e6e7c56679a3573a4ca9e84f3938aa",
+    "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+    "stage4c1_holdout_seal_sha256": "e51ff574e99b06d098987d9e7665939f04b881608083037293fa5774171f7d55"
+  },
+  "expected_holdout_frame_rows": 326,
+  "expected_holdout_pair_ids": [
+    "R3-H01",
+    "R3-H02",
+    "R3-H03",
+    "R3-H04",
+    "R3-H05",
+    "R3-H06",
+    "R3-H07",
+    "R3-H08"
+  ],
+  "holdout_outcomes_accessed": false,
+  "manager_seal_path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\manager\\2026-08-28_stage4C2_predictor_seal.json",
+  "manager_seal_sha256": "ee0e3e260c1bea2497751ac9b2bf5424aabaff02d2069ea21cc40a36caa5ad49",
+  "manager_seal_status": "SEALED_READY_FOR_ONE_SHOT_HOLDOUT",
+  "observed_hashes": {
+    "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+    "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+    "feature_schema_sha256": "260bdeecf5afa60bd79465863ce07ed194b6b6e327d7f32c8b5f17c75823a677",
+    "frozen_predictor_sha256": "3be9039dceb2d9db4589edcb419232ec77d45ff36f1d779ae9a617ab03a9d0f2",
+    "frozen_slice_sha256_normalized_lf": "bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a",
+    "physical_skip_patch_sha256": "c2ccef6b07818ab3d08c99258f9e28abd0e6e7c56679a3573a4ca9e84f3938aa",
+    "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+    "stage4c1_holdout_seal_sha256": "e51ff574e99b06d098987d9e7665939f04b881608083037293fa5774171f7d55"
+  },
+  "schema_version": "stage4c2-manager-seal-verification-v1",
+  "source_patch_status": [
+    " M lib/models/spiketrack/sdtv3_search_inference.py",
+    " M lib/models/spiketrack/spiketrack_inf.py",
+    " M lib/test/parameter/spiketrack.py",
+    " M lib/test/tracker/spiketrack_inf.py",
+    "?? tracking/stage4a_spiketrack_smoke.py",
+    "?? tracking/stage4c1_physical_smoke.py"
+  ],
+  "status": "PASS"
+}

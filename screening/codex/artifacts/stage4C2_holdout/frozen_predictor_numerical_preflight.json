@@ -1,0 +1,30 @@
+{
+  "discovery_feature_rows": 593,
+  "feature_order": [
+    "previous_confidence",
+    "previous_center_displacement_normalized_by_predicted_scale",
+    "previous_log_area_ratio",
+    "mrm1_input_abs_mean",
+    "mrm1_input_std",
+    "mrm1_input_rms",
+    "mrm1_input_nonzero_ratio",
+    "template_memory_abs_mean",
+    "template_memory_std",
+    "template_memory_rms",
+    "template_memory_nonzero_ratio",
+    "search_to_template_rms_ratio"
+  ],
+  "holdout_outcomes_accessed": false,
+  "implementation": "manual stable sigmoid versus reconstructed sklearn objects; no fit",
+  "manual_probability_maximum": 0.7940215145197984,
+  "manual_probability_minimum": 0.21896984894031885,
+  "maximum_probability_difference": 1.1102230246251565e-16,
+  "numpy_version": "2.2.6",
+  "probability_inverted": false,
+  "refit_performed": false,
+  "required_maximum_probability_difference": 1e-12,
+  "schema_version": "stage4c2-frozen-predictor-preflight-v1",
+  "sklearn_version": "1.8.0",
+  "status": "PASS",
+  "threshold_selected": false
+}

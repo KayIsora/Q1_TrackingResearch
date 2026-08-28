@@ -1,0 +1,11 @@
+bootstrap_scheme,cluster_field,cluster_count,metric,point_estimate,ci_percentile,ci_low,ci_high,resamples,valid_resamples,invalid_one_class_resamples,seed,descriptive_only
+primary_sequence_clustered,primary_sequence_cluster,7,auroc,0.48153585544889893,95,0.395854462474645,0.5365867077464789,10000,10000,0,20260828,true
+primary_sequence_clustered,primary_sequence_cluster,7,frozen_predictor_brier,0.2575449361739645,95,0.25082846158100974,0.26393471460250584,10000,10000,0,20260828,true
+primary_sequence_clustered,primary_sequence_cluster,7,constant_comparator_brier,0.24996241633654945,95,0.24949827294210472,0.25057687393638867,10000,10000,0,20260828,true
+primary_sequence_clustered,primary_sequence_cluster,7,brier_improvement,-0.007582519837415064,95,-0.013718306169805239,-0.0009802549977089002,10000,10000,0,20260828,true
+primary_sequence_clustered,primary_sequence_cluster,7,mean_oracle_skip_benefit,-0.006360042507885561,95,-0.023821167744002412,0.013735786586579538,10000,10000,0,20260828,true
+connected_source_component_clustered,connected_source_component,6,auroc,0.48153585544889893,95,0.3520137784843667,0.5314812367864693,10000,10000,0,20260828,true
+connected_source_component_clustered,connected_source_component,6,frozen_predictor_brier,0.2575449361739645,95,0.25212367447053685,0.26583620245853085,10000,10000,0,20260828,true
+connected_source_component_clustered,connected_source_component,6,constant_comparator_brier,0.24996241633654945,95,0.2494832291216047,0.2506846185055098,10000,10000,0,20260828,true
+connected_source_component_clustered,connected_source_component,6,brier_improvement,-0.007582519837415064,95,-0.015918241679176937,-0.002365210620350915,10000,10000,0,20260828,true
+connected_source_component_clustered,connected_source_component,6,mean_oracle_skip_benefit,-0.006360042507885561,95,-0.026681348774125917,0.014983305825743974,10000,10000,0,20260828,true

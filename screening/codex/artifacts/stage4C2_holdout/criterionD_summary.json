@@ -1,0 +1,125 @@
+{
+  "auroc_threshold": 0.65,
+  "bootstrap_is_descriptive": true,
+  "brier_improvement": -0.007582519837415064,
+  "brier_improvement_required_strictly_positive": true,
+  "calibration": [
+    {
+      "absolute_calibration_gap": null,
+      "bin_index": 0,
+      "count": 0,
+      "lower_inclusive": 0.0,
+      "mean_probability": null,
+      "observed_positive_rate": null,
+      "upper_exclusive_except_last": 0.1
+    },
+    {
+      "absolute_calibration_gap": 0.32166043228532143,
+      "bin_index": 1,
+      "count": 2,
+      "lower_inclusive": 0.1,
+      "mean_probability": 0.17833956771467857,
+      "observed_positive_rate": 0.5,
+      "upper_exclusive_except_last": 0.2
+    },
+    {
+      "absolute_calibration_gap": 0.2617777747363886,
+      "bin_index": 2,
+      "count": 2,
+      "lower_inclusive": 0.2,
+      "mean_probability": 0.23822222526361142,
+      "observed_positive_rate": 0.5,
+      "upper_exclusive_except_last": 0.3
+    },
+    {
+      "absolute_calibration_gap": 0.15136967151073105,
+      "bin_index": 3,
+      "count": 22,
+      "lower_inclusive": 0.3,
+      "mean_probability": 0.39408487394381436,
+      "observed_positive_rate": 0.5454545454545454,
+      "upper_exclusive_except_last": 0.4
+    },
+    {
+      "absolute_calibration_gap": 0.04368784232830131,
+      "bin_index": 4,
+      "count": 146,
+      "lower_inclusive": 0.4,
+      "mean_probability": 0.4494628426032055,
+      "observed_positive_rate": 0.4931506849315068,
+      "upper_exclusive_except_last": 0.5
+    },
+    {
+      "absolute_calibration_gap": 0.0275982396505573,
+      "bin_index": 5,
+      "count": 149,
+      "lower_inclusive": 0.5,
+      "mean_probability": 0.5309539443485439,
+      "observed_positive_rate": 0.5033557046979866,
+      "upper_exclusive_except_last": 0.6
+    },
+    {
+      "absolute_calibration_gap": 0.6183261991167327,
+      "bin_index": 6,
+      "count": 3,
+      "lower_inclusive": 0.6,
+      "mean_probability": 0.6183261991167327,
+      "observed_positive_rate": 0.0,
+      "upper_exclusive_except_last": 0.7
+    },
+    {
+      "absolute_calibration_gap": 0.7200293816220628,
+      "bin_index": 7,
+      "count": 1,
+      "lower_inclusive": 0.7,
+      "mean_probability": 0.7200293816220628,
+      "observed_positive_rate": 0.0,
+      "upper_exclusive_except_last": 0.8
+    },
+    {
+      "absolute_calibration_gap": 0.8834202742851996,
+      "bin_index": 8,
+      "count": 1,
+      "lower_inclusive": 0.8,
+      "mean_probability": 0.8834202742851996,
+      "observed_positive_rate": 0.0,
+      "upper_exclusive_except_last": 0.9
+    },
+    {
+      "absolute_calibration_gap": null,
+      "bin_index": 9,
+      "count": 0,
+      "lower_inclusive": 0.9,
+      "mean_probability": null,
+      "observed_positive_rate": null,
+      "upper_exclusive_except_last": 1.0
+    }
+  ],
+  "complete_set_point_estimate_controls_gate": true,
+  "constant_comparator_brier": 0.24996241633654945,
+  "criterion_c_reselected": false,
+  "criterion_d": "FAIL",
+  "expected_calibration_error": 0.05658282247976071,
+  "expected_frame_rows": 326,
+  "final_diag_pass_fail": "NOT ASSIGNED",
+  "frozen_predictor_auroc": 0.48153585544889893,
+  "frozen_predictor_brier": 0.2575449361739645,
+  "frozen_predictor_mutation": "NONE",
+  "holdout_execution_count": 1,
+  "holdout_pairs_executed": 8,
+  "mean_baseline_iou": 0.6966660323287523,
+  "mean_oracle_skip_benefit": -0.006360042507885561,
+  "mean_physical_skip_iou": 0.6903059898208668,
+  "negative_labels": 165,
+  "observed_frame_rows": 326,
+  "physical_call_proof": "PASS",
+  "positive_base_rate": 0.4938650306748466,
+  "positive_labels": 161,
+  "probability_inversion": false,
+  "row_count": 326,
+  "schema_version": "stage4c2-criterion-d-summary-v1",
+  "stage4c2": "STAGE4C2_CRITERION_D_FAIL",
+  "stage4d": "LOCKED PENDING MANAGER REVIEW",
+  "subgroups_can_rescue_gate": false,
+  "thresholded_policy_executed": false
+}

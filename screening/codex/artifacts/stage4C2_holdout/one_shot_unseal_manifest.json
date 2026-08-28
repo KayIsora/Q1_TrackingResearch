@@ -1,0 +1,27 @@
+{
+  "command_log_prepared_utc": "2026-08-28T16:34:48.363307+00:00",
+  "criterion_d": "FAIL",
+  "execution_completed_utc": "2026-08-28T16:56:47.604146+00:00",
+  "execution_started_utc": "2026-08-28T16:35:19.145853+00:00",
+  "expected_frame_rows": 326,
+  "expected_pair_ids": [
+    "R3-H01",
+    "R3-H02",
+    "R3-H03",
+    "R3-H04",
+    "R3-H05",
+    "R3-H06",
+    "R3-H07",
+    "R3-H08"
+  ],
+  "first_frozen_frame_unsealed_utc": "2026-08-28T16:36:28.753048+00:00",
+  "frozen_predictor_mutation": "NONE",
+  "holdout_evaluation_count": 1,
+  "holdout_pairs_executed": 8,
+  "observed_frame_rows": 326,
+  "physical_call_proof": "PASS",
+  "schema_version": "stage4c2-one-shot-unseal-v1",
+  "stage4c2": "STAGE4C2_CRITERION_D_FAIL",
+  "status": "COMPLETE",
+  "technical_attempt": 1
+}
