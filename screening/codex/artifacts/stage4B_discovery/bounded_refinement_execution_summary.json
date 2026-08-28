@@ -1,0 +1,228 @@
+{
+  "accepted_nonmutating_discovery_aliases": {
+    "Jogging_1": {
+      "anno_path": "Jogging/groundtruth_rect.1.txt",
+      "evidence": "2026-08-25_stage4A_E2_otb_source_manifest.csv row E2-OTB-062",
+      "path": "Jogging/img"
+    }
+  },
+  "components": {
+    "mlp_only_bypass": {
+      "diagnostic_selector": "mrm1_mlp",
+      "discovery_intervals_executed": 24,
+      "discovery_pairs_executed": 12,
+      "physical_skip": false,
+      "selected_refinement_path": "mrm1",
+      "status": "PASS"
+    },
+    "retriever_only_bypass": {
+      "diagnostic_selector": "mrm1_retriever",
+      "discovery_intervals_executed": 24,
+      "discovery_pairs_executed": 12,
+      "physical_skip": false,
+      "selected_refinement_path": "mrm1",
+      "status": "PASS"
+    },
+    "t3_baseline": {
+      "diagnostic_selector": "none",
+      "discovery_intervals_executed": 24,
+      "discovery_pairs_executed": 12,
+      "physical_skip": false,
+      "selected_refinement_path": "mrm1",
+      "status": "PASS"
+    },
+    "t3_selected_path_controls": {
+      "controls_executed": 3,
+      "discovery_intervals_executed": 24,
+      "discovery_pairs_executed": 12,
+      "machine_verification": {
+        "encoder_mrm_count": 6,
+        "method": "PATCH_SELECTOR_AND_RUNTIME_MODEL_STRUCTURE_PREFLIGHT_NO_DATASET_FRAME",
+        "selectors": {
+          "mrm1_template1": {
+            "control_kind": "template",
+            "selected_code_indices": [
+              0
+            ],
+            "zero_based_template_index": 0
+          },
+          "mrm1_template2": {
+            "control_kind": "template",
+            "selected_code_indices": [
+              0
+            ],
+            "zero_based_template_index": 1
+          },
+          "mrm1_template3": {
+            "control_kind": "template",
+            "selected_code_indices": [
+              0
+            ],
+            "zero_based_template_index": 2
+          }
+        },
+        "status": "PASS",
+        "tracker_num_templates": 3
+      },
+      "physical_skip": false,
+      "selected_refinement_path": "mrm1",
+      "status": "PASS",
+      "technical_blocker": ""
+    }
+  },
+  "criterion_b_gate": {
+    "analysis_summary_path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_analysis_summary.json",
+    "analysis_summary_sha256": "06a7959f3e500ef62c63cbd5dfcd91c619ec1bf176d471d597b1de548d2cf799",
+    "criterion_b_execution_summary_sha256": "cf18d4c996798c7741584fbb31d810a6d8703663e91fc2fd6e35d9ce4da3d3eb",
+    "criterion_b_results_path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_criterionB_results.csv",
+    "criterion_b_results_sha256": "be377287f07b06a2a8da626c682a1e6b249f5324dde242398755cd70e333daa7",
+    "pass": true,
+    "selected_refinement_path": "mrm1"
+  },
+  "determinism": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "cudnn": 8700,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "gpu": "NVIDIA GeForce MX250",
+    "seed": 20260826,
+    "torch": "2.0.0+cu118",
+    "torch_cuda": "11.8",
+    "torch_deterministic_algorithms": true
+  },
+  "discovery_intervals_executed": 24,
+  "discovery_pairs_executed": 12,
+  "elapsed_seconds": 3950.5621718999973,
+  "external_raw_logs": [
+    {
+      "path": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\bounded_refinement\\t1_retriever_mlp_raw_mrm.jsonl",
+      "phase": "T1_RETRIEVER_MLP",
+      "records": 8302,
+      "sha256": "fcfefb21999b1b460479000ce0e8cb9c7e16d8ea93bdbe401be954b3925aa13a"
+    },
+    {
+      "path": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\bounded_refinement\\t3_baseline_template_controls_raw_mrm.jsonl",
+      "phase": "T3_BASELINE_TEMPLATE_CONTROLS",
+      "records": 16604,
+      "sha256": "b9c83c4fe73aa54f303738af3cba3b2a7f954f13c719551b4b73a26e797d6e70"
+    }
+  ],
+  "holdout_outcomes_read": 0,
+  "holdout_pairs_executed": 0,
+  "input_hashes": {
+    "analysis_summary_sha256": "06a7959f3e500ef62c63cbd5dfcd91c619ec1bf176d471d597b1de548d2cf799",
+    "baseline_csv_sha256": "3ad7ca56ad1f505c5b8e7a056d2fb7e448efffd58f436ced92b8f36eb1f7517e",
+    "criterion_b_mode_csv_sha256": "d9c85480c1b4cdc0c12c01ac2def4a3a607e7bd00787d09edb905c3de2655ef7",
+    "criterion_b_results_sha256": "be377287f07b06a2a8da626c682a1e6b249f5324dde242398755cd70e333daa7",
+    "frozen_slice_sha256_normalized_lf": "bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a",
+    "patch_sha256_canonical_lf": "d4a1065a32ef6da6132e4f9f7980f727e9109bb00e2e2370398b1e90de5a713a",
+    "patched_file_sha256": {
+      "lib/models/spiketrack/sdtv3_search_inference.py": "77b01cb252919c5a9e50500cc567f8c2766ac86ccd343dfcc7d3af7e95b72931",
+      "lib/models/spiketrack/spiketrack_inf.py": "01a1f891ff10542ce32cbffafd820e0338c5ea4ff67f59065ea3a7e044aa71f8",
+      "lib/test/parameter/spiketrack.py": "fcd53eb2f88e38f673dbb81d6b5c2e83b7b2b2f956d1105f4980a7890aa5af81",
+      "lib/test/tracker/spiketrack_inf.py": "56c0a985cdf5905e7e1c16383b4e9ad41406c3718e066bdf4a6f0701dc427471",
+      "tracking/stage4a_spiketrack_smoke.py": "477730db506c43e31cf8161b770c9479c1e611fc825affe85dfdee5ed947c002"
+    },
+    "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0"
+  },
+  "next_action": "FINALIZE_STAGE4B_REPORT_FOR_MANAGER_REVIEW",
+  "non_claims": {
+    "diag_pass_fail_assigned": false,
+    "jetson_latency_claimed": false,
+    "main_baseline": null,
+    "physical_non_execution_claimed": false,
+    "primary_shortlist": null,
+    "proposed_architecture": null,
+    "stage4c_unlocked": false
+  },
+  "output_hashes": {
+    "bounded_refinement_execution_manifest.csv": "12847f97adaaead62ec9a9b6dc5782d50bfc85a01f0a655aa7afed2bd70af149",
+    "bounded_refinement_timing_characterization.csv": "acb31aa217dbf44f18288b33042609dddf9ddeb46cdb2671d8ec7e170d8f2089",
+    "retriever_mlp_per_frame_metrics.csv": "e113b009c5528394bd0833f8b5984ce5e98554fa0a948077304d14af7919c981",
+    "t3_per_frame_metrics.csv": "9929d978c502ee7531748c789a061de60ab74e92c0c763a54ef505c98c1abb91"
+  },
+  "physical_skip": false,
+  "refinement_executed": true,
+  "row_counts": {
+    "bounded_refinement_execution_manifest": 144,
+    "bounded_refinement_timing_characterization": 36,
+    "retriever_mlp_per_frame_metrics": 1192,
+    "t3_per_frame_metrics": 2384
+  },
+  "schema_version": "stage4b-bounded-refinement-v1",
+  "selected_refinement_path": "mrm1",
+  "stage4b_conclusion": null,
+  "state_snapshot": {
+    "captured_state": "tracker.state;tracker.frame_id;tracker.template_list;tracker.cache;tracker.spike_rate_dict_temp;tracker.last_template_refresh_frame;tracker.window_penalty;tracker.stage4a flags/records;network.current_image_idx;network.spike_rate_dict;encoder._stage4a flags/forward_id/current+completed records;MRM retriever capture flags/buffers;template_encoder.current_image_idx+spike_rate_dict_temp;Python+NumPy+Torch CPU+all CUDA RNG",
+    "hash_algorithm": "SHA-256 over stage4b-tracker-state-snapshot-v1 canonical type stream",
+    "status": "PASS",
+    "t1_continuation_restores": 24,
+    "t1_restore_branches": 72,
+    "t3_continuation_restores": 24,
+    "t3_restore_branches": 96
+  },
+  "status": "BOUNDED_REFINEMENT_COMPLETE",
+  "t1": {
+    "checkpoint": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack\\ckpt\\spiketrack_s256_t1.pth.tar",
+    "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+    "config": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\SpikeTrack_pinned\\experiments\\spiketrack\\spiketrack_s256_t1.yaml",
+    "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+    "selected_control_selectors": [
+      "mrm1_retriever",
+      "mrm1_mlp"
+    ]
+  },
+  "t1_baseline_reference_parity": {
+    "integer_prediction_exact": true,
+    "maximum_confidence_abs_diff": 0.0,
+    "maximum_float_prediction_abs_diff": 0.0,
+    "maximum_score_map_abs_diff": 0.0,
+    "status": "PASS",
+    "tolerance": 1e-06
+  },
+  "t3": {
+    "checkpoint": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack\\ckpt\\spiketrack_s256_t3.pth.tar",
+    "checkpoint_sha256": "ccf04aa90521b21a78b12f4b978c03d8a69b5f6de3ee3498a3594e13e98aa491",
+    "config": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\SpikeTrack_pinned\\experiments\\spiketrack\\spiketrack_s256_t3.yaml",
+    "config_sha256": "369e0ed9e237909bd693b33252068fc9a0ac447eb50a1969579602164695f240",
+    "selected_control_names": [
+      "t3_template_path_1_zero_contribution",
+      "t3_template_path_2_zero_contribution",
+      "t3_template_path_3_zero_contribution"
+    ],
+    "selected_control_selectors": [
+      "mrm1_template1",
+      "mrm1_template2",
+      "mrm1_template3"
+    ],
+    "technical_validity": {
+      "encoder_mrm_count": 6,
+      "method": "PATCH_SELECTOR_AND_RUNTIME_MODEL_STRUCTURE_PREFLIGHT_NO_DATASET_FRAME",
+      "selectors": {
+        "mrm1_template1": {
+          "control_kind": "template",
+          "selected_code_indices": [
+            0
+          ],
+          "zero_based_template_index": 0
+        },
+        "mrm1_template2": {
+          "control_kind": "template",
+          "selected_code_indices": [
+            0
+          ],
+          "zero_based_template_index": 1
+        },
+        "mrm1_template3": {
+          "control_kind": "template",
+          "selected_code_indices": [
+            0
+          ],
+          "zero_based_template_index": 2
+        }
+      },
+      "status": "PASS",
+      "tracker_num_templates": 3
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "discovery_pairs_executed": 12,
+  "elapsed_seconds": 925.3663845999981,
+  "frozen_interval_frames": 596,
+  "holdout_pairs_executed": 0,
+  "raw_mrm_external_path": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\criterionA\\baseline_raw_mrm.jsonl",
+  "raw_mrm_sha256": "9c48b8256309dd1127942befa79188b1b1547445263190dea7906fa8c3845696",
+  "status": "CRITERION_A_BASELINE_EXECUTION_COMPLETE_ANALYSIS_PENDING",
+  "unique_discovery_source_sequences_executed": 18
+}

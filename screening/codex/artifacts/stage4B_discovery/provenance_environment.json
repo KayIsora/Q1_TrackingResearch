@@ -1,0 +1,255 @@
+{
+  "accepted_nonmutating_discovery_aliases": {
+    "Jogging_1": {
+      "anno_path": "Jogging/groundtruth_rect.1.txt",
+      "evidence": "2026-08-25_stage4A_E2_otb_source_manifest.csv row E2-OTB-062",
+      "path": "Jogging/img"
+    }
+  },
+  "checkpoint": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack\\ckpt\\spiketrack_s256_t1.pth.tar",
+  "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+  "config": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\SpikeTrack_pinned\\experiments\\spiketrack\\spiketrack_s256_t1.yaml",
+  "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+  "dataset_root": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\extracted\\OTB2015",
+  "discovery_pair_count": 12,
+  "discovery_pair_ids": [
+    "R3-D01",
+    "R3-D02",
+    "R3-D03",
+    "R3-D04",
+    "R3-D05",
+    "R3-D06",
+    "R3-D07",
+    "R3-D08",
+    "R3-D09",
+    "R3-D10",
+    "R3-D11",
+    "R3-D12"
+  ],
+  "environment": {
+    "cpu": "Intel64 Family 6 Model 126 Stepping 5, GenuineIntel",
+    "cpu_logical_count": 8,
+    "cpu_physical_count": 4,
+    "cuda_available": true,
+    "cudnn": 8700,
+    "deterministic_settings": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "torch_deterministic_algorithms": true
+    },
+    "dtype": "torch.float32",
+    "executable": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack_env\\Scripts\\python.exe",
+    "gpu": "NVIDIA GeForce MX250",
+    "gpu_total_memory_bytes": 2147352576,
+    "os": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "einops": null,
+      "numpy": "1.26.4",
+      "opencv-python": null,
+      "pandas": "2.2.3",
+      "scipy": null,
+      "spikingjelly": null,
+      "timm": "0.5.4",
+      "torchvision": "0.15.1+cu118",
+      "yacs": "0.1.8"
+    },
+    "python": "3.11.7 (tags/v3.11.7:fa7a6f2, Dec  4 2023, 19:24:49) [MSC v.1937 64 bit (AMD64)]",
+    "ram_bytes": 16951066624,
+    "seed": 20260826,
+    "torch": "2.0.0+cu118",
+    "torch_cuda": "11.8"
+  },
+  "frozen_slice": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\manager\\2026-08-25_stage4_spiketrack_diagnostic_slice.csv",
+  "frozen_slice_hash_semantics": "canonical_lf is the committed-content identity and is used in seal rows; working_tree hash records Windows core.autocrlf checkout bytes",
+  "frozen_slice_sha256_canonical_lf": "bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a",
+  "frozen_slice_sha256_working_tree_bytes": "694dd12a16dbcd78787fb18d19688a0f91c74e9039f599504abb993c37d0a842",
+  "holdout_pair_count": 8,
+  "holdout_pair_ids_metadata_only": [
+    "R3-H01",
+    "R3-H02",
+    "R3-H03",
+    "R3-H04",
+    "R3-H05",
+    "R3-H06",
+    "R3-H07",
+    "R3-H08"
+  ],
+  "holdout_pairs_executed": 0,
+  "metric_semantics": "integer persistence via numpy astype(int); pinned inclusive-coordinate IoU/center; official sequence-first-frame GT override",
+  "no_ablation_parity": {
+    "baseline_output_fingerprints": {
+      "encoded": {
+        "dtype": "torch.float32",
+        "sha256": "396d0f74ca5a48b6f4f72a532af287cb1bc2295da7ea28ef5c01a479254d2d0b",
+        "shape": [
+          1,
+          1,
+          192,
+          16,
+          16
+        ]
+      },
+      "head": {
+        "offset_map": {
+          "dtype": "torch.float32",
+          "sha256": "b11bdcdcf3dfdf00d8dce698face43981a589b1c16b923016aef968e64e28e3d",
+          "shape": [
+            1,
+            2,
+            16,
+            16
+          ]
+        },
+        "pred_boxes": {
+          "dtype": "torch.float32",
+          "sha256": "dedf603d9cdde824b31d1944c6d803c8665572da33a8848e2d6f5dec12d49ac4",
+          "shape": [
+            1,
+            1,
+            4
+          ]
+        },
+        "score_map": {
+          "dtype": "torch.float32",
+          "sha256": "379f8ef30db7b1f058b475e7328806a7129e1f695a91a44c122aed84763959c8",
+          "shape": [
+            1,
+            1,
+            16,
+            16
+          ]
+        },
+        "size_map": {
+          "dtype": "torch.float32",
+          "sha256": "1aa25a8ed17dbe22a517084777f2a17e0352ed75f22e0baac627d2a24777130f",
+          "shape": [
+            1,
+            2,
+            16,
+            16
+          ]
+        }
+      },
+      "prediction_box": {
+        "dtype": "torch.float32",
+        "sha256": "4e73214cd2ac06cf0ca0d3d2f55ff0525d25b5e61da8543f5b0f582c4a8c4fae",
+        "shape": [
+          1,
+          4
+        ]
+      },
+      "score_map_max": {
+        "dtype": "torch.float32",
+        "sha256": "e636a4e9b7d3e223f6060649e938141c9c0a12724d0b985090d2398b0c28b3ea",
+        "shape": []
+      }
+    },
+    "external_raw_path": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\parity_instrumented.json",
+    "external_raw_sha256": "4ada12ec9fdf6fa3be1d9e675de2028acc5d5e3c7584605219d32bb52ec04345",
+    "input": {
+      "initialization_box": [
+        51.0,
+        53.0,
+        87.0,
+        290.0
+      ],
+      "input_mode": "real_image_one_frame",
+      "search_image": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\extracted\\OTB2015\\Singer1\\img\\0002.jpg",
+      "t3_initialization_contract": "single initial template",
+      "template_image": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\extracted\\OTB2015\\Singer1\\img\\0001.jpg"
+    },
+    "instrumented_output_fingerprints": {
+      "encoded": {
+        "dtype": "torch.float32",
+        "sha256": "396d0f74ca5a48b6f4f72a532af287cb1bc2295da7ea28ef5c01a479254d2d0b",
+        "shape": [
+          1,
+          1,
+          192,
+          16,
+          16
+        ]
+      },
+      "head": {
+        "offset_map": {
+          "dtype": "torch.float32",
+          "sha256": "b11bdcdcf3dfdf00d8dce698face43981a589b1c16b923016aef968e64e28e3d",
+          "shape": [
+            1,
+            2,
+            16,
+            16
+          ]
+        },
+        "pred_boxes": {
+          "dtype": "torch.float32",
+          "sha256": "dedf603d9cdde824b31d1944c6d803c8665572da33a8848e2d6f5dec12d49ac4",
+          "shape": [
+            1,
+            1,
+            4
+          ]
+        },
+        "score_map": {
+          "dtype": "torch.float32",
+          "sha256": "379f8ef30db7b1f058b475e7328806a7129e1f695a91a44c122aed84763959c8",
+          "shape": [
+            1,
+            1,
+            16,
+            16
+          ]
+        },
+        "size_map": {
+          "dtype": "torch.float32",
+          "sha256": "1aa25a8ed17dbe22a517084777f2a17e0352ed75f22e0baac627d2a24777130f",
+          "shape": [
+            1,
+            2,
+            16,
+            16
+          ]
+        }
+      },
+      "prediction_box": {
+        "dtype": "torch.float32",
+        "sha256": "4e73214cd2ac06cf0ca0d3d2f55ff0525d25b5e61da8543f5b0f582c4a8c4fae",
+        "shape": [
+          1,
+          4
+        ]
+      },
+      "score_map_max": {
+        "dtype": "torch.float32",
+        "sha256": "e636a4e9b7d3e223f6060649e938141c9c0a12724d0b985090d2398b0c28b3ea",
+        "shape": []
+      }
+    },
+    "maximum_observed_abs_diff": 0.0,
+    "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+    "status": "PASS",
+    "tolerance": 1e-06
+  },
+  "official_metadata_source": "pinned lib/test/evaluation/otbdataset.py",
+  "operational_baseline_boundary": "local paired diagnostic baseline only; no author-released raw-result parity claim",
+  "patch_apply_result": "PASS_CANONICAL_GIT_BLOB_STRICT_WHITESPACE",
+  "patch_sha256_canonical_lf": "d4a1065a32ef6da6132e4f9f7980f727e9109bb00e2e2370398b1e90de5a713a",
+  "patched_file_sha256": {
+    "lib/models/spiketrack/sdtv3_search_inference.py": "77b01cb252919c5a9e50500cc567f8c2766ac86ccd343dfcc7d3af7e95b72931",
+    "lib/models/spiketrack/spiketrack_inf.py": "01a1f891ff10542ce32cbffafd820e0338c5ea4ff67f59065ea3a7e044aa71f8",
+    "lib/test/parameter/spiketrack.py": "fcd53eb2f88e38f673dbb81d6b5c2e83b7b2b2f956d1105f4980a7890aa5af81",
+    "lib/test/tracker/spiketrack_inf.py": "56c0a985cdf5905e7e1c16383b4e9ad41406c3718e066bdf4a6f0701dc427471",
+    "tracking/stage4a_spiketrack_smoke.py": "477730db506c43e31cf8161b770c9479c1e611fc825affe85dfdee5ed947c002"
+  },
+  "patched_paths": [
+    "lib/models/spiketrack/sdtv3_search_inference.py",
+    "lib/models/spiketrack/spiketrack_inf.py",
+    "lib/test/parameter/spiketrack.py",
+    "lib/test/tracker/spiketrack_inf.py",
+    "tracking/stage4a_spiketrack_smoke.py"
+  ],
+  "scope": "STAGE4B_DISCOVERY_CRITERION_A_ONLY",
+  "source_root": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\SpikeTrack_pinned",
+  "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0"
+}

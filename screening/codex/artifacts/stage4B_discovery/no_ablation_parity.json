@@ -1,0 +1,154 @@
+{
+  "baseline_output_fingerprints": {
+    "encoded": {
+      "dtype": "torch.float32",
+      "sha256": "396d0f74ca5a48b6f4f72a532af287cb1bc2295da7ea28ef5c01a479254d2d0b",
+      "shape": [
+        1,
+        1,
+        192,
+        16,
+        16
+      ]
+    },
+    "head": {
+      "offset_map": {
+        "dtype": "torch.float32",
+        "sha256": "b11bdcdcf3dfdf00d8dce698face43981a589b1c16b923016aef968e64e28e3d",
+        "shape": [
+          1,
+          2,
+          16,
+          16
+        ]
+      },
+      "pred_boxes": {
+        "dtype": "torch.float32",
+        "sha256": "dedf603d9cdde824b31d1944c6d803c8665572da33a8848e2d6f5dec12d49ac4",
+        "shape": [
+          1,
+          1,
+          4
+        ]
+      },
+      "score_map": {
+        "dtype": "torch.float32",
+        "sha256": "379f8ef30db7b1f058b475e7328806a7129e1f695a91a44c122aed84763959c8",
+        "shape": [
+          1,
+          1,
+          16,
+          16
+        ]
+      },
+      "size_map": {
+        "dtype": "torch.float32",
+        "sha256": "1aa25a8ed17dbe22a517084777f2a17e0352ed75f22e0baac627d2a24777130f",
+        "shape": [
+          1,
+          2,
+          16,
+          16
+        ]
+      }
+    },
+    "prediction_box": {
+      "dtype": "torch.float32",
+      "sha256": "4e73214cd2ac06cf0ca0d3d2f55ff0525d25b5e61da8543f5b0f582c4a8c4fae",
+      "shape": [
+        1,
+        4
+      ]
+    },
+    "score_map_max": {
+      "dtype": "torch.float32",
+      "sha256": "e636a4e9b7d3e223f6060649e938141c9c0a12724d0b985090d2398b0c28b3ea",
+      "shape": []
+    }
+  },
+  "external_raw_path": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\parity_instrumented.json",
+  "external_raw_sha256": "4ada12ec9fdf6fa3be1d9e675de2028acc5d5e3c7584605219d32bb52ec04345",
+  "input": {
+    "initialization_box": [
+      51.0,
+      53.0,
+      87.0,
+      290.0
+    ],
+    "input_mode": "real_image_one_frame",
+    "search_image": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\extracted\\OTB2015\\Singer1\\img\\0002.jpg",
+    "t3_initialization_contract": "single initial template",
+    "template_image": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\extracted\\OTB2015\\Singer1\\img\\0001.jpg"
+  },
+  "instrumented_output_fingerprints": {
+    "encoded": {
+      "dtype": "torch.float32",
+      "sha256": "396d0f74ca5a48b6f4f72a532af287cb1bc2295da7ea28ef5c01a479254d2d0b",
+      "shape": [
+        1,
+        1,
+        192,
+        16,
+        16
+      ]
+    },
+    "head": {
+      "offset_map": {
+        "dtype": "torch.float32",
+        "sha256": "b11bdcdcf3dfdf00d8dce698face43981a589b1c16b923016aef968e64e28e3d",
+        "shape": [
+          1,
+          2,
+          16,
+          16
+        ]
+      },
+      "pred_boxes": {
+        "dtype": "torch.float32",
+        "sha256": "dedf603d9cdde824b31d1944c6d803c8665572da33a8848e2d6f5dec12d49ac4",
+        "shape": [
+          1,
+          1,
+          4
+        ]
+      },
+      "score_map": {
+        "dtype": "torch.float32",
+        "sha256": "379f8ef30db7b1f058b475e7328806a7129e1f695a91a44c122aed84763959c8",
+        "shape": [
+          1,
+          1,
+          16,
+          16
+        ]
+      },
+      "size_map": {
+        "dtype": "torch.float32",
+        "sha256": "1aa25a8ed17dbe22a517084777f2a17e0352ed75f22e0baac627d2a24777130f",
+        "shape": [
+          1,
+          2,
+          16,
+          16
+        ]
+      }
+    },
+    "prediction_box": {
+      "dtype": "torch.float32",
+      "sha256": "4e73214cd2ac06cf0ca0d3d2f55ff0525d25b5e61da8543f5b0f582c4a8c4fae",
+      "shape": [
+        1,
+        4
+      ]
+    },
+    "score_map_max": {
+      "dtype": "torch.float32",
+      "sha256": "e636a4e9b7d3e223f6060649e938141c9c0a12724d0b985090d2398b0c28b3ea",
+      "shape": []
+    }
+  },
+  "maximum_observed_abs_diff": 0.0,
+  "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+  "status": "PASS",
+  "tolerance": 1e-06
+}

@@ -1,0 +1,390 @@
+{
+  "analysis_contract": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260826,
+    "ci": "two-sided percentile 95%; linear interpolation",
+    "component_cluster_unit": "connected components of pairs sharing any primary/control sequence",
+    "criterion_a_thresholds": {
+      "failure_weakness_minimum": 0.1,
+      "iou_weakness_minimum": 0.05
+    },
+    "criterion_b_absolute_interaction_minimum": 0.02,
+    "direction_stability": "primary clustered percentile CI excludes zero in the point-estimate direction; no post-hoc subgroup gate",
+    "failure_definition": "iou < 0.5",
+    "familywise_alpha": 0.05,
+    "holm": "monotone Holm step-down across exactly nine tests",
+    "locked_modes": [
+      "mrm1",
+      "mrm2",
+      "mrm3",
+      "mrm4",
+      "mrm5",
+      "mrm6",
+      "early",
+      "middle",
+      "late"
+    ],
+    "locked_sensitivity_groups": [
+      {
+        "dimension": "final_ambiguity_level",
+        "group": "AMBIGUITY_LEVEL_2",
+        "selection_rule": "final_ambiguity_level=2"
+      },
+      {
+        "dimension": "final_ambiguity_level",
+        "group": "AMBIGUITY_LEVEL_1",
+        "selection_rule": "final_ambiguity_level=1"
+      },
+      {
+        "dimension": "control_sequence_relation",
+        "group": "SAME_SEQUENCE_CONTROL",
+        "selection_rule": "primary_sequence=control_sequence"
+      },
+      {
+        "dimension": "control_sequence_relation",
+        "group": "CROSS_SEQUENCE_CONTROL",
+        "selection_rule": "primary_sequence!=control_sequence"
+      },
+      {
+        "dimension": "sensitivity_stratum",
+        "group": "STRONG_SAME_SEQUENCE",
+        "selection_rule": "sensitivity_stratum=STRONG_SAME_SEQUENCE"
+      },
+      {
+        "dimension": "sensitivity_stratum",
+        "group": "CROSS_SCENE_ACTIVITY",
+        "selection_rule": "sensitivity_stratum=CROSS_SCENE_ACTIVITY"
+      },
+      {
+        "dimension": "sensitivity_stratum",
+        "group": "COLOR_DIFFERENCE",
+        "selection_rule": "sensitivity_stratum=COLOR_DIFFERENCE"
+      },
+      {
+        "dimension": "sensitivity_stratum",
+        "group": "APPEARANCE_DIFFERENCE",
+        "selection_rule": "sensitivity_stratum=APPEARANCE_DIFFERENCE"
+      },
+      {
+        "dimension": "sensitivity_stratum",
+        "group": "LOW_LIGHT_MULTI_TRAFFIC",
+        "selection_rule": "sensitivity_stratum=LOW_LIGHT_MULTI_TRAFFIC"
+      },
+      {
+        "dimension": "sensitivity_stratum",
+        "group": "CONTROL_PARTIAL_OCCLUSION",
+        "selection_rule": "sensitivity_stratum=CONTROL_PARTIAL_OCCLUSION"
+      },
+      {
+        "dimension": "sensitivity_stratum",
+        "group": "MULTI_FACE_BACKGROUND",
+        "selection_rule": "sensitivity_stratum=MULTI_FACE_BACKGROUND"
+      },
+      {
+        "dimension": "sensitivity_stratum",
+        "group": "COSTUME_DIFFERENCE_CLASS_RESOLVED_PERSON",
+        "selection_rule": "sensitivity_stratum=COSTUME_DIFFERENCE_CLASS_RESOLVED_PERSON"
+      },
+      {
+        "dimension": "broad_superclass",
+        "group": "PERSON",
+        "selection_rule": "broad_superclass=PERSON"
+      },
+      {
+        "dimension": "broad_superclass",
+        "group": "VEHICLE",
+        "selection_rule": "broad_superclass=VEHICLE"
+      },
+      {
+        "dimension": "broad_superclass",
+        "group": "FACE_HEAD",
+        "selection_rule": "broad_superclass=FACE_HEAD"
+      },
+      {
+        "dimension": "broad_superclass",
+        "group": "OBJECT_OTHER",
+        "selection_rule": "broad_superclass=OBJECT_OTHER"
+      }
+    ],
+    "p_value": "two-sided bootstrap sign/tail with inclusive zero and +1 correction",
+    "pair_weighting": "equal after within-interval frame means",
+    "physical_skip": false,
+    "primary_cluster_unit": "unique primary_sequence; retain all pairs per draw",
+    "selection_rule": "among passing Holm-adjusted tests: largest absolute mean interaction; then smaller group; then lower MRM index"
+  },
+  "criterion_a": {
+    "metrics": {
+      "failure_weakness": {
+        "component_ci_95": [
+          -0.03636363636363636,
+          0.384
+        ],
+        "estimate": 0.15333333333333335,
+        "metric_pass": false,
+        "primary_ci_95": [
+          -0.03,
+          0.41818181818181815
+        ],
+        "threshold": 0.1
+      },
+      "iou_weakness": {
+        "component_ci_95": [
+          -0.013529223122019495,
+          0.3073738587768596
+        ],
+        "estimate": 0.1369987845343785,
+        "metric_pass": true,
+        "primary_ci_95": [
+          0.0018879570501517985,
+          0.3171168981269434
+        ],
+        "threshold": 0.05
+      }
+    },
+    "pass": true,
+    "pass_logic": "(IoU weakness >= 0.05 and primary CI lower bound > 0) OR (failure weakness >= 0.10 and primary CI lower bound > 0)",
+    "status": "PASS"
+  },
+  "criterion_b": {
+    "family_size": 9,
+    "holm_correction": "PASS_EXACTLY_NINE",
+    "pass": true,
+    "selected_refinement_path": "mrm1",
+    "status": "PASS",
+    "tests": [
+      {
+        "mean_interaction": -0.02788396336772887,
+        "mode": "mrm1",
+        "p_holm_adjusted": 0.012598740125987402,
+        "p_unadjusted": 0.0013998600139986002,
+        "primary_ci_95": [
+          -0.05656969343636273,
+          -0.00807008117216532
+        ],
+        "test_order": 1,
+        "test_pass": true
+      },
+      {
+        "mean_interaction": -0.0019258439240279715,
+        "mode": "mrm2",
+        "p_holm_adjusted": 1.0,
+        "p_unadjusted": 0.9605039496050395,
+        "primary_ci_95": [
+          -0.039017153289412264,
+          0.03375031570820748
+        ],
+        "test_order": 2,
+        "test_pass": false
+      },
+      {
+        "mean_interaction": -0.013228439856328484,
+        "mode": "mrm3",
+        "p_holm_adjusted": 1.0,
+        "p_unadjusted": 0.36076392360763926,
+        "primary_ci_95": [
+          -0.04343161046714888,
+          0.011435010222615137
+        ],
+        "test_order": 3,
+        "test_pass": false
+      },
+      {
+        "mean_interaction": -0.028699634902802754,
+        "mode": "mrm4",
+        "p_holm_adjusted": 1.0,
+        "p_unadjusted": 0.3057694230576942,
+        "primary_ci_95": [
+          -0.09325577527995482,
+          0.016271124146161275
+        ],
+        "test_order": 4,
+        "test_pass": false
+      },
+      {
+        "mean_interaction": -0.06758250129256946,
+        "mode": "mrm5",
+        "p_holm_adjusted": 1.0,
+        "p_unadjusted": 0.23217678232176783,
+        "primary_ci_95": [
+          -0.18118317055445257,
+          0.04443038218458923
+        ],
+        "test_order": 5,
+        "test_pass": false
+      },
+      {
+        "mean_interaction": -0.02334965667928725,
+        "mode": "mrm6",
+        "p_holm_adjusted": 1.0,
+        "p_unadjusted": 0.5833416658334166,
+        "primary_ci_95": [
+          -0.1100348170617745,
+          0.04632780859358754
+        ],
+        "test_order": 6,
+        "test_pass": false
+      },
+      {
+        "mean_interaction": -0.009654338248910467,
+        "mode": "early",
+        "p_holm_adjusted": 1.0,
+        "p_unadjusted": 0.5449455054494551,
+        "primary_ci_95": [
+          -0.041740203140319204,
+          0.01943977120139418
+        ],
+        "test_order": 7,
+        "test_pass": false
+      },
+      {
+        "mean_interaction": -0.007911375050805013,
+        "mode": "middle",
+        "p_holm_adjusted": 1.0,
+        "p_unadjusted": 0.8217178282171783,
+        "primary_ci_95": [
+          -0.06430652684799384,
+          0.041601862036383726
+        ],
+        "test_order": 8,
+        "test_pass": false
+      },
+      {
+        "mean_interaction": -0.08224791462096566,
+        "mode": "late",
+        "p_holm_adjusted": 1.0,
+        "p_unadjusted": 0.31156884311568844,
+        "primary_ci_95": [
+          -0.2644597892395578,
+          0.06681590940207115
+        ],
+        "test_order": 9,
+        "test_pass": false
+      }
+    ]
+  },
+  "frozen_boundary": {
+    "connected_source_components": {
+      "component_01": [
+        "R3-D01"
+      ],
+      "component_02": [
+        "R3-D02",
+        "R3-D06"
+      ],
+      "component_03": [
+        "R3-D03",
+        "R3-D04"
+      ],
+      "component_04": [
+        "R3-D05"
+      ],
+      "component_05": [
+        "R3-D07",
+        "R3-D11"
+      ],
+      "component_06": [
+        "R3-D08"
+      ],
+      "component_07": [
+        "R3-D09"
+      ],
+      "component_08": [
+        "R3-D10"
+      ],
+      "component_09": [
+        "R3-D12"
+      ]
+    },
+    "discovery_pair_count": 12,
+    "discovery_pair_ids": [
+      "R3-D01",
+      "R3-D02",
+      "R3-D03",
+      "R3-D04",
+      "R3-D05",
+      "R3-D06",
+      "R3-D07",
+      "R3-D08",
+      "R3-D09",
+      "R3-D10",
+      "R3-D11",
+      "R3-D12"
+    ],
+    "holdout_ids_used_only_as_read_guard": [
+      "R3-H01",
+      "R3-H02",
+      "R3-H03",
+      "R3-H04",
+      "R3-H05",
+      "R3-H06",
+      "R3-H07",
+      "R3-H08"
+    ],
+    "holdout_outcomes_read": 0,
+    "holdout_pair_count_in_seal_metadata": 8,
+    "holdout_pairs_executed": "NOT_VERIFIABLE_FROM_STATISTICAL_INPUTS",
+    "holdout_pairs_present_in_outcome_inputs": 0,
+    "validation": "PASS"
+  },
+  "inputs": {
+    "baseline_csv": {
+      "discovery_only_guard_pass": true,
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\artifacts\\stage4B_discovery\\baseline_per_frame_metrics.csv",
+      "rows": 596,
+      "sha256": "3ad7ca56ad1f505c5b8e7a056d2fb7e448efffd58f436ced92b8f36eb1f7517e"
+    },
+    "frozen_slice": {
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\manager\\2026-08-25_stage4_spiketrack_diagnostic_slice.csv",
+      "sha256_normalized_lf": "bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a",
+      "sha256_raw": "694dd12a16dbcd78787fb18d19688a0f91c74e9039f599504abb993c37d0a842"
+    },
+    "mode_csv": {
+      "discovery_only_guard_pass": true,
+      "disposition": "OPENED_AFTER_CRITERION_A_PASS",
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\artifacts\\stage4B_discovery\\mode_per_frame_metrics.csv",
+      "rows": 5364,
+      "sha256": "d9c85480c1b4cdc0c12c01ac2def4a3a607e7bd00787d09edb905c3de2655ef7"
+    }
+  },
+  "next_action": "RUN_BOUNDED_REFINEMENT_FOR_SELECTED_PATH_ONLY",
+  "non_claims": {
+    "diag_pass_fail_assigned": false,
+    "main_baseline": null,
+    "primary_shortlist": null,
+    "proposed_architecture": null,
+    "s1_s7_started": false,
+    "stage4c_unlocked": false
+  },
+  "outputs": {
+    "bootstrap": {
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_bootstrap_results.csv",
+      "sha256": "b4b4e1a0b79590a398c899ba4070c5005172b2d09945663a1c4e42c141a6081d"
+    },
+    "criterion_a": {
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_criterionA_results.csv",
+      "sha256": "5b93bf39cc38ac60abcf5339c6f6b5df9c61c747b88fffe30e9ab328d6903a96"
+    },
+    "criterion_b": {
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_criterionB_results.csv",
+      "sha256": "be377287f07b06a2a8da626c682a1e6b249f5324dde242398755cd70e333daa7"
+    },
+    "holm": {
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_holm_adjusted_tests.csv",
+      "sha256": "fed3044bf2fefe960305b47302633d7278105cd9076fe9ad4be48f3c0faac35d"
+    },
+    "pair_a": {
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_pair_level_A.csv",
+      "sha256": "dc97bab518052707887ca3f457033e93fd38779f3d96b8854ea4f1c5de02c0e5"
+    },
+    "pair_b": {
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_pair_level_B.csv",
+      "sha256": "da74932ecc24da48f5c85a34d633d890190ca8a1dcc99e85d8dcad61f8a1cc0e"
+    },
+    "sensitivity": {
+      "path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_sensitivity_results.csv",
+      "sha256": "96af65329cc3e8bffa7da0999d3bd43cd23a21d0535e517c2655d22cf81cc441"
+    }
+  },
+  "schema_version": "stage4b-analysis-v1",
+  "stage4b_conclusion": null
+}

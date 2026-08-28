@@ -1,0 +1,104 @@
+Stage 4B command log
+Date: 2026-08-26 Asia/Saigon
+Scope: frozen DISCOVERY diagnostic only; HOLDOUT execution prohibited
+
+[Repository sync]
+git status --short --branch
+git remote -v
+git log -1 --oneline
+git pull origin main
+git status --short --branch
+git log -1 --oneline
+
+Observed synchronized Q1 HEAD:
+8d50faa Freeze diagnostic slice and activate Stage 4B
+
+[Fresh pinned SpikeTrack worktrees]
+git -C E:\Robot_Backup\tmp\stage2B_spiketrack worktree add --detach F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned 1537db51a1cc9f6e30cce469fba3e51f5721b3d0
+git -C E:\Robot_Backup\tmp\stage2B_spiketrack worktree add --detach F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_clean 1537db51a1cc9f6e30cce469fba3e51f5721b3d0
+
+[Canonical accepted patch identity and application]
+git show HEAD:screening/codex/patches/2026-08-25_spiketrack_stage4A_repair.patch | C:\Program Files\Git\usr\bin\sha256sum.exe
+git show HEAD:screening/codex/patches/2026-08-25_spiketrack_stage4A_repair.patch | git -c safe.directory=F:/Q1_TrackingResearch_Data/Stage4B_SpikeTrack_Discovery_2026-08-26/SpikeTrack_pinned -C F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned apply --check --whitespace=error-all -
+git show HEAD:screening/codex/patches/2026-08-25_spiketrack_stage4A_repair.patch | git -c safe.directory=F:/Q1_TrackingResearch_Data/Stage4B_SpikeTrack_Discovery_2026-08-26/SpikeTrack_pinned -C F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned apply --whitespace=error-all -
+git -c safe.directory=F:/Q1_TrackingResearch_Data/Stage4B_SpikeTrack_Discovery_2026-08-26/SpikeTrack_pinned -C F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned status --short
+
+Canonical LF patch SHA-256:
+d4a1065a32ef6da6132e4f9f7980f727e9109bb00e2e2370398b1e90de5a713a
+
+Checked-out CRLF transport hash (recorded only as a Windows checkout representation):
+03f5fce3cd6b6b2f020b8210a63037e1ec727f877bee198111059d8c557674ca
+
+[No-ablation parity: clean pinned reference]
+$env:SPIKETRACK_STAGE4A_SOURCE_ROOT='F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_clean'
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned\tracking\stage4a_spiketrack_smoke.py --config F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_clean\experiments\spiketrack\spiketrack_s256_t1.yaml --checkpoint E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --device cuda --seed 20260826 --tolerance 1e-6 --real-template-image F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\Singer1\img\0001.jpg --real-search-image F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\Singer1\img\0002.jpg --real-init-box 51 53 87 290 --clean-baseline-only --output-json F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\parity_clean.json --output-tensors F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\parity_clean.npz
+
+[No-ablation parity: accepted instrumentation]
+$env:SPIKETRACK_STAGE4A_SOURCE_ROOT='F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned'
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned\tracking\stage4a_spiketrack_smoke.py --config F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned\experiments\spiketrack\spiketrack_s256_t1.yaml --checkpoint E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --device cuda --seed 20260826 --tolerance 1e-6 --real-template-image F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\Singer1\img\0001.jpg --real-search-image F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015\Singer1\img\0002.jpg --real-init-box 51 53 87 290 --reference-tensors F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\parity_clean.npz --output-json F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\parity_instrumented.json --output-tensors F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\parity_instrumented.npz
+
+Observed maximum absolute difference: 0.0; tolerance: 1e-6; PASS.
+
+[Criterion A discovery execution]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_execute_criterionA.py --source-root F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned --dataset-root F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015 --slice-csv E:\Robot_Backup\Q1_TrackingResearch\screening\manager\2026-08-25_stage4_spiketrack_diagnostic_slice.csv --config F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned\experiments\spiketrack\spiketrack_s256_t1.yaml --checkpoint E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --parity-json F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\parity_instrumented.json --external-root F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26 --artifact-root E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery --seed 20260826
+
+Observed: 12 discovery pairs, 596 frozen interval frames, 18 unique discovery source sequences, 0 hold-out pairs; elapsed 925.366 seconds.
+
+[Criterion A locked analysis]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_analyze.py --frozen-slice-csv E:\Robot_Backup\Q1_TrackingResearch\screening\manager\2026-08-25_stage4_spiketrack_diagnostic_slice.csv --baseline-csv E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery\baseline_per_frame_metrics.csv --output-dir E:\Robot_Backup\Q1_TrackingResearch\screening\codex
+
+Observed Criterion A: PASS.
+IoU weakness = 0.136998784534; primary-sequence clustered 95% CI [0.00188795705015, 0.317116898127].
+Failure weakness = 0.153333333333; primary-sequence clustered 95% CI [-0.03, 0.418181818182].
+
+[Criterion B]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_execute_criterionB.py --source-root F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned --dataset-root F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015 --slice-csv E:\Robot_Backup\Q1_TrackingResearch\screening\manager\2026-08-25_stage4_spiketrack_diagnostic_slice.csv --config F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned\experiments\spiketrack\spiketrack_s256_t1.yaml --checkpoint E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --baseline-csv E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery\baseline_per_frame_metrics.csv --criterion-a-summary E:\Robot_Backup\Q1_TrackingResearch\screening\codex\2026-08-26_stage4B_analysis_summary.json --external-root F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26 --artifact-root E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery --seed 20260826
+
+Criterion A gate observed PASS before the mode input was opened.
+Observed: 12 discovery pairs, 24 frozen intervals, exactly 9 locked modes, 5,364 per-frame mode rows, 216 execution-manifest rows, 240 snapshot-parity rows, 0 hold-out pairs; elapsed 3786.458393 seconds.
+Baseline-branch parity: PASS; maximum float-prediction, score-map, and confidence absolute differences = 0.0; integer prediction exact.
+State-snapshot continuation parity: PASS; physical_skip=false.
+External raw MRM: 41,510 records; SHA-256 35957fe4b6a010ce5d0d40ff7c67d71c217f631ffd1da91f94ee9bc69dce148d.
+
+[Criterion B locked analysis]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_analyze.py --frozen-slice-csv E:\Robot_Backup\Q1_TrackingResearch\screening\manager\2026-08-25_stage4_spiketrack_diagnostic_slice.csv --baseline-csv E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery\baseline_per_frame_metrics.csv --mode-csv E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery\mode_per_frame_metrics.csv --output-dir E:\Robot_Backup\Q1_TrackingResearch\screening\codex
+
+Observed Criterion B: PASS across exactly 9 Holm-corrected tests.
+Only mrm1 passed: mean interaction = -0.02788396336772887; primary-sequence clustered 95% CI [-0.05656969343636273, -0.00807008117216532]; unadjusted p = 0.0013998600139986002; Holm-adjusted p = 0.012598740125987402.
+Selected bounded-refinement path: mrm1.
+Interpretation boundary: the negative interaction is condition-dependent evidence of lower relative MRM1 utility under distractor versus matched control; it is not a post-hoc mechanism claim.
+
+[Bounded selected-path refinement]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_execute_refinement.py --source-root F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned --dataset-root F:\Q1_TrackingResearch_Data\OTB100_Figshare_24427468_v1\extracted\OTB2015 --slice-csv E:\Robot_Backup\Q1_TrackingResearch\screening\manager\2026-08-25_stage4_spiketrack_diagnostic_slice.csv --t1-config F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned\experiments\spiketrack\spiketrack_s256_t1.yaml --t1-checkpoint E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar --t3-config F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26\SpikeTrack_pinned\experiments\spiketrack\spiketrack_s256_t3.yaml --t3-checkpoint E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t3.pth.tar --baseline-csv E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery\baseline_per_frame_metrics.csv --analysis-summary E:\Robot_Backup\Q1_TrackingResearch\screening\codex\2026-08-26_stage4B_analysis_summary.json --criterion-b-results E:\Robot_Backup\Q1_TrackingResearch\screening\codex\2026-08-26_stage4B_criterionB_results.csv --external-root F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26 --artifact-root E:\Robot_Backup\Q1_TrackingResearch\screening\codex\artifacts\stage4B_discovery --seed 20260826
+
+Observed: BOUNDED_REFINEMENT_COMPLETE; selected path mrm1 only; elapsed 3950.562172 seconds.
+Components: retriever_only_bypass PASS; mlp_only_bypass PASS; t3_baseline PASS; t3_selected_path_controls PASS with exactly 3 controls; all physical_skip=false.
+Coverage: 12 discovery pairs, 24 frozen intervals, 0 hold-out pairs/outcomes.
+Rows: retriever_mlp_per_frame_metrics=1,192; t3_per_frame_metrics=2,384; bounded_refinement_execution_manifest=144; bounded_refinement_timing_characterization=36.
+Snapshot parity: PASS; T1 restore branches=72 and continuation restores=24; T3 restore branches=96 and continuation restores=24.
+T1 raw MRM: 8,302 records; SHA-256 fcfefb21999b1b460479000ce0e8cb9c7e16d8ea93bdbe401be954b3925aa133a.
+T3 raw MRM: 16,604 records; SHA-256 b9c83c4fe73aa54f303738af3cba3b2a7f954f13c719551b4b73a26e797d6e770.
+
+[Final report generation]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_finalize_report.py --repo-root E:\Robot_Backup\Q1_TrackingResearch --external-root F:\Q1_TrackingResearch_Data\Stage4B_SpikeTrack_Discovery_2026-08-26
+
+Observed: blockers=[]; frozen-slice validation PASS; hold-out seal PASS; hold-out pairs executed=0; Criterion A PASS; Criterion B PASS; Stage 4B conclusion STAGE4B_AB_PASS_READY_FOR_MANAGER_REVIEW; Stage 4C LOCKED; diagnostic decision NOT ASSIGNED.
+Secondary distractor margin was not approximated because the accepted instrumentation exposes only the global score-map output and no validated mapping exists from frozen manual distractor boxes to the tracker head grid. This is recorded as a non-gating limitation.
+
+[Final validation / commit / push]
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -m py_compile E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_analyze.py E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_execute_criterionA.py E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_execute_criterionB.py E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_execute_refinement.py E:\Robot_Backup\Q1_TrackingResearch\screening\codex\scripts\2026-08-26_stage4B_finalize_report.py
+git fetch origin
+git diff --name-only
+git status --short
+git add -- "screening/codex/2026-08-26_stage4B_*" "screening/codex/artifacts/stage4B_discovery" "screening/codex/scripts/2026-08-26_stage4B_*"
+git diff --cached --name-only
+git diff --cached --check
+git commit -m "Run SpikeTrack Stage 4B discovery diagnostics"
+git push origin main
+git status --short --branch
+git rev-parse HEAD
+git rev-parse origin/main
+git log -1 --oneline
+git log origin/main -1 --oneline
+
+The final commit identity and push/clean verification are necessarily observed after this log itself is committed; they are reported from the repository commands above in the terminal and final response.

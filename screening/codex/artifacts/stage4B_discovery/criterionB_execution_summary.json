@@ -1,0 +1,126 @@
+{
+  "accepted_nonmutating_discovery_aliases": {
+    "Jogging_1": {
+      "anno_path": "Jogging/groundtruth_rect.1.txt",
+      "evidence": "2026-08-25_stage4A_E2_otb_source_manifest.csv row E2-OTB-062",
+      "path": "Jogging/img"
+    }
+  },
+  "baseline_branch_parity": {
+    "integer_prediction_exact": true,
+    "maximum_confidence_abs_diff": 0.0,
+    "maximum_float_prediction_abs_diff": 0.0,
+    "maximum_score_map_abs_diff": 0.0,
+    "reference": "Criterion-A uninterrupted baseline_per_frame_metrics.csv",
+    "status": "PASS",
+    "tolerance": 1e-06
+  },
+  "criterion_a_gate": {
+    "criterion_a_estimates": {
+      "failure_weakness": {
+        "component_ci_95": [
+          -0.03636363636363636,
+          0.384
+        ],
+        "estimate": 0.15333333333333335,
+        "metric_pass": false,
+        "primary_ci_95": [
+          -0.03,
+          0.41818181818181815
+        ],
+        "threshold": 0.1
+      },
+      "iou_weakness": {
+        "component_ci_95": [
+          -0.013529223122019495,
+          0.3073738587768596
+        ],
+        "estimate": 0.1369987845343785,
+        "metric_pass": true,
+        "primary_ci_95": [
+          0.0018879570501517985,
+          0.3171168981269434
+        ],
+        "threshold": 0.05
+      }
+    },
+    "status": "PASS",
+    "summary_path": "E:\\Robot_Backup\\Q1_TrackingResearch\\screening\\codex\\2026-08-26_stage4B_analysis_summary.json",
+    "summary_sha256": "852061b3a69dca75f44dfcdcbfe753ad39f02e7b88e8e8a73c759cfb5a04be54"
+  },
+  "determinism": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "cudnn": 8700,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "gpu": "NVIDIA GeForce MX250",
+    "seed": 20260826,
+    "torch": "2.0.0+cu118",
+    "torch_cuda": "11.8",
+    "torch_deterministic_algorithms": true
+  },
+  "discovery_intervals_executed": 24,
+  "discovery_pairs_executed": 12,
+  "elapsed_seconds": 3786.458393000008,
+  "external_raw_mrm": {
+    "path": "F:\\Q1_TrackingResearch_Data\\Stage4B_SpikeTrack_Discovery_2026-08-26\\criterionB\\criterionB_raw_mrm.jsonl",
+    "records": 41510,
+    "sha256": "35957fe4b6a010ce5d0d40ff7c67d71c217f631ffd1da91f94ee9bc69dce148d"
+  },
+  "holdout_outcomes_read": 0,
+  "holdout_pairs_executed": 0,
+  "input_hashes": {
+    "baseline_csv_sha256": "3ad7ca56ad1f505c5b8e7a056d2fb7e448efffd58f436ced92b8f36eb1f7517e",
+    "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+    "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+    "criterion_a_provenance_sha256": "d1dccc80eae6a7fbf9a8422da60bcbaafd433f7b8ac1aae0d2c5ce8a1d3997b2",
+    "frozen_slice_sha256_normalized_lf": "bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a",
+    "patch_sha256_canonical_lf": "d4a1065a32ef6da6132e4f9f7980f727e9109bb00e2e2370398b1e90de5a713a",
+    "patched_file_sha256": {
+      "lib/models/spiketrack/sdtv3_search_inference.py": "77b01cb252919c5a9e50500cc567f8c2766ac86ccd343dfcc7d3af7e95b72931",
+      "lib/models/spiketrack/spiketrack_inf.py": "01a1f891ff10542ce32cbffafd820e0338c5ea4ff67f59065ea3a7e044aa71f8",
+      "lib/test/parameter/spiketrack.py": "fcd53eb2f88e38f673dbb81d6b5c2e83b7b2b2f956d1105f4980a7890aa5af81",
+      "lib/test/tracker/spiketrack_inf.py": "56c0a985cdf5905e7e1c16383b4e9ad41406c3718e066bdf4a6f0701dc427471",
+      "tracking/stage4a_spiketrack_smoke.py": "477730db506c43e31cf8161b770c9479c1e611fc825affe85dfdee5ed947c002"
+    },
+    "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0"
+  },
+  "modes": [
+    "mrm1",
+    "mrm2",
+    "mrm3",
+    "mrm4",
+    "mrm5",
+    "mrm6",
+    "early",
+    "middle",
+    "late"
+  ],
+  "next_action": "RUN_LOCKED_CRITERION_B_ANALYSIS_BEFORE_ANY_REFINEMENT",
+  "output_hashes": {
+    "mode_execution_manifest.csv": "227e8e055d220eeda9fb7b1ab9d11f1cda5e8177e00d619f11b003760e38262b",
+    "mode_module_timing_characterization.csv": "0737735e8a857e745dbe8f23c3f9eeed600c1702052ef603d0cad2f324151d75",
+    "mode_per_frame_metrics.csv": "d9c85480c1b4cdc0c12c01ac2def4a3a607e7bd00787d09edb905c3de2655ef7",
+    "state_snapshot_parity.csv": "ce3710c1d3eaeb56f2b9a68faebdf6b60cbb2525dd5ee95076b1fe7530e51cdc"
+  },
+  "physical_skip": false,
+  "refinement_executed": false,
+  "row_counts": {
+    "baseline_reference_frames": 596,
+    "external_raw_jsonl_records": 41510,
+    "mode_execution_manifest": 216,
+    "mode_module_timing_characterization": 54,
+    "mode_per_frame_metrics": 5364,
+    "state_snapshot_parity": 240
+  },
+  "scope": "STAGE4B_DISCOVERY_CRITERION_B_ONLY",
+  "stage4b_conclusion": null,
+  "state_snapshot_parity": {
+    "captured_state": "tracker.state;tracker.frame_id;tracker.template_list;tracker.cache;tracker.spike_rate_dict_temp;tracker.last_template_refresh_frame;tracker.window_penalty;tracker.stage4a flags/records;network.current_image_idx;network.spike_rate_dict;encoder._stage4a flags/forward_id/current+completed records;MRM retriever capture flags/buffers;template_encoder.current_image_idx+spike_rate_dict_temp;Python+NumPy+Torch CPU+all CUDA RNG",
+    "continuation_restore_intervals": 24,
+    "hash_algorithm": "SHA-256 over stage4b-tracker-state-snapshot-v1 canonical type stream",
+    "start_restore_branches": 240,
+    "status": "PASS"
+  },
+  "status": "CRITERION_B_NINE_MODE_EXECUTION_COMPLETE_ANALYSIS_PENDING"
+}
