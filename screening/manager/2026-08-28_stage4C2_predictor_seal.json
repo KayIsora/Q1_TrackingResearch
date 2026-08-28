@@ -1,0 +1,67 @@
+{
+  "schema_version": "stage4c2-manager-seal-v1",
+  "status": "SEALED_READY_FOR_ONE_SHOT_HOLDOUT",
+  "source_commit": "c6c9bd16371591d6966063552801479b34581ba4",
+  "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+  "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+  "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+  "frozen_slice_sha256_normalized_lf": "bc52bd7ec6277a76e6da69346a84a8f9d801e2fee9cd92634a60cf9f119ea11a",
+  "physical_skip_patch_sha256": "c2ccef6b07818ab3d08c99258f9e28abd0e6e7c56679a3573a4ca9e84f3938aa",
+  "frozen_predictor_sha256": "3be9039dceb2d9db4589edcb419232ec77d45ff36f1d779ae9a617ab03a9d0f2",
+  "feature_schema_sha256": "260bdeecf5afa60bd79465863ce07ed194b6b6e327d7f32c8b5f17c75823a677",
+  "stage4c1_holdout_seal_sha256": "e51ff574e99b06d098987d9e7665939f04b881608083037293fa5774171f7d55",
+  "feature_order": [
+    "previous_confidence",
+    "previous_center_displacement_normalized_by_predicted_scale",
+    "previous_log_area_ratio",
+    "mrm1_input_abs_mean",
+    "mrm1_input_std",
+    "mrm1_input_rms",
+    "mrm1_input_nonzero_ratio",
+    "template_memory_abs_mean",
+    "template_memory_std",
+    "template_memory_rms",
+    "template_memory_nonzero_ratio",
+    "search_to_template_rms_ratio"
+  ],
+  "predictor": {
+    "family": "StandardScaler + L2 LogisticRegression",
+    "C": 0.01,
+    "solver": "lbfgs",
+    "class_weight": null,
+    "probability_orientation": "P(oracle_skip_benefit > 0)",
+    "probability_inversion_allowed": false,
+    "probability_threshold_allowed": false,
+    "discovery_positive_base_rate": 0.49409780775716694,
+    "constant_comparator_probability": 0.49409780775716694,
+    "discovery_oof_auroc": 0.47187713310580204,
+    "discovery_oof_brier": 0.25791968644449575
+  },
+  "criterion_d": {
+    "auroc_minimum": 0.65,
+    "brier_requirement": "frozen predictor Brier must be strictly lower than constant comparator Brier on the complete hold-out frame set",
+    "requires_both": true,
+    "holdout_execution_count": 1
+  },
+  "holdout_pair_ids": [
+    "R3-H01",
+    "R3-H02",
+    "R3-H03",
+    "R3-H04",
+    "R3-H05",
+    "R3-H06",
+    "R3-H07",
+    "R3-H08"
+  ],
+  "mutations_forbidden": [
+    "feature add/drop/reorder",
+    "scaler/model refit",
+    "coefficient/intercept modification",
+    "C modification",
+    "label or probability inversion",
+    "probability threshold selection",
+    "constant comparator modification",
+    "physical skip patch modification",
+    "holdout-based subgroup or feature interpretation"
+  ]
+}
