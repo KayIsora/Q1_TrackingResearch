@@ -1,0 +1,130 @@
+I0 SPIKETRACK-S256-T1 COMMAND LOG
+Date: 2026-08-29
+Branch: codex/i0-spiketrack-runtime
+
+BOUNDARY
+- No package installation, asset download, training, export, architecture change, research instrumentation, full benchmark, other tracker, other dataset, Jetson, or person-extension command was run.
+- Large checkpoint/data files remained outside the repository.
+
+1. BRANCH SYNC AND REQUIRED READS
+
+git status --short --branch
+git fetch origin
+git switch codex/i0-spiketrack-runtime
+git pull --ff-only origin codex/i0-spiketrack-runtime
+git status --short --branch
+git rev-parse HEAD
+git log -1 --oneline
+
+Outcome: local branch tracked origin/codex/i0-spiketrack-runtime; clean starting HEAD was 8281cc53d670886fa5bbf9a3482ae70317b0693f.
+
+Get-Content -Raw screening/reconciliation/2026-08-29_F7_MCITrack_final_reconciliation.md
+Get-Content -Raw screening/manager/2026-08-29_post_selection_strategic_pivot.md
+Import-Csv screening/manager/2026-08-29_implementation_pivot_plan.csv | Format-List *
+Get-Content -Raw screening/reconciliation/2026-08-26_stage4A_E2_otb_reconciliation.md
+Get-Content -Raw screening/reconciliation/2026-08-28_stage4B_discovery_reconciliation.md
+Get-Content -Raw screening/reconciliation/2026-08-28_stage4C2_final_diagnostic_reconciliation.md
+
+Outcome: selection cycle closed; SpikeTrack-S256-T1 is implementation baseline only; MRM1 DIAG_FAIL remains closed.
+
+2. FRESH PINNED SOURCE AND IDENTITY CHECKS
+
+git -C E:\Robot_Backup\tmp\stage4A_R_official_source rev-parse HEAD
+git -C E:\Robot_Backup\tmp\stage4A_R_official_source remote get-url origin
+git -C E:\Robot_Backup\tmp\stage4A_R_official_source worktree add --detach E:\Robot_Backup\tmp\i0_spiketrack_runtime_20260829 1537db51a1cc9f6e30cce469fba3e51f5721b3d0
+git -C E:\Robot_Backup\tmp\i0_spiketrack_runtime_20260829 status --porcelain=v1 --untracked-files=all
+git -C E:\Robot_Backup\tmp\i0_spiketrack_runtime_20260829 rev-parse HEAD
+git -C E:\Robot_Backup\tmp\i0_spiketrack_runtime_20260829 remote get-url origin
+Get-FileHash -Algorithm SHA256 E:\Robot_Backup\tmp\i0_spiketrack_runtime_20260829\experiments\spiketrack\spiketrack_s256_t1.yaml
+Get-FileHash -Algorithm SHA256 E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar
+Get-Item E:\Robot_Backup\tmp\stage2B_spiketrack\ckpt\spiketrack_s256_t1.pth.tar | Select-Object FullName,Length
+
+Outcome: source SHA, clean worktree, repository URL, config hash, checkpoint hash, and 47,912,371-byte checkpoint all matched the frozen contract.
+
+3. ENVIRONMENT AND WRAPPER PREFLIGHT
+
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe --version
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -m pip freeze
+nvidia-smi --query-gpu=name,driver_version,memory.total,memory.free,pstate,temperature.gpu,power.draw --format=csv,noheader,nounits
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe screening\codex\scripts\2026-08-29_I0_spiketrack_runtime.py --help
+
+Outcome: reused the existing environment without installation. GPU NVIDIA GeForce MX250, driver 581.83; Python 3.11.7; torch 2.0.0+cu118; CUDA 11.8; cuDNN 8700.
+
+4. STRICT-LOAD DEVELOPMENT GATE
+
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe screening\codex\scripts\2026-08-29_I0_spiketrack_runtime.py --mode otb --sequence Crossing --output-dir screening\codex\artifacts\I0_spiketrack\parity\Crossing\run1
+
+First outcome: full network strict=True passed. Template encoder strict=True rejected 348 extra mrm.* keys because the checkpoint encoder contains search-only MRM modules absent from the official template encoder. No parity frames ran.
+
+Resolution: derive the exact official template-encoder target keyspace, require every target key, and call load_state_dict(..., strict=True) on that exact mapping. Preserve the complete sorted list of excluded search-only keys in provenance. No source/checkpoint/module mutation.
+
+Second outcome: strict load passed and 120 Crossing rows numerically matched baseline. File hash dc5178298831eb8de26b66fdadbd1caa4fa4abbe1d1429200d16365593f81076 differed only because the wrapper emitted LF while the accepted baseline used CRLF.
+
+Format-Hex screening\codex\artifacts\I0_spiketrack\parity\Crossing\run1\boxes.txt
+Format-Hex screening\codex\artifacts\stage4A_E2\reproduction\predictions\acquired_default\Crossing.txt
+
+Resolution: emit the accepted tab-separated CRLF serialization. No numeric output changed.
+
+Third outcome: Crossing integer SHA-256 matched 039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f.
+
+5. EXACT SIX PARITY RUNS
+
+For each listed pair below, run:
+
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe screening\codex\scripts\2026-08-29_I0_spiketrack_runtime.py --mode otb --sequence <SEQUENCE> --output-dir screening\codex\artifacts\I0_spiketrack\parity\<SEQUENCE>\<RUN>
+
+Executed pairs:
+- Crossing run1
+- Crossing run2
+- Deer run1
+- Deer run2
+- Couple run1
+- Couple run2
+
+Outcome:
+- Crossing: both integer hashes 039d9ca96e1ecf9f0714c88337e4eebd826e2cb78842984e33c5de775f28f65f; both float hashes e41892f6098d22838fb2bc67def4a0e43f236c39b911394dba652800bceccbd5.
+- Deer: both integer hashes 88a49dcd23393584e5b7a42061a9a3b89dcb851ae308694a130b3f24e54fdf5d; both float hashes eeb23a7cfe4a6ef06c481d3ea112129752e4574ebb03582be672ff016f903e51.
+- Couple: both integer hashes ced31cb5af587bbe069415163ef0d9a3d47779e5b116e4f619b5a0b80b7efe38; both float hashes 783d9c32ffe4ac98bf952c27565d3c82b298bfa3a3e9568bd084d59bb0c4316f.
+
+6. BOUNDED RUNTIME PROFILE
+
+For each of Crossing, Deer, Couple, run:
+
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe screening\codex\scripts\2026-08-29_I0_spiketrack_runtime.py --mode otb --sequence <SEQUENCE> --measure-model-forward --warmup-forwards 30 --output-dir screening\codex\artifacts\I0_spiketrack\profile\<SEQUENCE>
+
+Outcome: 90 total warmups and 238 measured BS1 FP32 forwards. CUDA synchronized around model and E2E timings. All profile prediction hashes retained parity. Pooled median model-forward 307.987100 ms; pooled median E2E 312.460400 ms. Peak allocated/reserved VRAM 137,489,920 / 161,480,704 bytes. Peak host process RAM 707,620,864 bytes.
+
+7. SOURCE-ONLY ONNX/TENSORRT INSPECTION
+
+rg -n "class SPIKETRACK|def forward_encoder|def inference_decoder|class mem_update|class MultiSpike|Quant.apply|for .*range|detach\(|gather\(|interpolate\(|repeat\(|cross_block|cache" E:\Robot_Backup\tmp\i0_spiketrack_runtime_20260829\lib\models\spiketrack
+rg -n "cpp_extension|load_library|torch.ops|autograd.Function|Quant.apply" E:\Robot_Backup\tmp\i0_spiketrack_runtime_20260829
+rg --files E:\Robot_Backup\tmp\i0_spiketrack_runtime_20260829 -g *.cu -g *.cpp -g *.cc -g *.cuh -g *.onnx -g *tensorrt* -g *trt*
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -c "import importlib.util,json; print(json.dumps({n: bool(importlib.util.find_spec(n)) for n in ['onnx','onnxruntime','tensorrt']},sort_keys=True))"
+
+Outcome: source-only inventory completed; no export or engine build. ONNX present but unused; ONNX Runtime and TensorRT absent. Detailed confirmed/likely blockers and minimum I1 experiment recorded in artifacts/I0_spiketrack/onnx_tensorrt_blockers.json.
+
+8. FINAL VALIDATION AND VERSION CONTROL
+
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -c "parse every I0 JSON and CSV; AST-parse wrapper; verify six boxes hashes; count profile samples; report file counts and maximum size"
+
+Outcome before manifest: every JSON/CSV parsed, wrapper AST passed, all six boxes hashes matched, profile count was 238, artifact count was 34, and the largest artifact was 38,130 bytes.
+
+E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe -c "emit relative path, byte count, SHA-256, and role for every bounded I0 deliverable except the self-referential manifests"
+
+Outcome: hash rows were used verbatim in both required manifest CSVs. The two manifest files exclude themselves because a file cannot contain its own stable SHA-256.
+
+git diff --check
+git status --short
+git diff --stat
+git diff -- screening/codex/scripts/2026-08-29_I0_spiketrack_runtime.py
+git add screening/codex/2026-08-29_I0_spiketrack_runtime_report.md screening/codex/2026-08-29_I0_spiketrack_runtime_manifest.csv screening/codex/2026-08-29_I0_spiketrack_command_log.txt screening/codex/scripts/2026-08-29_I0_spiketrack_runtime.py screening/codex/artifacts/I0_spiketrack
+git diff --cached --check
+git diff --cached --stat
+git status --short
+git commit -m "Freeze reproducible SpikeTrack implementation runtime"
+git push origin codex/i0-spiketrack-runtime
+git status --short --branch
+git rev-parse HEAD
+git rev-parse origin/codex/i0-spiketrack-runtime
+
+These final version-control commands are executed after this append-only log is sealed. Their resulting commit SHA, push status, clean worktree state, and local/remote equality are reported in the final worker response; embedding the commit SHA inside the commit that defines it would be self-referential.

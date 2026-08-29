@@ -1,0 +1,93 @@
+{
+  "schema": "I0_spiketrack_source_only_deployment_inventory_v1",
+  "status": "COMPLETE",
+  "inspection_only": true,
+  "export_attempted": false,
+  "engine_built": false,
+  "runtime_packages": {
+    "onnx": "1.22.0 present but unused",
+    "onnxruntime": "not present",
+    "tensorrt": "not present"
+  },
+  "model_interface": {
+    "template_input": "FP32 normalized crop tensor [N_templates=1, B=1, C=3, H=256, W=256]",
+    "template_output": "Python dict containing six stage-dependent tensors: cross_block_0 through cross_block_5",
+    "search_input": "FP32 normalized crop tensor [B=1, C=3, H=256, W=256] plus the six-tensor template cache",
+    "search_encoder_output": "temporal feature tensor xz [T, B, C, H, W] consumed by the decoder",
+    "decoder_outputs": "pred_boxes [B,1,4], score_map [B,1,16,16], size_map [B,2,16,16], offset_map [B,2,16,16]",
+    "tracker_output": "one Python bbox list [x,y,w,h]; boxes.txt serializes integer truncation",
+    "fixed_dimensions": "I0 freezes batch=1, template count=1, template/search crops=256x256, and decoder feature grid=16x16",
+    "dynamic_dimensions": "source frame size and sequence length are outside the model graph; cache tensor shapes are stage-dependent"
+  },
+  "state_and_dependencies": [
+    "Template initialization is a separate encoder call; its six-entry cache is required by every search forward.",
+    "The tracker carries the prior bbox in Python state to construct the next search crop.",
+    "Spiking mem_update modules carry an explicit temporal loop inside one forward; no cross-frame membrane state is exposed.",
+    "Tracker crop, resize-factor mapping, window penalty, bbox clipping, and Python list conversion sit outside the neural model graph."
+  ],
+  "operator_inventory": {
+    "ordinary_tensor_ops": [
+      "Conv2d",
+      "BatchNorm2d",
+      "Linear",
+      "matmul",
+      "sigmoid",
+      "clamp",
+      "round",
+      "reshape/view/flatten",
+      "permute/transpose",
+      "repeat",
+      "mean",
+      "max",
+      "gather",
+      "div/mod",
+      "interpolate",
+      "softmax"
+    ],
+    "custom_python_or_autograd": [
+      "Quant(torch.autograd.Function) reached through Quant.apply",
+      "MultiSpike and mem_update Python modules",
+      "No custom C++/CUDA extension, torch.ops call, or pre-existing ONNX/TensorRT artifact was found in the pinned source"
+    ]
+  },
+  "confirmed_source_blockers": [
+    {
+      "id": "B1_DIRECT_FORWARD_SIGNATURE",
+      "detail": "SPIKETRACK.forward(mode='encoder') calls forward_encoder without its required cache argument, so the inference object has no directly usable single export signature.",
+      "evidence": "lib/models/spiketrack/spiketrack_inf.py:51-66"
+    },
+    {
+      "id": "B2_CACHE_DICT_BINDINGS",
+      "detail": "Template output and search input use a Python dict of six cache tensors; TensorRT bindings require a flat, ordered tensor interface.",
+      "evidence": "lib/models/spiketrack/sdtv3_temp_inference.py:660-706 and sdtv3_search_inference.py:736-774"
+    },
+    {
+      "id": "B3_TRACKER_PYTHON_POSTPROCESS",
+      "detail": "Crop/state/update/window/clip/list conversion are Python tracker operations and are not part of the neural network forward.",
+      "evidence": "lib/test/tracker/spiketrack_inf.py:47-107"
+    },
+    {
+      "id": "B4_NO_TENSORRT_RUNTIME",
+      "detail": "The frozen I0 environment contains neither the TensorRT Python package nor ONNX Runtime, and I0 forbids installing packages.",
+      "evidence": "environment_pip_freeze.txt and importlib availability check"
+    }
+  ],
+  "likely_onnx_risks_requiring_experiment": [
+    "Quant.apply has no explicit ONNX symbolic; the exporter may inline clamp/round or may emit an unsupported Python/autograd node.",
+    "mem_update uses shape-dependent Python branches, a temporal Python loop, clone/detach, and indexed tensor assignment output[i] = spike.",
+    "Fixed-T tracing can unroll control flow but may silently specialize the graph; exported parity must cover template and search paths.",
+    "Nested dictionaries and the two-stage cache interface require an export-only adapter before ONNX can expose stable tensor names."
+  ],
+  "likely_tensorrt_risks_requiring_experiment": [
+    "TensorRT parsing cannot be assessed until the custom-autograd and cache-interface ONNX risks are resolved.",
+    "Any residual Round, Gather, Mod, Scatter/index-write, or dynamic-shape form must be checked against the selected TensorRT parser version.",
+    "The six cache tensors need explicit fixed profiles and binding order; tracker-side bbox/crop logic remains on the host unless separately reimplemented."
+  ],
+  "minimum_I1_experiment": [
+    "Create export-only adapters for template-to-six-cache and search-plus-six-cache-to-four-decoder-maps; do not change trained modules.",
+    "Freeze BS1 FP32, 256x256 crops and explicit cache tensor names/shapes; record eager reference tensors from one locked sequence frame.",
+    "Attempt ONNX export and checker validation with no graph rewrite first; capture exact exporter nodes/errors.",
+    "If Quant or mem_update blocks export, implement the smallest functionally equivalent export formulation and require eager-versus-ONNX tensor parity before any TensorRT parse.",
+    "Only after ONNX parity, parse/build one FP32 TensorRT engine and compare all four decoder maps plus final bbox; no performance claim before parity."
+  ]
+}

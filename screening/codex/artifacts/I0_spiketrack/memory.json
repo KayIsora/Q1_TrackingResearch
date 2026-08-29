@@ -1,0 +1,31 @@
+{
+  "schema": "I0_spiketrack_memory_v1",
+  "measurement_scope": "Each profile resets CUDA peak counters after 30 warm-up forwards, so CUDA values cover measured BS1 FP32 tracking forwards. Windows peak_wset is a complete-process lifetime host peak.",
+  "Crossing": {
+    "measured_forwards": 89,
+    "cuda_peak_allocated_bytes": 137489920,
+    "cuda_peak_reserved_bytes": 161480704,
+    "host_process_peak_rss_bytes": 701710336
+  },
+  "Deer": {
+    "measured_forwards": 40,
+    "cuda_peak_allocated_bytes": 137489920,
+    "cuda_peak_reserved_bytes": 161480704,
+    "host_process_peak_rss_bytes": 707620864
+  },
+  "Couple": {
+    "measured_forwards": 109,
+    "cuda_peak_allocated_bytes": 137489920,
+    "cuda_peak_reserved_bytes": 161480704,
+    "host_process_peak_rss_bytes": 701407232
+  },
+  "maximum": {
+    "cuda_peak_allocated_bytes": 137489920,
+    "cuda_peak_allocated_mib": 131.12109375,
+    "cuda_peak_reserved_bytes": 161480704,
+    "cuda_peak_reserved_mib": 154.0,
+    "host_process_peak_rss_bytes": 707620864,
+    "host_process_peak_rss_mib": 674.83984375
+  },
+  "host_peak_method": "maximum of psutil RSS samples and Windows peak_wset when available"
+}

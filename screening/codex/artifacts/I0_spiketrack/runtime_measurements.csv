@@ -1,0 +1,5 @@
+scope,warmup_forwards,measured_forwards,model_forward_median_ms,model_forward_p90_ms,model_forward_p95_ms,model_forward_fps_from_median,e2e_median_ms,e2e_p90_ms,e2e_p95_ms,e2e_fps_from_median,batch_size,precision,cuda_synchronized
+Crossing,30,89,342.561300,589.899160,669.169080,2.919186,346.551800,596.571800,694.709280,2.885572,1,FP32,true
+Deer,30,40,321.339400,441.004500,463.082650,3.111974,326.210550,444.868890,469.201380,3.065505,1,FP32,true
+Couple,30,109,300.935000,364.989600,394.465360,3.322977,305.562000,370.031900,401.353820,3.272658,1,FP32,true
+pooled_locked_sequences,90,238,307.987100,486.822090,582.734680,3.246889,312.460400,492.228500,591.067025,3.200406,1,FP32,true

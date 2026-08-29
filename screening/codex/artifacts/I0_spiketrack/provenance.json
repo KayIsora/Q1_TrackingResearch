@@ -1,0 +1,37 @@
+{
+  "schema": "I0_spiketrack_frozen_provenance_v1",
+  "status": "PASS",
+  "project_branch_start_sha": "8281cc53d670886fa5bbf9a3482ae70317b0693f",
+  "official_repository": "https://github.com/faicaiwawa/SpikeTrack.git",
+  "source_root": "E:\\Robot_Backup\\tmp\\i0_spiketrack_runtime_20260829",
+  "source_sha": "1537db51a1cc9f6e30cce469fba3e51f5721b3d0",
+  "source_worktree_clean_at_each_run": true,
+  "config_path": "experiments/spiketrack/spiketrack_s256_t1.yaml",
+  "config_sha256": "9a352f3e98ecdbce2355a95399752a1bc772c90ad9ddcab2ad35951d0c6366f8",
+  "checkpoint_path": "E:\\Robot_Backup\\tmp\\stage2B_spiketrack\\ckpt\\spiketrack_s256_t1.pth.tar",
+  "checkpoint_bytes": 47912371,
+  "checkpoint_sha256": "cf5c078ef7741109b8db8f8dd66b322b0814bf787ad56a5cdd5594dd2a8b85df",
+  "canonical_otb_root": "F:\\Q1_TrackingResearch_Data\\OTB100_Figshare_24427468_v1\\extracted\\OTB2015",
+  "strict_load": {
+    "passed": true,
+    "network_checkpoint_tensors": 1215,
+    "network_missing_keys": 0,
+    "network_unexpected_keys": 0,
+    "template_encoder_loaded_tensors": 764,
+    "template_encoder_missing_keys": 0,
+    "template_encoder_unexpected_keys": 0,
+    "template_encoder_mapping": "The exact template-encoder target keyspace is selected from checkpoint encoder.* keys and loaded with strict=True.",
+    "excluded_search_only_encoder_mrm_keys": 348,
+    "excluded_key_audit": "The complete sorted excluded-key list is retained in every run provenance.json. All excluded keys are search-only mrm.* state absent from the official template encoder."
+  },
+  "parameters": {
+    "network_parameters": 11760130,
+    "template_encoder_parameters": 7663086,
+    "resident_total_parameters": 19423216,
+    "resident_total_fp32_parameter_bytes": 77692864,
+    "note": "The official runtime holds the search-network/decoder plus a separate template encoder whose weights are a strict subset mapping from the checkpoint encoder."
+  },
+  "research_instrumentation_applied": false,
+  "model_or_data_downloaded": false,
+  "export_attempted": false
+}
