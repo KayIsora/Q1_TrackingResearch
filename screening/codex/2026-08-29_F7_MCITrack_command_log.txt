@@ -1,0 +1,71 @@
+F7 MCITrack resource-sealed re-entry command log
+Date: 2026-08-29
+Branch: codex/f7-mcitrack
+
+[01] git fetch origin --prune
+     Result: origin/main advanced through a9d77b4 Add post-F6 MCITrack reentry plan.
+
+[02] git switch -c codex/f7-mcitrack origin/main
+     Result: clean branch at a9d77b4.
+
+[03] Read exact Manager inputs:
+     screening/manager/2026-08-29_F7_MCITrack_resource_reentry_protocol.md
+     screening/manager/2026-08-29_F2B_MCITrack_mini_probe_protocol.md
+     screening/reconciliation/2026-08-29_F6_resource_universe_reconciliation.md
+     RULE/01_EVIDENCE_AND_CITATION_POLICY.md
+     docs/00_claim_taxonomy.md
+     docs/11_systematic_screening_protocol.md
+     Exact prior F2B report/scripts were inspected at b8999d901e72c936853912d1fd29d10c2588640b without merging that branch.
+
+[04] Verify source/config/final-checkpoint/environment/data identities using git status/rev-parse, Get-FileHash, the existing Python executable, and allowlisted frame/GT counts.
+     Source: e667193eaec4c8a73d4bdd856a662aecdb844b43, clean.
+     Config SHA-256: 2F498726C55601BA1B056D282E80C600F330EBDB5613ACB9B57041520EC76CC7.
+     Final checkpoint: 428943566 bytes; SHA-256 6F28F9425FE6E7B52ECA4D1D9ADC7A59AA51558A21BE300F4F456AEBBD4EB2D9.
+     Environment: E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe; Python 3.11.7; torch 2.0.0+cu118; CUDA available.
+     Six allowlisted frame/GT counts matched: Liquor 1741, Car4 659, Crowds 347, Girl 500, Human3 1698, Suv 945.
+
+[05] Create only the external F7 directories:
+     F:\Q1_TrackingResearch_Data\MCITrack_F7_2026-08-29\official_asset
+     F:\Q1_TrackingResearch_Data\MCITrack_F7_2026-08-29\manifests
+     F:\Q1_TrackingResearch_Data\MCITrack_F7_2026-08-29\results
+     Result: official_asset was empty before download.
+
+[06] Single authorized asset download at 2026-08-29T03:45:24.4629497Z:
+     gdown 1hxth6RWiJ-3rY21CClZqjl2xsL07Kt17
+     Working directory: F:\Q1_TrackingResearch_Data\MCITrack_F7_2026-08-29\official_asset
+     Provider resolved display name: fast_itpn_base_clipl_e1600.pt.
+     Exit: 0 at 2026-08-29T03:45:38.4384309Z.
+     No folder-download flag and no second asset request were used.
+
+[07] Get-FileHash -Algorithm SHA256 on the downloaded file.
+     Byte count: 180830695.
+     SHA-256: 626FD426DD89B2681D8B3942FA00E05FFFB467AF111C7BBD6A0A4B8BC0AFC388.
+     Exact name gate: PASS.
+
+[08] Copy the sealed asset once to the config-required ignored path:
+     E:\Robot_Backup\tmp\stage2_batchB_root_20260825_7da81ad\mcitrack\pretrained\fast_itpn_base_clipl_e1600.pt
+     Recompute bytes and SHA-256 on both paths.
+     Result: byte equality PASS; SHA-256 equality PASS; pinned source git status remains clean.
+
+[09] Create the four authorized F7 scripts with apply_patch and parse all four with ast.parse.
+     Result: AST_PARSE_PASS=4; no downloader, installer, source patch, or bootstrap bypass in scripts.
+
+[10] nvidia-smi --query-gpu=name,memory.total,memory.free,driver_version --format=csv,noheader
+     Result before preflight: NVIDIA GeForce MX250, 2048 MiB total, 1969 MiB free, driver 581.83.
+
+[11] Run the one locked technical preflight:
+     E:\Robot_Backup\tmp\stage2B_spiketrack_env\Scripts\python.exe screening\codex\scripts\2026-08-29_F7_MCITrack_preflight.py --device cuda
+     Started: 2026-08-29T03:51:28.517693Z.
+     Official bootstrap load: PASS by construction control flow.
+     Full checkpoint strict=True load: PASS by control flow before tracker.track.
+     First deterministic smoke: FAIL before output.
+     Error: PyTorch deterministic algorithms require CUBLAS_WORKSPACE_CONFIG=:4096:8 or :16:8 for CUDA CuBLAS.
+     Stopped: 2026-08-29T03:51:57.776675Z.
+     Scientific outcome rows: 0.
+
+[12] Stop-loss applied.
+     CUBLAS_WORKSPACE_CONFIG was not changed.
+     Preflight was not retried.
+     2026-08-29_F7_MCITrack_execute.py was not run.
+     2026-08-29_F7_MCITrack_analyze.py was not run.
+     Final result: PROBE_INCONCLUSIVE_RESOURCE_BLOCKER.
