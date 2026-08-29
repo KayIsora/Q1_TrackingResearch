@@ -1,0 +1,3100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <key for="node" attr.name="label" attr.type="string" id="n_label" />
+  <key for="node" attr.name="node_type" attr.type="string" id="n_node_type" />
+  <key for="node" attr.name="anchor" attr.type="string" id="n_anchor" />
+  <key for="node" attr.name="publication_status" attr.type="string" id="n_publication_status" />
+  <key for="node" attr.name="source_graph" attr.type="string" id="n_source_graph" />
+  <key for="node" attr.name="description" attr.type="string" id="n_description" />
+  <key for="node" attr.name="evidence_source" attr.type="string" id="n_evidence_source" />
+  <key for="edge" attr.name="edge_type" attr.type="string" id="e_edge_type" />
+  <key for="edge" attr.name="confidence" attr.type="string" id="e_confidence" />
+  <key for="edge" attr.name="evidence_source" attr.type="string" id="e_evidence_source" />
+  <key for="edge" attr.name="notes" attr.type="string" id="e_notes" />
+  <graph id="KG_FAR_SPIKE_V1" edgedefault="directed">
+    <node id="NBR_FAR">
+      <data key="n_label">FARTrack Connected Papers neighborhood</data>
+      <data key="n_node_type">LITERATURE_NEIGHBORHOOD</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Discovery provenance only; topology unavailable.</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="NBR_SPIKE">
+      <data key="n_label">SpikeTrack Connected Papers neighborhood</data>
+      <data key="n_node_type">LITERATURE_NEIGHBORHOOD</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Discovery provenance only; topology unavailable.</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="A_FAR">
+      <data key="n_label">FARTrack</data>
+      <data key="n_node_type">ANCHOR_TRACKER</data>
+      <data key="n_anchor">YES</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Lightweight/autoregressive knowledge anchor.</data>
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="A_SPIKE">
+      <data key="n_label">SpikeTrack</data>
+      <data key="n_node_type">ANCHOR_TRACKER</data>
+      <data key="n_anchor">YES</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Spike-driven redesign anchor.</data>
+      <data key="n_evidence_source">E05;E06;E07</data>
+    </node>
+    <node id="P_P001">
+      <data key="n_label">Adaptive Target-Oriented Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">BOTH</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="P_P002">
+      <data key="n_label">Adaptively Bypassing Vision Transformer Blocks for Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P003">
+      <data key="n_label">AdaptTrack: Perception field adaptation with contrastive attention for robust visual tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P004">
+      <data key="n_label">Autoregressive Queries for Adaptive Tracking with Spatio-Temporal Transformers</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P005">
+      <data key="n_label">Autoregressive Sequential Pretraining for Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P006">
+      <data key="n_label">AViTMP: A Tracking-Specific Transformer for Single-Branch Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P007">
+      <data key="n_label">CasCenter: A Cascaded Center Network for Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P008">
+      <data key="n_label">CATrack: Combining Convolutional and Attentional Methods for Visual Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P009">
+      <data key="n_label">CausTrack: Visual tracking via structural causality and deconfounded feature learning</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P010">
+      <data key="n_label">CiteTracker: Correlating Image and Text for Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P011">
+      <data key="n_label">CLDTracker: A Comprehensive Language Description for Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P012">
+      <data key="n_label">Context-Aware Token Pruning and Discriminative Selective Attention for Transformer Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P013">
+      <data key="n_label">Correlation-Embedded Transformer Tracking: A Single-Branch Framework</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">BOTH</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="P_P014">
+      <data key="n_label">CSCL: Bridging the plasticity-stability gap in continuous supervised contrastive learning</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | OUT_OF_SCOPE</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P015">
+      <data key="n_label">DATrack: direction attention based transformer tracker</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P016">
+      <data key="n_label">DeTrack: In-model Latent Denoising Learning for Visual Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P017">
+      <data key="n_label">Discriminative Pruning Networks for Visual Tracking with Adaptive Foreground Prediction</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P018">
+      <data key="n_label">Efficient and Accurate Low-Resolution Transformer Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">BOTH</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="P_P019">
+      <data key="n_label">Efficient Training for Visual Tracking with Deformable Transformer</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P020">
+      <data key="n_label">Enhancing the Two-Stream Framework for Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P021">
+      <data key="n_label">EnTeR-Track: Efficient UAV tracking via entropy-guided pruning and reversible token recovery</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P022">
+      <data key="n_label">Exploiting Lightweight Hierarchical ViT and Dynamic Framework for Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P023">
+      <data key="n_label">Exploring Dynamic Transformer for Efficient Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">BOTH</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="P_P024">
+      <data key="n_label">Exploring Efficient and Effective Sequence Learning for Visual Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">BOTH</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="P_P025">
+      <data key="n_label">Exploring Enhanced Contextual Information for Video-Level Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P026">
+      <data key="n_label">Exploring Lightweight Hierarchical Vision Transformers for Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">BOTH</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="P_P027">
+      <data key="n_label">Exploring Pruning-Based Efficient Object Tracking via Hybrid Knowledge Distillation</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P028">
+      <data key="n_label">FARTrack: Fast Autoregressive Visual Tracking with High Performance</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | PRIMARY</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P029">
+      <data key="n_label">FETrack: One-stream framework-based feature enhancement for object tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P030">
+      <data key="n_label">Fine-grained visual tracking via distribution-aware mask modeling and temporal propagation</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P031">
+      <data key="n_label">Foreground-Background Distribution Modeling Transformer for Visual Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P032">
+      <data key="n_label">FSTrack: Visual tracking with feature fusion and adaptive selection</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P033">
+      <data key="n_label">Fully Spiking Neural Networks for Unified Frame-Event Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P034">
+      <data key="n_label">General Compression Framework for Efficient Transformer Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P035">
+      <data key="n_label">Generalized Relation Modeling for Transformer Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P036">
+      <data key="n_label">GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P037">
+      <data key="n_label">High-Performance Discriminative Tracking with Spatio-Temporal Template Fusion</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P038">
+      <data key="n_label">Implicit Motion State Modeling for Efficient and Effective Video-Level Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P039">
+      <data key="n_label">Improving Visual Object Tracking Through Visual Prompting</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P040">
+      <data key="n_label">Joint Feature Learning and Relation Modeling for Tracking: A One-Stream Framework</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2022 | HISTORICAL</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P041">
+      <data key="n_label">Joint position and appearance feature modeling for accurate visual tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P042">
+      <data key="n_label">Learning Historical Status Prompt for Accurate and Robust Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P043">
+      <data key="n_label">Linker: Learning Long Short-term Associations for Robust Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P044">
+      <data key="n_label">LiteTrack: Layer Pruning with Asynchronous Feature Extraction for Lightweight and Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P045">
+      <data key="n_label">Local Feature Enhancement based One-Stream Transformer Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P046">
+      <data key="n_label">Masked Mutual Guidance Transformer Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P047">
+      <data key="n_label">MCTrack: Multi-cue spatio-temporal object tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P048">
+      <data key="n_label">MixFormerV2: Efficient Fully Transformer Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P049">
+      <data key="n_label">MPTrack: Visual Tracking with Reliable Motion Prompts</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P050">
+      <data key="n_label">Multi-State Tracker: Enhancing Efficient Object Tracking via Multi-State Specialization and Interaction</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P051">
+      <data key="n_label">Optimized Information Flow for Transformer Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P052">
+      <data key="n_label">Optimizing intrinsic representation for tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02;E25</data>
+    </node>
+    <node id="P_P053">
+      <data key="n_label">PlanarTrack: A Large-scale Challenging Benchmark for Planar Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P054">
+      <data key="n_label">Positive-Sample-Free Object Tracking via a Soft Constraint</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P055">
+      <data key="n_label">Query-Based Object Visual Tracking with Parallel Sequence Generation</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P056">
+      <data key="n_label">RELO: Reinforcement Learning to Localize for Visual Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P057">
+      <data key="n_label">Robust Object Modeling for Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P058">
+      <data key="n_label">Robust Tracking via Unifying Pretrain-Finetuning and Visual Prompt Tuning</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P059">
+      <data key="n_label">SAMITE: Position Prompted SAM2 with Calibrated Memory for Visual Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P060">
+      <data key="n_label">SeqTrack: Sequence to Sequence Learning for Visual Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">BOTH</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="P_P061">
+      <data key="n_label">Siamese Visual Tracking With Multi-Parallel Interactive Transformers</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P062">
+      <data key="n_label">Sparse Transformer-Based Sequence Generation for Visual Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2024 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P063">
+      <data key="n_label">SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2026 | PRIMARY</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P064">
+      <data key="n_label">Towards Efficient Training with Negative Samples in Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P065">
+      <data key="n_label">Transformer-Based Tracker Fusing Two-Dimensional Semantic Features</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P066">
+      <data key="n_label">Transformer Visual Tracker Based on Template Features Corresponding to Foreground Region</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2022 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P067">
+      <data key="n_label">Two-stream Beats One-stream: Asymmetric Siamese Network for Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P068">
+      <data key="n_label">UETrack: A Unified and Efficient Framework for Single Object Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P069">
+      <data key="n_label">Unifying Motion and Appearance Cues for Visual Tracking via Shared Queries</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P070">
+      <data key="n_label">VideoTrack: Learning To Track Objects via Video Transformer</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02;E26</data>
+    </node>
+    <node id="P_P071">
+      <data key="n_label">Visual tracking with unified relation modeling and masked appearance learning</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P072">
+      <data key="n_label">Wave-wise Discriminative Tracking by Phase-Amplitude Separation, Augmentation and Mixture</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2025 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="P_P073">
+      <data key="n_label">WmLSTM: A Plug-and-Play Window-Level mLSTM-Based Temporal Encoder for Robust Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed journal</data>
+      <data key="n_source_graph">FARTrack</data>
+      <data key="n_description">2026 | SUPPORTING</data>
+      <data key="n_evidence_source">E01</data>
+    </node>
+    <node id="P_P074">
+      <data key="n_label">ZoomTrack: Target-aware Non-uniform Resizing for Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">arXiv/preprint only</data>
+      <data key="n_source_graph">SpikeTrack</data>
+      <data key="n_description">2023 | SUPPORTING</data>
+      <data key="n_evidence_source">E02</data>
+    </node>
+    <node id="F01">
+      <data key="n_label">Model compression / distillation</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F02">
+      <data key="n_label">Token / feature / spatial sparsification</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F03">
+      <data key="n_label">Pruning</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F04">
+      <data key="n_label">Dynamic / conditional computation</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F05">
+      <data key="n_label">Block / layer reduction</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F06">
+      <data key="n_label">Width/channel reduction</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F07">
+      <data key="n_label">Lightweight backbone design</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F08">
+      <data key="n_label">Asymmetric template-search architecture</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F09">
+      <data key="n_label">Template computation reuse</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F10">
+      <data key="n_label">Low-resolution / adaptive-resolution processing</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F11">
+      <data key="n_label">Autoregressive / sequence modeling</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F12">
+      <data key="n_label">Temporal context / video-level memory</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F13">
+      <data key="n_label">Motion modeling</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F14">
+      <data key="n_label">Template / target memory</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F15">
+      <data key="n_label">Relation / cross-attention modeling</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F16">
+      <data key="n_label">SNN / neuromorphic computation</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F17">
+      <data key="n_label">Temporal timestep optimization</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F18">
+      <data key="n_label">Target-aware representation</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F19">
+      <data key="n_label">Robustness / distractor handling</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="F20">
+      <data key="n_label">Training / loss redesign</data>
+      <data key="n_node_type">SOLUTION_FAMILY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Multi-label taxonomy family.</data>
+      <data key="n_evidence_source">E01;E02</data>
+    </node>
+    <node id="PR_EDGE">
+      <data key="n_label">Practical conventional-edge efficiency</data>
+      <data key="n_node_type">PROBLEM</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Reduce latency/residency without assuming neuromorphic hardware.</data>
+      <data key="n_evidence_source">E03;E05;E07</data>
+    </node>
+    <node id="PR_ACCURACY">
+      <data key="n_label">Accuracy retention under compression</data>
+      <data key="n_node_type">PROBLEM</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Preserve tracking evidence while reducing depth, width, tokens or resolution.</data>
+      <data key="n_evidence_source">E03;E05;E07</data>
+    </node>
+    <node id="PR_REDUNDANCY">
+      <data key="n_label">Repeated template and token computation</data>
+      <data key="n_node_type">PROBLEM</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Avoid recomputing stable target information.</data>
+      <data key="n_evidence_source">E03;E05;E07</data>
+    </node>
+    <node id="PR_TEMPORAL">
+      <data key="n_label">Temporal target evolution</data>
+      <data key="n_node_type">PROBLEM</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Use history without uncontrolled drift or excessive state.</data>
+      <data key="n_evidence_source">E03;E05;E07</data>
+    </node>
+    <node id="PR_DEPLOY">
+      <data key="n_label">Export and runtime mismatch</data>
+      <data key="n_node_type">PROBLEM</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description">Bridge dense framework operators and edge deployment constraints.</data>
+      <data key="n_evidence_source">E03;E05;E07</data>
+    </node>
+    <node id="C_FAR_ENCODER">
+      <data key="n_label">FARTrack shared Transformer encoder</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="C_FAR_COMMAND">
+      <data key="n_label">FARTrack four command-token outputs</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="C_FAR_TSSD">
+      <data key="n_label">Task-Specific Self-Distillation</data>
+      <data key="n_node_type">TRAINING_STRATEGY</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="C_FAR_IFAS">
+      <data key="n_label">Inter-frame Autoregressive Sparsification</data>
+      <data key="n_node_type">MECHANISM</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="C_FAR_MASK">
+      <data key="n_label">Per-template persistent token mask</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="C_FAR_CE">
+      <data key="n_label">Coordinate cross-entropy</data>
+      <data key="n_node_type">LOSS</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="C_FAR_SIOU">
+      <data key="n_label">SIoU box loss</data>
+      <data key="n_node_type">LOSS</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="C_FAR_KL">
+      <data key="n_label">Adjacent-depth task-logit KL</data>
+      <data key="n_node_type">LOSS</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04</data>
+    </node>
+    <node id="C_SPIKE_TEMPLATE">
+      <data key="n_label">SpikeTrack template SDT-v3 encoder</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05;E23</data>
+    </node>
+    <node id="C_SPIKE_SEARCH">
+      <data key="n_label">SpikeTrack search SDT-v3 encoder</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05;E23</data>
+    </node>
+    <node id="C_SPIKE_NILIF">
+      <data key="n_label">Normalized integer LIF</data>
+      <data key="n_node_type">MECHANISM</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05;E23</data>
+    </node>
+    <node id="C_SPIKE_CACHE">
+      <data key="n_label">Six persistent K-transpose-V memories</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05;E23</data>
+    </node>
+    <node id="C_SPIKE_MRM">
+      <data key="n_label">Six Memory Retrieval Modules</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05;E23</data>
+    </node>
+    <node id="C_SPIKE_HEAD">
+      <data key="n_label">Three-tower spike center head</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05;E23</data>
+    </node>
+    <node id="C_SPIKE_FOCAL">
+      <data key="n_label">Weighted focal center loss</data>
+      <data key="n_node_type">LOSS</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05</data>
+    </node>
+    <node id="C_SPIKE_GIOU">
+      <data key="n_label">GIoU box loss</data>
+      <data key="n_node_type">LOSS</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05</data>
+    </node>
+    <node id="C_SPIKE_L1">
+      <data key="n_label">L1 box loss</data>
+      <data key="n_node_type">LOSS</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E05</data>
+    </node>
+    <node id="C_SPIKE_RUNTIME">
+      <data key="n_label">Two-stage Python cache/runtime interface</data>
+      <data key="n_node_type">ARCHITECTURAL_COMPONENT</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E07;E24</data>
+    </node>
+    <node id="D_TASK_DISTILL">
+      <data key="n_label">Preserve task-facing distributions when reducing depth</data>
+      <data key="n_node_type">DESIGN_PRINCIPLE</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04;E05</data>
+    </node>
+    <node id="D_PREFIX">
+      <data key="n_label">Condition intermediate prefixes to be predictive</data>
+      <data key="n_node_type">DESIGN_PRINCIPLE</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04;E05</data>
+    </node>
+    <node id="D_TEMP_AMORT">
+      <data key="n_label">Amortize stable representation decisions across frames</data>
+      <data key="n_node_type">DESIGN_PRINCIPLE</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04;E05</data>
+    </node>
+    <node id="D_MODERATE">
+      <data key="n_label">Use conservative evidence-preserving sparsity</data>
+      <data key="n_node_type">DESIGN_PRINCIPLE</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04;E05</data>
+    </node>
+    <node id="D_ORTHOGONAL">
+      <data key="n_label">Treat model-size and token-compute reduction as orthogonal axes</data>
+      <data key="n_node_type">DESIGN_PRINCIPLE</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04;E05</data>
+    </node>
+    <node id="D_SPIKE_SPECIFIC">
+      <data key="n_label">Adapt transfer mechanisms to spike-valued representations</data>
+      <data key="n_node_type">DESIGN_PRINCIPLE</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">N/A</data>
+      <data key="n_source_graph">N/A</data>
+      <data key="n_description" />
+      <data key="n_evidence_source">E03;E04;E05</data>
+    </node>
+    <node id="P_EXT_STD">
+      <data key="n_label">Exploring Reliable Spatiotemporal Dependencies for Efficient Visual Tracking</data>
+      <data key="n_node_type">PAPER</data>
+      <data key="n_anchor">NO</data>
+      <data key="n_publication_status">peer-reviewed conference</data>
+      <data key="n_source_graph">EXTERNAL</data>
+      <data key="n_description">External donor/collision check; not in either supplied export.</data>
+      <data key="n_evidence_source">E21</data>
+    </node>
+    <edge id="E0001" source="NBR_FAR" target="P_P001">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0002" source="NBR_SPIKE" target="P_P001">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0003" source="NBR_FAR" target="P_P002">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0004" source="NBR_FAR" target="P_P003">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0005" source="NBR_SPIKE" target="P_P004">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0006" source="NBR_FAR" target="P_P005">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0007" source="NBR_SPIKE" target="P_P006">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0008" source="NBR_FAR" target="P_P007">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0009" source="NBR_SPIKE" target="P_P008">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0010" source="NBR_FAR" target="P_P009">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0011" source="NBR_SPIKE" target="P_P010">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0012" source="NBR_FAR" target="P_P011">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0013" source="NBR_SPIKE" target="P_P012">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0014" source="NBR_FAR" target="P_P013">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0015" source="NBR_SPIKE" target="P_P013">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0016" source="NBR_FAR" target="P_P014">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0017" source="NBR_SPIKE" target="P_P015">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0018" source="NBR_FAR" target="P_P016">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0019" source="NBR_SPIKE" target="P_P017">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0020" source="NBR_FAR" target="P_P018">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0021" source="NBR_SPIKE" target="P_P018">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0022" source="NBR_SPIKE" target="P_P019">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0023" source="NBR_FAR" target="P_P020">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0024" source="NBR_FAR" target="P_P021">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0025" source="NBR_FAR" target="P_P022">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0026" source="NBR_FAR" target="P_P023">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0027" source="NBR_SPIKE" target="P_P023">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0028" source="NBR_FAR" target="P_P024">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0029" source="NBR_SPIKE" target="P_P024">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0030" source="NBR_FAR" target="P_P025">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0031" source="NBR_FAR" target="P_P026">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0032" source="NBR_SPIKE" target="P_P026">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0033" source="NBR_FAR" target="P_P027">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0034" source="NBR_FAR" target="P_P028">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0035" source="NBR_FAR" target="P_P029">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0036" source="NBR_FAR" target="P_P030">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0037" source="NBR_SPIKE" target="P_P031">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0038" source="NBR_FAR" target="P_P032">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0039" source="NBR_SPIKE" target="P_P033">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0040" source="NBR_FAR" target="P_P034">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0041" source="NBR_SPIKE" target="P_P035">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0042" source="NBR_FAR" target="P_P036">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0043" source="NBR_SPIKE" target="P_P037">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0044" source="NBR_FAR" target="P_P038">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0045" source="NBR_FAR" target="P_P039">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0046" source="NBR_SPIKE" target="P_P040">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0047" source="NBR_FAR" target="P_P041">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0048" source="NBR_SPIKE" target="P_P042">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0049" source="NBR_SPIKE" target="P_P043">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0050" source="NBR_FAR" target="P_P044">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0051" source="NBR_SPIKE" target="P_P045">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0052" source="NBR_SPIKE" target="P_P046">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0053" source="NBR_FAR" target="P_P047">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0054" source="NBR_FAR" target="P_P048">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0055" source="NBR_SPIKE" target="P_P049">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0056" source="NBR_SPIKE" target="P_P050">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0057" source="NBR_SPIKE" target="P_P051">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0058" source="NBR_SPIKE" target="P_P052">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0059" source="NBR_SPIKE" target="P_P053">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0060" source="NBR_SPIKE" target="P_P054">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0061" source="NBR_SPIKE" target="P_P055">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0062" source="NBR_FAR" target="P_P056">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0063" source="NBR_SPIKE" target="P_P057">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0064" source="NBR_SPIKE" target="P_P058">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0065" source="NBR_FAR" target="P_P059">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0066" source="NBR_FAR" target="P_P060">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0067" source="NBR_SPIKE" target="P_P060">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0068" source="NBR_FAR" target="P_P061">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0069" source="NBR_SPIKE" target="P_P062">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0070" source="NBR_SPIKE" target="P_P063">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0071" source="NBR_SPIKE" target="P_P064">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0072" source="NBR_SPIKE" target="P_P065">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0073" source="NBR_SPIKE" target="P_P066">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0074" source="NBR_FAR" target="P_P067">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0075" source="NBR_FAR" target="P_P068">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0076" source="NBR_FAR" target="P_P069">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0077" source="NBR_SPIKE" target="P_P070">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0078" source="NBR_FAR" target="P_P071">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0079" source="NBR_SPIKE" target="P_P072">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0080" source="NBR_FAR" target="P_P073">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0081" source="NBR_SPIKE" target="P_P074">
+      <data key="e_edge_type">contains_export_entry</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Neighborhood membership only; not a Connected Papers similarity edge.</data>
+    </edge>
+    <edge id="E0082" source="P_P001" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0083" source="P_P002" target="F03">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0084" source="P_P003" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0085" source="P_P003" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0086" source="P_P004" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0087" source="P_P004" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0088" source="P_P005" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0089" source="P_P005" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0090" source="P_P005" target="F13">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0091" source="P_P006" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0092" source="P_P006" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0093" source="P_P007" target="F10">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0094" source="P_P007" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0095" source="P_P007" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0096" source="P_P010" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0097" source="P_P011" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0098" source="P_P011" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0099" source="P_P012" target="F03">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0100" source="P_P012" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0101" source="P_P013" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0102" source="P_P013" target="F05">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0103" source="P_P013" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0104" source="P_P013" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0105" source="P_P013" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0106" source="P_P014" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0107" source="P_P015" target="F13">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0108" source="P_P016" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0109" source="P_P016" target="F13">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0110" source="P_P016" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0111" source="P_P017" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0112" source="P_P017" target="F03">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0113" source="P_P017" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0114" source="P_P017" target="F02">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0115" source="P_P018" target="F10">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0116" source="P_P018" target="F01">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0117" source="P_P018" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0118" source="P_P018" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0119" source="P_P018" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0120" source="P_P019" target="F02">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0121" source="P_P020" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0122" source="P_P020" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0123" source="P_P020" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0124" source="P_P021" target="F03">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0125" source="P_P022" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0126" source="P_P022" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0127" source="P_P023" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0128" source="P_P023" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0129" source="P_P023" target="F01">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0130" source="P_P023" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0131" source="P_P023" target="F09">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0132" source="P_P023" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0133" source="P_P024" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0134" source="P_P024" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0135" source="P_P025" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0136" source="P_P025" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0137" source="P_P025" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0138" source="P_P026" target="F05">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0139" source="P_P026" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0140" source="P_P027" target="F01">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0141" source="P_P027" target="F03">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0142" source="P_P027" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0143" source="P_P028" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0144" source="P_P028" target="F05">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0145" source="P_P028" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0146" source="P_P028" target="F01">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0147" source="P_P028" target="F13">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0148" source="P_P028" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0149" source="P_P028" target="F02">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0150" source="P_P028" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0151" source="P_P031" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0152" source="P_P032" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0153" source="P_P033" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0154" source="P_P033" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0155" source="P_P033" target="F16">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0156" source="P_P033" target="F02">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0157" source="P_P034" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0158" source="P_P034" target="F01">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0159" source="P_P034" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0160" source="P_P035" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0161" source="P_P035" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0162" source="P_P035" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0163" source="P_P036" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0164" source="P_P037" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0165" source="P_P037" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0166" source="P_P037" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0167" source="P_P038" target="F13">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0168" source="P_P038" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0169" source="P_P039" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0170" source="P_P039" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0171" source="P_P040" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0172" source="P_P040" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0173" source="P_P040" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0174" source="P_P040" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0175" source="P_P042" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0176" source="P_P043" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0177" source="P_P043" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0178" source="P_P044" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0179" source="P_P044" target="F03">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0180" source="P_P048" target="F05">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0181" source="P_P048" target="F01">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0182" source="P_P048" target="F03">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0183" source="P_P048" target="F02">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0184" source="P_P049" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0185" source="P_P049" target="F13">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0186" source="P_P050" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0187" source="P_P050" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0188" source="P_P050" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0189" source="P_P051" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0190" source="P_P051" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0191" source="P_P052" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02;E25</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0192" source="P_P052" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02;E25</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0193" source="P_P055" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0194" source="P_P055" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0195" source="P_P056" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0196" source="P_P057" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0197" source="P_P058" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0198" source="P_P058" target="F09">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0199" source="P_P059" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0200" source="P_P059" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0201" source="P_P059" target="F14">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0202" source="P_P059" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0203" source="P_P060" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0204" source="P_P060" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0205" source="P_P060" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0206" source="P_P061" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0207" source="P_P061" target="F05">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0208" source="P_P061" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0209" source="P_P062" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0210" source="P_P062" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0211" source="P_P062" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0212" source="P_P062" target="F02">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0213" source="P_P063" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0214" source="P_P063" target="F04">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0215" source="P_P063" target="F16">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0216" source="P_P063" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0217" source="P_P063" target="F14">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0218" source="P_P063" target="F17">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0219" source="P_P064" target="F20">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0220" source="P_P065" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0221" source="P_P066" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0222" source="P_P066" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0223" source="P_P067" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0224" source="P_P067" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0225" source="P_P067" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0226" source="P_P067" target="F09">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0227" source="P_P068" target="F07">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0228" source="P_P068" target="F01">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0229" source="P_P068" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0230" source="P_P069" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0231" source="P_P069" target="F13">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0232" source="P_P069" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0233" source="P_P069" target="F17">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0234" source="P_P070" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02;E26</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0235" source="P_P070" target="F11">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02;E26</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0236" source="P_P071" target="F08">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0237" source="P_P071" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0238" source="P_P071" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0239" source="P_P071" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0240" source="P_P072" target="F15">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0241" source="P_P072" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0242" source="P_P073" target="F19">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0243" source="P_P073" target="F12">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E01</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0244" source="P_P074" target="F10">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0245" source="P_P074" target="F18">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E02</data>
+      <data key="e_notes">Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.</data>
+    </edge>
+    <edge id="E0246" source="P_P028" target="A_FAR">
+      <data key="e_edge_type">describes</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Fixed anchor identity.</data>
+    </edge>
+    <edge id="E0247" source="P_P063" target="A_SPIKE">
+      <data key="e_edge_type">describes</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E06</data>
+      <data key="e_notes">Fixed anchor identity.</data>
+    </edge>
+    <edge id="E0248" source="A_FAR" target="C_FAR_ENCODER">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Paper/code distinction documented in the FARTrack analysis.</data>
+    </edge>
+    <edge id="E0249" source="A_FAR" target="C_FAR_COMMAND">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Paper/code distinction documented in the FARTrack analysis.</data>
+    </edge>
+    <edge id="E0250" source="A_FAR" target="C_FAR_TSSD">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Paper/code distinction documented in the FARTrack analysis.</data>
+    </edge>
+    <edge id="E0251" source="A_FAR" target="C_FAR_IFAS">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Paper/code distinction documented in the FARTrack analysis.</data>
+    </edge>
+    <edge id="E0252" source="A_FAR" target="C_FAR_MASK">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Paper/code distinction documented in the FARTrack analysis.</data>
+    </edge>
+    <edge id="E0253" source="A_FAR" target="C_FAR_CE">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Paper/code distinction documented in the FARTrack analysis.</data>
+    </edge>
+    <edge id="E0254" source="A_FAR" target="C_FAR_SIOU">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Paper/code distinction documented in the FARTrack analysis.</data>
+    </edge>
+    <edge id="E0255" source="A_FAR" target="C_FAR_KL">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Paper/code distinction documented in the FARTrack analysis.</data>
+    </edge>
+    <edge id="E0256" source="A_SPIKE" target="C_SPIKE_TEMPLATE">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0257" source="A_SPIKE" target="C_SPIKE_SEARCH">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0258" source="A_SPIKE" target="C_SPIKE_NILIF">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0259" source="A_SPIKE" target="C_SPIKE_CACHE">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0260" source="A_SPIKE" target="C_SPIKE_MRM">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0261" source="A_SPIKE" target="C_SPIKE_HEAD">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0262" source="A_SPIKE" target="C_SPIKE_FOCAL">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0263" source="A_SPIKE" target="C_SPIKE_GIOU">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0264" source="A_SPIKE" target="C_SPIKE_L1">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0265" source="A_SPIKE" target="C_SPIKE_RUNTIME">
+      <data key="e_edge_type">uses_mechanism</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E05;E07;E23;E24</data>
+      <data key="e_notes">Released architecture/runtime evidence.</data>
+    </edge>
+    <edge id="E0266" source="C_FAR_TSSD" target="D_TASK_DISTILL">
+      <data key="e_edge_type">instantiates_principle</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Analyst extraction from primary mechanism evidence.</data>
+    </edge>
+    <edge id="E0267" source="C_FAR_TSSD" target="D_PREFIX">
+      <data key="e_edge_type">instantiates_principle</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Analyst extraction from primary mechanism evidence.</data>
+    </edge>
+    <edge id="E0268" source="C_FAR_IFAS" target="D_TEMP_AMORT">
+      <data key="e_edge_type">instantiates_principle</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Analyst extraction from primary mechanism evidence.</data>
+    </edge>
+    <edge id="E0269" source="C_FAR_IFAS" target="D_MODERATE">
+      <data key="e_edge_type">instantiates_principle</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Analyst extraction from primary mechanism evidence.</data>
+    </edge>
+    <edge id="E0270" source="C_FAR_TSSD" target="D_ORTHOGONAL">
+      <data key="e_edge_type">instantiates_principle</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Analyst extraction from primary mechanism evidence.</data>
+    </edge>
+    <edge id="E0271" source="C_FAR_IFAS" target="D_ORTHOGONAL">
+      <data key="e_edge_type">instantiates_principle</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">Analyst extraction from primary mechanism evidence.</data>
+    </edge>
+    <edge id="E0272" source="A_SPIKE" target="D_SPIKE_SPECIFIC">
+      <data key="e_edge_type">instantiates_principle</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E05;E06;E07</data>
+      <data key="e_notes">Analyst extraction from primary mechanism evidence.</data>
+    </edge>
+    <edge id="E0273" source="F01" target="PR_ACCURACY">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0274" source="F02" target="PR_REDUNDANCY">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0275" source="F03" target="PR_EDGE">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0276" source="F04" target="PR_EDGE">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0277" source="F05" target="PR_EDGE">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0278" source="F06" target="PR_EDGE">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0279" source="F07" target="PR_EDGE">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0280" source="F08" target="PR_REDUNDANCY">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0281" source="F09" target="PR_REDUNDANCY">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0282" source="F10" target="PR_EDGE">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0283" source="F11" target="PR_TEMPORAL">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0284" source="F12" target="PR_TEMPORAL">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0285" source="F13" target="PR_TEMPORAL">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0286" source="F14" target="PR_TEMPORAL">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0287" source="F15" target="PR_ACCURACY">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0288" source="F16" target="PR_EDGE">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0289" source="F17" target="PR_EDGE">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0290" source="F18" target="PR_ACCURACY">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0291" source="F19" target="PR_ACCURACY">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0292" source="F20" target="PR_ACCURACY">
+      <data key="e_edge_type">solves_problem</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E01;E02</data>
+      <data key="e_notes">Taxonomy-level relationship, not a paper performance claim.</data>
+    </edge>
+    <edge id="E0293" source="C_SPIKE_RUNTIME" target="PR_DEPLOY">
+      <data key="e_edge_type">contributes_to</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E07;E24</data>
+      <data key="e_notes">Pinned-runtime/export evidence.</data>
+    </edge>
+    <edge id="E0294" source="P_P028" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E03;E04</data>
+      <data key="e_notes">task-specific depth reduction and temporal mask reuse</data>
+    </edge>
+    <edge id="E0295" source="P_P067" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E09</data>
+      <data key="e_notes">template-once asymmetry; direct modulation is incompatible with SpikeTrack paper ablation</data>
+    </edge>
+    <edge id="E0296" source="P_P034" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E10</data>
+      <data key="e_notes">stage replacement and stage-wise feature mimicking</data>
+    </edge>
+    <edge id="E0297" source="P_P048" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E11</data>
+      <data key="e_notes">deep-to-shallow and dense-to-sparse distillation; preprint only</data>
+    </edge>
+    <edge id="E0298" source="P_P044" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E12</data>
+      <data key="e_notes">asynchronous feature extraction and layer pruning</data>
+    </edge>
+    <edge id="E0299" source="P_P023" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E13</data>
+      <data key="e_notes">adaptive routes and target-aware self-distillation; strong collision</data>
+    </edge>
+    <edge id="E0300" source="P_P024" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E14</data>
+      <data key="e_notes">parallel decoding and confidence exit; collision-prone</data>
+    </edge>
+    <edge id="E0301" source="P_P018" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E15</data>
+      <data key="e_notes">cross-resolution distillation</data>
+    </edge>
+    <edge id="E0302" source="P_P025" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E16</data>
+      <data key="e_notes">persistent temporal state; likely cost increase</data>
+    </edge>
+    <edge id="E0303" source="P_P005" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E17</data>
+      <data key="e_notes">video-level appearance/motion pretraining</data>
+    </edge>
+    <edge id="E0304" source="P_P026" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E18</data>
+      <data key="e_notes">lightweight hierarchy and bridge module</data>
+    </edge>
+    <edge id="E0305" source="P_P012" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E19</data>
+      <data key="e_notes">target-aware token pruning; preprint and structural mismatch</data>
+    </edge>
+    <edge id="E0306" source="P_P033" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E20</data>
+      <data key="e_notes">spike-specific regularization; multimodal task mismatch</data>
+    </edge>
+    <edge id="E0307" source="P_P048" target="A_FAR">
+      <data key="e_edge_type">knowledge_donor_to_FARTrack</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E11</data>
+      <data key="e_notes">deep-to-shallow and dense-to-sparse distillation collision/reference</data>
+    </edge>
+    <edge id="E0308" source="P_P034" target="A_FAR">
+      <data key="e_edge_type">knowledge_donor_to_FARTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E10</data>
+      <data key="e_notes">stage-wise compression contrast to adjacent-depth TSSD</data>
+    </edge>
+    <edge id="E0309" source="P_P044" target="A_FAR">
+      <data key="e_edge_type">knowledge_donor_to_FARTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E12</data>
+      <data key="e_notes">static layer reduction and template-reuse contrast</data>
+    </edge>
+    <edge id="E0310" source="P_P024" target="A_FAR">
+      <data key="e_edge_type">knowledge_donor_to_FARTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E14</data>
+      <data key="e_notes">parallel sequence-generation latency contrast</data>
+    </edge>
+    <edge id="E0311" source="P_P018" target="A_FAR">
+      <data key="e_edge_type">knowledge_donor_to_FARTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E15</data>
+      <data key="e_notes">orthogonal input-resolution reduction and distillation</data>
+    </edge>
+    <edge id="E0312" source="P_P005" target="A_FAR">
+      <data key="e_edge_type">knowledge_donor_to_FARTrack</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E17</data>
+      <data key="e_notes">autoregressive appearance-motion training reference</data>
+    </edge>
+    <edge id="E0313" source="P_P060" target="A_FAR">
+      <data key="e_edge_type">architectural_ancestor</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E03</data>
+      <data key="e_notes">Sequence-to-sequence tracking is a documented autoregressive paradigm reference; this edge does not assert code inheritance.</data>
+    </edge>
+    <edge id="E0314" source="A_FAR" target="A_SPIKE">
+      <data key="e_edge_type">shares_design_principle</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E03;E05</data>
+      <data key="e_notes">Both reduce repeated tracking work, but representations and mechanisms are not directly compatible.</data>
+    </edge>
+    <edge id="E0315" source="P_P067" target="A_SPIKE">
+      <data key="e_edge_type">possible_novelty_collision</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E09</data>
+      <data key="e_notes">asymmetric/template-once architecture</data>
+    </edge>
+    <edge id="E0316" source="P_P048" target="A_SPIKE">
+      <data key="e_edge_type">possible_novelty_collision</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E11</data>
+      <data key="e_notes">deep-to-shallow and dense-to-sparse distillation</data>
+    </edge>
+    <edge id="E0317" source="P_P023" target="A_SPIKE">
+      <data key="e_edge_type">possible_novelty_collision</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E13</data>
+      <data key="e_notes">conditional depth/route selection</data>
+    </edge>
+    <edge id="E0318" source="P_P012" target="A_SPIKE">
+      <data key="e_edge_type">possible_novelty_collision</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E19</data>
+      <data key="e_notes">target-aware token sparsity</data>
+    </edge>
+    <edge id="E0319" source="P_P033" target="A_SPIKE">
+      <data key="e_edge_type">possible_novelty_collision</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E20</data>
+      <data key="e_notes">spiking tracking and SNN regularization</data>
+    </edge>
+    <edge id="E0320" source="P_EXT_STD" target="A_SPIKE">
+      <data key="e_edge_type">knowledge_donor_to_SpikeTrack</data>
+      <data key="e_confidence">MEDIUM</data>
+      <data key="e_evidence_source">E21</data>
+      <data key="e_notes">Quality-based temporal memory maintenance; external to supplied neighborhoods.</data>
+    </edge>
+    <edge id="E0321" source="P_EXT_STD" target="A_FAR">
+      <data key="e_edge_type">knowledge_donor_to_FARTrack</data>
+      <data key="e_confidence">LOW</data>
+      <data key="e_evidence_source">E21</data>
+      <data key="e_notes">Reliability-aware temporal memory is a drift-control comparison for persistent template masks.</data>
+    </edge>
+    <edge id="E0322" source="P_EXT_STD" target="F14">
+      <data key="e_edge_type">addresses_within</data>
+      <data key="e_confidence">HIGH</data>
+      <data key="e_evidence_source">E21</data>
+      <data key="e_notes">Primary-paper verified memory mechanism.</data>
+    </edge>
+  </graph>
+</graphml>

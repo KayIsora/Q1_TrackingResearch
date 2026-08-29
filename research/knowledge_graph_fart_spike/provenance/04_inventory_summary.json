@@ -1,0 +1,100 @@
+{
+  "inputs": {
+    "FARTrack": "E:\\Robot_Backup\\Tracker_Q1_Documents\\ConnectedPapers-for-FARTrack%3A-Fast-Autoregressive-Visual-Tracking-with-High-Performance.bib",
+    "SpikeTrack": "E:\\Robot_Backup\\Tracker_Q1_Documents\\ConnectedPapers-for-SpikeTrack%3A-A-Spike%20driven-Framework-for-Efficient-Visual-Tracking.bib"
+  },
+  "input_sha256": {
+    "FARTrack": "2011ece6b748c642576648a96affa70c6fa1b5ed512a5d9769de8033ec3aa107",
+    "SpikeTrack": "4b7dd779310a0570716a2397e9ab2b9a65c79d204648d646a9ea922cfd730d9b"
+  },
+  "raw_entry_counts": {
+    "FARTrack": 41,
+    "SpikeTrack": 41
+  },
+  "raw_total": 82,
+  "deduplicated_unique_total": 75,
+  "overlap_unique_papers": 7,
+  "unique_only_by_graph": {
+    "FARTrack": 34,
+    "SpikeTrack": 34
+  },
+  "excluded_collision_graph_count": 0,
+  "collision_graph_found": false,
+  "publication_status_counts": {
+    "ARXIV_PREPRINT": 20,
+    "CONFERENCE_LISTED_UNVERIFIED": 23,
+    "JOURNAL_LISTED_UNVERIFIED": 31,
+    "UNKNOWN": 1
+  },
+  "visual_SOT_relevance_counts": {
+    "OUT_OF_SCOPE": 1,
+    "PRIMARY": 2,
+    "SUPPORTING": 71,
+    "UNKNOWN": 1
+  },
+  "solution_family_counts_all_inventory": {
+    "Robustness / distractor handling": 31,
+    "Dynamic / conditional computation": 14,
+    "Relation / cross-attention modeling": 12,
+    "Asymmetric template-search architecture": 12,
+    "Target-aware representation": 11,
+    "Lightweight backbone design": 11,
+    "Training / loss redesign": 10,
+    "Autoregressive / sequence modeling": 10,
+    "Model compression / distillation": 8,
+    "Temporal context / video-level memory": 8,
+    "Pruning": 7,
+    "Motion modeling": 7,
+    "Token / feature / spatial sparsification": 6,
+    "Block / layer reduction": 5,
+    "Low-resolution / adaptive-resolution processing": 4,
+    "Template computation reuse": 3,
+    "SNN / neuromorphic computation": 2,
+    "Template / target memory": 2,
+    "Temporal timestep optimization": 2
+  },
+  "solution_family_counts_likely_visual_sot": {
+    "Robustness / distractor handling": 31,
+    "Dynamic / conditional computation": 14,
+    "Relation / cross-attention modeling": 12,
+    "Asymmetric template-search architecture": 12,
+    "Target-aware representation": 11,
+    "Lightweight backbone design": 11,
+    "Autoregressive / sequence modeling": 10,
+    "Training / loss redesign": 9,
+    "Model compression / distillation": 8,
+    "Temporal context / video-level memory": 8,
+    "Pruning": 7,
+    "Motion modeling": 7,
+    "Token / feature / spatial sparsification": 6,
+    "Block / layer reduction": 5,
+    "Low-resolution / adaptive-resolution processing": 4,
+    "Template computation reuse": 3,
+    "SNN / neuromorphic computation": 2,
+    "Template / target memory": 2,
+    "Temporal timestep optimization": 2
+  },
+  "dedup_cluster_size_counts": {
+    "1": 68,
+    "2": 7
+  },
+  "manual_review_row_count": 3,
+  "metadata_unknown_counts_unique_draft": {
+    "doi": 2,
+    "arxiv_id": 41,
+    "semantic_scholar_id": 0,
+    "abstract": 11,
+    "publication_status": 1,
+    "primary_paper_url": 1,
+    "official_code_status": 55
+  },
+  "anchor_validation": {
+    "FARTrack": 1,
+    "SpikeTrack": 1
+  },
+  "limitations": [
+    "No Connected Papers edges or weights are present/reconstructed from BibTeX.",
+    "Publication status, code status, relevance, and family tags are metadata-only drafts.",
+    "Primary-source verification was intentionally not performed in this inventory subtask."
+  ]
+}

@@ -1,0 +1,32 @@
+flowchart LR
+  CP[Connected Papers discovery layer] --> NF[FARTrack neighborhood: 41 records]
+  CP --> NS[SpikeTrack neighborhood: 41 records]
+  NF --> INV[82 raw records -> 74 verified unique papers]
+  NS --> INV
+  INV --> TAX[Multi-label solution families]
+
+  TAX --> STATIC[Static reduction: depth, width, backbone, resolution]
+  TAX --> DYNAMIC[Temporal/input reduction: sparsity, reuse, timestep]
+  TAX --> PRESERVE[Information preservation: distillation, memory, robustness]
+  TAX --> REP[Representation/training: autoregression, SNN, losses]
+
+  FAR[[FARTrack\nANCHOR: design knowledge]]
+  SPIKE[[SpikeTrack\nANCHOR: redesign target]]
+  STATIC --> FAR
+  DYNAMIC --> FAR
+  REP --> SPIKE
+  PRESERVE --> SPIKE
+
+  FAR --> PRINCIPLES[Transferable principles\ntask-facing distillation\ntemporal amortization\nconservative sparsity]
+  DONORS[Other trackers\nknowledge donors only] --> PRINCIPLES
+  PRINCIPLES --> MATRIX[Evidence-scoped transfer matrix]
+  SPIKE --> MATRIX
+  MATRIX --> SPACE[First-pass SpikeTrack redesign space]
+  SPACE --> REVIEW[Manager review\nno third baseline\nno final architecture]
+
+  NULL[Historical whole-MRM1 conditional skip\nDIAG_FAIL; sealed hold-out consumed] -. excluded active path .-> SPACE
+
+  classDef anchor fill:#ffe599,stroke:#7f6000,stroke-width:3px;
+  classDef guard fill:#f4cccc,stroke:#990000,stroke-width:2px;
+  class FAR,SPIKE anchor;
+  class NULL,REVIEW guard;

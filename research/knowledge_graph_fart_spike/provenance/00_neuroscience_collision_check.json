@@ -1,0 +1,9 @@
+{
+  "checked_directory": "E:\\Robot_Backup\\Tracker_Q1_Documents",
+  "exact_named_collision_prefix": "ConnectedPapers-for-An-improved-SpikeTrack-An-autonomous-multi-electrode",
+  "named_collision_found": false,
+  "named_collision_paths": [],
+  "other_non_input_spiketrack_or_multi_electrode_candidates": [],
+  "excluded_graph_count": 0,
+  "disposition": "EXCLUDED_FROM_PARSE_IF_PRESENT"
+}

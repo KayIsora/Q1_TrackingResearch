@@ -1,0 +1,323 @@
+source,target,edge_type,confidence,evidence_source,notes
+NBR_FAR,P_P001,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P001,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P002,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P003,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P004,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P005,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P006,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P007,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P008,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P009,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P010,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P011,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P012,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P013,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P013,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P014,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P015,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P016,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P017,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P018,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P018,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P019,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P020,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P021,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P022,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P023,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P023,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P024,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P024,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P025,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P026,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P026,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P027,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P028,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P029,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P030,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P031,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P032,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P033,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P034,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P035,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P036,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P037,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P038,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P039,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P040,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P041,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P042,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P043,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P044,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P045,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P046,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P047,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P048,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P049,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P050,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P051,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P052,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P053,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P054,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P055,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P056,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P057,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P058,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P059,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P060,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P060,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P061,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P062,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P063,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P064,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P065,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P066,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P067,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P068,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P069,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P070,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P071,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P072,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_FAR,P_P073,contains_export_entry,HIGH,E01,Neighborhood membership only; not a Connected Papers similarity edge.
+NBR_SPIKE,P_P074,contains_export_entry,HIGH,E02,Neighborhood membership only; not a Connected Papers similarity edge.
+P_P001,F15,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P002,F03,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P003,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P003,F20,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P004,F11,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P004,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P005,F11,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P005,F04,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P005,F13,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P006,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P006,F18,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P007,F10,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P007,F15,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P007,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P010,F04,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P011,F04,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P011,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P012,F03,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P012,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P013,F08,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P013,F05,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P013,F15,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P013,F19,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P013,F18,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P014,F20,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P015,F13,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P016,F11,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P016,F13,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P016,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P017,F04,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P017,F03,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P017,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P017,F02,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P018,F10,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P018,F01,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P018,F19,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P018,F18,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P018,F20,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P019,F02,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P020,F08,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P020,F07,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P020,F15,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P021,F03,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P022,F04,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P022,F07,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P023,F04,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P023,F07,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P023,F01,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P023,F18,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P023,F09,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P023,F20,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P024,F11,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P024,F04,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P025,F15,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P025,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P025,F12,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P026,F05,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P026,F07,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P027,F01,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P027,F03,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P027,F20,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,F11,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,F05,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,F07,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,F01,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,F13,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,F12,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,F02,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,F20,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P031,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P032,F15,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P033,F08,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P033,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P033,F16,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P033,F02,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P034,F07,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P034,F01,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P034,F20,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P035,F08,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P035,F15,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P035,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P036,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P037,F08,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P037,F04,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P037,F18,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P038,F13,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P038,F12,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P039,F04,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P039,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P040,F08,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P040,F04,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P040,F15,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P040,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P042,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P043,F08,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P043,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P044,F07,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P044,F03,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P048,F05,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P048,F01,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P048,F03,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P048,F02,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P049,F04,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P049,F13,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P050,F07,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P050,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P050,F12,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P051,F04,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P051,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P052,F18,addresses_within,LOW,E02;E25,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P052,F20,addresses_within,LOW,E02;E25,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P055,F11,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P055,F07,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P056,F12,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P057,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P058,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P058,F09,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P059,F11,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P059,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P059,F14,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P059,F12,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P060,F08,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P060,F11,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P060,F20,addresses_within,LOW,E01;E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P061,F08,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P061,F05,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P061,F04,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P062,F11,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P062,F15,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P062,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P062,F02,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P063,F08,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P063,F04,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P063,F16,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P063,F18,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P063,F14,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P063,F17,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P064,F20,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P065,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P066,F15,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P066,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P067,F08,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P067,F07,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P067,F18,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P067,F09,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P068,F07,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P068,F01,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P068,F18,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P069,F11,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P069,F13,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P069,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P069,F17,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P070,F12,addresses_within,LOW,E02;E26,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P070,F11,addresses_within,LOW,E02;E26,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P071,F08,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P071,F15,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P071,F18,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P071,F12,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P072,F15,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P072,F19,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P073,F19,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P073,F12,addresses_within,LOW,E01,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P074,F10,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P074,F18,addresses_within,LOW,E02,Title/abstract metadata screening; high-relevance mechanisms are separately primary-verified.
+P_P028,A_FAR,describes,HIGH,E03;E04,Fixed anchor identity.
+P_P063,A_SPIKE,describes,HIGH,E05;E06,Fixed anchor identity.
+A_FAR,C_FAR_ENCODER,uses_mechanism,HIGH,E03;E04,Paper/code distinction documented in the FARTrack analysis.
+A_FAR,C_FAR_COMMAND,uses_mechanism,HIGH,E03;E04,Paper/code distinction documented in the FARTrack analysis.
+A_FAR,C_FAR_TSSD,uses_mechanism,HIGH,E03;E04,Paper/code distinction documented in the FARTrack analysis.
+A_FAR,C_FAR_IFAS,uses_mechanism,HIGH,E03;E04,Paper/code distinction documented in the FARTrack analysis.
+A_FAR,C_FAR_MASK,uses_mechanism,HIGH,E03;E04,Paper/code distinction documented in the FARTrack analysis.
+A_FAR,C_FAR_CE,uses_mechanism,HIGH,E03;E04,Paper/code distinction documented in the FARTrack analysis.
+A_FAR,C_FAR_SIOU,uses_mechanism,HIGH,E03;E04,Paper/code distinction documented in the FARTrack analysis.
+A_FAR,C_FAR_KL,uses_mechanism,HIGH,E03;E04,Paper/code distinction documented in the FARTrack analysis.
+A_SPIKE,C_SPIKE_TEMPLATE,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_SEARCH,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_NILIF,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_CACHE,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_MRM,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_HEAD,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_FOCAL,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_GIOU,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_L1,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+A_SPIKE,C_SPIKE_RUNTIME,uses_mechanism,HIGH,E05;E07;E23;E24,Released architecture/runtime evidence.
+C_FAR_TSSD,D_TASK_DISTILL,instantiates_principle,MEDIUM,E03;E04,Analyst extraction from primary mechanism evidence.
+C_FAR_TSSD,D_PREFIX,instantiates_principle,MEDIUM,E03;E04,Analyst extraction from primary mechanism evidence.
+C_FAR_IFAS,D_TEMP_AMORT,instantiates_principle,MEDIUM,E03;E04,Analyst extraction from primary mechanism evidence.
+C_FAR_IFAS,D_MODERATE,instantiates_principle,MEDIUM,E03;E04,Analyst extraction from primary mechanism evidence.
+C_FAR_TSSD,D_ORTHOGONAL,instantiates_principle,MEDIUM,E03;E04,Analyst extraction from primary mechanism evidence.
+C_FAR_IFAS,D_ORTHOGONAL,instantiates_principle,MEDIUM,E03;E04,Analyst extraction from primary mechanism evidence.
+A_SPIKE,D_SPIKE_SPECIFIC,instantiates_principle,MEDIUM,E05;E06;E07,Analyst extraction from primary mechanism evidence.
+F01,PR_ACCURACY,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F02,PR_REDUNDANCY,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F03,PR_EDGE,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F04,PR_EDGE,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F05,PR_EDGE,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F06,PR_EDGE,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F07,PR_EDGE,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F08,PR_REDUNDANCY,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F09,PR_REDUNDANCY,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F10,PR_EDGE,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F11,PR_TEMPORAL,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F12,PR_TEMPORAL,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F13,PR_TEMPORAL,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F14,PR_TEMPORAL,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F15,PR_ACCURACY,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F16,PR_EDGE,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F17,PR_EDGE,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F18,PR_ACCURACY,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F19,PR_ACCURACY,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+F20,PR_ACCURACY,solves_problem,MEDIUM,E01;E02,"Taxonomy-level relationship, not a paper performance claim."
+C_SPIKE_RUNTIME,PR_DEPLOY,contributes_to,HIGH,E07;E24,Pinned-runtime/export evidence.
+P_P028,A_SPIKE,knowledge_donor_to_SpikeTrack,HIGH,E03;E04,task-specific depth reduction and temporal mask reuse
+P_P067,A_SPIKE,knowledge_donor_to_SpikeTrack,HIGH,E09,template-once asymmetry; direct modulation is incompatible with SpikeTrack paper ablation
+P_P034,A_SPIKE,knowledge_donor_to_SpikeTrack,MEDIUM,E10,stage replacement and stage-wise feature mimicking
+P_P048,A_SPIKE,knowledge_donor_to_SpikeTrack,MEDIUM,E11,deep-to-shallow and dense-to-sparse distillation; preprint only
+P_P044,A_SPIKE,knowledge_donor_to_SpikeTrack,MEDIUM,E12,asynchronous feature extraction and layer pruning
+P_P023,A_SPIKE,knowledge_donor_to_SpikeTrack,MEDIUM,E13,adaptive routes and target-aware self-distillation; strong collision
+P_P024,A_SPIKE,knowledge_donor_to_SpikeTrack,MEDIUM,E14,parallel decoding and confidence exit; collision-prone
+P_P018,A_SPIKE,knowledge_donor_to_SpikeTrack,HIGH,E15,cross-resolution distillation
+P_P025,A_SPIKE,knowledge_donor_to_SpikeTrack,LOW,E16,persistent temporal state; likely cost increase
+P_P005,A_SPIKE,knowledge_donor_to_SpikeTrack,MEDIUM,E17,video-level appearance/motion pretraining
+P_P026,A_SPIKE,knowledge_donor_to_SpikeTrack,MEDIUM,E18,lightweight hierarchy and bridge module
+P_P012,A_SPIKE,knowledge_donor_to_SpikeTrack,LOW,E19,target-aware token pruning; preprint and structural mismatch
+P_P033,A_SPIKE,knowledge_donor_to_SpikeTrack,LOW,E20,spike-specific regularization; multimodal task mismatch
+P_P048,A_FAR,knowledge_donor_to_FARTrack,HIGH,E11,deep-to-shallow and dense-to-sparse distillation collision/reference
+P_P034,A_FAR,knowledge_donor_to_FARTrack,MEDIUM,E10,stage-wise compression contrast to adjacent-depth TSSD
+P_P044,A_FAR,knowledge_donor_to_FARTrack,MEDIUM,E12,static layer reduction and template-reuse contrast
+P_P024,A_FAR,knowledge_donor_to_FARTrack,MEDIUM,E14,parallel sequence-generation latency contrast
+P_P018,A_FAR,knowledge_donor_to_FARTrack,MEDIUM,E15,orthogonal input-resolution reduction and distillation
+P_P005,A_FAR,knowledge_donor_to_FARTrack,HIGH,E17,autoregressive appearance-motion training reference
+P_P060,A_FAR,architectural_ancestor,MEDIUM,E03,Sequence-to-sequence tracking is a documented autoregressive paradigm reference; this edge does not assert code inheritance.
+A_FAR,A_SPIKE,shares_design_principle,MEDIUM,E03;E05,"Both reduce repeated tracking work, but representations and mechanisms are not directly compatible."
+P_P067,A_SPIKE,possible_novelty_collision,HIGH,E09,asymmetric/template-once architecture
+P_P048,A_SPIKE,possible_novelty_collision,HIGH,E11,deep-to-shallow and dense-to-sparse distillation
+P_P023,A_SPIKE,possible_novelty_collision,HIGH,E13,conditional depth/route selection
+P_P012,A_SPIKE,possible_novelty_collision,HIGH,E19,target-aware token sparsity
+P_P033,A_SPIKE,possible_novelty_collision,HIGH,E20,spiking tracking and SNN regularization
+P_EXT_STD,A_SPIKE,knowledge_donor_to_SpikeTrack,MEDIUM,E21,Quality-based temporal memory maintenance; external to supplied neighborhoods.
+P_EXT_STD,A_FAR,knowledge_donor_to_FARTrack,LOW,E21,Reliability-aware temporal memory is a drift-control comparison for persistent template masks.
+P_EXT_STD,F14,addresses_within,HIGH,E21,Primary-paper verified memory mechanism.
