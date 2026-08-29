@@ -3,80 +3,80 @@ NBR_FAR,FARTrack Connected Papers neighborhood,LITERATURE_NEIGHBORHOOD,NO,N/A,N/
 NBR_SPIKE,SpikeTrack Connected Papers neighborhood,LITERATURE_NEIGHBORHOOD,NO,N/A,N/A,Discovery provenance only; topology unavailable.,E02
 A_FAR,FARTrack,ANCHOR_TRACKER,YES,N/A,N/A,Lightweight/autoregressive knowledge anchor.,E03;E04
 A_SPIKE,SpikeTrack,ANCHOR_TRACKER,YES,N/A,N/A,Spike-driven redesign anchor.,E05;E06;E07
-P_P001,Adaptive Target-Oriented Tracking,PAPER,NO,peer-reviewed journal,BOTH,2025 | SUPPORTING,E01;E02
-P_P002,Adaptively Bypassing Vision Transformer Blocks for Efficient Visual Tracking,PAPER,NO,arXiv/preprint only,FARTrack,2024 | SUPPORTING,E01
-P_P003,AdaptTrack: Perception field adaptation with contrastive attention for robust visual tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01
-P_P004,Autoregressive Queries for Adaptive Tracking with Spatio-Temporal Transformers,PAPER,NO,peer-reviewed conference,SpikeTrack,2024 | SUPPORTING,E02
-P_P005,Autoregressive Sequential Pretraining for Visual Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2025 | SUPPORTING,E01
-P_P006,AViTMP: A Tracking-Specific Transformer for Single-Branch Visual Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2023 | SUPPORTING,E02
-P_P007,CasCenter: A Cascaded Center Network for Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P008,CATrack: Combining Convolutional and Attentional Methods for Visual Object Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2023 | SUPPORTING,E02
-P_P009,CausTrack: Visual tracking via structural causality and deconfounded feature learning,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P010,CiteTracker: Correlating Image and Text for Visual Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02
-P_P011,CLDTracker: A Comprehensive Language Description for Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P012,Context-Aware Token Pruning and Discriminative Selective Attention for Transformer Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2026 | SUPPORTING,E02
-P_P013,Correlation-Embedded Transformer Tracking: A Single-Branch Framework,PAPER,NO,peer-reviewed journal,BOTH,2024 | SUPPORTING,E01;E02
-P_P014,CSCL: Bridging the plasticity-stability gap in continuous supervised contrastive learning,PAPER,NO,peer-reviewed journal,FARTrack,2025 | OUT_OF_SCOPE,E01
-P_P015,DATrack: direction attention based transformer tracker,PAPER,NO,peer-reviewed journal,SpikeTrack,2025 | SUPPORTING,E02
-P_P016,DeTrack: In-model Latent Denoising Learning for Visual Object Tracking,PAPER,NO,arXiv/preprint only,FARTrack,2025 | SUPPORTING,E01
-P_P017,Discriminative Pruning Networks for Visual Tracking with Adaptive Foreground Prediction,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02
-P_P018,Efficient and Accurate Low-Resolution Transformer Tracking,PAPER,NO,peer-reviewed conference,BOTH,2025 | SUPPORTING,E01;E02
-P_P019,Efficient Training for Visual Tracking with Deformable Transformer,PAPER,NO,arXiv/preprint only,SpikeTrack,2023 | SUPPORTING,E02
-P_P020,Enhancing the Two-Stream Framework for Efficient Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P021,EnTeR-Track: Efficient UAV tracking via entropy-guided pruning and reversible token recovery,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01
-P_P022,Exploiting Lightweight Hierarchical ViT and Dynamic Framework for Efficient Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P023,Exploring Dynamic Transformer for Efficient Object Tracking,PAPER,NO,peer-reviewed journal,BOTH,2024 | SUPPORTING,E01;E02
-P_P024,Exploring Efficient and Effective Sequence Learning for Visual Object Tracking,PAPER,NO,peer-reviewed conference,BOTH,2025 | SUPPORTING,E01;E02
-P_P025,Exploring Enhanced Contextual Information for Video-Level Object Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2024 | SUPPORTING,E01
-P_P026,Exploring Lightweight Hierarchical Vision Transformers for Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,BOTH,2023 | SUPPORTING,E01;E02
-P_P027,Exploring Pruning-Based Efficient Object Tracking via Hybrid Knowledge Distillation,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01
-P_P028,FARTrack: Fast Autoregressive Visual Tracking with High Performance,PAPER,NO,peer-reviewed conference,FARTrack,2026 | PRIMARY,E01
-P_P029,FETrack: One-stream framework-based feature enhancement for object tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01
-P_P030,Fine-grained visual tracking via distribution-aware mask modeling and temporal propagation,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P031,Foreground-Background Distribution Modeling Transformer for Visual Object Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02
-P_P032,FSTrack: Visual tracking with feature fusion and adaptive selection,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P033,Fully Spiking Neural Networks for Unified Frame-Event Object Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02
-P_P034,General Compression Framework for Efficient Transformer Object Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2024 | SUPPORTING,E01
-P_P035,Generalized Relation Modeling for Transformer Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02
-P_P036,GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing,PAPER,NO,arXiv/preprint only,FARTrack,2026 | SUPPORTING,E01
-P_P037,High-Performance Discriminative Tracking with Spatio-Temporal Template Fusion,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02
-P_P038,Implicit Motion State Modeling for Efficient and Effective Video-Level Object Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01
-P_P039,Improving Visual Object Tracking Through Visual Prompting,PAPER,NO,peer-reviewed journal,FARTrack,2024 | SUPPORTING,E01
-P_P040,Joint Feature Learning and Relation Modeling for Tracking: A One-Stream Framework,PAPER,NO,arXiv/preprint only,SpikeTrack,2022 | HISTORICAL,E02
-P_P041,Joint position and appearance feature modeling for accurate visual tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P042,Learning Historical Status Prompt for Accurate and Robust Visual Tracking,PAPER,NO,arXiv/preprint only,SpikeTrack,2023 | SUPPORTING,E02
-P_P043,Linker: Learning Long Short-term Associations for Robust Visual Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02
-P_P044,LiteTrack: Layer Pruning with Asynchronous Feature Extraction for Lightweight and Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2023 | SUPPORTING,E01
-P_P045,Local Feature Enhancement based One-Stream Transformer Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02
-P_P046,Masked Mutual Guidance Transformer Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2024 | SUPPORTING,E02
-P_P047,MCTrack: Multi-cue spatio-temporal object tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P048,MixFormerV2: Efficient Fully Transformer Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2023 | SUPPORTING,E01
-P_P049,MPTrack: Visual Tracking with Reliable Motion Prompts,PAPER,NO,peer-reviewed conference,SpikeTrack,2024 | SUPPORTING,E02
-P_P050,Multi-State Tracker: Enhancing Efficient Object Tracking via Multi-State Specialization and Interaction,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02
-P_P051,Optimized Information Flow for Transformer Tracking,PAPER,NO,arXiv/preprint only,SpikeTrack,2024 | SUPPORTING,E02
-P_P052,Optimizing intrinsic representation for tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02;E25
-P_P053,PlanarTrack: A Large-scale Challenging Benchmark for Planar Object Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02
-P_P054,Positive-Sample-Free Object Tracking via a Soft Constraint,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02
-P_P055,Query-Based Object Visual Tracking with Parallel Sequence Generation,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02
-P_P056,RELO: Reinforcement Learning to Localize for Visual Object Tracking,PAPER,NO,arXiv/preprint only,FARTrack,2026 | SUPPORTING,E01
-P_P057,Robust Object Modeling for Visual Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02
-P_P058,Robust Tracking via Unifying Pretrain-Finetuning and Visual Prompt Tuning,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02
-P_P059,SAMITE: Position Prompted SAM2 with Calibrated Memory for Visual Object Tracking,PAPER,NO,arXiv/preprint only,FARTrack,2025 | SUPPORTING,E01
-P_P060,SeqTrack: Sequence to Sequence Learning for Visual Object Tracking,PAPER,NO,peer-reviewed conference,BOTH,2023 | SUPPORTING,E01;E02
-P_P061,Siamese Visual Tracking With Multi-Parallel Interactive Transformers,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P062,Sparse Transformer-Based Sequence Generation for Visual Object Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02
-P_P063,SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2026 | PRIMARY,E02
-P_P064,Towards Efficient Training with Negative Samples in Visual Tracking,PAPER,NO,arXiv/preprint only,SpikeTrack,2023 | SUPPORTING,E02
-P_P065,Transformer-Based Tracker Fusing Two-Dimensional Semantic Features,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02
-P_P066,Transformer Visual Tracker Based on Template Features Corresponding to Foreground Region,PAPER,NO,peer-reviewed conference,SpikeTrack,2022 | SUPPORTING,E02
-P_P067,Two-stream Beats One-stream: Asymmetric Siamese Network for Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2025 | SUPPORTING,E01
-P_P068,UETrack: A Unified and Efficient Framework for Single Object Tracking,PAPER,NO,arXiv/preprint only,FARTrack,2026 | SUPPORTING,E01
-P_P069,Unifying Motion and Appearance Cues for Visual Tracking via Shared Queries,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P070,VideoTrack: Learning To Track Objects via Video Transformer,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E26
-P_P071,Visual tracking with unified relation modeling and masked appearance learning,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01
-P_P072,"Wave-wise Discriminative Tracking by Phase-Amplitude Separation, Augmentation and Mixture",PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02
-P_P073,WmLSTM: A Plug-and-Play Window-Level mLSTM-Based Temporal Encoder for Robust Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01
-P_P074,ZoomTrack: Target-aware Non-uniform Resizing for Efficient Visual Tracking,PAPER,NO,arXiv/preprint only,SpikeTrack,2023 | SUPPORTING,E02
+P_P001,Adaptive Target-Oriented Tracking,PAPER,NO,peer-reviewed journal,BOTH,2025 | SUPPORTING,E01;E02;E27
+P_P002,Adaptively Bypassing Vision Transformer Blocks for Efficient Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P003,AdaptTrack: Perception field adaptation with contrastive attention for robust visual tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P004,Autoregressive Queries for Adaptive Tracking with Spatio-Temporal Transformers,PAPER,NO,peer-reviewed conference,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P005,Autoregressive Sequential Pretraining for Visual Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2025 | SUPPORTING,E01;E27
+P_P006,AViTMP: A Tracking-Specific Transformer for Single-Branch Visual Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P007,CasCenter: A Cascaded Center Network for Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P008,CATrack: Combining Convolutional and Attentional Methods for Visual Object Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P009,CausTrack: Visual tracking via structural causality and deconfounded feature learning,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P010,CiteTracker: Correlating Image and Text for Visual Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P011,CLDTracker: A Comprehensive Language Description for Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P012,Context-Aware Token Pruning and Discriminative Selective Attention for Transformer Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2026 | SUPPORTING,E02;E27
+P_P013,Correlation-Embedded Transformer Tracking: A Single-Branch Framework,PAPER,NO,peer-reviewed journal,BOTH,2024 | SUPPORTING,E01;E02;E27
+P_P014,CSCL: Bridging the plasticity-stability gap in continuous supervised contrastive learning,PAPER,NO,peer-reviewed journal,FARTrack,2026 | OUT_OF_SCOPE,E01;E27
+P_P015,DATrack: direction attention based transformer tracker,PAPER,NO,peer-reviewed journal,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P016,DeTrack: In-model Latent Denoising Learning for Visual Object Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2024 | SUPPORTING,E01;E27
+P_P017,Discriminative Pruning Networks for Visual Tracking with Adaptive Foreground Prediction,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P018,Efficient and Accurate Low-Resolution Transformer Tracking,PAPER,NO,peer-reviewed conference,BOTH,2025 | SUPPORTING,E01;E02;E27
+P_P019,Efficient Training for Visual Tracking with Deformable Transformer,PAPER,NO,arXiv/preprint only,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P020,Enhancing the Two-Stream Framework for Efficient Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P021,EnTeR-Track: Efficient UAV tracking via entropy-guided pruning and reversible token recovery,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P022,Exploiting Lightweight Hierarchical ViT and Dynamic Framework for Efficient Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P023,Exploring Dynamic Transformer for Efficient Object Tracking,PAPER,NO,peer-reviewed journal,BOTH,2025 | SUPPORTING,E01;E02;E27
+P_P024,Exploring Efficient and Effective Sequence Learning for Visual Object Tracking,PAPER,NO,peer-reviewed conference,BOTH,2025 | SUPPORTING,E01;E02;E27
+P_P025,Exploring Enhanced Contextual Information for Video-Level Object Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2025 | SUPPORTING,E01;E27
+P_P026,Exploring Lightweight Hierarchical Vision Transformers for Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,BOTH,2023 | SUPPORTING,E01;E02;E27
+P_P027,Exploring Pruning-Based Efficient Object Tracking via Hybrid Knowledge Distillation,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P028,FARTrack: Fast Autoregressive Visual Tracking with High Performance,PAPER,NO,peer-reviewed conference,FARTrack,2026 | PRIMARY,E01;E27
+P_P029,FETrack: One-stream framework-based feature enhancement for object tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P030,Fine-grained visual tracking via distribution-aware mask modeling and temporal propagation,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P031,Foreground-Background Distribution Modeling Transformer for Visual Object Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P032,FSTrack: Visual tracking with feature fusion and adaptive selection,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P033,Fully Spiking Neural Networks for Unified Frame-Event Object Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P034,General Compression Framework for Efficient Transformer Object Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2025 | SUPPORTING,E01;E27
+P_P035,Generalized Relation Modeling for Transformer Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P036,GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing,PAPER,NO,peer-reviewed conference,FARTrack,2026 | SUPPORTING,E01;E27
+P_P037,High-Performance Discriminative Tracking with Spatio-Temporal Template Fusion,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P038,Implicit Motion State Modeling for Efficient and Effective Video-Level Object Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P039,Improving Visual Object Tracking Through Visual Prompting,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P040,Joint Feature Learning and Relation Modeling for Tracking: A One-Stream Framework,PAPER,NO,peer-reviewed conference,SpikeTrack,2022 | HISTORICAL,E02;E27
+P_P041,Joint position and appearance feature modeling for accurate visual tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P042,HIPTrack: Visual Tracking with Historical Prompts,PAPER,NO,peer-reviewed conference,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P043,Linker: Learning Long Short-term Associations for Robust Visual Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P044,LiteTrack: Layer Pruning with Asynchronous Feature Extraction for Lightweight and Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2024 | SUPPORTING,E01;E27
+P_P045,Local Feature Enhancement based One-Stream Transformer Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P046,Masked Mutual Guidance Transformer Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P047,MCTrack: Multi-cue spatio-temporal object tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P048,MixFormerV2: Efficient Fully Transformer Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2023 | SUPPORTING,E01;E27
+P_P049,MPTrack: Visual Tracking with Reliable Motion Prompts,PAPER,NO,peer-reviewed conference,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P050,Multi-State Tracker: Enhancing Efficient Object Tracking via Multi-State Specialization and Interaction,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P051,Optimized Information Flow for Transformer Tracking,PAPER,NO,arXiv/preprint only,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P052,Optimizing intrinsic representation for tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02;E27;E25
+P_P053,PlanarTrack: A Large-scale Challenging Benchmark for Planar Object Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P054,Positive-Sample-Free Object Tracking via a Soft Constraint,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P055,Query-Based Object Visual Tracking with Parallel Sequence Generation,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P056,RELO: Reinforcement Learning to Localize for Visual Object Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2026 | SUPPORTING,E01;E27
+P_P057,Robust Object Modeling for Visual Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P058,Robust Tracking via Unifying Pretrain-Finetuning and Visual Prompt Tuning,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P059,SAMITE: Position Prompted SAM2 with Calibrated Memory for Visual Object Tracking,PAPER,NO,arXiv/preprint only,FARTrack,2025 | SUPPORTING,E01;E27
+P_P060,SeqTrack: Sequence to Sequence Learning for Visual Object Tracking,PAPER,NO,peer-reviewed conference,BOTH,2023 | SUPPORTING,E01;E02;E27
+P_P061,Siamese Visual Tracking With Multi-Parallel Interactive Transformers,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P062,Sparse Transformer-Based Sequence Generation for Visual Object Tracking,PAPER,NO,peer-reviewed journal,SpikeTrack,2024 | SUPPORTING,E02;E27
+P_P063,SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2026 | PRIMARY,E02;E27
+P_P064,Towards Efficient Training with Negative Samples in Visual Tracking,PAPER,NO,arXiv/preprint only,SpikeTrack,2023 | SUPPORTING,E02;E27
+P_P065,Transformer-Based Tracker Fusing Two-Dimensional Semantic Features,PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P066,Transformer Visual Tracker Based on Template Features Corresponding to Foreground Region,PAPER,NO,peer-reviewed conference,SpikeTrack,2022 | SUPPORTING,E02;E27
+P_P067,Two-stream Beats One-stream: Asymmetric Siamese Network for Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2025 | SUPPORTING,E01;E27
+P_P068,UETrack: A Unified and Efficient Framework for Single Object Tracking,PAPER,NO,peer-reviewed conference,FARTrack,2026 | SUPPORTING,E01;E27
+P_P069,Unifying Motion and Appearance Cues for Visual Tracking via Shared Queries,PAPER,NO,peer-reviewed journal,FARTrack,2025 | SUPPORTING,E01;E27
+P_P070,VideoTrack: Learning To Track Objects via Video Transformer,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27;E26
+P_P071,Visual tracking with unified relation modeling and masked appearance learning,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P072,"Wave-wise Discriminative Tracking by Phase-Amplitude Separation, Augmentation and Mixture",PAPER,NO,peer-reviewed conference,SpikeTrack,2025 | SUPPORTING,E02;E27
+P_P073,WmLSTM: A Plug-and-Play Window-Level mLSTM-Based Temporal Encoder for Robust Visual Tracking,PAPER,NO,peer-reviewed journal,FARTrack,2026 | SUPPORTING,E01;E27
+P_P074,ZoomTrack: Target-aware Non-uniform Resizing for Efficient Visual Tracking,PAPER,NO,peer-reviewed conference,SpikeTrack,2023 | SUPPORTING,E02;E27
 F01,Model compression / distillation,SOLUTION_FAMILY,NO,N/A,N/A,Multi-label taxonomy family.,E01;E02
 F02,Token / feature / spatial sparsification,SOLUTION_FAMILY,NO,N/A,N/A,Multi-label taxonomy family.,E01;E02
 F03,Pruning,SOLUTION_FAMILY,NO,N/A,N/A,Multi-label taxonomy family.,E01;E02

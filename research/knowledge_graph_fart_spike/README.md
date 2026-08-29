@@ -1,4 +1,4 @@
-# FARTrack + SpikeTrack Knowledge Graph V1
+# FARTrack + SpikeTrack Knowledge Graph V1.1
 
 This directory turns two Connected Papers literature neighborhoods into an evidence-backed semantic knowledge graph centered on two fixed anchors:
 
@@ -13,9 +13,11 @@ FARTrack is not discarded because it is already strong. Its successful lightweig
 
 - 41 FARTrack-neighborhood records + 41 SpikeTrack-neighborhood records;
 - seven exact cross-graph overlaps;
-- 75 mechanical clusters, then 74 papers after primary verification merged LoReTrack’s preprint/proceedings versions;
-- the named neuroscience collision export was absent and contributed zero rows;
+- 75 mechanical clusters, then 74 deduplicated paper identities after reconciling LoReTrack’s preprint/proceedings versions;
+- the Manager-inspected 41-record neuroscience collision export was intentionally excluded before visual-SOT corpus construction and contributed zero rows;
 - one out-of-scope continual-classification record is retained only for provenance.
+
+The 74 identities are divided into 14 primary-verified high-relevance records, 56 metadata-canonicalized records, and four verified arXiv/preprint-only records. Publication status has zero unresolved rows; missing code or DOI fields remain explicit rather than guessed.
 
 ## Reading order
 
@@ -27,10 +29,14 @@ FARTrack is not discarded because it is already strong. Its successful lightweig
 6. `06_spiketrack_architecture_and_bottlenecks.md`
 7. `07_transfer_matrix.csv`
 8. `08_spiketrack_redesign_space.md`
-9. `13_teacher_report_v1.md`
-10. `REVIEW_REQUEST.md`
+9. `12a_methodology_flow_v1_1.mmd`
+10. `12b_tracker_solution_knowledge_graph_v1_1.mmd`
+11. `13_teacher_report_v1.md`
+12. `15_canonical_metadata_audit_v1_1.csv`
+13. `16_neuroscience_collision_exclusion_v1_1.md`
+14. `REVIEW_REQUEST.md`
 
-Machine-readable files are `09_nodes.csv`, `10_edges.csv`, and `11_knowledge_graph_v1.graphml`. `12_knowledge_graph_v1.mmd` is the intentionally compact, high-level Mermaid view. Source details and claim limits are in `14_evidence_log.csv`.
+Machine-readable files are `09_nodes.csv`, `10_edges.csv`, and `11_knowledge_graph_v1.graphml`. `12a_methodology_flow_v1_1.mmd` is the workflow view; `12b_tracker_solution_knowledge_graph_v1_1.mmd` is the curated teacher-facing tracker/problem/mechanism/principle graph. Source details and claim limits are in `14_evidence_log.csv`.
 
 `provenance/` preserves the exact mechanical parser, raw/draft inventories, collision check, hashes, and manual-review flags. `scripts/build_machine_artifacts.py` applies the documented primary-source corrections and regenerates the final deduplicated inventory and graph files.
 
@@ -40,4 +46,4 @@ The graph records evidence-derived semantic relationships. It does not reproduce
 
 ## Status
 
-`KNOWLEDGE_GRAPH_V1_READY_FOR_MANAGER_REVIEW`
+`KNOWLEDGE_GRAPH_V1_1_READY_FOR_MANAGER_REVIEW`

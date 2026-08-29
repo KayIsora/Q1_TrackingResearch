@@ -1,9 +1,12 @@
+%% methodology_flow: discovery, evidence, and review workflow (not the tracker solution graph)
 flowchart LR
   CP[Connected Papers discovery layer] --> NF[FARTrack neighborhood: 41 records]
   CP --> NS[SpikeTrack neighborhood: 41 records]
-  NF --> INV[82 raw records -> 74 verified unique papers]
+  NF --> INV[82 raw records -> 74 deduplicated paper identities]
   NS --> INV
-  INV --> TAX[Multi-label solution families]
+  EXT[Manager-inspected neuroscience SpikeTrack export: 41 records] -. MANAGER_VERIFIED_EXTERNAL_EXCLUSION .-> INV
+  INV --> AUDIT[Canonical metadata audit: official proceedings / publisher DOI / arXiv]
+  AUDIT --> TAX[Multi-label solution families]
 
   TAX --> STATIC[Static reduction: depth, width, backbone, resolution]
   TAX --> DYNAMIC[Temporal/input reduction: sparsity, reuse, timestep]
@@ -21,7 +24,7 @@ flowchart LR
   DONORS[Other trackers\nknowledge donors only] --> PRINCIPLES
   PRINCIPLES --> MATRIX[Evidence-scoped transfer matrix]
   SPIKE --> MATRIX
-  MATRIX --> SPACE[First-pass SpikeTrack redesign space]
+  MATRIX --> SPACE[Manager-prioritized redesign hypotheses]
   SPACE --> REVIEW[Manager review\nno third baseline\nno final architecture]
 
   NULL[Historical whole-MRM1 conditional skip\nDIAG_FAIL; sealed hold-out consumed] -. excluded active path .-> SPACE

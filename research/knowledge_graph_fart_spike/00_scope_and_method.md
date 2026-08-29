@@ -1,6 +1,6 @@
-# Scope and method - FARTrack/SpikeTrack Knowledge Graph V1
+# Scope and method - FARTrack/SpikeTrack Knowledge Graph V1.1
 
-**Terminal state:** `KNOWLEDGE_GRAPH_V1_READY_FOR_MANAGER_REVIEW`
+**Terminal state:** `KNOWLEDGE_GRAPH_V1_1_READY_FOR_MANAGER_REVIEW`
 
 **Cut-off:** 2026-08-29
 **Claim labels:** `EVIDENCE-BACKED FACT`, `CODE FACT`, `PROJECT DECISION`, `INTERPRETATION`, `HYPOTHESIS`, `OPEN QUESTION`
@@ -11,7 +11,7 @@
 
 The two discovery inputs are the supplied Connected Papers BibTeX exports [E01, E02]. Connected Papers is used only as a literature-neighborhood discovery layer. The exports do not contain the original Connected Papers edge topology or edge weights, so this project does not reconstruct or imply either. The semantic edges in `10_edges.csv` are manually or mechanically derived project relationships and are labelled with evidence and confidence.
 
-The similarly named neuroscience graph, `ConnectedPapers-for-An-improved-SpikeTrack-An-autonomous-multi-electrode...`, is excluded before parsing. It concerns neural-electrode control/spike sorting rather than RGB bounding-box single-object tracking. The file was not present beside the two supplied exports during this run; therefore it contributes zero inventory rows and no graph nodes or edges. This exclusion is recorded even though the file was absent.
+The similarly named neuroscience graph, `ConnectedPapers-for-An-improved-SpikeTrack-An-autonomous-multi-electrode...`, existed in the user/Manager handoff. Manager inspected its 41 neural-electrode-control/recording/spike-sorting records and verified that it is outside RGB visual SOT. It was intentionally excluded before corpus construction and contributes zero inventory rows and zero graph nodes or edges. Codex did not possess or parse that external export; the provenance status is `MANAGER_VERIFIED_EXTERNAL_EXCLUSION` [E28].
 
 ## 2. Anchor roles
 
@@ -41,7 +41,7 @@ Publication status in the complete inventory is conservative:
 - a credible accepted/online-first record becomes `accepted/online-first` only when an official source supports it;
 - all unresolved cases remain `unclear`.
 
-Important papers were manually checked against primary papers and official repositories. For the long tail, the export metadata is retained and unresolved fields are `UNKNOWN`; absence of a discovered code URL is not treated as evidence that no code exists.
+All 74 identities received a status audit that did not use venue-string inference [E27]. The inventory distinguishes 14 `PRIMARY_VERIFIED_HIGH_RELEVANCE` identities, 56 `METADATA_CANONICALIZED` identities verified through publisher DOI metadata or official proceedings, and four `ARXIV_ONLY_VERIFIED` identities. No publication-status row remains unresolved; `UNKNOWN` can still appear for genuinely unavailable DOI or code fields, and absence of a discovered code URL is not evidence that no code exists.
 
 ## 4. Relevance and taxonomy
 
@@ -84,4 +84,4 @@ This version does not claim:
 - that the failed whole-MRM1 conditional skip is viable;
 - a final new SpikeTrack architecture.
 
-The redesign hypotheses are falsifiable candidates for future controlled training and ablation. Version 1 stops after the graph, transfer matrix, redesign space, teacher report, and review request are complete.
+The redesign hypotheses are falsifiable candidates for future controlled training and ablation. Version 1.1 stops after the metadata/provenance/presentation repair, graph, transfer matrix, redesign space, teacher report, and review request are complete.

@@ -16,9 +16,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "provenance" / "02_deduplicated_paper_inventory_draft.csv"
+CROSSREF_SOURCE = ROOT / "provenance" / "03_crossref_metadata_snapshot_v1_1.csv"
 
 
-STATUS_OVERRIDES = {
+def load_crossref_snapshot() -> dict[str, dict[str, str]]:
+    with CROSSREF_SOURCE.open(encoding="utf-8-sig", newline="") as f:
+        return {row["crossref_doi"].casefold(): row for row in csv.DictReader(f)}
+
+
+CROSSREF_BY_DOI = load_crossref_snapshot()
+
+
+PRIMARY_VERIFIED_TITLES = {
     "FARTrack: Fast Autoregressive Visual Tracking with High Performance": "peer-reviewed conference",
     "SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking": "peer-reviewed conference",
     "Two-stream Beats One-stream: Asymmetric Siamese Network for Efficient Visual Tracking": "peer-reviewed conference",
@@ -33,6 +42,102 @@ STATUS_OVERRIDES = {
     "Context-Aware Token Pruning and Discriminative Selective Attention for Transformer Tracking": "peer-reviewed journal",
     "Fully Spiking Neural Networks for Unified Frame-Event Object Tracking": "peer-reviewed conference",
     "Optimizing intrinsic representation for tracking": "peer-reviewed journal",
+}
+
+ARXIV_ONLY_TITLES = {
+    "Efficient Training for Visual Tracking with Deformable Transformer",
+    "Optimized Information Flow for Transformer Tracking",
+    "SAMITE: Position Prompted SAM2 with Calibrated Memory for Visual Object Tracking",
+    "Towards Efficient Training with Negative Samples in Visual Tracking",
+}
+
+# Canonical fields that differ materially from the preserved Connected Papers
+# export.  All entries below have an official proceedings or publisher source.
+CANONICAL_OVERRIDES = {
+    "Adaptively Bypassing Vision Transformer Blocks for Efficient Visual Tracking": {
+        "year": "2025", "venue": "Pattern Recognition 161, article 111278", "doi": "10.1016/j.patcog.2024.111278",
+        "primary_paper_url": "https://doi.org/10.1016/j.patcog.2024.111278",
+    },
+    "AViTMP: A Tracking-Specific Transformer for Single-Branch Visual Tracking": {
+        "year": "2025", "venue": "IEEE Transactions on Intelligent Vehicles",
+    },
+    "CATrack: Combining Convolutional and Attentional Methods for Visual Object Tracking": {
+        "year": "2023", "venue": "AINIT 2023",
+    },
+    "CausTrack: Visual tracking via structural causality and deconfounded feature learning": {
+        "year": "2026", "venue": "Neurocomputing",
+    },
+    "CSCL: Bridging the plasticity-stability gap in continuous supervised contrastive learning": {
+        "year": "2026", "venue": "Neural Networks",
+    },
+    "DeTrack: In-model Latent Denoising Learning for Visual Object Tracking": {
+        "year": "2024", "venue": "NeurIPS 2024", "doi": "10.52202/079017-2875",
+        "primary_paper_url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/a4c680b456b9750003c8a494a5b165dc-Abstract-Conference.html",
+    },
+    "Exploring Dynamic Transformer for Efficient Object Tracking": {
+        "year": "2025", "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+    },
+    "Exploring Enhanced Contextual Information for Video-Level Object Tracking": {
+        "year": "2025", "venue": "AAAI 2025", "doi": "10.1609/aaai.v39i4.32440",
+    },
+    "Exploring Pruning-Based Efficient Object Tracking via Hybrid Knowledge Distillation": {
+        "year": "2026", "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+    },
+    "FSTrack: Visual tracking with feature fusion and adaptive selection": {
+        "year": "2026", "venue": "Expert Systems with Applications",
+    },
+    "FARTrack: Fast Autoregressive Visual Tracking with High Performance": {
+        "venue": "ICLR 2026", "doi": "UNKNOWN",
+    },
+    "General Compression Framework for Efficient Transformer Object Tracking": {
+        "year": "2025", "venue": "ICCV 2025",
+    },
+    "GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing": {
+        "year": "2026", "venue": "ICLR 2026", "doi": "UNKNOWN",
+        "primary_paper_url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/519c51529c3544b3430bd8b17d400365-Abstract-Conference.html",
+    },
+    "Improving Visual Object Tracking Through Visual Prompting": {
+        "year": "2025", "venue": "IEEE Transactions on Multimedia",
+    },
+    "Joint Feature Learning and Relation Modeling for Tracking: A One-Stream Framework": {
+        "year": "2022", "venue": "ECCV 2022", "doi": "10.1007/978-3-031-20047-2_20",
+        "primary_paper_url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136820332.pdf",
+    },
+    "Learning Historical Status Prompt for Accurate and Robust Visual Tracking": {
+        "title": "HIPTrack: Visual Tracking with Historical Prompts", "year": "2024", "venue": "CVPR 2024",
+        "doi": "UNKNOWN", "arxiv_id": "2311.02072",
+        "primary_paper_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Cai_HIPTrack_Visual_Tracking_with_Historical_Prompts_CVPR_2024_paper.html",
+    },
+    "LiteTrack: Layer Pruning with Asynchronous Feature Extraction for Lightweight and Efficient Visual Tracking": {
+        "year": "2024", "venue": "ICRA 2024",
+    },
+    "Joint position and appearance feature modeling for accurate visual tracking": {
+        "year": "2026", "venue": "Applied Soft Computing",
+    },
+    "MCTrack: Multi-cue spatio-temporal object tracking": {
+        "year": "2026", "venue": "Expert Systems with Applications",
+    },
+    "RELO: Reinforcement Learning to Localize for Visual Object Tracking": {
+        "year": "2026", "venue": "ICML 2026", "doi": "UNKNOWN",
+        "primary_paper_url": "https://icml.cc/Downloads/2026",
+    },
+    "SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking": {
+        "venue": "CVPR 2026", "doi": "UNKNOWN",
+    },
+    "Two-stream Beats One-stream: Asymmetric Siamese Network for Efficient Visual Tracking": {
+        "venue": "AAAI 2025", "doi": "10.1609/aaai.v39i10.33191",
+    },
+    "UETrack: A Unified and Efficient Framework for Single Object Tracking": {
+        "year": "2026", "venue": "CVPR 2026", "doi": "UNKNOWN",
+        "primary_paper_url": "https://openaccess.thecvf.com/content/CVPR2026/html/Kang_UETrack_A_Unified_and_Efficient_Framework_for_Single_Object_Tracking_CVPR_2026_paper.html",
+    },
+    "Visual tracking with unified relation modeling and masked appearance learning": {
+        "year": "2026", "venue": "Neural Networks",
+    },
+    "ZoomTrack: Target-aware Non-uniform Resizing for Efficient Visual Tracking": {
+        "year": "2023", "venue": "NeurIPS 2023", "doi": "UNKNOWN",
+        "primary_paper_url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/9fc291fef2f9607a46777d367f900a15-Abstract-Conference.html",
+    },
 }
 
 CODE_OVERRIDES = {
@@ -95,20 +200,29 @@ FAMILY_IDS = {
 }
 
 
-def normalize_status(row: dict[str, str]) -> str:
-    if row["title"] in STATUS_OVERRIDES:
-        return STATUS_OVERRIDES[row["title"]]
-    old = row["publication_status"]
-    venue = row["venue"].casefold()
-    if old == "ARXIV_PREPRINT":
+def verified_status(source_title: str, row: dict[str, str]) -> str:
+    if source_title in PRIMARY_VERIFIED_TITLES:
+        return PRIMARY_VERIFIED_TITLES[source_title]
+    if source_title in ARXIV_ONLY_TITLES:
         return "arXiv/preprint only"
-    if old == "CONFERENCE_LISTED_UNVERIFIED":
-        return "peer-reviewed conference"
-    if old == "JOURNAL_LISTED_UNVERIFIED":
+    override = CANONICAL_OVERRIDES.get(source_title, {})
+    doi = override.get("doi", row["doi"]).casefold()
+    crossref_type = CROSSREF_BY_DOI.get(doi, {}).get("crossref_type")
+    if crossref_type == "journal-article":
         return "peer-reviewed journal"
-    if "conference" in venue or "cvpr" in venue or "iccv" in venue:
+    if crossref_type in {"proceedings-article", "book-chapter"}:
         return "peer-reviewed conference"
-    return "unclear"
+    # Published records whose export carried only an arXiv DOI.
+    published = {
+        "DeTrack: In-model Latent Denoising Learning for Visual Object Tracking": "peer-reviewed conference",
+        "GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing": "peer-reviewed conference",
+        "Joint Feature Learning and Relation Modeling for Tracking: A One-Stream Framework": "peer-reviewed conference",
+        "Learning Historical Status Prompt for Accurate and Robust Visual Tracking": "peer-reviewed conference",
+        "RELO: Reinforcement Learning to Localize for Visual Object Tracking": "peer-reviewed conference",
+        "UETrack: A Unified and Efficient Framework for Single Object Tracking": "peer-reviewed conference",
+        "ZoomTrack: Target-aware Non-uniform Resizing for Efficient Visual Tracking": "peer-reviewed conference",
+    }
+    return published.get(source_title, "unclear")
 
 
 def build_inventory() -> list[dict[str, str]]:
@@ -180,31 +294,56 @@ def build_inventory() -> list[dict[str, str]]:
         "paper_id", "title", "first_author", "year", "venue", "doi", "arxiv_id",
         "semantic_scholar_id", "source_graph", "publication_status", "visual_SOT_relevance",
         "has_official_code", "official_code_url", "primary_paper_url", "solution_families",
-        "dedup_basis", "raw_record_ids", "evidence_source", "notes",
+        "dedup_basis", "raw_record_ids", "metadata_audit_tier", "metadata_source_url",
+        "evidence_source", "notes",
     ]
     final = []
     for index, row in enumerate(rows, 1):
-        title = row["title"]
-        code, code_url = CODE_OVERRIDES.get(title, (row["has_official_code"], row["official_code_url"]))
-        status = normalize_status(row)
+        source_title = row["title"]
+        explicit = CANONICAL_OVERRIDES.get(source_title, {})
+        queried_doi = explicit.get("doi", row["doi"]).casefold()
+        registry = CROSSREF_BY_DOI.get(queried_doi)
+        canonical = {}
+        if registry:
+            canonical.update({
+                "year": registry["published_year"],
+                "venue": registry["container_title"],
+                "doi": registry["crossref_doi"],
+                "primary_paper_url": registry["source_url"],
+            })
+        canonical.update(explicit)
+        title = canonical.get("title", source_title)
+        code, code_url = CODE_OVERRIDES.get(source_title, (row["has_official_code"], row["official_code_url"]))
+        status = verified_status(source_title, row)
         relevance = row["visual_SOT_relevance"]
-        if title in {"Joint Feature Learning and Relation Modeling for Tracking: A One-Stream Framework"}:
+        if source_title in {"Joint Feature Learning and Relation Modeling for Tracking: A One-Stream Framework"}:
             relevance = "HISTORICAL"
         source_evidence = "E01;E02" if row["source_graph"] == "BOTH" else ("E01" if row["source_graph"] == "FARTrack" else "E02")
-        if title == "Optimizing intrinsic representation for tracking":
+        source_evidence += ";E27"
+        if source_title == "Optimizing intrinsic representation for tracking":
             source_evidence += ";E25"
-        if title == "VideoTrack: Learning To Track Objects via Video Transformer":
+        if source_title == "VideoTrack: Learning To Track Objects via Video Transformer":
             source_evidence += ";E26"
+        if source_title in PRIMARY_VERIFIED_TITLES:
+            audit_tier = "PRIMARY_VERIFIED_HIGH_RELEVANCE"
+        elif source_title in ARXIV_ONLY_TITLES:
+            audit_tier = "ARXIV_ONLY_VERIFIED"
+        else:
+            audit_tier = "METADATA_CANONICALIZED"
+        source_url = canonical.get("primary_paper_url", URL_OVERRIDES.get(source_title, row["primary_paper_url"]))
+        if source_url in {"", "UNKNOWN"}:
+            doi = canonical.get("doi", row["doi"])
+            source_url = f"https://doi.org/{doi}" if doi not in {"", "UNKNOWN"} else f"https://arxiv.org/abs/{row['arxiv_id']}"
         note_parts = [
-            "Long-tail status/family annotations derive from supplied metadata unless a primary evidence override is named.",
+            f"Canonical metadata audit tier: {audit_tier}.",
         ]
-        if title == final_title:
+        if source_title == final_title:
             note_parts.insert(0, merged["notes"])
-        if title == "VideoTrack: Learning To Track Objects via Video Transformer":
+        if source_title == "VideoTrack: Learning To Track Objects via Video Transformer":
             note_parts.insert(0, "Canonicalized from a supplementary-only export record to the CVPR 2023 paper.")
-        if title == "Exploring Efficient and Effective Sequence Learning for Visual Object Tracking":
+        if source_title == "Exploring Efficient and Effective Sequence Learning for Visual Object Tracking":
             note_parts.append("An author-designated repository was checked but contains no FastSeqTrack implementation.")
-        if title == "Autoregressive Sequential Pretraining for Visual Tracking":
+        if source_title == "Autoregressive Sequential Pretraining for Visual Tracking":
             note_parts.append("The official project page states that code will be released; no implementation was located.")
         if status == "unclear" or relevance == "UNKNOWN":
             note_parts.append("Manual review remains required.")
@@ -213,20 +352,22 @@ def build_inventory() -> list[dict[str, str]]:
                 "paper_id": f"P{index:03d}",
                 "title": title,
                 "first_author": row["first_author"],
-                "year": row["year"],
-                "venue": row["venue"],
-                "doi": row["doi"],
-                "arxiv_id": row["arxiv_id"],
+                "year": canonical.get("year", row["year"]),
+                "venue": canonical.get("venue", row["venue"]),
+                "doi": canonical.get("doi", row["doi"]),
+                "arxiv_id": canonical.get("arxiv_id", row["arxiv_id"]),
                 "semantic_scholar_id": row["semantic_scholar_id"],
                 "source_graph": row["source_graph"],
                 "publication_status": status,
                 "visual_SOT_relevance": relevance,
                 "has_official_code": code,
                 "official_code_url": code_url,
-                "primary_paper_url": URL_OVERRIDES.get(title, row["primary_paper_url"]),
+                "primary_paper_url": source_url,
                 "solution_families": row["candidate_solution_families"],
                 "dedup_basis": row["dedup_method"],
                 "raw_record_ids": row["raw_record_ids"],
+                "metadata_audit_tier": audit_tier,
+                "metadata_source_url": source_url,
                 "evidence_source": source_evidence,
                 "notes": " ".join(note_parts),
             }
@@ -236,6 +377,14 @@ def build_inventory() -> list[dict[str, str]]:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         writer.writerows(final)
+    audit_fields = [
+        "paper_id", "title", "year", "venue", "doi", "arxiv_id",
+        "publication_status", "metadata_audit_tier", "metadata_source_url", "evidence_source",
+    ]
+    with (ROOT / "15_canonical_metadata_audit_v1_1.csv").open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=audit_fields)
+        writer.writeheader()
+        writer.writerows({key: row[key] for key in audit_fields} for row in final)
     return final
 
 
@@ -363,7 +512,7 @@ def build_graph(papers: list[dict[str, str]]) -> None:
         "FARTrack: Fast Autoregressive Visual Tracking with High Performance": ("E03;E04", "HIGH", "task-specific depth reduction and temporal mask reuse"),
         "Two-stream Beats One-stream: Asymmetric Siamese Network for Efficient Visual Tracking": ("E09", "HIGH", "template-once asymmetry; direct modulation is incompatible with SpikeTrack paper ablation"),
         "General Compression Framework for Efficient Transformer Object Tracking": ("E10", "MEDIUM", "stage replacement and stage-wise feature mimicking"),
-        "MixFormerV2: Efficient Fully Transformer Tracking": ("E11", "MEDIUM", "deep-to-shallow and dense-to-sparse distillation; preprint only"),
+        "MixFormerV2: Efficient Fully Transformer Tracking": ("E11", "MEDIUM", "deep-to-shallow and dense-to-sparse distillation; NeurIPS 2023"),
         "LiteTrack: Layer Pruning with Asynchronous Feature Extraction for Lightweight and Efficient Visual Tracking": ("E12", "MEDIUM", "asynchronous feature extraction and layer pruning"),
         "Exploring Dynamic Transformer for Efficient Object Tracking": ("E13", "MEDIUM", "adaptive routes and target-aware self-distillation; strong collision"),
         "Exploring Efficient and Effective Sequence Learning for Visual Object Tracking": ("E14", "MEDIUM", "parallel decoding and confidence exit; collision-prone"),
@@ -371,7 +520,7 @@ def build_graph(papers: list[dict[str, str]]) -> None:
         "Exploring Enhanced Contextual Information for Video-Level Object Tracking": ("E16", "LOW", "persistent temporal state; likely cost increase"),
         "Autoregressive Sequential Pretraining for Visual Tracking": ("E17", "MEDIUM", "video-level appearance/motion pretraining"),
         "Exploring Lightweight Hierarchical Vision Transformers for Efficient Visual Tracking": ("E18", "MEDIUM", "lightweight hierarchy and bridge module"),
-        "Context-Aware Token Pruning and Discriminative Selective Attention for Transformer Tracking": ("E19", "LOW", "target-aware token pruning; preprint and structural mismatch"),
+        "Context-Aware Token Pruning and Discriminative Selective Attention for Transformer Tracking": ("E19", "LOW", "target-aware token pruning; journal publication but structural mismatch"),
         "Fully Spiking Neural Networks for Unified Frame-Event Object Tracking": ("E20", "LOW", "spike-specific regularization; multimodal task mismatch"),
     }
     for title, (evidence, confidence, note) in donor_map.items():
@@ -424,7 +573,7 @@ def build_graph(papers: list[dict[str, str]]) -> None:
         ET.SubElement(graphml, f"{{{ns}}}key", id=f"n_{key}", attrib={"for": "node", "attr.name": key, "attr.type": "string"})
     for key in edge_keys:
         ET.SubElement(graphml, f"{{{ns}}}key", id=f"e_{key}", attrib={"for": "edge", "attr.name": key, "attr.type": "string"})
-    graph = ET.SubElement(graphml, f"{{{ns}}}graph", id="KG_FAR_SPIKE_V1", edgedefault="directed")
+    graph = ET.SubElement(graphml, f"{{{ns}}}graph", id="KG_FAR_SPIKE_V1_1", edgedefault="directed")
     for node in nodes.values():
         element = ET.SubElement(graph, f"{{{ns}}}node", id=node["node_id"])
         for key in node_keys:

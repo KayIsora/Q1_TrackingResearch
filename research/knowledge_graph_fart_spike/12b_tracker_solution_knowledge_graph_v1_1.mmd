@@ -1,0 +1,90 @@
+%% Teacher-facing curated tracker -> problem -> mechanism -> principle -> anchor graph.
+flowchart LR
+  FAR[[FARTrack\nknowledge anchor]]
+  SPIKE[[SpikeTrack\nredesign target]]
+
+  subgraph D[Curated knowledge donors]
+    COMP[CompressTracker]
+    MIX[MixFormerV2]
+    ASYM[AsymTrack]
+    LITE[LiteTrack]
+    LORE[LoReTrack]
+    DY[DyTrack]
+    ARP[ARPTrack]
+    HIT[HiT]
+    CPDA[CPDATrack]
+    SF[SpikeFET]
+    STD[STDTrack]
+    MCI[MCITrack]
+  end
+
+  subgraph PB[Problems]
+    SIZE[excess resident depth/capacity]
+    LOSS[task knowledge lost during compression]
+    REPEAT[repeated template/search computation]
+    SPATIAL[spatial-token and resolution cost]
+    TEMP[temporal-memory reliability]
+    SNNGAP[spiking representation/training gap]
+    DYNCOST[input-dependent compute and collision risk]
+  end
+
+  subgraph M[Mechanisms]
+    STAGE[stage replacement / block reduction]
+    KD[task-output and stage-wise distillation]
+    ASYNC[asynchronous template extraction / reuse]
+    PRUNE[token or layer pruning]
+    LOWR[low-resolution interaction distillation]
+    MEMORY[quality-controlled temporal memory]
+    SNNREG[spatial-temporal SNN regularization]
+    ROUTE[dynamic routes / exits]
+  end
+
+  subgraph P[Design principles]
+    STATIC[static structural compression]
+    TASK[task-specific knowledge preservation]
+    STAGEWISE[stage-wise compression]
+    SPARSE[sparsification / pruning]
+    ASYMR[asymmetric template reuse]
+    LOWRES[low-resolution processing]
+    TMEM[temporal memory]
+    SNNP[SNN representation / training]
+    DYNAMIC[dynamic computation]
+    QC[robustness / quality control]
+  end
+
+  COMP --> SIZE --> STAGE --> STAGEWISE
+  MIX --> LOSS --> KD --> TASK
+  LITE --> REPEAT --> ASYNC --> ASYMR
+  ASYM --> REPEAT
+  LORE --> SPATIAL --> LOWR --> LOWRES
+  CPDA --> SPATIAL --> PRUNE --> SPARSE
+  STD --> TEMP --> MEMORY --> QC
+  MCI --> TEMP --> TMEM
+  SF --> SNNGAP --> SNNREG --> SNNP
+  DY --> DYNCOST --> ROUTE --> DYNAMIC
+  ARP --> LOSS
+  HIT --> SIZE
+
+  STATIC --> FAR
+  TASK --> FAR
+  STAGEWISE --> FAR
+  SPARSE --> FAR
+  ASYMR --> FAR
+  LOWRES --> SPIKE
+  TMEM --> SPIKE
+  SNNP --> SPIKE
+  QC --> SPIKE
+  STATIC --> SPIKE
+  TASK --> SPIKE
+  DYNAMIC -. defer / high collision .-> SPIKE
+
+  PRIMARY[P01 + P02 primary family:\nstatic structural reduction + task-facing preservation]
+  COMP -. supporting compression donor .-> PRIMARY
+  FAR --> PRIMARY --> SPIKE
+
+  classDef anchor fill:#ffe599,stroke:#7f6000,stroke-width:3px;
+  classDef primary fill:#d9ead3,stroke:#274e13,stroke-width:3px;
+  classDef defer fill:#f4cccc,stroke:#990000,stroke-width:2px;
+  class FAR,SPIKE anchor;
+  class PRIMARY primary;
+  class DYNAMIC,ROUTE defer;

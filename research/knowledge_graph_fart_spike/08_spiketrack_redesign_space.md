@@ -4,6 +4,20 @@
 
 This is a set of independent, falsifiable experiment families. It is **not** a final architecture, a ranked third baseline, or permission to combine all ideas. `PROMISING` means evidence justifies a controlled SpikeTrack-specific test; it does not mean expected success. The historical conditional whole-MRM1 skip remains `DIAG_FAIL`, and its sealed hold-out is unavailable [E08].
 
+## Manager-review priority layer
+
+The ten register IDs are not ten equal-priority scientific directions.
+
+| Priority | Register items | Interpretation |
+|---|---|---|
+| **Primary scientific hypothesis family** | **P01 + P02 jointly** | FARTrack-inspired static stage/block or capacity reduction plus tracking-specific task-facing preservation/distillation. This is the strongest current lane, with `HIGH` novelty collision and no approved final mechanism. |
+| **Supporting donor for the primary family** | **P04** | CompressTracker supplies stage-replacement and stage-wise training evidence; it is not automatically a separate contribution. |
+| **Engineering enablement** | **P06** | parity/runtime/export structure; important deployment work, not the primary scientific claim. |
+| **Secondary / exploratory** | **P03, P05, P09** | template-memory compression, cross-resolution training, and quality-controlled updates may be investigated later. |
+| **Defer / high collision / indirect compute benefit** | **P07, P08, P10 and generic dynamic routes** | do not present as equal-priority first experiments. Training-only benefit or conditional routing does not itself prove practical compute reduction. |
+
+For the primary family, **what to reduce** is fixed stage/block depth or capacity; **what to preserve** is tracking-specific/task-facing behavior; and **how to train** is a SpikeTrack-compatible teacher/student or stage-wise compression process. This prioritization does not select an architecture.
+
 ## Promising transfer register
 
 Every `PROMISING` cell in `07_transfer_matrix.csv` is resolved exactly once below.
@@ -140,4 +154,4 @@ Every `PROMISING` cell in `07_transfer_matrix.csv` is resolved exactly once belo
 3. Require retraining wherever learned dimensions, timesteps, cache semantics, MRM structure, or loss change.
 4. Use fresh development/validation data for every new conditional hypothesis; never reuse the consumed MRM1 hold-out [E08].
 5. Treat exact parity cleanup separately from scientific redesign.
-6. Do not combine P01-P10 until individual causal evidence exists and Manager review authorizes a later synthesis phase.
+6. Treat P01+P02 as one predeclared hypothesis family, with P04 as supporting training evidence; do not combine other register items until individual causal evidence exists and Manager authorizes a later synthesis phase.
