@@ -1,0 +1,11 @@
+stage,task,status,owner,gate_or_output,notes
+F6_REFRESH,Review exact resource deltas and narrow 2026 candidate delta,COMPLETE_ACCEPTED,Manager+Codex,ACTIONABLE_RESOURCE_AND_NEW_CANDIDATE_FOUND,Twelve-record desk refresh accepted; no model or asset execution.
+F6_UTPTRACK,Official legacy environment resource reentry,READY_NOT_SELECTED,Manager,RESOURCE_REENTRY_READY_NOT_SELECTED,Official install recipe accounts for known dependencies but legacy environment cost and MaST collision reduce current-cycle value.
+F6_MCITRACK,Official Fast-iTPN bootstrap resource reentry,SELECTED_AWAITING_USER_AUTHORIZATION,Manager,F7_RESOURCE_SEALED_REENTRY,Exact author-linked bootstrap file ID resolved; no download or execution authorized yet.
+F6_MAST,New 2026 MaST family,HIGH_PRIORITY_WATCH,Manager,WAIT_FOR_TRAINING_SOURCE,ONNX inference/evaluator release is strong but training/PyTorch source is not yet released; no development-baseline activation.
+F6_SENTRY,New 2026 SENTRY family,REFERENCE_ONLY_CURRENT_CORE,Manager,NO_CURRENT_CORE_EXECUTION,SAM2-hosted memory-admission method is scientifically strong but heavy and already occupies the target memory-validity mechanism.
+F7_USER_AUTHORIZATION,Authorize one exact MCITrack bootstrap download,PENDING,User,AUTHORIZED_OR_DENIED,Exact file fast_itpn_base_clipl_e1600.pt from author-linked Drive ID 1hxth6RWiJ-3rY21CClZqjl2xsL07Kt17 only.
+F7_MCITRACK,Acquire hash strict-load preflight and unchanged six-pair state mini-probe,LOCKED_PENDING_USER_AUTHORIZATION,Manager+Codex,POSITIVE_NEGATIVE_OR_RESOURCE_BLOCKER,No compatibility repair or second hypothesis; four-hour cap after asset verification.
+F8_FAST_HG6,Mechanism novelty audit if F7 is positive,LOCKED,Manager+Codex,HG6_PASS_OR_FAIL,No new model execution.
+F9_MINIMUM_FINAL_DIAGNOSTIC,One finalist diagnostic if HG6 passes,LOCKED,Manager+Codex,DIAG_PASS_FAIL_PENDING,Tailor minimum design; do not recreate SpikeTrack pipeline automatically.
+F10_SOFT_SCORING,S1-S7 and main-baseline decision,LOCKED,Manager,SCORE_AND_DECISION,Only after diagnostic pass.
