@@ -22,15 +22,15 @@ ZoomTrack leaves the base tracker unchanged and reduces search-image sampling [E
 
 The paper reports roughly 21.5G versus 41.5G MACs, 50–52% faster execution, and OSTrack-Zoom at 73.5 GOT-10k AO, 70.2 LaSOT AUC, and 100 FPS on V100. These are primary-paper results, not SpikeTrack/device estimates. The QP/sampling cost is reported small in that setup, but integration cost and target-prior failure must be measured on the actual deployment path. The distinct transferable lesson is: reduce spatial work while explicitly protecting likely target detail and the original field of view.
 
-## P027 Hybrid-KD pruning tracker — highest-priority collision
+## P027 HKDT — Hybrid-KD Pruning Tracker — highest-priority collision
 
-The accessible publisher abstract establishes the following [E35]: lightweight tracking backbones are argued to retain structural redundancy; the method combines **static backbone pruning** with **Hybrid Knowledge Distillation**; Token Distillation separately aligns Q/K/V; Local Distillation uses spatial foreground/background masks; Global Distillation uses Vision Mamba for long-range/semantic alignment. It reports GOT-10k AO 67.6, +3.6 over HiT-Base, 64% lower computational cost, and 115% faster CPU tracking.
+The accessible publisher abstract names the tracker **HKDT** and establishes the following [E35]: lightweight tracking backbones are argued to retain structural redundancy; the method combines **static backbone pruning** with **Hybrid Knowledge Distillation**; Token Distillation separately aligns Q/K/V; Local Distillation uses spatial foreground/background masks; Global Distillation uses Vision Mamba for long-range/semantic alignment. It reports GOT-10k AO 67.6, +3.6 over HiT-Base, 64% lower computational cost, and 115% faster CPU tracking.
 
 The full paper was not openly retrievable during this audit. Consequently, these requested details remain `UNKNOWN`: exact backbone, teacher/student identities, pruned layer names/indices, pruning criterion/schedule, whether width is also changed, formulas and weights, retraining phases, parameter/FLOP/FPS tables, CPU protocol, and any edge-device measurement. Abstract wording supports static pruning, not adaptive inference routing.
 
 ### Collision answer
 
-This paper is extremely close to the favored family at the generic level: **static structural reduction + tracking-specific multi-level KD**. A future claim stated only as “prune SpikeTrack and use tracking-specific KD” would be weak and potentially too close. Plausible novelty headroom requires a SpikeTrack-native scientific question, for example whether a fixed structural reduction can preserve:
+This paper is the **highest generic-family novelty collision** because it is extremely close at the conceptual level: **static structural pruning + tracking-specific multi-level KD**. That classification does not prove that every SpikeTrack-native mechanism is occupied. A future claim stated only as “prune SpikeTrack and use tracking-specific KD” would be weak and potentially too close. Plausible novelty headroom requires a SpikeTrack-native scientific question, for example whether a fixed structural reduction can preserve:
 
 - NI-LIF temporal/state dynamics and spike-distribution behavior;
 - the six template K-transpose-V memory interfaces and retrieval behavior;

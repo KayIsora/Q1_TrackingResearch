@@ -41,7 +41,7 @@ The 74 identities are divided into 14 primary-verified high-relevance records, 5
 The V1.2 supplement does **not** redraw or replace the V1.1 machine graph. It prepares defensible content for the user's later manual drawing:
 
 1. `17_cross_neighborhood_overlap_audit.md` — seven exact co-memberships classified by semantic function;
-2. `18_donor_mechanism_audit_v1_2.md` — ABTrack, UETrack, ZoomTrack, and P027 Hybrid-KD mechanism audits;
+2. `18_donor_mechanism_audit_v1_2.md` — ABTrack, UETrack, ZoomTrack, and P027 HKDT mechanism audits;
 3. `19_presentation_role_catalog.csv` — one primary role for each of 19 audited papers and the 17-node recommendation;
 4. `20_drawing_node_content_v1_2.md` — concise callout text for visible nodes;
 5. `21_drawing_edge_catalog_v1_2.csv` — defensible semantic edges only;
@@ -64,4 +64,6 @@ The graph records evidence-derived semantic relationships. It does not reproduce
 
 Accepted base: `KNOWLEDGE_GRAPH_V1_1_READY_FOR_MANAGER_REVIEW`
 
-Current supplement: `KNOWLEDGE_GRAPH_CONTENT_AUDIT_V1_2_READY_FOR_MANAGER_REVIEW`
+Accepted content audit: `KNOWLEDGE_GRAPH_CONTENT_AUDIT_V1_2_READY_FOR_MANAGER_REVIEW`
+
+Current source-integrity repair: `KNOWLEDGE_GRAPH_CONTENT_V1_2_1_SOURCE_INTEGRITY_READY_FOR_MANAGER_REVIEW`

@@ -17,7 +17,7 @@ P01 + P02 are one family. CompressTracker supports the training strategy; P06 re
 | MixFormerV2 | Progressive deep-to-shallow and dense-to-sparse distillation | Which SNN-native preservation targets matter beyond ordinary dense logits/features | HIGH |
 | LiteTrack | Top-down layer pruning and asynchronous template extraction | Physical SpikeTrack structural reduction beyond already-present template caching | HIGH |
 | HiT | Lightweight hierarchy with explicit detail repair | Whether fixed SNN stage reduction requires spike-specific information repair | HIGH |
-| P027 Hybrid-KD | Static tracker-backbone pruning + token/local/global tracking KD | Causal value of spike/state/cache preservation beyond its Q/K/V, mask, and global semantic targets | **HIGHEST** |
+| P027 HKDT | Static tracker-backbone pruning + token/local/global tracking KD | Causal value of spike/state/cache preservation beyond its Q/K/V, mask, and global semantic targets | **HIGHEST GENERIC-FAMILY COLLISION** |
 | UETrack | Per-sample target-aware output/feature KD | When a SpikeTrack teacher is beneficial and what SNN-native evidence should control/define that training supervision | HIGH |
 | ABTrack | Static ViT latent-dimension pruning + adaptive whole-block bypass | Static SNN-aware dimension materialization; dynamic route is deferred | HIGH |
 | CPDATrack | Target-aware search-token pruning/attention control | Any SpikeTrack representation reduction must be topology- and spike-specific | HIGH |
@@ -47,7 +47,7 @@ These are scientific questions, not an architecture choice.
 ## 3. What would be merely “apply KD/pruning to an SNN” and therefore weak?
 
 - Delete arbitrary SpikeTrack layers, then add standard feature MSE or output KL.
-- Reuse Hybrid-KD's Q/K/V + foreground/background + global alignment and change only the backbone name to SpikeTrack.
+- Reuse HKDT's Q/K/V + foreground/background + global alignment and change only the backbone name to SpikeTrack.
 - Claim novelty because the student uses spikes while the pruning criterion and supervision ignore spike state/timestep/cache behavior.
 - Report only parameters/FLOPs or analytical energy without a physical graph and target-device measurement.
 - Rebrand template caching or a whole-MRM gate as a new efficiency mechanism.
@@ -68,4 +68,4 @@ A defensible question is whether **fixed structural reduction can preserve Spike
 
 ## Decision
 
-The family remains scientifically plausible only if narrowed to an SNN-native causal preservation question. It is **not** yet novel as “static prune + tracking KD,” and no final architecture is selected.
+The family remains scientifically plausible only if narrowed to an SNN-native causal preservation question. It is **not** yet novel as “static prune + tracking KD,” and no final architecture is selected. HKDT's highest-collision label is conceptual at **static structural pruning + tracking-specific multi-level KD**; it is not proof that every SpikeTrack-native mechanism is occupied.

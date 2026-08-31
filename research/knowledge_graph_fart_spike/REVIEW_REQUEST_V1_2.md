@@ -10,7 +10,7 @@ Please review whether the **scientific content** is ready for the user's manual 
 2. Confirm that the 19 normalized cards distinguish design principles from non-transferable components.
 3. Confirm the recommended 17 visible nodes and one primary presentation role per audited paper.
 4. Confirm the eight branches and the semantic edge catalog.
-5. Confirm that P027 Hybrid-KD is treated as the highest-risk collision and that its inaccessible full-text details remain `UNKNOWN`.
+5. Confirm that P027 HKDT is treated as the highest generic-family collision and that its inaccessible full-text details remain `UNKNOWN` / `ABSTRACT_ONLY`.
 6. Confirm that the residual question is SNN-native and causal, not merely “apply pruning/KD to SpikeTrack.”
 
 ## Evidence limitations requiring Manager awareness
@@ -29,4 +29,4 @@ Please review whether the **scientific content** is ready for the user's manual 
 
 ## Terminal state
 
-`KNOWLEDGE_GRAPH_CONTENT_AUDIT_V1_2_READY_FOR_MANAGER_REVIEW`
+`KNOWLEDGE_GRAPH_CONTENT_V1_2_1_SOURCE_INTEGRITY_READY_FOR_MANAGER_REVIEW`

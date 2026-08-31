@@ -17,4 +17,4 @@ N_STD,EXTERNAL_STD,STDTrack,SECONDARY_DONOR,YES,B6_TEMPORAL_MEMORY_ROBUSTNESS,E2
 N_AB,P002,ABTrack,NOVELTY_COLLISION,YES,B8_DYNAMIC_COMPUTATION,E32,Dynamic bypass collision with a static dimension-pruning lesson
 N_UE,P068,UETrack,PRIMARY_DONOR,YES,B2_KNOWLEDGE_PRESERVATION,E33,Target-aware adaptive training distillation donor
 N_ZOOM,P074,ZoomTrack,SECONDARY_DONOR,YES,B5_SPATIAL_EFFICIENCY,E34,Distinct target-preserving spatial reduction
-N_HKD,P027,Hybrid-KD pruning tracker,NOVELTY_COLLISION,YES,B3_SPARSIFICATION_PRUNING,E27;E35,Highest-risk direct collision with fixed reduction plus tracking KD
+N_HKD,P027,HKDT — Hybrid-KD Pruning Tracker,NOVELTY_COLLISION,YES,B3_SPARSIFICATION_PRUNING,E27;E35,Highest generic-family collision at static structural pruning plus tracking-specific multi-level KD

@@ -277,7 +277,7 @@ The catalog recommends **17 visible tracker/paper nodes**. Text is deliberately 
 ## N_HKD
 
 - **NODE ID:** N_HKD
-- **DISPLAY NAME:** Hybrid-KD pruning tracker
+- **DISPLAY NAME:** HKDT — Hybrid-KD Pruning Tracker
 - **YEAR/VENUE:** 2026 / IEEE TCSVT
 - **PRIMARY ROLE:** NOVELTY_COLLISION
 - **PROBLEM:** Structural redundancy in lightweight tracker backbones.
@@ -285,8 +285,8 @@ The catalog recommends **17 visible tracker/paper nodes**. Text is deliberately 
 - **KEY MECHANISM:** Q/K/V Token KD + masked Local KD + Vision-Mamba Global KD.
 - **EFFICIENCY ACTION:** Static backbone pruning.
 - **TRAINING/LOSS:** Prune/retrain with three-level HKD; formulas/weights UNKNOWN.
-- **MAIN LESSON:** Generic pruning + tracking-specific KD is already a direct prior.
+- **MAIN LESSON:** Generic static pruning + tracking-specific multi-level KD is already a direct prior.
 - **RELATION TO FARTRACK:** Near-direct collision with reduction + task preservation.
 - **RELATION TO SPIKETRACK:** Forces an SNN-native causal question, not a generic application claim.
-- **CAUTION / NOVELTY COLLISION:** Highest risk; abstract-only details must not be overstated.
+- **CAUTION / NOVELTY COLLISION:** Highest generic-family collision; this does not occupy every SpikeTrack-native mechanism. Detailed mechanism evidence remains ABSTRACT_ONLY.
 - **EVIDENCE:** [E27, E35].

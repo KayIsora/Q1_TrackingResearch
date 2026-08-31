@@ -114,6 +114,33 @@ def main() -> None:
     evidence_ids = {r["evidence_id"] for r in evidence}
     require(len(evidence_ids) == len(evidence), "duplicate evidence id")
     require(evidence_ids == {f"E{i:02d}" for i in range(1, 36)}, "evidence log must be E01-E35")
+    evidence_by_id = {r["evidence_id"]: r for r in evidence}
+    expected_v121_citations = {
+        "E29": (
+            "Sixian Chan, Xianpeng Zeng, Zhoujian Wu, Yu Wang, Xiaolong Zhou, Tinglong Tang, and Jie Hu, "
+            "'Adaptive Target Oriented Tracking,' ACM Transactions on Intelligent Systems and Technology, "
+            "vol. 16, no. 4, 2025, doi:10.1145/3732785."
+        ),
+        "E30": (
+            "Fei Xie, Wankou Yang, Chunyu Wang, Lei Chu, Yue Cao, Chao Ma, and Wenjun Zeng, "
+            "'Correlation-Embedded Transformer Tracking: A Single-Branch Framework,' IEEE Transactions on "
+            "Pattern Analysis and Machine Intelligence, vol. 46, no. 12, pp. 10681-10696, 2024, "
+            "doi:10.1109/TPAMI.2024.3448254."
+        ),
+        "E32": (
+            "Xiangyang Yang, Dan Zeng, Xucheng Wang, You Wu, Hengzhou Ye, Qijun Zhao, and Shuiwang Li, "
+            "'Adaptively Bypassing Vision Transformer Blocks for Efficient Visual Tracking,' Pattern Recognition, "
+            "vol. 161, article 111278, 2025, doi:10.1016/j.patcog.2024.111278."
+        ),
+    }
+    expected_v121_urls = {
+        "E29": "https://doi.org/10.1145/3732785",
+        "E30": "https://doi.org/10.1109/TPAMI.2024.3448254",
+        "E32": "https://doi.org/10.1016/j.patcog.2024.111278",
+    }
+    for evidence_id, citation in expected_v121_citations.items():
+        require(evidence_by_id[evidence_id]["citation"] == citation, f"{evidence_id} canonical citation integrity")
+        require(evidence_by_id[evidence_id]["primary_url"] == expected_v121_urls[evidence_id], f"{evidence_id} DOI URL integrity")
     for record in papers + nodes + edges + matrix:
         for value in record.values():
             for item in re.findall(r"E\d{2}", value or ""):
@@ -163,6 +190,22 @@ def main() -> None:
     require(sum(r["visible"] == "YES" for r in roles) == 17, "visible node count != 17")
     require(sum(r["primary_role"] == "ANCHOR" for r in roles) == 2, "V1.2 anchors != 2")
     require({r["display_name"] for r in roles if r["primary_role"] == "ANCHOR"} == {"FARTrack", "SpikeTrack"}, "anchors changed")
+    visible_role_counts = {
+        role: sum(r["visible"] == "YES" and r["primary_role"] == role for r in roles)
+        for role in allowed_roles
+    }
+    expected_visible_role_counts = {
+        "ANCHOR": 2,
+        "PRIMARY_DONOR": 4,
+        "SEMANTIC_BRIDGE": 2,
+        "SECONDARY_DONOR": 5,
+        "NOVELTY_COLLISION": 4,
+        "CONTEXTUAL_REFERENCE": 0,
+        "OMIT_FROM_DRAWING": 0,
+    }
+    require(visible_role_counts == expected_visible_role_counts, f"visible role breakdown {visible_role_counts}")
+    roles_by_id = {r["node_id"]: r for r in roles}
+    require(roles_by_id["N_HKD"]["display_name"] == "HKDT — Hybrid-KD Pruning Tracker", "HKDT drawing display name")
     visible_ids = {r["node_id"] for r in roles if r["visible"] == "YES"}
     require(drawing_edges, "drawing edge catalog empty")
     require(all(r["source"] in visible_ids and r["target"] in visible_ids for r in drawing_edges), "drawing edge references hidden/missing node")
@@ -193,12 +236,24 @@ def main() -> None:
     require(len(re.findall(r"^## N_", node_content, flags=re.MULTILINE)) == 17, "drawing node content count != 17")
     for field in ("NODE ID", "DISPLAY NAME", "YEAR/VENUE", "PRIMARY ROLE", "PROBLEM", "CORE ARCHITECTURE", "KEY MECHANISM", "EFFICIENCY ACTION", "TRAINING/LOSS", "MAIN LESSON", "RELATION TO FARTRACK", "RELATION TO SPIKETRACK", "CAUTION / NOVELTY COLLISION", "EVIDENCE"):
         require(node_content.count(f"**{field}:**") == 17, f"drawing node field count: {field}")
+    require("**DISPLAY NAME:** HKDT — Hybrid-KD Pruning Tracker" in node_content, "HKDT node callout name")
 
     overlap = (ROOT / "17_cross_neighborhood_overlap_audit.md").read_text(encoding="utf-8")
     require(overlap.count("`TRUE_SEMANTIC_BRIDGE`") >= 3, "overlap bridge decisions missing")
     for label in ("ONE_SIDED_DONOR", "NOVELTY_COLLISION_ONLY", "CONTEXTUAL_REFERENCE", "PRESENTATION_OMIT"):
         require(label in overlap, f"overlap label absent: {label}")
     require("P027" in (ROOT / "23_primary_lane_novelty_collision_audit_v1_2.md").read_text(encoding="utf-8"), "P027 collision missing")
+    v12_naming = "\n".join(
+        (ROOT / name).read_text(encoding="utf-8", errors="replace")
+        for name in (
+            "14_evidence_log.csv", "17_cross_neighborhood_overlap_audit.md",
+            "18_donor_mechanism_audit_v1_2.md", "19_presentation_role_catalog.csv",
+            "20_drawing_node_content_v1_2.md", "22_fartrack_principle_spiketrack_analogy_v1_2.md",
+            "23_primary_lane_novelty_collision_audit_v1_2.md", "24_final_content_scope_for_drawing_v1_2.md",
+        )
+    )
+    require("CETTrack" not in v12_naming, "deprecated canonical tracker naming remains")
+    require("HKDT — Hybrid-KD Pruning Tracker" in v12_naming, "HKDT visible presentation name missing")
 
     tree = ET.parse(ROOT / "11_knowledge_graph_v1.graphml")
     ns = {"g": "http://graphml.graphdrawing.org/xmlns"}
@@ -222,6 +277,7 @@ def main() -> None:
     require("DIAG_FAIL" in corpus and "consumed" in corpus, "historical null-result boundary missing")
     require("KNOWLEDGE_GRAPH_V1_1_READY_FOR_MANAGER_REVIEW" in corpus, "terminal state missing")
     require("KNOWLEDGE_GRAPH_CONTENT_AUDIT_V1_2_READY_FOR_MANAGER_REVIEW" in corpus, "V1.2 terminal state missing")
+    require("KNOWLEDGE_GRAPH_CONTENT_V1_2_1_SOURCE_INTEGRITY_READY_FOR_MANAGER_REVIEW" in corpus, "V1.2.1 terminal state missing")
     require("MANAGER_VERIFIED_EXTERNAL_EXCLUSION" in corpus and "41 records" in corpus, "external exclusion provenance missing")
     require("74 verified unique papers" not in corpus, "overclaiming inventory wording remains")
     require("third main tracker" in corpus and "No final SpikeTrack architecture has been selected" in corpus, "scope boundary missing")
@@ -231,7 +287,8 @@ def main() -> None:
         "VALIDATION_OK "
         f"raw={len(raw)} unique={len(papers)} nodes={len(nodes)} edges={len(edges)} "
         f"evidence={len(evidence)} promising={len(promising)} v12_cards={len(roles)} "
-        f"visible={len(visible_ids)} drawing_edges={len(drawing_edges)} unresolved=0"
+        f"visible={len(visible_ids)} role_counts=2/4/2/5/4 drawing_edges={len(drawing_edges)} "
+        f"source_integrity=E29/E30/E32 unresolved=0"
     )
 
 

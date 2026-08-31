@@ -454,12 +454,12 @@ These 19 cards cover the two fixed anchors, the 13 existing donors/collision ref
 - **Novelty-collision role:** high for target-aware non-uniform resizing.
 - **Final presentation role:** `SECONDARY_DONOR`. Evidence [E34].
 
-## 19. Hybrid-KD pruning tracker (P027)
+## 19. Exploring Pruning-Based Efficient Object Tracking via Hybrid Knowledge Distillation (P027)
 
-- **Canonical tracker/paper name:** Exploring Pruning-Based Efficient Object Tracking via Hybrid Knowledge Distillation.
+- **Canonical tracker/paper name:** Exploring Pruning-Based Efficient Object Tracking via Hybrid Knowledge Distillation (tracker: HKDT).
 - **Year / venue:** 2026 / IEEE TCSVT 36(2), 2433-2448; DOI 10.1109/TCSVT.2025.3609410.
 - **Research problem:** remove structurally redundant layers/capacity from lightweight tracking backbones while preserving tracking knowledge.
-- **Architectural paradigm:** pruned transformer tracker trained by Hybrid Knowledge Distillation (HKD).
+- **Architectural paradigm:** HKDT, a pruned transformer tracker trained by Hybrid Knowledge Distillation (HKD).
 - **Backbone:** lightweight tracking backbone; exact model identity in full text is `UNKNOWN` in this audit.
 - **Template path:** `UNKNOWN` from accessible publisher abstract.
 - **Search path:** `UNKNOWN` from accessible publisher abstract.
@@ -476,5 +476,5 @@ These 19 cards cover the two fixed anchors, the 13 existing donors/collision ref
 - **Non-transferable COMPONENTS:** specific pruning rule, Vision Mamba global distiller, masks, teacher/student pair, and weights until verified.
 - **Relationship to FARTrack:** very close collision on structural reduction plus task-facing preservation.
 - **Relationship to SpikeTrack:** the favored family is too close if phrased only as “prune SpikeTrack and add tracking KD”; novelty must be tied to spike temporal/state/cache behavior and causally tested.
-- **Novelty-collision role:** highest-priority collision.
+- **Novelty-collision role:** highest generic-family collision at static structural pruning + tracking-specific multi-level KD; this does not establish that every SpikeTrack-native mechanism is occupied.
 - **Final presentation role:** `NOVELTY_COLLISION`. Evidence [E27, E35].
