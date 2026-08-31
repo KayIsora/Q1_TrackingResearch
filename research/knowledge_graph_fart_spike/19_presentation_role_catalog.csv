@@ -1,0 +1,20 @@
+node_id,paper_id,display_name,primary_role,visible,primary_branch,evidence,rationale
+N_FAR,P028,FARTrack,ANCHOR,YES,B1_STATIC_STRUCTURAL_COMPRESSION,E03;E04,Fixed methodology anchor
+N_SPIKE,P063,SpikeTrack,ANCHOR,YES,B7_SNN_SPECIFIC_REPRESENTATION,E05;E06;E07;E08;E23;E24,Fixed redesign target
+N_ASYM,P067,AsymTrack,SECONDARY_DONOR,YES,B4_TEMPLATE_SEARCH_ASYMMETRY_REUSE,E09;E05,Template-once principle with direct negative-transfer warning
+N_COMPRESS,P034,CompressTracker,PRIMARY_DONOR,YES,B2_KNOWLEDGE_PRESERVATION,E10,Stage-wise heterogeneous compression training donor
+N_MIX,P048,MixFormerV2,PRIMARY_DONOR,YES,B1_STATIC_STRUCTURAL_COMPRESSION,E11,Deep-to-shallow and dense-to-sparse distillation donor
+N_LITE,P044,LiteTrack,PRIMARY_DONOR,YES,B1_STATIC_STRUCTURAL_COMPRESSION,E12,Fixed layer pruning plus asynchronous extraction
+N_DY,P023,DyTrack,NOVELTY_COLLISION,YES,B8_DYNAMIC_COMPUTATION,E08;E13,Crowded dynamic route and MRM1 negative-control reference
+N_FASTSEQ,P024,FastSeqTrack,OMIT_FROM_DRAWING,NO,B8_DYNAMIC_COMPUTATION,E14,One-sided sequence-head donor with little SpikeTrack transfer
+N_LORE,P018,LoReTrack,SEMANTIC_BRIDGE,YES,B5_SPATIAL_EFFICIENCY,E15,Functional reduction plus task-facing preservation bridge
+N_MCI,P025,MCITrack,SECONDARY_DONOR,YES,B6_TEMPORAL_MEMORY_ROBUSTNESS,E16,Context-state quality donor with cost caution
+N_ARP,P005,ARPTrack,CONTEXTUAL_REFERENCE,NO,B2_KNOWLEDGE_PRESERVATION,E17,Offline pretraining context but no inference reduction
+N_HIT,P026,HiT,SEMANTIC_BRIDGE,YES,B1_STATIC_STRUCTURAL_COMPRESSION,E18,Fixed lightweight structure paired with detail preservation
+N_CPDA,P012,CPDATrack,NOVELTY_COLLISION,YES,B3_SPARSIFICATION_PRUNING,E19,Target-aware token-pruning collision
+N_SPIKEFET,P033,SpikeFET,SECONDARY_DONOR,YES,B7_SNN_SPECIFIC_REPRESENTATION,E20,SNN-specific regularization donor with modality mismatch
+N_STD,EXTERNAL_STD,STDTrack,SECONDARY_DONOR,YES,B6_TEMPORAL_MEMORY_ROBUSTNESS,E21,Reliability-controlled memory and reparameterization donor
+N_AB,P002,ABTrack,NOVELTY_COLLISION,YES,B8_DYNAMIC_COMPUTATION,E32,Dynamic bypass collision with a static dimension-pruning lesson
+N_UE,P068,UETrack,PRIMARY_DONOR,YES,B2_KNOWLEDGE_PRESERVATION,E33,Target-aware adaptive training distillation donor
+N_ZOOM,P074,ZoomTrack,SECONDARY_DONOR,YES,B5_SPATIAL_EFFICIENCY,E34,Distinct target-preserving spatial reduction
+N_HKD,P027,Hybrid-KD pruning tracker,NOVELTY_COLLISION,YES,B3_SPARSIFICATION_PRUNING,E27;E35,Highest-risk direct collision with fixed reduction plus tracking KD

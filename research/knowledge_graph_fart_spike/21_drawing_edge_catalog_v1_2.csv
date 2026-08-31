@@ -1,0 +1,31 @@
+source,target,edge_type,short_label,confidence,evidence,meaning
+N_FAR,N_SPIKE,demonstrates_principle,fixed reduction plus task preservation,HIGH,E03;E05,FARTrack supplies the locked general methodology while SpikeTrack remains the redesign target
+N_COMPRESS,N_SPIKE,supports_training_strategy,stage-wise student preservation,HIGH,E10;E05,Stage-local teacher guidance is a plausible training principle for a fixed smaller SpikeTrack
+N_COMPRESS,N_FAR,demonstrates_principle,heterogeneous extension of adjacent-depth KD,MEDIUM,E10;E03,CompressTracker extends depth distillation beyond same-architecture adjacent models
+N_MIX,N_FAR,novelty_collision_with,deep-to-shallow KD already established,HIGH,E11;E03,Generic shallow tracker distillation predates and overlaps FARTrack's methodology
+N_MIX,N_SPIKE,knowledge_donor_to,progressive fixed-depth student,MEDIUM,E11;E05,The training order is informative but dense transformer components do not transfer directly
+N_LITE,N_FAR,demonstrates_principle,fixed layer pruning and amortization,HIGH,E12;E03,Both reduce fixed depth and repeated template work
+N_LITE,N_SPIKE,novelty_collision_with,template-once is already known,HIGH,E12;E05,SpikeTrack already amortizes its template path so caching alone is not novel
+N_UE,N_SPIKE,supports_training_strategy,sample-aware task distillation,MEDIUM,E33;E05,TAD suggests gating teacher supervision during training rather than adding inference routes
+N_UE,N_FAR,novelty_collision_with,target-aware KD is crowded,HIGH,E33;E03,A generic task-aware or adaptive KD claim has direct prior art
+N_LORE,N_FAR,semantic_bridge_to,reduction repaired by task-facing KD,HIGH,E15;E03,LoReTrack independently couples a fixed reduction axis with preservation objectives
+N_LORE,N_SPIKE,semantic_bridge_to,preserve interaction and discrimination,HIGH,E15;E05,The general preservation targets map functionally to SpikeTrack while tensors do not
+N_HIT,N_FAR,semantic_bridge_to,lightweight structure plus detail repair,HIGH,E18;E03,HiT pairs fixed structural efficiency with an explicit information-preservation bridge
+N_HIT,N_SPIKE,semantic_bridge_to,stage reduction needs information repair,MEDIUM,E18;E05,The principle maps to SNN stages but LeViT/Bridge components do not
+N_ASYM,N_FAR,demonstrates_principle,amortize stable template evidence,MEDIUM,E09;E03,Both avoid repeating stable template-related work
+N_ASYM,N_SPIKE,negative_transfer_warning,direct modulation unsuitable,HIGH,E09;E05,SpikeTrack reports that simple AsymTrack-style modulation is unsuitable for coarse spikes
+N_ZOOM,N_SPIKE,knowledge_donor_to,target-preserving spatial reduction,MEDIUM,E34;E05,Spatial work can be reduced while retaining field of view but integration remains unverified
+N_MCI,N_SPIKE,knowledge_donor_to,compact contextual state,MEDIUM,E16;E05,MCITrack supplies a state-quality principle while adding potentially costly operators
+N_STD,N_SPIKE,knowledge_donor_to,reliability-filtered memory,HIGH,E21;E05,Quality-controlled temporal reuse is directly relevant to SpikeTrack cache updates
+N_STD,N_FAR,demonstrates_principle,validate persistent evidence,MEDIUM,E21;E03,Persistent mask/template decisions should be tied to reliability
+N_SPIKEFET,N_SPIKE,knowledge_donor_to,spike temporal regularization,MEDIUM,E20;E05,SNN-specific training objectives may preserve dynamics under reduction
+N_CPDA,N_FAR,novelty_collision_with,target-aware token pruning,HIGH,E19;E03,Attention-derived target token pruning is already claimed
+N_CPDA,N_SPIKE,negative_transfer_warning,selector topology mismatch,MEDIUM,E19;E05,One-stream selector and directional attention are not six-cache MRM evidence
+N_AB,N_SPIKE,negative_transfer_warning,dynamic bypass is deferred,HIGH,E32;E08,ABTrack's route is collision evidence and cannot reopen the consumed MRM1 lane
+N_AB,N_SPIKE,demonstrates_principle,physical static dimension pruning,MEDIUM,E32;E05,Materializing a smaller graph is transferable only after SNN-native constraints are defined
+N_DY,N_SPIKE,novelty_collision_with,conditional compute crowded,HIGH,E13;E08,Dynamic routes collide with prior art and the failed whole-MRM1 hypothesis
+N_HKD,N_FAR,novelty_collision_with,pruning plus tracking KD,HIGH,E35;E03,The paper occupies the generic structural-reduction plus task-preservation combination
+N_HKD,N_SPIKE,novelty_collision_with,generic prune-and-distill claim too close,HIGH,E35;E05,A SpikeTrack contribution needs SNN-native causal content beyond applying ordinary HKD
+N_HKD,N_COMPRESS,novelty_collision_with,multi-level preservation after compression,HIGH,E35;E10,Both preserve tracking behavior while replacing or pruning structure
+N_HKD,N_UE,novelty_collision_with,tracking-specific KD landscape,HIGH,E35;E33,Hybrid multi-level and target-aware adaptive KD jointly crowd generic distillation novelty
+N_HKD,N_AB,novelty_collision_with,pruning landscape,HIGH,E35;E32,Static backbone pruning and ViT latent pruning delimit the generic pruning space

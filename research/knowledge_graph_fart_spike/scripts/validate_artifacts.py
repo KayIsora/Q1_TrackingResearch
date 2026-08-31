@@ -20,7 +20,13 @@ REQUIRED = [
     "11_knowledge_graph_v1.graphml", "12a_methodology_flow_v1_1.mmd",
     "12b_tracker_solution_knowledge_graph_v1_1.mmd", "13_teacher_report_v1.md",
     "14_evidence_log.csv", "15_canonical_metadata_audit_v1_1.csv",
-    "16_neuroscience_collision_exclusion_v1_1.md", "README.md", "REVIEW_REQUEST.md",
+    "16_neuroscience_collision_exclusion_v1_1.md", "17_cross_neighborhood_overlap_audit.md",
+    "18_donor_mechanism_audit_v1_2.md", "19_presentation_role_catalog.csv",
+    "20_drawing_node_content_v1_2.md", "21_drawing_edge_catalog_v1_2.csv",
+    "22_fartrack_principle_spiketrack_analogy_v1_2.md",
+    "23_primary_lane_novelty_collision_audit_v1_2.md",
+    "24_final_content_scope_for_drawing_v1_2.md", "README.md", "REVIEW_REQUEST.md",
+    "REVIEW_REQUEST_V1_2.md",
 ]
 
 
@@ -45,6 +51,8 @@ def main() -> None:
     nodes = rows("09_nodes.csv")
     edges = rows("10_edges.csv")
     matrix = rows("07_transfer_matrix.csv")
+    roles = rows("19_presentation_role_catalog.csv")
+    drawing_edges = rows("21_drawing_edge_catalog_v1_2.csv")
 
     require(len(raw) == 82, f"raw count {len(raw)} != 82")
     raw_hash = hashlib.sha256((ROOT / "01_connected_papers_inventory.csv").read_bytes()).hexdigest().upper()
@@ -105,7 +113,7 @@ def main() -> None:
 
     evidence_ids = {r["evidence_id"] for r in evidence}
     require(len(evidence_ids) == len(evidence), "duplicate evidence id")
-    require(evidence_ids == {f"E{i:02d}" for i in range(1, 29)}, "evidence log must be E01-E28")
+    require(evidence_ids == {f"E{i:02d}" for i in range(1, 36)}, "evidence log must be E01-E35")
     for record in papers + nodes + edges + matrix:
         for value in record.values():
             for item in re.findall(r"E\d{2}", value or ""):
@@ -144,6 +152,54 @@ def main() -> None:
     membership = [e for e in edges if e["edge_type"] == "contains_export_entry"]
     require(len(membership) == 81, f"neighborhood membership edges {len(membership)} != 81")
 
+    allowed_roles = {
+        "ANCHOR", "PRIMARY_DONOR", "SEMANTIC_BRIDGE", "SECONDARY_DONOR",
+        "NOVELTY_COLLISION", "CONTEXTUAL_REFERENCE", "OMIT_FROM_DRAWING",
+    }
+    require(len(roles) == 19, f"V1.2 role count {len(roles)} != 19")
+    require(len({r["node_id"] for r in roles}) == 19, "duplicate V1.2 role node")
+    require({r["primary_role"] for r in roles} <= allowed_roles, "invalid presentation role")
+    require({r["visible"] for r in roles} <= {"YES", "NO"}, "invalid visibility")
+    require(sum(r["visible"] == "YES" for r in roles) == 17, "visible node count != 17")
+    require(sum(r["primary_role"] == "ANCHOR" for r in roles) == 2, "V1.2 anchors != 2")
+    require({r["display_name"] for r in roles if r["primary_role"] == "ANCHOR"} == {"FARTrack", "SpikeTrack"}, "anchors changed")
+    visible_ids = {r["node_id"] for r in roles if r["visible"] == "YES"}
+    require(drawing_edges, "drawing edge catalog empty")
+    require(all(r["source"] in visible_ids and r["target"] in visible_ids for r in drawing_edges), "drawing edge references hidden/missing node")
+    allowed_semantic_edges = {
+        "solves_problem", "uses_mechanism", "demonstrates_principle", "knowledge_donor_to",
+        "semantic_bridge_to", "novelty_collision_with", "negative_transfer_warning",
+        "architectural_ancestor_of", "supports_training_strategy",
+    }
+    require({r["edge_type"] for r in drawing_edges} <= allowed_semantic_edges, "invalid drawing edge type")
+    require({r["confidence"] for r in drawing_edges} <= {"HIGH", "MEDIUM", "LOW"}, "invalid drawing edge confidence")
+    require(all(r["evidence"] and r["meaning"] for r in drawing_edges), "drawing edge lacks evidence/meaning")
+
+    cards = (ROOT / "04_high_relevance_paper_cards.md").read_text(encoding="utf-8")
+    require(len(re.findall(r"^## \d+\. ", cards, flags=re.MULTILINE)) == 19, "V1.2 card count != 19")
+    card_fields = [
+        "Canonical tracker/paper name", "Year / venue", "Research problem", "Architectural paradigm",
+        "Backbone", "Template path", "Search path", "Template-search interaction",
+        "Temporal/cross-frame state", "Prediction head", "Exact efficiency mechanism",
+        "Exact structure removed/reduced/reused", "Training strategy", "Important losses/distillation objectives",
+        "Reported efficiency-accuracy evidence", "Main limitation", "Transferable DESIGN PRINCIPLE",
+        "Non-transferable COMPONENTS", "Relationship to FARTrack", "Relationship to SpikeTrack",
+        "Novelty-collision role", "Final presentation role",
+    ]
+    for field in card_fields:
+        require(cards.count(f"**{field}:**") == 19, f"non-uniform/missing card field: {field}")
+
+    node_content = (ROOT / "20_drawing_node_content_v1_2.md").read_text(encoding="utf-8")
+    require(len(re.findall(r"^## N_", node_content, flags=re.MULTILINE)) == 17, "drawing node content count != 17")
+    for field in ("NODE ID", "DISPLAY NAME", "YEAR/VENUE", "PRIMARY ROLE", "PROBLEM", "CORE ARCHITECTURE", "KEY MECHANISM", "EFFICIENCY ACTION", "TRAINING/LOSS", "MAIN LESSON", "RELATION TO FARTRACK", "RELATION TO SPIKETRACK", "CAUTION / NOVELTY COLLISION", "EVIDENCE"):
+        require(node_content.count(f"**{field}:**") == 17, f"drawing node field count: {field}")
+
+    overlap = (ROOT / "17_cross_neighborhood_overlap_audit.md").read_text(encoding="utf-8")
+    require(overlap.count("`TRUE_SEMANTIC_BRIDGE`") >= 3, "overlap bridge decisions missing")
+    for label in ("ONE_SIDED_DONOR", "NOVELTY_COLLISION_ONLY", "CONTEXTUAL_REFERENCE", "PRESENTATION_OMIT"):
+        require(label in overlap, f"overlap label absent: {label}")
+    require("P027" in (ROOT / "23_primary_lane_novelty_collision_audit_v1_2.md").read_text(encoding="utf-8"), "P027 collision missing")
+
     tree = ET.parse(ROOT / "11_knowledge_graph_v1.graphml")
     ns = {"g": "http://graphml.graphdrawing.org/xmlns"}
     require(len(tree.findall(".//g:node", ns)) == len(nodes), "GraphML node count mismatch")
@@ -165,6 +221,7 @@ def main() -> None:
     require("We are no longer searching for a third main tracker" in corpus, "locked two-anchor statement missing")
     require("DIAG_FAIL" in corpus and "consumed" in corpus, "historical null-result boundary missing")
     require("KNOWLEDGE_GRAPH_V1_1_READY_FOR_MANAGER_REVIEW" in corpus, "terminal state missing")
+    require("KNOWLEDGE_GRAPH_CONTENT_AUDIT_V1_2_READY_FOR_MANAGER_REVIEW" in corpus, "V1.2 terminal state missing")
     require("MANAGER_VERIFIED_EXTERNAL_EXCLUSION" in corpus and "41 records" in corpus, "external exclusion provenance missing")
     require("74 verified unique papers" not in corpus, "overclaiming inventory wording remains")
     require("third main tracker" in corpus and "No final SpikeTrack architecture has been selected" in corpus, "scope boundary missing")
@@ -173,7 +230,8 @@ def main() -> None:
     print(
         "VALIDATION_OK "
         f"raw={len(raw)} unique={len(papers)} nodes={len(nodes)} edges={len(edges)} "
-        f"evidence={len(evidence)} promising={len(promising)} unresolved=0"
+        f"evidence={len(evidence)} promising={len(promising)} v12_cards={len(roles)} "
+        f"visible={len(visible_ids)} drawing_edges={len(drawing_edges)} unresolved=0"
     )
 
 
